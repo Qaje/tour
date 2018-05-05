@@ -7,14 +7,10 @@
             <div class="card">
                 <div class="card-header">Admin Dashboard</div>
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+                <div class="card-body">                            
+                    @component('components.who')
 
-                    You are logged in as <strong>Admin!</strong>
+                    @endcomponent
                 </div>
             </div>
         </div>
