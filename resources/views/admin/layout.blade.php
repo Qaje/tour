@@ -20,7 +20,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
         page. However, you can choose any other skin. Make sure you
         apply the skin class to the body tag so the changes take effect. -->
-  <link rel="stylesheet" href="/adminlte/dist/css/skins/skin-green.min.css">
+  <link rel="stylesheet" href="/adminlte/dist/css/skins/skin-purple.min.css">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -40,7 +40,7 @@ Apply one or more of the following classes to get the
 desired effect
 |---------------------------------------------------------|
 | SKINS         | skin-blue                               |
-|               | skin-black                              |
+|               | skin-purple                              |
 |               | skin-purple                             |
 |               | skin-yellow                             |
 |               | skin-red                                |
@@ -53,7 +53,7 @@ desired effect
 |               | sidebar-mini                            |
 |---------------------------------------------------------|
 -->
-<body class="hold-transition skin-green sidebar-mini">
+<body class="hold-transition skin-purple sidebar-mini">
 <div class="wrapper">
 
   <!-- Main Header -->
