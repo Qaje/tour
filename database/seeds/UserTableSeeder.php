@@ -14,11 +14,12 @@ class UserTableSeeder extends Seeder
     {
     	$faker = Faker::create();
 
-        \DB::table('users')->insert(array (
-        	'name'	=> $faker->name,
-        	'email'	=> $faker->email,
-        	//'job_title'	=> 'administrador',
-        	'password'	=> \Hash::make('123456'),
-        ));
+    	for ($i=0; $i < 10; $i++) { 
+            \DB::table('users')->insert(array (
+            	'name'	=> $faker->name,
+            	'email'	=> $faker->email,
+            	'password'	=> \Hash::make('123456'),
+            ));
+        }
     }
 }

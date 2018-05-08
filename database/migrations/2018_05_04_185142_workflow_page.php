@@ -318,7 +318,6 @@ class WorkflowPage extends Migration
     }
     public function down()
     {
-        Schema::DropIfExists('liables');
         Schema::DropIfExists('roles');
         Schema::DropIfExists('permissions');
         Schema::DropIfExists('role_user');
@@ -330,6 +329,7 @@ class WorkflowPage extends Migration
         Schema::DropIfExists('touristic_guides');
         Schema::DropIfEXists('categories');
         Schema::DropIfExists('turistic_companies');
+        Schema::DropIfExists('liables');
         Schema::DropIfExists('offices');
         Schema::DropIfExists('visitors');
         Schema::DropIfExists('cities');

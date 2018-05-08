@@ -11,11 +11,11 @@ class AdminTableSeeder extends Seeder
      */
     public function run()
     {
-        \DB::table('users')->insert(array (
+        \DB::table('admins')->insert(array (
         	'name'		=> 'Boss',
-        	'email'		=> 'boss@boos.com',
-        	'job_title'	=> 'administrador',
-        	'password'	=> \Hash::make'secret',
+        	'email'		=> 'boss@boss.com',
+        	'job_title'	=> 'admin',
+        	'password'	=> \Hash::make('secret'),
         ));
     }
 }
