@@ -14,10 +14,15 @@
 //reservado para HOMe
 //Route::get('/home', 'HomeController@index')->name('home');
 
-Auth::routes();
-Route::get('/home', 'UserController@index')->name('home');
-Route::get('/users/logout','Auth\LoginController@userLogout')->name('user.logout');
 
+//Users
+	Auth::routes();
+	Route::post('/profile', 'UserController@update_avatar')->name('User update avatar');
+	Route::get('/profile', 'UserController@profile')->name('User profile');
+	Route::get('/homeuser', 'UserController@index')->name('User index');
+	Route::get('/users/logout','Auth\LoginController@userLogout')->name('user.logout');
+
+//Admins	
 	Route::prefix('admin')->group(function(){
 
 		Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');

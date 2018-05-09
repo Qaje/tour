@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Auth;
+use Image;
 
 class UserController extends Controller
 {
@@ -17,6 +20,24 @@ class UserController extends Controller
         return view('user.index');
     }
 
+    public function profile(Request $request)
+    {
+        return view('user.profile',array('user' => Auth::user()) );
+    }
+
+    public function update_avatar(Request $request)
+    {
+        if($request->hasFile('avatar')){
+            $avatar = $request->file('avatar');
+            $filename = 'avatar' . time() . '.' . $avatar->getClientOriginalExtension();
+            Image::make($avatar)->resize(120,120)->save(public_path('/uploads/avatars/' . $filename));
+ 
+            $user = Auth::user();
+            $user->avatar = $filename;
+            $user->save();
+        }
+        return view('user.profile',array('user' => Auth::user()) );
+    }
     /**
      * Show the form for creating a new resource.
      *

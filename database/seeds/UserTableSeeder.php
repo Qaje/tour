@@ -18,7 +18,7 @@ class UserTableSeeder extends Seeder
             \DB::table('users')->insert(array (
             	'name'	=> $faker->name,
                 'email'	=> $faker->email,
-                'photo' => $faker->name,
+                'avatar' => 'default.jpg',
             	'password'	=> \Hash::make('123456'),
             ));
         }

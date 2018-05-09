@@ -91,7 +91,7 @@ desired effect
                   <li><!-- start message -->
                     <a href="#">
                       <div class="pull-left">
-                        <!-- User Image -->
+                        <!-- User Image 160x160-->
                         <img src="/adminlte/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
                       </div>
                       <!-- Message title and timestamp -->
@@ -176,15 +176,15 @@ desired effect
           <li class="dropdown user user-menu">
             <!-- Menu Toggle Button -->
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <!-- The user image in the navbar-->
-              <img src="/adminlte/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+              <!-- The user image in the navbar -->
+              <img src="/uploads/avatars/{{ Auth::user()->avatar }}" class="user-image" alt="User Image">
               <!-- hidden-xs hides the username on small devices so only the image appears. -->
               <span class="hidden-xs">{{ auth()->user()->name }}</span>
             </a>
             <ul class="dropdown-menu">
               <!-- The user image in the menu -->
               <li class="user-header">
-                <img src="/adminlte/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                <img src="/uploads/avatars/{{ Auth::user()->avatar }}" class="img-circle" alt="User Image">
 
                 <p>
                    
@@ -210,7 +210,8 @@ desired effect
               <!-- Menu Footer-->
               <li class="user-footer">
                   <div class="pull-left">
-                    <a href="#" class="btn btn-default btn-flat">Profile</a>
+                    <a href="{{ url('profile') }}" class="btn btn-default btn-flat">
+                    Profile</a>
                   </div>
                   <div class="pull-right">
                     <a href="{{ route('logout') }}" class="btn btn-default btn-flat"
@@ -243,7 +244,7 @@ desired effect
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="/adminlte/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+          <img src="/uploads/avatars/{{ Auth::user()->avatar }}" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
           <p>{{ auth()->user()->name }}</p>
