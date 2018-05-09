@@ -7,7 +7,53 @@ use Illuminate\Database\Migrations\Migration;
 class WorkflowPage extends Migration
 {
     public function up()
-    {           
+    {   
+        Schema::create('roles',function(Blueprint $table){
+            $table->engine = 'InnoDB';
+            $table->increments('id');
+            $table->string('name',100);
+            $table->string('description',200);
+            $table->boolean('status');
+            $table->rememberToken();
+            $table->timestamps();
+        });
+        
+        Schema::create('role_user', function (Blueprint $table) {
+            $table->integer('user_id')->unsigned();
+            $table->integer('role_id')->unsigned();
+            $table->foreign('user_id')
+                  ->references('id')
+                  ->on('users')
+                  ->onDelete('cascade');      
+            $table->foreign('role_id')
+                  ->references('id')
+                  ->on('roles')
+                  ->onDelete('cascade');
+            $table->primary(['user_id','role_id']);
+        });
+
+        Schema::create('permissions',function(Blueprint $table){
+            $table->engine = 'InnoDB';
+            $table->increments('id');
+            $table->string('name',100);
+            $table->string('description',200);
+            $table->timestamps();
+        });
+        Schema::create('permission_role', function (Blueprint $table) {
+            $table->integer('permission_id')->unsigned();
+            $table->integer('role_id')->unsigned();
+            $table->foreign('permission_id')
+                  ->references('id')
+                  ->on('permissions')
+                  ->onDelete('cascade');
+            $table->foreign('role_id')
+                  ->references('id')
+                  ->on('roles')
+                  ->onDelete('cascade');
+            $table->primary(['permission_id','role_id']);
+        });
+
+
         Schema::create('liables',function(Blueprint $table){
             $table->engine = 'InnoDB';
             $table->increments('id');   
@@ -206,49 +252,9 @@ class WorkflowPage extends Migration
                 $table->decimal('lat', 10, 7);
                 $table->timestamps();
             });
-        Schema::create('roles',function(Blueprint $table){
-                $table->engine = 'InnoDB';
-                $table->increments('id');
-                $table->string('name',100);
-                $table->string('description',200);
-                $table->boolean('status');
-                $table->rememberToken();
-                $table->timestamps();
-            });
         
-        Schema::create('permissions',function(Blueprint $table){
-                $table->engine = 'InnoDB';
-                $table->increments('id');
-                $table->string('name',100);
-                $table->string('description',200);
-                $table->timestamps();
-            });
-            Schema::create('permission_role', function (Blueprint $table) {
-                $table->integer('permission_id')->unsigned();
-                $table->integer('role_id')->unsigned();
-                $table->foreign('permission_id')
-                      ->references('id')
-                      ->on('permissions')
-                      ->onDelete('cascade');
-                $table->foreign('role_id')
-                      ->references('id')
-                      ->on('roles')
-                      ->onDelete('cascade');
-                $table->primary(['permission_id','role_id']);
-            });
-            Schema::create('role_user', function (Blueprint $table) {
-                $table->integer('user_id')->unsigned();
-                $table->integer('role_id')->unsigned();
-                $table->foreign('user_id')
-                      ->references('id')
-                      ->on('users')
-                      ->onDelete('cascade');      
-                $table->foreign('role_id')
-                      ->references('id')
-                      ->on('roles')
-                      ->onDelete('cascade');
-                $table->primary(['user_id','role_id']);
-            });
+        
+        
             
         Schema::create('turistic_company_offices', function (Blueprint $table) {
                 $table->integer('turistic_company_id')->unsigned();
@@ -270,7 +276,7 @@ class WorkflowPage extends Migration
                       ->references('id')
                       ->on('turistic_sites')
                       ->onDelete('cascade');      
-                $table->foreign('province_id')
+                $table->foreign('province_id    ')
                       ->references('id')
                       ->on('provinces')
                       ->onDelete('cascade');
@@ -318,26 +324,32 @@ class WorkflowPage extends Migration
     }
     public function down()
     {
-        Schema::DropIfExists('roles');
-        Schema::DropIfExists('permissions');
-        Schema::DropIfExists('role_user');
-        Schema::DropIfExists('permission_role');
-        Schema::DropIFExists('turistic_sites');
+        Schema::DropIfExists('announcements_user');
         Schema::DropIfExists('announcements');
+        Schema::DropIfExists('news_user');
         Schema::DropIfExists('news');
+        Schema::DropIfExists('events_user');
         Schema::DropIfExists('events');
         Schema::DropIfExists('touristic_guides');
         Schema::DropIfEXists('categories');
+        Schema::DropIFExists('turistic_types_company');
         Schema::DropIfExists('turistic_companies');
-        Schema::DropIfExists('liables');
+        Schema::DropIfExists('turistic_company_offices');
+        Schema::DropIfExists('categories_turistic_type_companies');
         Schema::DropIfExists('offices');
-        Schema::DropIfExists('visitors');
+        Schema::DropIfExists('liables');
+        Schema::DropIFExists('turistic_sites');
+        Schema::DropIfExists('provinces');
         Schema::DropIfExists('cities');
         Schema::DropIfExists('countries');
-        Schema::DropIfExists('turistic_company_offices');
-        Schema::DropIFExists('turistic_types_company');
-        Schema::DropIfExists('categories_turistic_type_companies');
-        Schema::DropIfExists('news_user');
+        Schema::DropIfExists('turistic_sites_province');
+        Schema::DropIfExists('visitors');
+        
+        
+        Schema::DropIfExists('permission_role');
+        Schema::DropIfExists('permissions');
+        Schema::DropIfExists('role_user');
+        Schema::DropIfExists('roles');
     }
 }
 
