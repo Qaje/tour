@@ -12,7 +12,7 @@
 */
 
 //reservado para HOMe
-//Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home');
 
 
 //Users

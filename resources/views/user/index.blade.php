@@ -1,68 +1,47 @@
-@extends('admin.layout')
+<!DOCTYPE html>
+<html lang="en">
 
-@section('content')
-	
-	<h1>Dashboard</h1>
-	
-	<div class="row">
-        <div class="col-xs-12">
-          <div class="box">
-            <div class="box-header">
-              <h3 class="box-title">Responsive Hover Table</h3>
+  <head>
+    @include('partials._head')
+  </head>
+  
+  <body class="hold-transition skin-purple sidebar-mini">
+    <div class="wrapper">
+      
+      @include('partials._header')
+      
+      <aside class="main-sidebar">
 
-              <div class="box-tools">
-                <div class="input-group input-group-sm" style="width: 150px;">
-                  <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
+        @include('partials._mainsidebar')
 
-                  <div class="input-group-btn">
-                    <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- /.box-header -->
-            <div class="box-body table-responsive no-padding">
-              <table class="table table-hover">
-                <tbody><tr>
-                  <th>ID</th>
-                  <th>User</th>
-                  <th>Date</th>
-                  <th>Status</th>
-                  <th>Reason</th>
-                </tr>
-                <tr>
-                  <td>183</td>
-                  <td>John Doe</td>
-                  <td>11-7-2014</td>
-                  <td><span class="label label-success">Approved</span></td>
-                  <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                </tr>
-                <tr>
-                  <td>219</td>
-                  <td>Alexander Pierce</td>
-                  <td>11-7-2014</td>
-                  <td><span class="label label-warning">Pending</span></td>
-                  <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                </tr>
-                <tr>
-                  <td>657</td>
-                  <td>Bob Doe</td>
-                  <td>11-7-2014</td>
-                  <td><span class="label label-primary">Approved</span></td>
-                  <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                </tr>
-                <tr>
-                  <td>175</td>
-                  <td>Mike Doe</td>
-                  <td>11-7-2014</td>
-                  <td><span class="label label-danger">Denied</span></td>
-                  <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                </tr>
-              </tbody></table>
-            </div>
-            <!-- /.box-body -->
-          </div>
-          <!-- /.box -->
-        </div>
+      </aside>
+      
+      <div class="content-wrapper">
+        @include('partials._contentheader')
+
+            <section class="content container-fluid">
+
+               <!--------------------------
+                | Your Page Content Here |
+                -------------------------->
+
+                @yield('content')
+
+            </section>
+            <!-- /.content -->
       </div>
-@stop
+
+      <footer class="main-footer">
+        @include('partials._footer')
+      </footer>
+
+      <aside class="control-sidebar control-sidebar-dark">
+        @include('partials._sidebardark')
+      </aside>
+      
+      <div class="control-sidebar-bg"></div>
+    </div>
+
+    @include('partials._scripts')
+  </body>
+</html>

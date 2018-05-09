@@ -29,6 +29,6 @@ class HomeController extends Controller
         //$data = Session::getId();
         //dd($data);
         //return view('admin.dashboard', ['data' => $data]);        
-        //return view ('user.dashboard');
+        return view ('main');
     }
 }
