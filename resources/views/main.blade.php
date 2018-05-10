@@ -17,8 +17,9 @@
 			</aside>
 			
 			<div class="content-wrapper">
-				@include('partials._contentheader')
 
+				  <!-- Content Header (Page header) -->    
+				
 				    <section class="content container-fluid">
 
 				     	 <!--------------------------

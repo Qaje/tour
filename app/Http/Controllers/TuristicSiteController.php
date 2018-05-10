@@ -13,7 +13,7 @@ class TuristicSiteController extends Controller
      */
     public function index()
     {
-        //
+        return view('turisticsite.index');
     }
 
     /**

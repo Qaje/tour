@@ -174,8 +174,8 @@ class WorkflowPage extends Migration
             $table->integer('summary')->unsigned();
             $table->string('description', 100);
             $table->string('how_to_come', 100);
-            $table->string('recomendation', 100);
-            $table->string('city', 100);
+            $table->integer('recomendation');
+           // $table->string('city', 100);
             $table->string('province', 100);
             $table->string('geolocalization_photo', 100);
             $table->decimal('long', 10, 7);

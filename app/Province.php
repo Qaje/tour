@@ -8,6 +8,6 @@ class Province extends Model
 {
     class function turisticsites()
     {
-    	return $this->belongsTo('App\TuristicSite');
+    	return $this->belongsToMany('App\TuristicSite');
     }
 }

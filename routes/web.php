@@ -15,6 +15,9 @@
 Route::get('/home', 'HomeController@index')->name('home');
 
 
+//Turiistic Sites
+	Route::resource('turisticsite','TuristicSiteController');
+
 //Users
 	Auth::routes();
 	Route::post('/profile', 'UserController@update_avatar')->name('User update avatar');
