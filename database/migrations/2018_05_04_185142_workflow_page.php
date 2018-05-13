@@ -122,8 +122,8 @@ class WorkflowPage extends Migration
             $table->string('office_photo',100);
             $table->string('contact',200);
             $table->string('geolocalization',100);
-            $table->decimal('long', 10, 7);
-            $table->decimal('lat', 10, 7);   
+            $table->decimal('long', 20,10);
+            $table->decimal('lat', 20,10);   
         });
         Schema::create('turistic_company_offices', function (Blueprint $table) {
             $table->integer('turistic_company_id')->unsigned();
@@ -143,8 +143,8 @@ class WorkflowPage extends Migration
             $table->increments('id');
             $table->string('name',100);
             $table->string('geolocalization',200);
-            $table->decimal('long', 10, 7);
-            $table->decimal('lat', 10, 7);
+            $table->decimal('long', 20,10);
+            $table->decimal('lat', 20,10);
         });
         Schema::create('cities',function(Blueprint $table){
             $table->engine = 'InnoDB';
@@ -152,8 +152,8 @@ class WorkflowPage extends Migration
             $table->string('name',100);
             $table->string('description',200);
             $table->string('geolocalization',200);
-            $table->decimal('long', 10, 7);
-            $table->decimal('lat', 10, 7);
+            $table->decimal('long', 20,10);
+            $table->decimal('lat', 20,10);
             $table->integer('country_id')->unsigned();
             $table->foreign('country_id')->references('id')->on('countries');
         });
@@ -162,8 +162,8 @@ class WorkflowPage extends Migration
             $table->increments('id');
             $table->string('name',100);
             $table->string('geolocalization',200);
-            $table->decimal('long', 10, 7);
-            $table->decimal('lat', 10, 7);
+            $table->decimal('long', 20,10);
+            $table->decimal('lat', 20,10);
             $table->integer('city_id')->unsigned();
             $table->foreign('city_id')->references('id')->on('cities');
         });            
@@ -178,8 +178,8 @@ class WorkflowPage extends Migration
            // $table->string('city', 100);
             $table->string('province', 100);
             $table->string('geolocalization_photo', 100);
-            $table->decimal('long', 10, 7);
-            $table->decimal('lat', 10, 7);
+            $table->decimal('long', 20,10);
+            $table->decimal('lat', 20,10);
             $table->string('photografic', 100);
             $table->timestamps();
         });
@@ -208,8 +208,8 @@ class WorkflowPage extends Migration
             $table->string('how_to_come', 100); 
             $table->string('recomendation', 100);
             $table->string('geolocalization_photo', 100);
-            $table->decimal('long', 10, 7);
-            $table->decimal('lat', 10, 7);
+            $table->decimal('long', 20,10);
+            $table->decimal('lat', 20,10);
             $table->string('photorgrafic', 100);
             $table->string('author', 100);
             $table->boolean('status');
@@ -237,8 +237,8 @@ class WorkflowPage extends Migration
             $table->string('how_to_come', 100); 
             $table->string('recomendation', 100);
             $table->string('geolocalization', 100);
-            $table->decimal('long', 10, 7);
-            $table->decimal('lat', 10, 7);
+            $table->decimal('long', 20,10);
+            $table->decimal('lat', 20,10);
             $table->string('photorgrafic', 100);
             $table->string('author', 100);
             $table->boolean('status');
@@ -266,8 +266,8 @@ class WorkflowPage extends Migration
             $table->string('how_to_come', 100); //hospedae
             $table->string('recomendation', 100);
             $table->string('geolocalization_photo', 100);
-            $table->decimal('long', 10, 7);
-            $table->decimal('lat', 10, 7);
+            $table->decimal('long', 20,10);
+            $table->decimal('lat', 20,10);
             $table->string('photorgrafic', 100);
             $table->timestamps();
         });
@@ -294,8 +294,8 @@ class WorkflowPage extends Migration
             $table->string('city', 100);
             $table->string('province', 100);
             $table->string('geolocalization_photo',100);
-            $table->decimal('long', 10, 7);
-            $table->decimal('lat', 10, 7);
+            $table->decimal('long', 20,10);
+            $table->decimal('lat', 20,10);
             $table->integer('votes');
             $table->timestamps();
             });
@@ -310,8 +310,8 @@ class WorkflowPage extends Migration
                 $table->boolean('status');
                 $table->date('date_born', 100);
                 $table->string('geolocalization', 100);
-                $table->decimal('long', 10, 7);
-                $table->decimal('lat', 10, 7);
+                $table->decimal('long', 20,10);
+                $table->decimal('lat', 20,10);
                 $table->timestamps();
             });
     }

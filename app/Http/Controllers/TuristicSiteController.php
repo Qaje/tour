@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use TuristicSite;
 
 class TuristicSiteController extends Controller
 {
@@ -13,7 +14,7 @@ class TuristicSiteController extends Controller
      */
     public function index()
     {
-        return view('turisticsite.index');
+       // return view('turisticsite.index');
     }
 
     /**
@@ -23,7 +24,7 @@ class TuristicSiteController extends Controller
      */
     public function create()
     {
-        //
+        return view('turisticsite.create');
     }
 
     /**
@@ -34,7 +35,8 @@ class TuristicSiteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        TuristicSite::create(Input::all());
+        var_dump('is added');
     }
 
     /**

@@ -50,7 +50,7 @@
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
             <input type="submit" class="pull-right btn btn-primary">
             <div class="input-group">
-                <label type="text" class="form-control">Updae File</label>
+                <label type="text" class="form-control">Update File</label>
               <div class="input-group-btn">
                 <button type="submit" class="btn"><i class="fa fa-arrow-right text-muted"></i></button>
               </div>
