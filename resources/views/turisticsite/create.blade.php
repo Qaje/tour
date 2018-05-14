@@ -29,90 +29,90 @@
 		  	 <!--------------------------
 		     | Your Page Content Here |
 		     -------------------------->
-		     <div class="col-md-6 col-md-offset-3">
-		     	<!-- Form Element sizes -->
-		     	<div class="box box-success">
-		     		<div class="box-header with-border">
-		     			<h3 class="box-title">Register a New Turistic Site</h3>
-		     		</div>
-		     		{{Form::open(array('url'=>'turisticsite/store','files'=>true,'method'=>'post'))}}
-		     		<div class="box-body">
-		     			<div class="input-group">
-		     				<span class="input-group-addon"><i class="fa fa-book"></i></span>
-		     				<input type="text" class="form-control" name='name_title' placeholder="Nombre del Sitio">
+		     <form action="turisticsite" method="POST" class="lockscreen-credentials">
+		     	<div class="col-md-6 col-md-offset-3">
+		     		<!-- Form Element sizes -->
+		     		<div class="box box-success">
+		     			<div class="box-header with-border">
+		     				<h3 class="box-title">Register a New Turistic Site</h3>
 		     			</div>
-		     			<br>
-		     			<div class="input-group">
-		     				<span class="input-group-addon"><i class="fa fa-clone"></i></span>
-		     				<input type="text" class="form-control" name='summary' placeholder="Resunen">
-		     			</div>
-		     			<br>
-		     			<div class="input-group">
-		     				<span class="input-group-addon"><i class="fa fa-pencil"></i></span>
-		     				<input type="text" class="form-control" name='description' placeholder="Descripción">
-		     			</div>
-		     			<br>
-		     			<div class="input-group">
-		     				<span class="input-group-addon"><i class="fa fa-bus"></i></span>
-		     				<input type="text" class="form-control" name='how_to_come' placeholder="Como Llego">
-		     			</div>
-		     			<br>
-		     			<div class="input-group">
-		     				<span class="input-group-addon"><i class="fa fa-random"></i></span>
-		     				<input type="text" class="form-control" name='resomendation' placeholder="Recomendaciones">
-		     			</div>
-		     			<br>
-		     			<div class="input-group">
-		     				<span class="input-group-addon"><i class="fa fa-bus"></i></span>
-		     				<input type="text" class="form-control" name='Province' placeholder="Provincia">
-		     			</div>
-		     			<br>
-		     			<div class="input-group">
-		     				<span class="input-group-addon"><i class="fa fa-bus"></i></span>
-		     				<input type="text" class="form-control" name='lat'  id="lat" placeholder="">
-		     			</div>
-		     			<br>
-		     			<div class="input-group">
-		     				<span class="input-group-addon"><i class="fa fa-bus"></i></span>
-		     				<input type="text" class="form-control" name='long' id="lng" placeholder="">
-		     			</div>
-		     			<br>
-		     			<h3 class="box-title">Localizacion</h3>
-		     			<div class="input-group">
-		     				<span class="input-group-addon"><i class="fa fa-map"></i></span>
-		     				<input type="text" class="form-control"  id="searchmap">
-		     			</div>
-		     			<br>
-		     			<div class="input-group" id="map">
-
-		     			</div>
-		     			<br>
-		     			<div class="input-group">
-		     				<input type="file" class="form-control" name='photografic' id="photografic">
-		     				<input type="hidden" name="_token" value="{{ csrf_token() }}">
-		     				<input type="submit" class="pull-right btn btn-primary">
+		     			<input type="hidden" name="_token" value="{{ csrf_token() }}">
+		     			<div class="box-body">
 		     				<div class="input-group">
-		     					<label type="text" class="form-control">Update File</label>
-		     					<div class="input-group-btn">
+		     					<span class="input-group-addon"><i class="fa fa-book"></i></span>
+		     					<input type="text" class="form-control" name='name_title' placeholder="Name">
+		     				</div>
+		     				<br>
+		     				<div class="input-group">
+		     					<span class="input-group-addon"><i class="fa fa-clone"></i></span>
+		     					<input type="text" class="form-control" name='summary' placeholder="Summary">
+		     				</div>
+		     				<br>
+		     				<div class="input-group">
+		     					<span class="input-group-addon"><i class="fa fa-pencil"></i></span>
+		     					<input type="text" class="form-control" name='description' placeholder="Description">
+		     				</div>
+		     				<br>
+		     				<div class="input-group">
+		     					<span class="input-group-addon"><i class="fa fa-bus"></i></span>
+		     					<input type="text" class="form-control" name='how_to_come' placeholder="How to come?">
+		     				</div>
+		     				<br>
+		     				<div class="input-group">
+		     					<span class="input-group-addon"><i class="fa fa-random"></i></span>
+		     					<input type="text" class="form-control" name='recomendation' placeholder="Recomendation to be in places.">
+		     				</div>
+		     				<br>
+		     				<div class="input-group">
+		     					<span class="input-group-addon"><i class="fa fa-bus"></i></span>
+		     					<input type="text" class="form-control" name='province' placeholder="Province">
+		     				</div>
+		     				<br>
+		     				<div class="input-group">
+		     					<span class="input-group-addon"><i class="fa fa-bus"></i></span>
+		     					<input type="text" class="form-control" name='lat'  id="lat" placeholder="">
+		     				</div>
+		     				<br>
+		     				<div class="input-group">
+		     					<span class="input-group-addon"><i class="fa fa-bus"></i></span>
+		     					<input type="text" class="form-control" name='long' id="lng" placeholder="">
+		     				</div>
+		     				<br>
+		     				<h3 class="box-title">Localizacion</h3>
+		     				<div class="input-group">
+		     					<span class="input-group-addon"><i class="fa fa-map"></i></span>
+		     					<input type="text" class="form-control"  id="searchmap">
+		     				</div>
+		     				<br>
+		     				<div class="input-group" id="map">
+
+		     				</div>
+		     				<br>
+		     				<div class="input-group">
+		     					<input type="file" class="form-control" name='turisticsite_photo' id="photografic">
+		     					<input type="submit" class="pull-right btn btn-primary">
+		     					<div class="input-group">
+		     						<label type="text" class="form-control">Update File</label>
+		     						<div class="input-group-btn">
+		     						</div>
 		     					</div>
 		     				</div>
-		     			</div>
-		     			<br>
-		     			<div class="input-group">
-		     				
-		     			<button type="submit" class="btn"><i class="fa fa-arrow-right text-muted"></i></button>
-		     			</div>
+		     				<br>
+		     				<div class="box-footer">
+		     					<button type="submit" class="btn btn-default">Cancel</button>
+		     					<button type="submit" class="btn btn-info pull-right">Sign in</button>
+		     				</div>
 
-		     			
+
+		     			</div>
+		     			<!-- /.box-body -->
 		     		</div>
-		     		<!-- /.box-body -->
-		     		{{Form::close()}}
-		     	</div>
-		     	
-		     	<!-- /.box -->
-		     </div>
-		     <!-- Input addon -->
 
+		     		<!-- /.box -->
+		     	</div>
+		     	<!-- Input addon -->
+
+		     </form>
 		 </section>
 		 <!-- /.content -->
 		 <script>
@@ -161,6 +161,7 @@
 		 		}
 		 	</script>
 
-
+			<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBzTmmwZQMrY6ZWG0Z_MppOXN9A4Cp92z4&callback=initMap&libraries=places" type="text/javascript">
+    </script>
 
 		 	@endsection

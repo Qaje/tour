@@ -11,25 +11,20 @@ class WorkflowPage extends Migration
         Schema::create('roles',function(Blueprint $table){
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->string('name',100);
-            $table->string('description',200);
+            $table->string('name')->unique();
+            $table->string('description');
             $table->boolean('status');
             $table->rememberToken();
             $table->timestamps();
         });
         
         Schema::create('role_user', function (Blueprint $table) {
+            $table->increments('id');
             $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');      
             $table->integer('role_id')->unsigned();
-            $table->foreign('user_id')
-                  ->references('id')
-                  ->on('users')
-                  ->onDelete('cascade');      
-            $table->foreign('role_id')
-                  ->references('id')
-                  ->on('roles')
-                  ->onDelete('cascade');
-            $table->primary(['user_id','role_id']);
+            $table->foreign('role_id')->references('id')->on('roles')->onDelete('cascade');
+            $table->timestamps();
         });
 
         Schema::create('permissions',function(Blueprint $table){
@@ -170,31 +165,26 @@ class WorkflowPage extends Migration
         Schema::create('turistic_sites', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->integer('name_title')->unsigned();
-            $table->integer('summary')->unsigned();
+            $table->string('name_title')->unsigned();
+            $table->string('summary')->unsigned();
             $table->string('description', 100);
             $table->string('how_to_come', 100);
-            $table->integer('recomendation');
+            $table->string('recomendation');
            // $table->string('city', 100);
-            $table->string('province', 100);
-            $table->string('geolocalization_photo', 100);
+           // $table->string('province', 100);
+            $table->string('turisticsite_photo')->default('turisticsitedefault.jpeg');
+            //$table->string('avatar')->default('default.jpg');//extension jpg,png
             $table->decimal('long', 20,10);
             $table->decimal('lat', 20,10);
-            $table->string('photografic', 100);
+            //$table->string('photografic', 100);
             $table->timestamps();
         });
         Schema::create('turistic_sites_province', function (Blueprint $table) {
+            $table->increments('id');
             $table->integer('turistic_sites_id')->unsigned();
             $table->integer('province_id')->unsigned();
-            $table->foreign('turistic_sites_id')
-                  ->references('id')
-                  ->on('turistic_sites')
-                  ->onDelete('cascade');      
-            $table->foreign('province_id')
-                  ->references('id')
-                  ->on('provinces')
-                  ->onDelete('cascade');
-            $table->primary(['turistic_sites_id','province_id']);
+            $table->foreign('province_id')->references('id')->on('provinces')->onDelete('cascade');
+            $table->foreign('turistic_sites_id')->references('id')->on('turistic_sites')->onDelete('cascade');      
         });
         Schema::create('events', function (Blueprint $table) {
             $table->engine = 'InnoDB';

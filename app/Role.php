@@ -10,7 +10,7 @@ class Role extends Model
     public function users()
     {
     	// belongsTo(RelatedModel, foreignKey = _id, keyOnRelatedModel = id)
-    	return $this->belongsToMany('App\User');
+    	return $this->belongsToMany('App\User')->withTimestamps();
     }
 
     /**
