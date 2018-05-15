@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class TuristicSite extends Model
+class Turisticsite extends Model
 {
     
     public function provinces()

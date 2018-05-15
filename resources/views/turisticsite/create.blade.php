@@ -28,16 +28,17 @@
 
 		  	 <!--------------------------
 		     | Your Page Content Here |
-		     -------------------------->
-		     <form action="turisticsite" method="POST" class="lockscreen-credentials">
+			 -------------------------->
+			   <form action="{{url('turisticsite')}}" method="POST" enctype="multipart/form-data" class="lockscreen-credentials">
 		     	<div class="col-md-6 col-md-offset-3">
 		     		<!-- Form Element sizes -->
 		     		<div class="box box-success">
 		     			<div class="box-header with-border">
 		     				<h3 class="box-title">Register a New Turistic Site</h3>
 		     			</div>
-		     			<input type="hidden" name="_token" value="{{ csrf_token() }}">
 		     			<div class="box-body">
+							<input type="hidden" name="_token" value="{{ csrf_token() }}">
+		     			
 		     				<div class="input-group">
 		     					<span class="input-group-addon"><i class="fa fa-book"></i></span>
 		     					<input type="text" class="form-control" name='name_title' placeholder="Name">
@@ -62,12 +63,20 @@
 		     					<span class="input-group-addon"><i class="fa fa-random"></i></span>
 		     					<input type="text" class="form-control" name='recomendation' placeholder="Recomendation to be in places.">
 		     				</div>
-		     				<br>
+							<br>
+							{{--<div class="form-group">
+								<label>Provincia</label>
+								<select class="form-control">
+									@foreach($provinces as $province)	
+								<option value="{{ $province->id }}">{{$province->name }}</option>
+									@endforeach
+								</select>
+							</div> 
 		     				<div class="input-group">
 		     					<span class="input-group-addon"><i class="fa fa-bus"></i></span>
 		     					<input type="text" class="form-control" name='province' placeholder="Province">
 		     				</div>
-		     				<br>
+		     				<br>--}}
 		     				<div class="input-group">
 		     					<span class="input-group-addon"><i class="fa fa-bus"></i></span>
 		     					<input type="text" class="form-control" name='lat'  id="lat" placeholder="">
@@ -90,17 +99,11 @@
 		     				<br>
 		     				<div class="input-group">
 		     					<input type="file" class="form-control" name='turisticsite_photo' id="photografic">
-		     					<input type="submit" class="pull-right btn btn-primary">
-		     					<div class="input-group">
-		     						<label type="text" class="form-control">Update File</label>
-		     						<div class="input-group-btn">
-		     						</div>
-		     					</div>
 		     				</div>
 		     				<br>
 		     				<div class="box-footer">
 		     					<button type="submit" class="btn btn-default">Cancel</button>
-		     					<button type="submit" class="btn btn-info pull-right">Sign in</button>
+		     					<button type="submit" class="btn btn-primary">Sign in</button>
 		     				</div>
 
 
@@ -161,7 +164,7 @@
 		 		}
 		 	</script>
 
-			<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBzTmmwZQMrY6ZWG0Z_MppOXN9A4Cp92z4&callback=initMap&libraries=places" type="text/javascript">
-    </script>
+		 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBzTmmwZQMrY6ZWG0Z_MppOXN9A4Cp92z4&callback=initMap&libraries=places" type="text/javascript">
+		 	</script>
 
 		 	@endsection

@@ -5,77 +5,72 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-use App\TuristicSite;
+use App\Turisticsite;
 use App\Province;
 use Session;
 use Image;
 
-class TuristicSiteController extends Controller
+class TuristicsiteController extends Controller
 {
     public function __construct()
     {
         $this->middleware('auth');
     }
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-       // return view('turisticsite.index');
-       $turisticsites = TuristicSite::all();    
+       $turisticsites = Turisticsite::all();    
        return view('turisticsite.index')->withTuristicsites($turisticsites);
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        $turisticsites = TuristicSite::all();
+        $turisticsites = Turisticsite::all();
         $provinces = Province::all();
         return view('turisticsite.create')->withTuristicsites($turisticsites)->withProvinces($provinces);
 
     }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //if($request->hasFile('turisticsite_photo')){
-            $turisticsite_photo = $request->file('turisticsite_photo');
-            $filename = 'turisticsite_photo' . time() . '.' . $turisticsite_photo->getClientOriginalExtension();
-            Image::make($turisticsite_photo)->resize(1280,1024)->save(public_path('/uploads/turisticsite_photos/' . $filename));
- 
-            $turisticsite->turisticsite_photo = $filename;
-        //}
+        //$provinces = Province::all();
+        dd($request);
+        
         $this->validate($request, array(
-            'name_title'            => 'required|max:100',
-            'summary'               => 'required|max:200',
-            'description'           => 'required|max:100',
-            'how_to_come'           => 'required|max:100',
-            'recomendation'         => 'required|max:200',
-            'province'              => 'required|max:200',
-            'turisticsite_photo'    => 'required|max:200',
-            'long'                  => 'required|numeric',
-            'lat'                   => 'required|numeric'
-        ));
-        $turisticsite = new TuristicSite;
+             'name_title'            => 'required',
+             'summary'               => 'required',
+             'description'           => 'required',
+             'how_to_come'           => 'required',
+             'recomendation'         => 'required',
+            // 'province'              => 'required|max:200',
+             'turisticsite_photo'    => 'required',
+             'long'                  => 'required',
+             'lat'                   => 'required'
+         ));
+       
+    $turisticsite = new Turisticsite;
+    
+    $turisticsite_photo = $request->file('turisticsite_photo');
+    $filename = 'turisticsite_photo' . time() . '.' . $turisticsite_photo->getClientOriginalExtension();
+    Image::make($turisticsite_photo)->resize(1280,1024)->save(public_path('/uploads/turisticsite_photos/' . $filename));
+    /*
+    $turisticsite_photo = $request->file('$turisticsite_photo');
+    $filename = '$turisticsite_photo' . time() . '.' . $turisticsite_photo;
+    Image::make($turisticsite_photo)->save(public_path('/uploads/turisticsite_photos/' . $filename));
+    */ 
+    //$turisticsite_photo = $request->file();
+     //$filename = time() . '.' . $request['turisticsite_photo'];
+     //$path = $request['turisticsite_photo']->save(public_path('/uploads/turisticsite_photos/' . $filename));
+     //Image::make($avatar)->resize(120,120)->save(public_path('/uploads/avatars/' . $filename));
 
+     //Image::make($path)->resize(1280,1024)->save($path);
+            
+     //$turisticsite->turisticsite_photo = $filename;
+         
         $turisticsite->name_title         = $request->name_title;
         $turisticsite->summary            = $request->summary;    
         $turisticsite->description        = $request->description;
-        $turisticsite->hot_to_come        = $request->hot_to_come;
+        $turisticsite->how_to_come        = $request->how_to_come;
         $turisticsite->recomendation      = $request->recomendation;
-        $turisticsite->province           = $request->province;
-        $turisticsite->turisticsite_photo = $request->turisticsite_photo;
+        //$turisticsite->province           = $request->province;
+        $turisticsite->turisticsite_photo = $request->$filename;
         $turisticsite->long               = $request->long;
         $turisticsite->lat                = $request->lat;
         
@@ -84,65 +79,45 @@ class TuristicSiteController extends Controller
         Session::flash('success','The Turistic site was seccessfully save!');
         
         return redirect()->route('turisticsite.index');
+         
         //return redirect()->route('turisticsites.show', $post->id);
     }
-
-    /**
-     * 
-     * $table->integer('name_title')->unsigned();
-     * 
-     *$table->string('name_title')->unsigned();
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
-        $turisticsite = TuristicSite::find($id);
+        $turisticsite = Turisticsite::find($id);
         return view('turisticsite.show')->withTuristicsite($turisticsite);
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
-        $turisticsite = TuristicSite::find($id);
+        $turisticsite = Turisticsite::find($id);
         $provinces = Provinces::all();
         $provs= array();
-        foreach ($provinces as $province) {
+        foreach ($provinces as $province) 
+        {
             $provs[$province->id] = $category->name;
         }
-        
         return view('turisticsites.edit')->withTuristicsite($turisticsite)->withPronvinces($provs);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
-            //validacion de datos
-            $turisticsite = TuristicSite::find($id);
-            if($request->hasFile('turisticsite_photo')){
+                /*
+            $turisticsite = Turisticsite::find($id);
+            if($request->hasFile('turisticsite_photo'))
+            {
                     $turisticsite_photo = $request->file('turisticsite_photo');
                     $filename = 'turisticsite_photo' . time() . '.' . $turisticsite_photo->getClientOriginalExtension();
-                    Image::make($turisticsite_photo)->resize(1280,1024)->save(public_path('/uploads/turisticsite_photos/' . $filename));
-             
-                   $turisticsite->turisticsite_photo = $filename;
-                }
-            
-            if($request->input('province') == $turisticsite->province){
+                    Image::make($turisticsTuristicsiteite_photo)->resize(1280,1024)->save(public_path('/uploads/turisticsite_photos/' . $filename));
+             Turisticsite
+                   $turisticsite->turisticTuristicsitesite_photo = $filename;
+            }Turisticsite
+            Turisticsite
+            if($request->input('province')Turisticsite == $turisticsite->province)
+            {
                 $this->validate($request, array(
                 'name_title'            => 'required|max:100',
                 'summary'               => 'required|max:200',
-                'description'           => 'required|max:100',
+                'description'           =>Turisticsite 'required|max:100',
                 'how_to_come'           => 'required|max:100',
                 'recomendation'         => 'required|max:200',
                 //'province'              => 'required|max:200',
@@ -155,7 +130,7 @@ class TuristicSiteController extends Controller
                 $this->validate($request, array(
                     'name_title'            => 'required|max:100',
                     'summary'               => 'required|max:200',
-                    'description'           => 'required|max:100',
+                    'description'         Turisticsite  => 'required|max:100',
                     'how_to_come'           => 'required|max:100',
                     'recomendation'         => 'required|max:200',
                     'province'              => 'required|max:200',
@@ -166,7 +141,7 @@ class TuristicSiteController extends Controller
             }
          
             //guardar en la base de datos
-            $turisticsite = TuristicSite::find($id);
+            $turisticsite = Turisticsite::find($id);
             $turisticsite->title = $request->input('title');
             $turisticsite->slug = $request->input('slug');
             $turisticsite->category_id = $request->input('category_id');
@@ -182,28 +157,19 @@ class TuristicSiteController extends Controller
             $turisticsite->long               = $request->input('long');
             $turisticsite->lat                = $request->input('lat');
             $turisticsite->save();
-
-            
-            //set flash data  with succes message
             Session::flash('success','This TuristicSite was suyccessfully update.');
-            //redirection con flash data de turisticsites.show
-            return redirect() -> route('turisticsites.show', $turisticsite->id);
-    }
+            return redirect()->route('turisticsites.show', $turisticsite->id);*/
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    }
+    
+
     public function destroy($id)
     {
-        $turisticsite = TuristicSite::find($id);
-        //eliminar las relaciones
+        $turisticsite = Turisticsite::find($id);
         $turisticsite->provinces()->detach();
         $turisticsite->delete();
-        //dd($turisticsite);
         Session::flash('success','The turisticsite was successfully deleted.');
         return redirect()->route('turisticsites.index');
     }
 }
+

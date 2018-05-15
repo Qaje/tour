@@ -7,8 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Province extends Model
 {
-    public function turisticsites()
+    public function Turisticsites()
     {
-    	return $this->belongsToMany('App\TuristicSite');
+    	return $this->belongsToMany('App\Turisticsite');
     }
 }

@@ -16,7 +16,10 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 //Turiistic Sites
-	Route::resource('turisticsite','TuristicSiteController');
+	//Route::resource('turisticsite','TuristicsiteController');
+	Route::get('/turisticsite','TuristicsiteController@index');
+	Route::get('/turisticsite/create','TuristicsiteController@create');
+	Route::post('/turisticsite','TuristicsiteController@store');
 
 //Users
 	Auth::routes();

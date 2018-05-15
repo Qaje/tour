@@ -33,18 +33,26 @@
 							<th>Como Llegar</th>
 							<th>Recomendaciones</th>
 							<th>Provincia</th>
+							<th>Photo</th>
+							<th>Longitud</th>
+							<th>Latitud</th>
 							<th>Links</th>
 						</tr>
-						
+						@foreach ($turisticsites as $turisticsite)             
 						<tr>
-							<td>183</td>
-							<td>John Doe</td>
-							<td>11-7-2014</td>
-							<td><span class="label label-success">Approved</span></td>
-							<td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-							<td>183</td>
+							<td>{{ $turisticsite->id }}</td>
+							<td>{{ $turisticsite->name_title }}</td>
+							<td>{{ $turisticsite->summary }}</td>
+							<td>{{ $turisticsite->description }}</td>
+							<td>{{ $turisticsite->hot_to_come }}</td>
+							<td>{{ $turisticsite->recomendation }}</td>
+							<td>{{ $turisticsite->province }}</td>
+							<td>{{ $turisticsite->turisticsite_photo }}</td>
+							<td>{{ $turisticsite->long }}</td>
+							<td>{{ $turisticsite->lat }}</td>
 							<td>John Doe</td>
 						</tr>
+						@endforeach
 						
 					</tbody></table>
 				</div>

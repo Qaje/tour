@@ -162,7 +162,7 @@ class WorkflowPage extends Migration
             $table->integer('city_id')->unsigned();
             $table->foreign('city_id')->references('id')->on('cities');
         });            
-        Schema::create('turistic_sites', function (Blueprint $table) {
+        Schema::create('turisticsites', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->string('name_title')->unsigned();
@@ -181,10 +181,10 @@ class WorkflowPage extends Migration
         });
         Schema::create('turistic_sites_province', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('turistic_sites_id')->unsigned();
+            $table->integer('turisticsites_id')->unsigned();
             $table->integer('province_id')->unsigned();
             $table->foreign('province_id')->references('id')->on('provinces')->onDelete('cascade');
-            $table->foreign('turistic_sites_id')->references('id')->on('turistic_sites')->onDelete('cascade');      
+            $table->foreign('turisticsites_id')->references('id')->on('turisticsites')->onDelete('cascade');      
         });
         Schema::create('events', function (Blueprint $table) {
             $table->engine = 'InnoDB';
