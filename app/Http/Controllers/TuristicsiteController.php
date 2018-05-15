@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 
 use App\Turisticsite;
 use App\Province;
+use App\Role;
 use Session;
 use Image;
 
@@ -19,6 +20,7 @@ class TuristicsiteController extends Controller
     public function index()
     {
        $turisticsites = Turisticsite::all();    
+       //dd($turisticsites);
        return view('turisticsite.index')->withTuristicsites($turisticsites);
     }
     public function create()
@@ -30,16 +32,15 @@ class TuristicsiteController extends Controller
     }
     public function store(Request $request)
     {
-        //$provinces = Province::all();
-        dd($request);
-        
+        $provinces = Province::all();
+        //dd($provinces);
         $this->validate($request, array(
              'name_title'            => 'required',
              'summary'               => 'required',
              'description'           => 'required',
              'how_to_come'           => 'required',
              'recomendation'         => 'required',
-            // 'province'              => 'required|max:200',
+             'province'              => 'required',
              'turisticsite_photo'    => 'required',
              'long'                  => 'required',
              'lat'                   => 'required'
@@ -62,7 +63,7 @@ class TuristicsiteController extends Controller
 
      //Image::make($path)->resize(1280,1024)->save($path);
             
-     //$turisticsite->turisticsite_photo = $filename;
+     $turisticsite->turisticsite_photo = $filename;
          
         $turisticsite->name_title         = $request->name_title;
         $turisticsite->summary            = $request->summary;    
@@ -70,10 +71,13 @@ class TuristicsiteController extends Controller
         $turisticsite->how_to_come        = $request->how_to_come;
         $turisticsite->recomendation      = $request->recomendation;
         //$turisticsite->province           = $request->province;
-        $turisticsite->turisticsite_photo = $request->$filename;
+        //$turisticsite->turisticsite_photo = $request->$filename;
         $turisticsite->long               = $request->long;
         $turisticsite->lat                = $request->lat;
         
+        $province = Province::Find($province_id);
+        $turisticsite = 
+
         $turisticsite->save();
 
         Session::flash('success','The Turistic site was seccessfully save!');
