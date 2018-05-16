@@ -26,10 +26,11 @@
 
 <section class="content container-fluid">
 
-           <!--------------------------
+           <!-------------------------- 
          | Your Page Content Here |
          -------------------------->
-           <form action="{{url('province')}}" method="POST" enctype="multipart/form-data" >
+           <form action="/province" method="POST" enctype="multipart/form-data" >
+            
              <div class="col-md-6 col-md-offset-3">
                  <!-- Form Element sizes -->
                  <div class="box box-success">
@@ -52,19 +53,19 @@
                          <br>
                          <div class="input-group">
                              <span class="input-group-addon"><i class="fa fa-pencil"></i></span>
-                             <input type="text" class="form-control" name='long' placeholder="Longitud">
+                             <input type="text" class="form-control" name='long' id="lng" placeholder="Longitud">
                          </div>
                          <br>
                          <div class="input-group">
                              <span class="input-group-addon"><i class="fa fa-bus"></i></span>
-                             <input type="text" class="form-control" name='lat' placeholder="Latitud">
+                             <input type="text" class="form-control" name='lat' id='lat' placeholder="Latitud">
                          </div>
                          <br>
-                        <div class="form-group">
+                        <div class="input-group">
                             <label>Ciudad</label>
-                            <select class="form-control">
+                            <select class="form-control" name="city_id">
                                 @foreach($cities as $city)	
-                                <option value="{{ $city->id }}">{{$city->name }}</option>
+                            <option value="{{ $city->id }}">{{$city->id}}.{{$city->name }}</option>
                                 @endforeach
                             </select>
                         </div> 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Province;
 use App\City;
+use Session;
 class ProvinceController extends Controller
 {
     
@@ -29,21 +30,26 @@ class ProvinceController extends Controller
     public function store(Request $request)
     {
         $cities = City::all();
-        //dd($cities);
-       $this->validate($request,array(
-           'name' =>'required|max:255',
-           'name' =>'required|max:255',
-           'name' =>'required|max:255',
-           'name' =>'required|max:255',
-           'name' =>'required|max:255',
+        //dd($request);
+         $this->validate($request,array(
+           'name'           =>'required',
+           'geolocalization'=>'required',
+           'long'           =>'required',
+           'lat'            =>'required',
+           'city_id'        =>'required',
         ));
-        $tag = new Tag;
-        $tag->name = $request->name;
-        $tag->save();
+        $province = new Province;
+        $province->name = $request->name;
+        $province->geolocalization = $request->geolocalization;
+        $province->long = $request->long;
+        $province->lat = $request->lat;
+        $province->city_id = $request->city_id;
 
-        Session::Flash('success','New Tag was successfully created!');
+        $province->save();
 
-        return redirect()->route('tags.index');
+        Session::Flash('success','New Province was successfully created!');
+
+        return redirect()->route('province.index');
     }
 
     public function show($id)

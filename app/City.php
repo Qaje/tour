@@ -8,6 +8,6 @@ class City extends Model
 {
     public function provinces()
     {
-        return $this->hasMany('App\Province');
+        return $this->hasMany('App\Province')->withTimestamps();
     }
 }

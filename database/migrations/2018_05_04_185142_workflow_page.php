@@ -150,6 +150,7 @@ class WorkflowPage extends Migration
             $table->decimal('lat', 20,10);
             $table->integer('country_id')->unsigned();
             $table->foreign('country_id')->references('id')->on('countries');
+            $table->timestamps();
         });
         Schema::create('provinces',function(Blueprint $table){
             $table->engine = 'InnoDB';
@@ -160,6 +161,7 @@ class WorkflowPage extends Migration
             $table->decimal('lat', 20,10);
             $table->integer('city_id')->unsigned();
             $table->foreign('city_id')->references('id')->on('cities');
+            $table->timestamps();
         });            
         Schema::create('turistic_sites', function (Blueprint $table) {
             $table->engine = 'InnoDB';

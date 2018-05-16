@@ -1,6 +1,6 @@
 @extends('main')
 
-@section('title', '| Turistic Sites')
+@section('title', '| Provincias')
 
 @section('content')
 
@@ -20,6 +20,9 @@
                             <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
                         </div>
                     </div>
+                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default">
+                        Launch Default Modal
+                    </button>
                 </div>
             </div>
             <!-- /.box-header -->
@@ -46,7 +49,6 @@
                         <td>
                                 <div id="external-events">
                                         <div class="external-event bg-yellow ui-draggable ui-draggable-handle" style="position: relative;">Editar</div>
-                                        <div class="external-event bg-aqua ui-draggable ui-draggable-handle" style="position: relative;">Do homework</div>
                                         <div class="external-event bg-light-blue ui-draggable ui-draggable-handle" style="position: relative;">Mostrar</div>
                                         <div class="external-event bg-red ui-draggable ui-draggable-handle" style="position: relative;">Eliminar</div>        
                                 </div>
@@ -62,5 +64,25 @@
         <!-- /.box -->
     </div>
 </div>
-
+{{-- //modal --}}
+<div class="modal fade in" id="modal-default" style="display: none; padding-right: 15px;">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span></button>
+          <h4 class="modal-title">Default Modal</h4>
+        </div>
+        <div class="modal-body">
+          <p>One fine body…</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+      <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+  </div>
 @endsection
