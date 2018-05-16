@@ -11,18 +11,28 @@
         <div class="box">
             <div class="box-header">
                 <h3 class="box-title">Provincias en Bolivia</h3>
-
+                <tr class="form-control pull-right">
+                    <td>
+                        <div class="input-group input-group-sm" style="width: 50px;">
+                            <td>
+                                    <a href="{{url('province/create')}}" method="get" class="btn btn-primary " role="button" aria-pressed="true"><i class="fa fa-plus"></i> Agregar Provincia</a>
+                            </td>
+                        </div>
+                    </td>
+                </tr>
                 <div class="box-tools">
                     <div class="input-group input-group-sm" style="width: 150px;">
+                        
                         <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
 
                         <div class="input-group-btn">
                             <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
                         </div>
                     </div>
-                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default">
-                        Launch Default Modal
-                    </button>
+                   
+                </div>
+                <div class="box-tools">
+                    
                 </div>
             </div>
             <!-- /.box-header -->
@@ -40,6 +50,7 @@
                     </tr>
                     @foreach ($provinces as $province)             
                     <tr>
+                        
                         <td>{{ $province->id }}</td>
                         <td>{{ $province->name }}</td>
                         <td>{{ $province->geolocalization }}</td>
@@ -47,22 +58,27 @@
                         <td>{{ $province->lat }}</td>
                         <td>{{ $province->city_id }}</td>
                         <td>
-                                <div id="external-events">
-                                        <div class="external-event bg-yellow ui-draggable ui-draggable-handle" style="position: relative;">Editar</div>
-                                        <div class="external-event bg-light-blue ui-draggable ui-draggable-handle" style="position: relative;">Mostrar</div>
-                                        <div class="external-event bg-red ui-draggable ui-draggable-handle" style="position: relative;">Eliminar</div>        
-                                </div>
-                                        
+                            <a class="btn btn-app btn bg-yellow btn-flat margin" href="province/{{$province->id}}/edit" method="get">
+                                <i class="fa fa-edit"></i> Editar
+                            </a>    
+                            <a class="btn btn-app btn bg-olive btn-flat margin" href="province/{{$province->id}}" method="get">
+                                <i class="fa fa-eye"></i> Ver
+                            </a>
+                            <a class="btn btn-app btn bg-red btn-flat margin" href="province/{{$province->id}}" method="delete">
+                                <i class="fa fa-trash"></i> Eliminar
+                            </a>
                         </td>
                     </tr>
                     @endforeach
                     
-                </tbody></table>
+                    </tbody>
+                </table>
             </div>
             <!-- /.box-body -->
         </div>
         <!-- /.box -->
     </div>
+    
 </div>
 {{-- //modal --}}
 <div class="modal fade in" id="modal-default" style="display: none; padding-right: 15px;">

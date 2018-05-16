@@ -29,46 +29,41 @@
            <!-------------------------- 
          | Your Page Content Here |
          -------------------------->
-           <form action="/province" method="POST" enctype="multipart/form-data" >
+           <form action="/province/{{$province->id}}" method="PUT" enctype="multipart/form-data" >
             
              <div class="col-md-6 col-md-offset-3">
                  <!-- Form Element sizes -->
                  <div class="box box-success">
                      <div class="box-header with-border">
-                         <h3 class="box-title">Register a New Provincia</h3>
+                         <h3 class="box-title">Editar Provincia</h3>
                      </div>
                      <div class="box-body">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                      
                          <div class="input-group">
                              <span class="input-group-addon"><i class="fa fa-book"></i></span>
-                             <input type="text" class="form-control" name='name' placeholder="Nombre">
+                             <input type="text" class="form-control" name='name' placeholder="Name" value="{{$province->name}}">
                          </div>
                          <br>
                          <div class="input-group">
                              <span class="input-group-addon"><i class="fa fa-clone"></i></span>
-                             <input type="text" class="form-control" name='geolocalization' placeholder="Actividades para realizar">
+                             <input type="text" class="form-control" name='geolocalization' placeholder="Actividades para realizar" value="{{$province->geolocalization}}">
                          </div>
                          
                          <br>
                          <div class="input-group">
                              <span class="input-group-addon"><i class="fa fa-pencil"></i></span>
-                             <input type="text" class="form-control" name='long' id="lng" placeholder="Longitud">
+                             <input type="text" class="form-control" name='long' id="lng" placeholder="Longitud" value="{{$province->long}}">
                          </div>
                          <br>
                          <div class="input-group">
                              <span class="input-group-addon"><i class="fa fa-bus"></i></span>
-                             <input type="text" class="form-control" name='lat' id='lat' placeholder="Latitud">
+                         <input type="text" class="form-control" name='lat' id='lat' placeholder="Latitud" value="{{$province->lat}}">
                          </div>
                          <br>
                         <div class="input-group">
-                            <span class="input-group-addon"><i class="fa fa-reply-all"></i></span>
-                            
-                            <select class="form-control input-group-addon" name="city_id" placeholder="Ciudad">
-                                @foreach($cities as $city)	
-                            <option value="{{ $city->id }}">{{$city->id}}.{{$city->name }}</option>
-                                @endforeach
-                            </select>
+                                <span class="input-group-addon"><i class="fa fa-reply-all"></i></span>
+                        <input type="text" class="form-control" name='city_id' id='city_id' placeholder="Latitud" value="{{$city->id}}{{$city->name}}">
                         </div> 
                          <h3 class="box-title">Localizacion</h3>
                          <div class="input-group">
@@ -82,7 +77,6 @@
                          <br>
                          <div class="box-footer">
                                 <a href="{{url('province')}}" method="get" class="btn btn-danger " role="button" aria-pressed="true"><i class="fa fa-arrow-left"></i>   Volver</a>
-                             <button type="submit" class="btn btn-success"><i class="fa fa-arrow-right"></i> Confirmar</button>
                          </div>
 
 
@@ -100,16 +94,16 @@
      <script>
          function initMap() {
              var bolivia = {
-                 lat: -16.2901540, 
-                 lng: -63.5886530};
+                 lat: {{$province->lat}}, 
+                 lng: {{$province->long}}};
                  var map = new google.maps.Map(document.getElementById('map'), {
-                     zoom: 15,
+                     zoom: 20,
                      center: bolivia
                  });
                  var marker = new google.maps.Marker({
                      position: {
-                         lat: -16.2901540, 
-                         lng: -63.5886530
+                         lat: {{$province->lat}}, 
+                         lng: {{$province->long}}
                      },
                      map: map,
                      draggable: true

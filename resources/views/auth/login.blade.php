@@ -35,7 +35,7 @@
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
-    <p class="login-box-msg">Sign in to start your session</p>
+    <p class="login-box-msg">Inicia tu Sesion de Usuario para Empezar</p>
 
     <form action="login" method="post">
       <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">

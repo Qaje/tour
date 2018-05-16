@@ -54,21 +54,50 @@ class ProvinceController extends Controller
 
     public function show($id)
     {
-        //
+        $province = Province::find($id);
+        $city =   City::find($province->city_id);
+        return view('province.show')->withProvince($province)->withCity($city);
     }
 
     public function edit($id)
     {
-        //
+        $province = Province::find($id);
+        $cities = City::all();
+        return view('province.edit')->withProvince($province)->withCities($cities);
     }
 
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request,array(
+           'name'           =>'required',
+           'geolocalization'=>'required',
+           'long'           =>'required',
+           'lat'            =>'required',
+           'city_id'        =>'required',
+        ));
+        $province = Province::find($id);
+        $province->name = $request->name;
+        $province->geolocalization = $request->geolocalization;
+        $province->long = $request->long;
+        $province->lat = $request->lat;
+        $province->city_id = $request->city_id;
+
+        $province->save();
+
+        Session::Flash('success','New Province was successfully UPdate!');
+        
+        return redirect()->route('province.index');
+
     }
 
     public function destroy($id)
     {
-        //
+        $province = Province::find($id);
+        //delete reation
+        //$province->city_id()->detach();
+
+        $province->delete();
+
+        return redirect()->route('province.index');
     }
 }
