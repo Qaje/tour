@@ -15,7 +15,7 @@ class ProvinceController extends Controller
     }
     public function index()
     {
-        $provinces = Province::all();
+        $provinces = Province::orderBy('id','name')->paginate(7);
         //dd($provinces);
         return view('province.index')->withProvinces($provinces);
     }
@@ -93,6 +93,7 @@ class ProvinceController extends Controller
     public function destroy($id)
     {
         $province = Province::find($id);
+        //dd($province);
         //delete reation
         //$province->city_id()->detach();
 

@@ -35,7 +35,7 @@
                  <!-- Form Element sizes -->
                  <div class="box box-success">
                      <div class="box-header with-border">
-                         <h3 class="box-title">Editar Provincia</h3>
+                         <h3 class="box-title">Mostrar Provincia</h3>
                      </div>
                      <div class="box-body">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
