@@ -29,7 +29,12 @@
 		  	 <!--------------------------
 		     | Your Page Content Here |
 			 -------------------------->
-			   <form action="{{url('turisticsite')}}" method="POST" enctype="multipart/form-data" class="lockscreen-credentials">
+
+		{{Form::open(array('method'=>'POST', 'route' => array('turisticsite.store'))) }}
+
+	{{--
+			   <form action="turisticsite" method="POST" enctype="multipart/form-data" >
+		--}}
 		     	<div class="col-md-6 col-md-offset-3">
 		     		<!-- Form Element sizes -->
 		     		<div class="box box-success">
@@ -37,54 +42,57 @@
 		     				<h3 class="box-title">Register a New Turistic Site</h3>
 		     			</div>
 		     			<div class="box-body">
-							<input type="hidden" name="_token" value="{{ csrf_token() }}">
-		     			
+							{{--<input type="hidden" name="_token" value="{{ csrf_token() }}">--}}
+		     				     
+							{{ csrf_field() }}
+		     				
 		     				<div class="input-group">
 		     					<span class="input-group-addon"><i class="fa fa-book"></i></span>
-		     					<input type="text" class="form-control" name='name_title' placeholder="Name">
+		     					<input type="text" class="form-control" name='name_title' placeholder="Nombre del Lugar">
 		     				</div>
 		     				<br>
 		     				<div class="input-group">
 		     					<span class="input-group-addon"><i class="fa fa-clone"></i></span>
-		     					<input type="text" class="form-control" name='summary' placeholder="Summary">
+		     					<input type="text" class="form-control" name='summary' placeholder="Resumen">
 		     				</div>
 		     				<br>
 		     				<div class="input-group">
 		     					<span class="input-group-addon"><i class="fa fa-pencil"></i></span>
-		     					<input type="text" class="form-control" name='description' placeholder="Description">
+		     					<input type="text" class="form-control" name='description' placeholder="Breve descripcion del lugar">
 		     				</div>
 		     				<br>
 		     				<div class="input-group">
 		     					<span class="input-group-addon"><i class="fa fa-bus"></i></span>
-		     					<input type="text" class="form-control" name='how_to_come' placeholder="How to come?">
+		     					<input type="text" class="form-control" name='how_to_come' placeholder="Medios para llegar">
 		     				</div>
 		     				<br>
 		     				<div class="input-group">
 		     					<span class="input-group-addon"><i class="fa fa-random"></i></span>
-		     					<input type="text" class="form-control" name='recomendation' placeholder="Recomendation to be in places.">
+		     					<input type="text" class="form-control" name='recomendation' placeholder="Recomendation para estar en el lugar">
 		     				</div>
 							<br>
-							{{--<div class="form-group">
+							<div class="form-group">
 								<label>Provincia</label>
-								<select class="form-control">
+								<select class="form-control" name="province_id">
 									@foreach($provinces as $province)	
-								<option value="{{ $province->id }}">{{$province->name }}</option>
+								<option value="{{ $province->id }}">{{ $province->id }}   .{{$province->name }}</option>
 									@endforeach
 								</select>
 							</div> 
-		     				<div class="input-group">
-		     					<span class="input-group-addon"><i class="fa fa-bus"></i></span>
-		     					<input type="text" class="form-control" name='province' placeholder="Province">
-		     				</div>
-		     				<br>--}}
-		     				<div class="input-group">
-		     					<span class="input-group-addon"><i class="fa fa-bus"></i></span>
-		     					<input type="text" class="form-control" name='lat'  id="lat" placeholder="">
+							<div class="input-group">
+								<label>Seleccione una imagen </label>
+		     					<input type="file"  name='turisticsite_photo' class="form-control">
+
 		     				</div>
 		     				<br>
 		     				<div class="input-group">
 		     					<span class="input-group-addon"><i class="fa fa-bus"></i></span>
-		     					<input type="text" class="form-control" name='long' id="lng" placeholder="">
+		     					<input type="text" class="form-control" name='lat'  id="lat" placeholder="Latitud">
+		     				</div>
+		     				<br>
+		     				<div class="input-group">
+		     					<span class="input-group-addon"><i class="fa fa-bus"></i></span>
+		     					<input type="text" class="form-control" name='long' id="lng" placeholder="Logitud">
 		     				</div>
 		     				<br>
 		     				<h3 class="box-title">Localizacion</h3>
@@ -97,13 +105,10 @@
 
 		     				</div>
 		     				<br>
-		     				<div class="input-group">
-		     					<input type="file" class="form-control" name='turisticsite_photo' id="photografic">
-		     				</div>
-		     				<br>
+
 		     				<div class="box-footer">
-		     					<button type="submit" class="btn btn-default">Cancel</button>
-		     					<button type="submit" class="btn btn-primary">Sign in</button>
+		     					<a href="{{url('turisticsite')}}" method="get" class="btn btn-danger " role="button" aria-pressed="true"><i class="fa fa-arrow-left"></i>   Volver</a>
+                    			<button type="submit" class="btn btn-success"><i class="fa fa-arrow-right"></i> Guardar</button>
 		     				</div>
 
 
@@ -116,6 +121,8 @@
 		     	<!-- Input addon -->
 
 		     </form>
+		     {{Form::submit('Guardar', array('class'=>'btn btn-success	'))}}
+         {{Form::close()}}
 		 </section>
 		 <!-- /.content -->
 		 <script>

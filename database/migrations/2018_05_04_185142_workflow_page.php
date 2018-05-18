@@ -171,8 +171,6 @@ class WorkflowPage extends Migration
             $table->string('description', 100);
             $table->string('how_to_come', 100);
             $table->string('recomendation');
-           // $table->string('city', 100);
-           // $table->string('province', 100);
             $table->string('turisticsite_photo')->default('turisticsitedefault.jpeg');
             //$table->string('avatar')->default('default.jpg');//extension jpg,png
             $table->decimal('long', 20,10);

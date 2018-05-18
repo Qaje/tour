@@ -63,7 +63,7 @@
                         <td>{{ $province->city_id }}</td>
                         <td>
                             
-                            {{Form::open(array('method'=>'DELETE', 'route' => array('province.destroy', $province->id)))}}
+            {{Form::open(array('method'=>'DELETE', 'route' => array('province.destroy', $province->id)))}}
                             <a href="/province/{{$province->id}}/edit" method="get" class="btn btn-warning " role="button" >
                                     <i class="fa fa-edit"></i> Editar
                                 </a>                            
