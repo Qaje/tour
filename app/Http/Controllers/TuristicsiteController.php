@@ -10,6 +10,7 @@ use App\Province;
 use App\Role;
 use Auth;
 use Image;
+use Storage;
 
 class TuristicsiteController extends Controller
 {
@@ -20,8 +21,6 @@ class TuristicsiteController extends Controller
     public function index()
     {
         $turisticsites = Turisticsite::orderBy('id','name_title')->paginate(7);
-       //$turisticsites = Turisticsite::all();    
-       //dd($turisticsites);
         return view('turisticsite.index')->withTuristicsites($turisticsites);
     }
     public function create()
@@ -39,13 +38,19 @@ class TuristicsiteController extends Controller
             'select_file' => 'required|image|mimes:jpeg,png,jpg,gif'
         ]);*/                           
         $provinces = Province::all();
-        $province = Province::Find($request->province_id);
         
+        //dd($province);
+            //menor a 4 MB IMAGEN
+        if($request->hasFile('turisticsite_photo')){
+            $turisticsite_photo = $request->file('turisticsite_photo');
+            $filename = 'turisticsite_photo' . time() . '.' . $turisticsite_photo->getClientOriginalExtension();
+            Image::make($turisticsite_photo)->resize(1280,1040)->save(public_path('/uploads/turisticsite_photos/' . $filename));
+        }
         $turisticsite = new Turisticsite();
-        
-        $photo = $request->file('turisticsite_photo');
-        $filename = 'turisticsite_photo' .'.' .time() ;
-        Image::make($photo)->save(public_path('/uploads/turisticsite_photos/' . $filename));
+        //dd($request);
+        //$photo = $request->file('turisticsite_photo');
+        //$filename = 'turisticsite_photo' .'.' .time() ;
+        //Image::make($photo)->save(public_path('/uploads/turisticsite_photos/' . $filename));
         //Image::make($photo)->save($filename, '/uploads/turisticsite_photos/');
         //(public_path('/uploads/turisticsite_photos/' . $filename));
         //dd($filename);
@@ -59,12 +64,18 @@ class TuristicsiteController extends Controller
         $turisticsite->description        = $request->description;
         $turisticsite->how_to_come        = $request->how_to_come;
         $turisticsite->recomendation      = $request->recomendation;
-        $turisticsite->province           = $request->province;
+        //$turisticsite->province           = $request->province;
         $turisticsite->turisticsite_photo = $filename;
         $turisticsite->long               = $request->long;
         $turisticsite->lat                = $request->lat;
 
         $turisticsite->save();
+
+        $province = Province::Find($request->province_id);
+        $turisticsite->provinces()->attach($province);
+        
+        
+        //dd($turisticsite);
 
         return redirect()->route('turisticsite.index');
         //dd($request->file('image'));

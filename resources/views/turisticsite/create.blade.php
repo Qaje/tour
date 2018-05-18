@@ -30,7 +30,7 @@
 		     | Your Page Content Here |
 			 -------------------------->
 
-		{{Form::open(array('method'=>'POST', 'route' => array('turisticsite.store'))) }}
+		{{Form::open(array('method'=>'POST', 'route' => array('turisticsite.store'),'files' =>true )) }}
 
 	{{--
 			   <form action="turisticsite" method="POST" enctype="multipart/form-data" >
@@ -71,6 +71,7 @@
 		     					<input type="text" class="form-control" name='recomendation' placeholder="Recomendation para estar en el lugar">
 		     				</div>
 							<br>
+							
 							<div class="form-group">
 								<label>Provincia</label>
 								<select class="form-control" name="province_id">
@@ -79,6 +80,7 @@
 									@endforeach
 								</select>
 							</div> 
+							
 							<div class="input-group">
 								<label>Seleccione una imagen </label>
 		     					<input type="file"  name='turisticsite_photo' class="form-control">
@@ -87,12 +89,12 @@
 		     				<br>
 		     				<div class="input-group">
 		     					<span class="input-group-addon"><i class="fa fa-bus"></i></span>
-		     					<input type="text" class="form-control" name='lat'  id="lat" placeholder="Latitud">
+		     					<input type="text" class="form-control" name='long' id="lng" placeholder="Logitud">
 		     				</div>
 		     				<br>
 		     				<div class="input-group">
 		     					<span class="input-group-addon"><i class="fa fa-bus"></i></span>
-		     					<input type="text" class="form-control" name='long' id="lng" placeholder="Logitud">
+		     					<input type="text" class="form-control" name='lat'  id="lat" placeholder="Latitud">
 		     				</div>
 		     				<br>
 		     				<h3 class="box-title">Localizacion</h3>
