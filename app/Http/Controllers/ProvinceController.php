@@ -62,12 +62,17 @@ class ProvinceController extends Controller
     public function edit($id)
     {
         $province = Province::find($id);
+        //dd($province);
         $cities = City::all();
-        return view('province.edit')->withProvince($province)->withCities($cities);
+        //dd($cities);
+        $city = City::find($province->city_id);
+        //dd($city);
+        return view('province.edit')->withProvince($province)->withCity($city)->withCities($cities);
     }
 
     public function update(Request $request, $id)
     {
+        //dd($request);
         $this->validate($request,array(
            'name'           =>'required',
            'geolocalization'=>'required',
@@ -93,10 +98,6 @@ class ProvinceController extends Controller
     public function destroy($id)
     {
         $province = Province::find($id);
-        //dd($province);
-        //delete reation
-        //$province->city_id()->detach();
-
         $province->delete();
 
         return redirect()->route('province.index');

@@ -7,7 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Province extends Model
 {
-     protected $fillable = [
+    protected $table = 'provinces';
+
+    protected $fillable = [
         'name', 'geolocalization', 'long','lat','city_id'
     ]; 
 

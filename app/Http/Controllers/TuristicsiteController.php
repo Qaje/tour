@@ -95,13 +95,16 @@ class TuristicsiteController extends Controller
      }
     public function show($id)
     {
-        $provinces = Province::all();
         $turisticsite = Turisticsite::find($id);
-        foreach ($turisticsite->provinces as $province) 
+        dd($turisticsite);
+        $turisticsites = Turisticsite::with('provinces');
+        foreach ($turisticsites->provinces as $province) 
         {
-         $province->id.$province->name;
+         $province->id;
         }
-        return view('turisticsite.show')->withTuristicsite($turisticsite)->withProvince($province);
+        $province = Province::Find($turisticsite->province_id);
+        //$provinces = Province::all();
+        return view('turisticsite.show')->withTuristicsite($turisticsite);
     }
  public function edit($id)
  {
@@ -110,7 +113,7 @@ class TuristicsiteController extends Controller
     $turisticsite = Turisticsite::find($id);
     foreach ($turisticsite->provinces as $province) 
     {
-        $province->id.$province->name;
+        $province->id;
     }
     
     return view('turisticsite.edit')->withTuristicsite($turisticsite)->withProvince($province)->withProvinces($provinces);
@@ -119,7 +122,6 @@ class TuristicsiteController extends Controller
 public function update(Request $request, $id)
 {
     dd($request);
-    
     $turisticsite = Turisticsite::find($id);
     if($request->hasFile('turisticsite_photo'))
     {
@@ -150,7 +152,7 @@ public function update(Request $request, $id)
             'description'           => 'required|max:100',
             'how_to_come'           => 'required|max:100',
             'recomendation'         => 'required|max:200',
-            'province'              => 'required|max:200',
+            //'province'              => 'required|max:200',
             'turisticsite_photo'    => 'required|max:200',
             'long'                  => 'required|numeric',
             'lat'                   => 'required|numeric'

@@ -29,17 +29,16 @@
            <!-------------------------- 
          | Your Page Content Here |
          -------------------------->
-           <form action="/province/{{$province->id}}" method="PUT" enctype="multipart/form-data" >
-            
+            {!! Form::model($province, ['method' => 'PATCH','route' => ['province.update', $province->id]]) !!}
              <div class="col-md-6 col-md-offset-3">
                  <!-- Form Element sizes -->
                  <div class="box box-success">
                      <div class="box-header with-border">
-                         <h3 class="box-title">Mostrar Provincia</h3>
+                         <h3 class="box-title">Editar Provincia</h3>
                      </div>
                      <div class="box-body">
-                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                     
+                        {{-- <input type="hidden" name="_token" value="{{ csrf_token() }}"> --}}
+                        {{-- {{ csrf_field() }} --}}
                          <div class="input-group">
                              <span class="input-group-addon"><i class="fa fa-book"></i></span>
                              <input type="text" class="form-control" name='name' placeholder="Name" value="{{$province->name}}">
@@ -61,10 +60,18 @@
                          <input type="text" class="form-control" name='lat' id='lat' placeholder="Latitud" value="{{$province->lat}}">
                          </div>
                          <br>
+                         <div>
+                                <h4>Ciudad:</h4><p>{{$city->id}} . {{$city->name}}</p>
+                         </div>
                         <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-reply-all"></i></span>
-                        <input type="text" class="form-control" name='city_id' id='city_id' placeholder="Latitud" value="{{$city->id}}{{$city->name}}">
-                        </div> 
+                        <span class="input-group-addon"><i class="fa fa-reply-all"></i></span>
+
+                        <select class="form-control input-group-addon" name="city_id" placeholder="Ciudad">
+                            @foreach($cities as $city)	
+                            <option value="{{ $city->id }}">{{$city->id}}.{{$city->name }}</option>
+                            @endforeach
+                        </select>
+                        </div>
                          <h3 class="box-title">Localizacion</h3>
                          <div class="input-group">
                              <span class="input-group-addon"><i class="fa fa-map"></i></span>
@@ -77,18 +84,16 @@
                          <br>
                          <div class="box-footer">
                                 <a href="{{url('province')}}" method="get" class="btn btn-danger " role="button" aria-pressed="true"><i class="fa fa-arrow-left"></i>   Volver</a>
+                                <button type="submit" class="btn btn-success"><i class="fa fa-arrow-right"></i> Actualizar</button>
                          </div>
-
-
                      </div>
                      <!-- /.box-body -->
                  </div>
-
                  <!-- /.box -->
              </div>
-             <!-- Input addon -->
-
-         </form>
+            <!-- Input addon -->
+            {{--</form>--}}
+        {{ Form::close() }}
      </section>
      <!-- /.content -->
      <script>
