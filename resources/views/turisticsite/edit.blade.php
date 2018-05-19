@@ -29,22 +29,24 @@
 		  	 <!--------------------------
 		     | Your Page Content Here |
 			 -------------------------->
-
-		{{Form::open(array('method'=>'POST', 'route' => array('turisticsite.store'),'files' =>true )) }}
-
-	{{--
-			   <form action="turisticsite" method="POST" enctype="multipart/form-data" >
-		--}}
+		
+		    <form action="/turisticsite/{{$turisticsite->id}}" method="PUT" enctype="multipart/form-data" >
+				{{--
+		        <form action="/turisticsite/{{$province->id}}" method="PUT" enctype="multipart/form-data" >
+			   	<form action="turisticsite" method="POST" enctype="multipart/form-data" >
+					--}}
+	
+		
 		     	<div class="col-md-6 col-md-offset-3">
 		     		<!-- Form Element sizes -->
 		     		<div class="box box-success">
 		     			<div class="box-header with-border">
-		     				<h3 class="box-title">Editar  Sitio Turistico</h3>
+		     				<h3 class="box-title">Editar  Sitio Turistico - {{$turisticsite->id}} {{$turisticsite->name_title}}</h3>
 		     			</div>
 		     			<div class="box-body">
 							{{--<input type="hidden" name="_token" value="{{ csrf_token() }}">--}}
 		     				     
-							{{ csrf_field() }}
+							<input type="hidden" name="_token" value="{{ csrf_token() }}">
 		     				
 		     				<div class="input-group">
 		     					<span class="input-group-addon"><i class="fa fa-book"></i></span>
@@ -73,7 +75,8 @@
 							<br>
 							
 							<div class="form-group">
-								<label>Provincia</label>
+								<label>Provincia </label>
+								<p>{{ $province->id }} {{ $province->name }}</p>
 								<select class="form-control" name="province_id" value="{{$province->id }}">
 									@foreach($provinces as $province)	
 								<option value="{{ $province->id }}">{{ $province->id }}   .{{$province->name }}</option>

@@ -122,7 +122,7 @@
 		     	<!-- Input addon -->
 
 		     </form>
-		     {{Form::submit('Guardar', array('class'=>'btn btn-success	'))}}
+		     
          {{Form::close()}}
 		 </section>
 		 <!-- /.content -->
