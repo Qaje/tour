@@ -35,7 +35,7 @@
                  <!-- Form Element sizes -->
                  <div class="box box-success">
                      <div class="box-header with-border">
-                         <h3 class="box-title">Editar Provincia</h3>
+                         <h3 class="box-title">Mostrar Provincia</h3>
                      </div>
                      <div class="box-body">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -58,17 +58,12 @@
                          <br>
                          <div class="input-group">
                              <span class="input-group-addon"><i class="fa fa-bus"></i></span>
-                             <input type="text" class="form-control" name='lat' id='lat' placeholder="Latitud" value="{{$province->lat}}">
+                         <input type="text" class="form-control" name='lat' id='lat' placeholder="Latitud" value="{{$province->lat}}">
                          </div>
                          <br>
                         <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-reply-all"></i></span>
-                            
-                                <select class="form-control input-group-addon" name="city_id" placeholder="Ciudad">
-                                    @foreach($cities as $city)	
-                                <option value="{{ $city->city_id}}">{{$city->name }}</option>
-                                    @endforeach
-                                </select>
+                        <input type="text" class="form-control" name='city_id' id='city_id' placeholder="Latitud" value="{{$city->id}}{{$city->name}}">
                         </div> 
                          <h3 class="box-title">Localizacion</h3>
                          <div class="input-group">
@@ -82,7 +77,6 @@
                          <br>
                          <div class="box-footer">
                                 <a href="{{url('province')}}" method="get" class="btn btn-danger " role="button" aria-pressed="true"><i class="fa fa-arrow-left"></i>   Volver</a>
-                             <button type="submit" class="btn btn-success"><i class="fa fa-arrow-right"></i> Confirmar</button>
                          </div>
 
 
@@ -103,7 +97,7 @@
                  lat: {{$province->lat}}, 
                  lng: {{$province->long}}};
                  var map = new google.maps.Map(document.getElementById('map'), {
-                     zoom: 15,
+                     zoom: 20,
                      center: bolivia
                  });
                  var marker = new google.maps.Marker({
@@ -123,7 +117,7 @@
                      var i, place;
 
                      for (i = 0; place= places[i] ; i++)
-                     {	
+                     {  
                          bounds.extend(place.geometry.location);
                          marker.setPosition(place.geometry.location);
                      }

@@ -20,7 +20,7 @@ class TuristicsiteController extends Controller
     }
     public function index()
     {
-        $turisticsites = Turisticsite::orderBy('id','name_title')->paginate(7);
+        $turisticsites = Turisticsite::orderBy('id','name_title')->paginate(3);
         return view('turisticsite.index')->withTuristicsites($turisticsites);
     }
     public function create()
@@ -33,7 +33,7 @@ class TuristicsiteController extends Controller
 
     }
     public function store(Request $request)
-    {
+    {   
         /*$this->validate($request,[
             'select_file' => 'required|image|mimes:jpeg,png,jpg,gif'
         ]);*/                           
@@ -96,18 +96,24 @@ class TuristicsiteController extends Controller
      public function show($id)
      {
         $turisticsite = Turisticsite::find($id);
-        return view('turisticsite.show')->withTuristicsite($turisticsite);
+        foreach ($turisticsite->provinces as $province) {
+             $province->id.$province->name;
+        }
+        
+        //dd($province);
+        return view('turisticsite.show')->withTuristicsite($turisticsite)->withProvince($province);
     }
     public function edit($id)
     {
+        
+        $provinces= Province::all();
         $turisticsite = Turisticsite::find($id);
-        $provinces = Provinces::all();
-        $provs= array();
-        foreach ($provinces as $province) 
-        {
-            $provs[$province->id] = $category->name;
+        foreach ($turisticsite->provinces as $province) {
+        $province->id.$province->name;
         }
-        return view('turisticsites.edit')->withTuristicsite($turisticsite)->withPronvinces($provs);
+        //$provinces = Province::all();
+        //$provs = array();
+        return view('turisticsite.edit')->withTuristicsite($turisticsite)->withProvince($province)->withProvinces($provinces);
     }
 
     public function update(Request $request, $id)

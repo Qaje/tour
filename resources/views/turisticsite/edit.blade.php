@@ -39,7 +39,7 @@
 		     		<!-- Form Element sizes -->
 		     		<div class="box box-success">
 		     			<div class="box-header with-border">
-		     				<h3 class="box-title">Register a New Turistic Site</h3>
+		     				<h3 class="box-title">Editar  Sitio Turistico</h3>
 		     			</div>
 		     			<div class="box-body">
 							{{--<input type="hidden" name="_token" value="{{ csrf_token() }}">--}}
@@ -48,33 +48,33 @@
 		     				
 		     				<div class="input-group">
 		     					<span class="input-group-addon"><i class="fa fa-book"></i></span>
-		     					<input type="text" class="form-control" name='name_title' placeholder="Nombre del Lugar">
+		     					<input type="text" class="form-control" name='name_title' placeholder="Nombre del Lugar" value="{{$turisticsite->name_title}}">
 		     				</div>
 		     				<br>
 		     				<div class="input-group">
 		     					<span class="input-group-addon"><i class="fa fa-clone"></i></span>
-		     					<input type="text" class="form-control" name='summary' placeholder="Resumen">
+		     					<input type="text" class="form-control" name='summary' placeholder="Resumen" value="{{$turisticsite->summary}}">
 		     				</div>
 		     				<br>
 		     				<div class="input-group">
 		     					<span class="input-group-addon"><i class="fa fa-pencil"></i></span>
-		     					<input type="text" class="form-control" name='description' placeholder="Breve descripcion del lugar">
+		     					<input type="text" class="form-control" name='description' placeholder="Breve descripcion del lugar" value="{{$turisticsite->description}}">
 		     				</div>
 		     				<br>
 		     				<div class="input-group">
 		     					<span class="input-group-addon"><i class="fa fa-bus"></i></span>
-		     					<input type="text" class="form-control" name='how_to_come' placeholder="Medios para llegar">
+		     					<input type="text" class="form-control" name='how_to_come' placeholder="Medios para llegar" value="{{$turisticsite->how_to_come}}">
 		     				</div>
 		     				<br>
 		     				<div class="input-group">
 		     					<span class="input-group-addon"><i class="fa fa-random"></i></span>
-		     					<input type="text" class="form-control" name='recomendation' placeholder="Recomendation para estar en el lugar">
+		     					<input type="text" class="form-control" name='recomendation' placeholder="Recomendation para estar en el lugar" value="{{$turisticsite->recomendation}}">
 		     				</div>
 							<br>
 							
 							<div class="form-group">
 								<label>Provincia</label>
-								<select class="form-control" name="province_id">
+								<select class="form-control" name="province_id" value="{{$province->id }}">
 									@foreach($provinces as $province)	
 								<option value="{{ $province->id }}">{{ $province->id }}   .{{$province->name }}</option>
 									@endforeach
@@ -82,19 +82,28 @@
 							</div> 
 							
 							<div class="input-group">
+								<td>
 								<label>Seleccione una imagen </label>
-		     					<input type="file"  name='turisticsite_photo' class="form-control">
+								</td>
+								<div>
+									
+		     					<input type="file"  name='turisticsite_photo' class="form-control" value="{{$turisticsite->turisticsite_photo }}">
+		     					<input type="text" class="form-control" name='turisticsite_photo' placeholder="Logitud" value="{{$turisticsite->turisticsite_photo}}">
+								</div>
+		     					<td>
+                           		<img src="/uploads/turisticsite_photos/{{ $turisticsite->turisticsite_photo }}" alt="" border="0" height="100" width="130" style="max-width: 130px;">
+                        		</td>
 
 		     				</div>
 		     				<br>
 		     				<div class="input-group">
 		     					<span class="input-group-addon"><i class="fa fa-bus"></i></span>
-		     					<input type="text" class="form-control" name='long' id="lng" placeholder="Logitud">
+		     					<input type="text" class="form-control" name='long' id="lng" placeholder="Logitud" value="{{$turisticsite->long}}">
 		     				</div>
 		     				<br>
 		     				<div class="input-group">
 		     					<span class="input-group-addon"><i class="fa fa-bus"></i></span>
-		     					<input type="text" class="form-control" name='lat'  id="lat" placeholder="Latitud">
+		     					<input type="text" class="form-control" name='lat'  id="lat" placeholder="Latitud" value="{{$turisticsite->lat}}">
 		     				</div>
 		     				<br>
 		     				<h3 class="box-title">Localizacion</h3>
@@ -130,16 +139,16 @@
 		 <script>
 		 	function initMap() {
 		 		var bolivia = {
-		 			lat: -16.2901540, 
-		 			lng: -63.5886530};
+		 			lat: {{$turisticsite->lat}}, 
+		 			lng: {{$turisticsite->long}}};
 		 			var map = new google.maps.Map(document.getElementById('map'), {
-		 				zoom: 15,
+		 				zoom: 20,
 		 				center: bolivia
 		 			});
 		 			var marker = new google.maps.Marker({
 		 				position: {
-		 					lat: -16.2901540, 
-		 					lng: -63.5886530
+		 					lat: {{$turisticsite->lat}}, 
+		 					lng: {{$turisticsite->long}}
 		 				},
 		 				map: map,
 		 				draggable: true

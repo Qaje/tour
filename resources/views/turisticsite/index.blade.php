@@ -64,7 +64,9 @@
                         <td>{{ $turisticsite->description }}</td>
                         <td>{{ $turisticsite->how_to_come }}</td>
                         <td>{{ $turisticsite->recomendation }}</td>
-                        <td>{{ $turisticsite->turisticsite_photo }}</td>
+                        <td>
+                            <img src="/uploads/turisticsite_photos/{{ $turisticsite->turisticsite_photo }}" alt="" border="0" height="50" width="65" style="max-width: 130px;">
+                        </td>
                         <td>{{ $turisticsite->long }}</td>
                         <td>{{ $turisticsite->lat }}</td>
                         <td>
