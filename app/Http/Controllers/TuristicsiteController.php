@@ -27,7 +27,7 @@ class TuristicsiteController extends Controller
     {
 
         $provinces = Province::all();
-        //dd($provinces);
+        //dd($provinces);how_to_come
         return view('turisticsite.create')->withProvinces($provinces);
         //return view('turisticsite.create');
 
@@ -93,22 +93,22 @@ class TuristicsiteController extends Controller
     */   
 
      }
-    public function show($id)
-    {
+     public function show($id)
+     {
         $turisticsite = Turisticsite::find($id);
-        dd($turisticsite);
-        $turisticsites = Turisticsite::with('provinces');
-        foreach ($turisticsites->provinces as $province) 
+        //$turisticsites = Turisticsite::with('provinces');
+        foreach ($turisticsite->provinces as $province) 
         {
-         $province->id;
-        }
-        $province = Province::Find($turisticsite->province_id);
+           $province->id;
+       }
+        //dd($province);
+        //$province = Province::Find($turisticsite->province_id);
         //$provinces = Province::all();
-        return view('turisticsite.show')->withTuristicsite($turisticsite);
-    }
- public function edit($id)
- {
-    
+       return view('turisticsite.show')->withTuristicsite($turisticsite)->withProvince($province);
+   }
+   public function edit($id)
+   {
+
     $provinces= Province::all();
     $turisticsite = Turisticsite::find($id);
     foreach ($turisticsite->provinces as $province) 
@@ -121,65 +121,48 @@ class TuristicsiteController extends Controller
 
 public function update(Request $request, $id)
 {
-    dd($request);
+    //dd($request);
     $turisticsite = Turisticsite::find($id);
+    $provinces = Province::all();
+    //dd($province);
+    foreach ($turisticsite->provinces as $province) 
+    {
+        $province->id;
+    }
+
     if($request->hasFile('turisticsite_photo'))
     {
         $turisticsite_photo = $request->file('turisticsite_photo');
         $filename = 'turisticsite_photo' . time() . '.' . $turisticsite_photo->getClientOriginalExtension();
-        Image::make($turisticsTuristicsiteite_photo)->resize(1280,1024)->save(public_path('/uploads/turisticsite_photos/' . $filename));
+        Image::make($turisticsite_photo)->resize(1280,1024)->save(public_path('/uploads/turisticsite_photos/' . $filename));
         
         $turisticsite->turisticTuristicsitesite_photo = $filename;
-    }
-    if($request->input('province')== $turisticsite->province)
-    {
-        $this->validate($request, array(
-            'name_title'            => 'required|max:100',
-            'summary'               => 'required|max:200',
-            'description'           => 'required|max:100',
-            'how_to_come'           => 'required|max:100',
-            'recomendation'         => 'required|max:200',
-                //'province'              => 'required|max:200',
-            'turisticsite_photo'    => 'required|max:200',
-            'long'                  => 'required|numeric',
-            'lat'                   => 'required|numeric'
-        ));
-    }else
-    {    
-        $this->validate($request, array(
-            'name_title'            => 'required|max:100',
-            'summary'               => 'required|max:200',
-            'description'           => 'required|max:100',
-            'how_to_come'           => 'required|max:100',
-            'recomendation'         => 'required|max:200',
-            //'province'              => 'required|max:200',
-            'turisticsite_photo'    => 'required|max:200',
-            'long'                  => 'required|numeric',
-            'lat'                   => 'required|numeric'
-        ));
     }
 
             //guardar en la base de datos
     $turisticsite = Turisticsite::find($id);
-            //$turisticsite->title = $request->input('title');
-            //$turisticsite->slug = $request->input('slug');
-            //$turisticsite->category_id = $request->input('category_id');
-            //$turisticsite->body = $request->input('body');
 
-    $turisticsite->provinces()->attach($province);
 
     $turisticsite->name_title         = $request->input('name_title');
     $turisticsite->summary            = $request->input('summary'); 
     $turisticsite->description        = $request->input('description');
-    $turisticsite->hot_to_come        = $request->input('hot_to_come');
+    $turisticsite->how_to_come        = $request->input('how_to_come');
     $turisticsite->recomendation      = $request->input('recomendation');
-            //$turisticsite->province           = $request->input('province');
     $turisticsite->turisticsite_photo = $request->input('turisticsite_photo');
+
+            //$turisticsite->province           = $request->input('province');
+    //$turisticsite->turisticsite_photo = $request->input('turisticsite_photo');
     $turisticsite->long               = $request->input('long');
     $turisticsite->lat                = $request->input('lat');
 
     $turisticsite->save();
-    Session::flash('success','This TuristicSite was suyccessfully update.');
+    //dd($request);
+    $turisticsite->provinces()->detach();
+
+    $province = Province::Find($request->province_id);
+    $turisticsite->provinces()->sync($province);
+
+    //Session::flash('success','This TuristicSite was suyccessfully update.');
     return redirect()->route('turisticsite.show', $turisticsite->id);
 
 }
@@ -188,9 +171,8 @@ public function update(Request $request, $id)
 public function destroy($id)
 {
     $turisticsite = Turisticsite::find($id);
-    $turisticsite->provinces()->detach();
+    $turisticsite->provinces()->detach($province);
     $turisticsite->delete();
-        //Session::flash('success','The turisticsite was successfully deleted.');
     return redirect()->route('turisticsites.index');
 }
 }

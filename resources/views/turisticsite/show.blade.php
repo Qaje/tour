@@ -74,7 +74,7 @@
 							
 							<div class="input-group">
 		     					<span class="input-group-addon"><i class="fa fa-random"></i></span>
-		     					<input type="text" class="form-control" name='recomendation' placeholder="Recomendation para estar en el lugar" value="{{ $turisticsite->province->id }}">
+		     					<input type="text" class="form-control" name='recomendation' placeholder="Recomendation para estar en el lugar" value="{{ $province->id }} - {{ $province->name }}">
 		     				</div>
 							<br>
 							<div class="input-group">

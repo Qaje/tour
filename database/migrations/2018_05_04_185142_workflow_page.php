@@ -46,6 +46,7 @@ class WorkflowPage extends Migration
                   ->on('roles')
                   ->onDelete('cascade');
             $table->primary(['permission_id','role_id']);
+            $table->timestamps();
         });
 
         Schema::create('categories',function(Blueprint $table){
@@ -77,6 +78,7 @@ class WorkflowPage extends Migration
                 ->on('turistic_types_companies')
                 ->onDelete('cascade');
             $table->primary(['category_id','turistic_type_company_id']);
+            $table->timestamps();
         });
         Schema::create('liables',function(Blueprint $table){
             $table->engine = 'InnoDB';
@@ -118,7 +120,8 @@ class WorkflowPage extends Migration
             $table->string('contact',200);
             $table->string('geolocalization',100);
             $table->decimal('long', 20,10);
-            $table->decimal('lat', 20,10);   
+            $table->decimal('lat', 20,10);
+            $table->timestamps();   
         });
         Schema::create('turistic_company_offices', function (Blueprint $table) {
             $table->integer('turistic_company_id')->unsigned();
@@ -132,6 +135,7 @@ class WorkflowPage extends Migration
                 ->on('offices')
                 ->onDelete('cascade');
             $table->primary(['turistic_company_id','office_id']);
+            $table->timestamps();
         });
         Schema::create('countries',function(Blueprint $table){
             $table->engine = 'InnoDB';
@@ -140,6 +144,7 @@ class WorkflowPage extends Migration
             $table->string('geolocalization',200);
             $table->decimal('long', 20,10);
             $table->decimal('lat', 20,10);
+            $table->timestamps();
         });
         Schema::create('cities',function(Blueprint $table){
             $table->engine = 'InnoDB';
@@ -183,7 +188,8 @@ class WorkflowPage extends Migration
             $table->integer('turistic_sites_id')->unsigned();
             $table->integer('province_id')->unsigned();
             $table->foreign('province_id')->references('id')->on('provinces')->onDelete('cascade');
-            $table->foreign('turistic_sites_id')->references('id')->on('turistic_sites')->onDelete('cascade');      
+            $table->foreign('turistic_sites_id')->references('id')->on('turistic_sites')->onDelete('cascade');
+            $table->timestamps();      
         });
         Schema::create('events', function (Blueprint $table) {
             $table->engine = 'InnoDB';
@@ -216,6 +222,7 @@ class WorkflowPage extends Migration
                   ->on('users')
                   ->onDelete('cascade');
             $table->primary(['events_id','users_id']);
+            $table->timestamps();
         });
         Schema::create('news', function (Blueprint $table) {
             $table->engine = 'InnoDB';
@@ -245,6 +252,7 @@ class WorkflowPage extends Migration
                   ->on('users')
                   ->onDelete('cascade');
             $table->primary(['news_id','users_id']);
+            $table->timestamps();
         });
         Schema::create('announcements', function (Blueprint $table) {
             $table->engine = 'InnoDB';
@@ -272,6 +280,7 @@ class WorkflowPage extends Migration
                   ->on('users')
                   ->onDelete('cascade');
             $table->primary(['announcements_id','users_id']);
+            $table->timestamps();
         });
         Schema::create('touristic_guides',function(Blueprint $table){
             $table->engine = 'InnoDB';

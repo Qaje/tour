@@ -21,7 +21,9 @@ class Province extends Model
    
     public function Turisticsites()
     {
-    	return $this->belongsToMany('App\Turisticsite')->withTimestamps();;
+    	//return $this->belongsToMany('App\Turisticsite')->withTimestamps();
+        return $this->belongsToMany('App\Turisticsite','turistic_sites_province','turistic_sites_id','province_id')->withTimestamps();
+
     }
     public function city()
     {

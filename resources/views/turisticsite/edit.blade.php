@@ -29,9 +29,9 @@
 		  	 <!--------------------------
 		     | Your Page Content Here |
 			 -------------------------->
-		
-		    <form action="/turisticsite/{{$turisticsite->id}}" method="PUT" enctype="multipart/form-data" >
+		{!! Form::model($turisticsite, ['method' => 'PATCH','route' => ['turisticsite.update', $turisticsite->id],'files' => true]) !!}
 				{{--
+		    <form action="/turisticsite/{{$turisticsite->id}}" method="PUT" enctype="multipart/form-data" >
 		        <form action="/turisticsite/{{$province->id}}" method="PUT" enctype="multipart/form-data" >
 			   	<form action="turisticsite" method="POST" enctype="multipart/form-data" >
 					--}}
@@ -90,7 +90,7 @@
 								</td>
 								<div>
 									
-		     					<input type="file"  name='turisticsite_photo' class="form-control" value="{{$turisticsite->turisticsite_photo }}">
+		     					<input type="file"  name='' class="form-control" value="{{$turisticsite->turisticsite_photo }}">
 		     					<input type="text" class="form-control" name='turisticsite_photo' placeholder="Logitud" value="{{$turisticsite->turisticsite_photo}}">
 								</div>
 		     					<td>
@@ -136,7 +136,7 @@
 
 		     </form>
 		     
-         {{Form::close()}}
+         {!!Form::close()!!}
 		 </section>
 		 <!-- /.content -->
 		 <script>

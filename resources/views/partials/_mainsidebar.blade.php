@@ -30,13 +30,13 @@
         <li class="header">ENLACES</li>
         <!-- Optionally, you can add icons to the links -->
         <li class="active">
-          <a href="province" method="GET">
+          <a href="{{url('province')}}" method="get" method="GET">
             <i class="fa fa-hand-paper-o"></i> 
             <span>Provincias</span>
           </a>
         </li>
         <li>
-          <a href="turisticsite"><i class="fa fa-get-pocket"></i> <span>Sitios Turisticos</span></a></li>
+          <a href="{{url('turisticsite')}}" method="get"><i class="fa fa-get-pocket"></i> <span>Sitios Turisticos</span></a></li>
         <li class="treeview">
           <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>
             <span class="pull-right-container">
