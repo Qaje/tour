@@ -14,12 +14,12 @@
 //reservado para HOMe
 Route::get('/home', 'HomeController@index')->name('home');
 
-//User
-//	Route::get('user','UserController@create');
+//management_Users
+	Route::get('manageuser','AdminController@index');
 
 //Turiistic Sites
 	Route::resource('turisticsite','TuristicsiteController');
-//Province
+//Provinces
 	Route::resource('province','ProvinceController');
 
 //Users

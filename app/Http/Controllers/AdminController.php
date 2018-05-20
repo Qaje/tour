@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\User;
 class AdminController extends Controller
 {
     /**
@@ -23,6 +23,9 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('admin');
+        $users = User::orderBy('id','name')->paginate(7);
+        //dd($users);
+        return view('admin.admin_user.index')->withUsers($users);
+        
     }
 }
