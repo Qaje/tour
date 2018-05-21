@@ -1,4 +1,4 @@
-@extends('main')
+@extends('main_m')
 
 @section('title', '| Permisos')
 
@@ -11,7 +11,6 @@
         <div class="box">
             <div class="box-header">
                 <td>
-                    
                 <tr class="form-control">
                 <h3 class="box-title">Permisos de Usuarios</h3>
                 </tr>
@@ -19,7 +18,7 @@
                     <td>
                         <div class="input-group input-group-sm" style="width: 50px;">
                             <td>
-                                <a href="{{url('permission/create')}}" method="get" class="btn btn-primary " role="button" aria-pressed="true"><i class="fa fa-plus"></i> Agregar Provincia</a>
+                                <a href="{{url('permission/create')}}" method="get" class="btn btn-primary " role="button" aria-pressed="true"><i class="fa fa-plus"></i> Agregar Permiso</a>
                             </td>
                         </div>
                     </td>
@@ -34,10 +33,8 @@
                             <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
                         </div>
                     </div>
-
                 </div>
                 <div class="box-tools">
-
                 </div>
             </div>
             <!-- /.box-header -->

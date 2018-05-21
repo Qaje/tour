@@ -120,7 +120,7 @@
               <!-- The user image in the navbar -->
               <img src="/uploads/avatars/{{ Auth::user()->avatar }}" class="user-image" alt="User Image">
               <!-- hidden-xs hides the username on small devices so only the image appears. -->
-              <span class="hidden-xs">{{ auth()->user()->name }}</span>
+              <span class="hidden-xs">{{ Auth()->user()->name }}</span>
             </a>
             <ul class="dropdown-menu">
               <!-- The user image in the menu -->
@@ -160,7 +160,7 @@
                       document.getElementById('logout-form').submit();" >
                       Logout
                     </a>
-                    <form id="logout-form" action="{{ 'App\Admin' == Auth::getProvider()->getModel() ? route('user.logout') : route('logout') }}" method="POST" style="display: none;">
+                    <form id="logout-form" action="{{ 'App\User' == Auth::getProvider()->getModel() ? route('user.logout') : route('logout') }}" method="POST" style="display: none;">
                     {{ csrf_field() }}
                     </form>
                   </div>

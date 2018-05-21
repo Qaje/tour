@@ -1,4 +1,4 @@
-@extends('main')
+@extends('main_m')
 
 @section('title', '| Sitios Truristicos')
 
