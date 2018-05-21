@@ -16,8 +16,14 @@ class TuristicsiteController extends Controller
 {
     public function __construct()
     {
+        $this->middleware('auth:admin');
+    }
+    /*
+    public function __construct()
+    {
         $this->middleware('auth');
     }
+    */
     public function index()
     {
         $turisticsites = Turisticsite::orderBy('id','name_title')->paginate(3);

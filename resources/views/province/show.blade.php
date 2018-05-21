@@ -15,8 +15,8 @@
 </style>
 <section class="content-header">
 <h1>
-    Sitio Turistico
-    <small>Estos son los sitios turisticoa que se encuentran en nuestro territorio nacional</small>
+    Provincias
+    <small>Estos es la vista de una Provincia</small>
 </h1>
 <ol class="breadcrumb">
     <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>

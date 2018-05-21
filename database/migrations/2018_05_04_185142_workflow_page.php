@@ -29,7 +29,7 @@ class WorkflowPage extends Migration
 
         Schema::create('permissions',function(Blueprint $table){
             $table->engine = 'InnoDB';
-            $table->increments('id');
+            $table->increments('id')->unique();
             $table->string('name',100);
             $table->string('description',200);
             $table->timestamps();

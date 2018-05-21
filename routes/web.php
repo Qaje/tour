@@ -14,6 +14,8 @@
 //reservado para HOMe
 Route::get('/home', 'HomeController@index')->name('home');
 
+//
+	Route::resource('permission','PermissionController');
 //management_Users
 	Route::get('manageuser','AdminController@index');
 

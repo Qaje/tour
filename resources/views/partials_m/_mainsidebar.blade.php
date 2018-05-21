@@ -38,14 +38,18 @@
         <li>
           <a href="{{url('turisticsite')}}" method="get"><i class="fa fa-get-pocket"></i> <span>Sitios Turisticos</span></a></li>
         <li class="treeview">
-          <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>
+          <a href="#"><i class="fa  fa-users"></i> <span>Multilevel</span>
             <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
               </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#">Link in level 2</a></li>
-            <li><a href="#">Link in level 2</a></li>
+            <li>
+              <a href="{{url('permission')}}" method="get"><i class="fa fa-unlock-alt"></i> <span>Permisos</span></a></li>
+            </li>
+            <li>
+              <a href="#">Link in level 2</a>
+            </li>
           </ul>
         </li>
       </ul>

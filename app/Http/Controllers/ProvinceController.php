@@ -8,18 +8,22 @@ use App\City;
 use Session;
 class ProvinceController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth:admin');
+    }
     /*
     public function __construct()
     {
         $this->middleware('guest:admin');
         //$this->middleware('guest:admin',['except'=>['logout']]);
     }
-    */
+    
     public function __construct()
     {
         $this->middleware('auth');
     }
-    
+    */
     public function index()
     {
         $provinces = Province::orderBy('id','name')->paginate(7);
