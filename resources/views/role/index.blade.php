@@ -1,10 +1,10 @@
-
 @extends('main_m')
 
-@section('title', '| Usuarios')
+@section('title', '| Roles')
 
 @section('content')
-<h1>Usuarios</h1>
+
+<h1>Roles</h1>
 
 <div class="row">
     <div class="col-xs-12">
@@ -13,13 +13,13 @@
                 <td>
                     
                 <tr class="form-control">
-                <h3 class="box-title">Usuarios Situr-BOL</h3>
+                <h3 class="box-title">Roles </h3>
                 </tr>
                 <tr class="form-control pull-right">
                     <td>
                         <div class="input-group input-group-sm" style="width: 50px;">
                             <td>
-                                <a href="{{url('usuario/create')}}" method="get" class="btn btn-primary " role="button" aria-pressed="true"><i class="fa fa-plus"></i> Agregar Usuario</a>
+                                <a href="{{url('role/create')}}" method="get" class="btn btn-primary " role="button" aria-pressed="true"><i class="fa fa-plus"></i> Agregar Rol</a>
                             </td>
                         </div>
                     </td>
@@ -44,44 +44,50 @@
             <div class="box-body table-responsive no-padding">
                 <table class="table table-hover">
                     <tbody><tr>
-                        <th>ID</th>
-                        <th>Nombre Completo</th>
-                        <th>Email/Correo Electronico</th>
-                        <th>Rol asignado</th>
+                        <th>Id</th>
+                        <th>Nombre</th>
+                        <th>Descripción</th>
+                        <th>Estado</th>
+                        <th>Creado</th>
+                        <th>Modificado</th>
                         <th>Links</th>
                     </tr>
-                    @foreach ($users as $user)             
+                    @foreach ($roles as $role)             
                     <tr>
 
-                        <td>{{ $user->id }}</td>
-                        <td>{{ $user->name }}</td>
-                        <td>{{ $user->email }}</td>
-                        <td>eco rol </td>
+                        <td>{{ $role->id }}</td>
+                        <td>{{ $role->name }}</td>
+                        <td>{{ $role->description }}</td>
+                        <td>{{ $role->status }}</td>
+                        <td>{{ $role->created_at }}</td>
+                        <td>{{ $role->updated_at }}</td>
                         <td>
-                 
-            {{Form::open(array('method'=>'DELETE', 'route' => array('user.destroy', $user->id)))}}
-                            <a href="/user/{{$user->id}}/edit" method="get" class="btn btn-warning " role="button" >
+                        {{Form::open(array('method'=>'DELETE', 'route' => array('role.destroy', $role->id)))}}
+                                <a href="/role/{{$role->id}}/edit" method="get" class="btn btn-warning " role="button" >
                                     <i class="fa fa-edit"></i> Editar
                                 </a>                            
-                                <a href="/user/{{$user->id}}" method="get" class="btn btn-success " role="button" >
+                                <a href="/role/{{$role->id}}" method="get" class="btn btn-success " role="button" >
                                     <i class="fa fa-eye"></i> Ver
                                 </a>
                             {{Form::submit('Delete', array('class'=>'btn btn-danger'))}}
                             {{Form::close()}}
-                            
+                        {{--
+
+                            --}}
                         </td>
                     </tr>
                     @endforeach
                 </tbody>
             </table>
                         <div class="mx-auto" style="width: 200px;">
-                {!! $users->links() !!}
+                {!! $roles->links() !!}
             </div>
         </div>
         <!-- /.box-body -->
     </div>
     <!-- /.box -->
 </div>
+
 </div>
 {{-- //modal --}}
 <div class="modal fade in" id="modal-default" style="display: none; padding-right: 15px;">
@@ -104,5 +110,4 @@
 </div>
 <!-- /.modal-dialog -->
 </div>
-
 @endsection

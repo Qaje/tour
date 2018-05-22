@@ -24,7 +24,7 @@
         </div>
       </form>
       <!-- /.search form -->
-
+      
       <!-- Sidebar Menu -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">ENLACES</li>
@@ -35,20 +35,23 @@
             <span>Provincias</span>
           </a>
         </li>
-        <li>
+        <li class="active">
           <a href="{{url('turisticsite')}}" method="get"><i class="fa fa-get-pocket"></i> <span>Sitios Turisticos</span></a></li>
         <li class="treeview">
-          <a href="#"><i class="fa  fa-users"></i> <span>Multilevel</span>
+          <a href="#"><i class="fa  fa-users"></i> <span>Gestion de Usuarios</span>
             <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
               </span>
           </a>
-          <ul class="treeview-menu">
+          <ul class="treeview-menu" class="active">
             <li>
-              <a href="{{url('permission')}}" method="get"><i class="fa fa-unlock-alt"></i> <span>Permisos</span></a></li>
+              <a href="{{url('manageuser')}}" method="get"><i class="fa fa-unlock-alt"></i> <span>Usuarios</span></a></li>
             </li>
             <li>
-              <a href="#">Link in level 2</a>
+              <a href="{{url('role')}}" method="get"><i class="fa fa-ticket"></i> <span>Roles</span></a></li>
+            </li>
+            <li>
+              <a href="{{url('permission')}}" method="get"><i class="fa fa-thumbs-up"></i> <span>Permisos</span></a></li>
             </li>
           </ul>
         </li>

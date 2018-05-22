@@ -17,8 +17,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 //
 	Route::resource('permission','PermissionController');
 //management_Users
-	Route::get('manageuser','AdminController@index');
-
+	Route::resource('user','AdminController');
+//Roles
+	Route::resource('role','RoleController');
 //Turiistic Sites
 	Route::resource('turisticsite','TuristicsiteController');
 //Provinces

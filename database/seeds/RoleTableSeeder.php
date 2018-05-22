@@ -11,6 +11,7 @@ class RoleTableSeeder extends Seeder
      */
     public function run()
     {
+        /*
         \DB::table('roles')->insert(array (
         	'name'			=> 'Administrador',
         	'description'	=> 'Administrador del Sitio',
@@ -21,5 +22,6 @@ class RoleTableSeeder extends Seeder
         	'description'	=> 'Modelador del Sitio',
         	'status'		=> 'true',
         ));
+        */
     }
 }

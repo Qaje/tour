@@ -15,6 +15,6 @@ class Permission extends Model
     public function roles()
     {
     	// belongsTo(RelatedModel, foreignKey = _id, keyOnRelatedModel = id)
-    	return $this->belongsToMany('App\Role','permission_role','role_id','permission_id')->withTimestamps();
+    	return $this->belongsToMany('App\Role')->withTimestamps();
     }
 }

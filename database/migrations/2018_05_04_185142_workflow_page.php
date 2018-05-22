@@ -14,7 +14,6 @@ class WorkflowPage extends Migration
             $table->string('name')->unique();
             $table->string('description');
             $table->boolean('status');
-            $table->rememberToken();
             $table->timestamps();
         });
         
@@ -35,17 +34,11 @@ class WorkflowPage extends Migration
             $table->timestamps();
         });
         Schema::create('permission_role', function (Blueprint $table) {
+            $table->increments('id')->unique();
             $table->integer('permission_id')->unsigned();
             $table->integer('role_id')->unsigned();
-            $table->foreign('permission_id')
-                  ->references('id')
-                  ->on('permissions')
-                  ->onDelete('cascade');
-            $table->foreign('role_id')
-                  ->references('id')
-                  ->on('roles')
-                  ->onDelete('cascade');
-            $table->primary(['permission_id','role_id']);
+            $table->foreign('role_id')->references('id')->on('roles')->onDelete('cascade');
+            $table->foreign('permission_id')->references('id')->on('permissions')->onDelete('cascade');
             $table->timestamps();
         });
 

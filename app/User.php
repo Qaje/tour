@@ -38,6 +38,7 @@ class User extends Authenticatable
     public function roles()
     {
         // belongsTo(RelatedModel, foreignKey = _id, keyOnRelatedModel = id)
-        return $this->belongsToMany('App\Role')->withTimestamps(); //role_user
+
+        return $this->belongsToMany('App\Role','role_user','user_id','role_id')->withTimestamps(); //role_user
     }
 }

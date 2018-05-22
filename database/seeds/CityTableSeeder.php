@@ -11,6 +11,7 @@ class CityTableSeeder extends Seeder
      */
     public function run()
     {
+        /*
         \DB::table('cities')->insert(array (
         	'name'			=> 'Chuquisaca',
         	'description'	=> 'Chuquisaca oficialmente conocida como Nuestra Señora de la Paz[nuestra señora de la Paz], también llamado Chuqi Yapu ( Chuquiago ) en Aymara , es la sede del gobierno y la capital nacional de facto del Estado Plurinacional de Bolivia (la capital constitucional de Bolivia es Sucre ). Con un estimado de 789,541 residentes a partir de 2015,  La Paz es ella tercera ciudad más populosa de Bolivia (después de Santa Cruz de la Sierra y El Alto ).',
@@ -74,5 +75,6 @@ class CityTableSeeder extends Seeder
         	'lat'			=> '-16.489689',
         	'country_id'    => '1',
         ));
+        */
     }
 }
