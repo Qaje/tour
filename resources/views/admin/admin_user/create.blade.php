@@ -16,7 +16,7 @@
 <section class="content-header">
 	<h1>
 		Usuarios
-		<small>Ver de Usuario - {{$user->id}}{{$user->name}}</small>
+		<small>Creacion de Usuarios
 	</h1>
 	<ol class="breadcrumb">
 		<li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
@@ -29,46 +29,60 @@
 		  	 <!--------------------------
 		     | Your Page Content Here |
 			 -------------------------->
-		
-				{{--
-		    <form action="/turisticsite/{{$turisticsite->id}}" method="PUT" enctype="multipart/form-data" >
-		        <form action="/turisticsite/{{$role->id}}" method="PUT" enctype="multipart/form-data" >
-			   	<form action="turisticsite" method="POST" enctype="multipart/form-data" >
-					--}}
-	
-		
+
+		{{Form::open(array('method'=>'POST', 'route' => array('user.store'),'files' =>true )) }}
+
+	{{--
+			   <form action="turisticsite" method="POST" enctype="multipart/form-data" >
+		--}}
 		     	<div class="col-md-6 col-md-offset-3">
 		     		<!-- Form Element sizes -->
 		     		<div class="box box-success">
 		     			<div class="box-header with-border">
-		     				<h3 class="box-title">Editar  Usuario - {{$user->id}} {{$user->name}}</h3>
+		     				<h3 class="box-title">Registro de Nuevo Usuario</h3>
 		     			</div>
 		     			<div class="box-body">
 							{{--<input type="hidden" name="_token" value="{{ csrf_token() }}">--}}
 		     				     
-							<input type="hidden" name="_token" value="{{ csrf_token() }}">
+							{{ csrf_field() }}
 		     				
 		     				<div class="input-group">
 		     					<span class="input-group-addon"><i class="fa fa-book"></i></span>
-		     					<input type="text" class="form-control" name='name' placeholder="Nombre Usuario" value="{{$user->name}}">
+		     					<input type="text" class="form-control" name='name' placeholder="Nombre Completo">
 		     				</div>
 		     				<br>
 		     				<div class="input-group">
 		     					<span class="input-group-addon"><i class="fa fa-clone"></i></span>
-		     					<input type="text" class="form-control" name='email' placeholder="Email" value="{{$user->email}}">
+		     					<input type="text" class="form-control" name='email' placeholder="Email / Correo Electronico">
 		     				</div>
 		     				<br>
-							<div class="form-group">
-								<label>Roles </label>
-								
-								<p>{{ $role->id }} {{ $role->name }}</p>
 
-							</div> 
+		     				<div class="input-group">
+		     					<span class="input-group-addon"><i class="fa fa-bus"></i></span>
+		     					<input type="password" class="form-control" name='password' placeholder="Clave o Password">
+		     				</div>
 		     				<br>
+							
+							<div class="form-group">
+								<label>Roles</label>
+								<select class="form-control" name="role_id">
+									@foreach($roles as $role)	
+								<option value="{{ $role->id }}">{{ $role->id }}   .{{$role->name }}</option>
+									@endforeach
+								</select>
+							</div> 
+							
+							<div class="input-group">
+								<label>Seleccione una imagen </label>
+		     					<input type="file"  name='avatar' class="form-control">
+
+		     				</div>
+		     				<br>
+		     				
 
 		     				<div class="box-footer">
 		     					<a href="{{url('user')}}" method="get" class="btn btn-danger " role="button" aria-pressed="true"><i class="fa fa-arrow-left"></i>   Volver</a>
-                    			
+                    			<button type="submit" class="btn btn-success"><i class="fa fa-arrow-right"></i> Guardar</button>
 		     				</div>
 
 
@@ -80,9 +94,10 @@
 		     	</div>
 		     	<!-- Input addon -->
 
+		     </form>
 		     
-		     
-         
+         {{Form::close()}}
 </section>
 		 <!-- /.content -->
+		
 @endsection

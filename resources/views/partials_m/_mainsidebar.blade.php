@@ -45,7 +45,7 @@
           </a>
           <ul class="treeview-menu" class="active">
             <li>
-              <a href="{{url('manageuser')}}" method="get"><i class="fa fa-unlock-alt"></i> <span>Usuarios</span></a></li>
+              <a href="{{url('user')}}" method="get"><i class="fa fa-unlock-alt"></i> <span>Usuarios</span></a></li>
             </li>
             <li>
               <a href="{{url('role')}}" method="get"><i class="fa fa-ticket"></i> <span>Roles</span></a></li>

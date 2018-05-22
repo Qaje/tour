@@ -19,7 +19,7 @@
                     <td>
                         <div class="input-group input-group-sm" style="width: 50px;">
                             <td>
-                                <a href="{{url('usuario/create')}}" method="get" class="btn btn-primary " role="button" aria-pressed="true"><i class="fa fa-plus"></i> Agregar Usuario</a>
+                                <a href="{{url('user/create')}}" method="get" class="btn btn-primary " role="button" aria-pressed="true"><i class="fa fa-plus"></i> Agregar Usuario</a>
                             </td>
                         </div>
                     </td>
@@ -52,11 +52,12 @@
                     </tr>
                     @foreach ($users as $user)             
                     <tr>
-
                         <td>{{ $user->id }}</td>
                         <td>{{ $user->name }}</td>
                         <td>{{ $user->email }}</td>
-                        <td>eco rol </td>
+                        @foreach($user->roles as $role)
+                        <td>{{ $role->id}} {{ $role->name}}  </td>
+                        @endforeach
                         <td>
                  
             {{Form::open(array('method'=>'DELETE', 'route' => array('user.destroy', $user->id)))}}

@@ -61,7 +61,7 @@
 							<div class="form-group">
 								<label>Roles </label>
 							
-									{{-- <p>{{ $role->id }} {{ $role->name }}</p> --}}
+								<p>{{ $role->id }} {{ $role->name }}</p>
 									
 								<select class="form-control" name="role_id" value="{{$role->id }}">
 									@foreach($roles as $role)	
