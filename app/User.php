@@ -41,4 +41,10 @@ class User extends Authenticatable
 
         return $this->belongsToMany('App\Role','role_user','user_id','role_id')->withTimestamps(); //role_user
     }
+    public function events()
+    {
+        // belongsTo(RelatedModel, foreignKey = _id, keyOnRelatedModel = id)
+
+        return $this->belongsToMany('App\Event','events_user','users_id','events_id')->withTimestamps(); //role_user
+    }
 }

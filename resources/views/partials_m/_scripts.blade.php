@@ -4,5 +4,9 @@
 <script src="/adminlte/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- AdminLTE App -->
 <script src="/adminlte/dist/js/adminlte.min.js"></script>
+<!-- Full calendar-->
+<script src="/plugins/lib/jquery.min.js"></script>
+<script src="/plugins/lib/moment.min.js"></script>
+<script src="/plugins/fullcalendar.min.js"></script>
 
 

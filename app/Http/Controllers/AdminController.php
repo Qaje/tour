@@ -8,6 +8,11 @@ use App\User;
 use App\Role;
 use Auth;
 use Image;
+use Input;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Foundation\Auth\RegistersUsers;
+
 class AdminController extends Controller
 {
     /**
@@ -25,6 +30,11 @@ class AdminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function dashboard()
+    {
+        return view('admin.dashboard');
+        
+    }
     public function index()
     {
         $users = User::orderBy('id','name')->paginate(5);
@@ -35,7 +45,13 @@ class AdminController extends Controller
     }
     public function create()
     {
-
+/*
+        return User::create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => Hash::make($data['password']),
+        ]);
+*/  
         $roles = Role::all();
         //dd($roles);how_to_come
         return view('admin.admin_user.create')->withRoles($roles);
@@ -54,13 +70,30 @@ class AdminController extends Controller
             $avatar = $request->file('avatar');
             $filename = 'avatar_user' . time() . '.' . $avatar->getClientOriginalExtension();
             Image::make($avatar)->resize(128,120)->save(public_path('/uploads/avatar_user/' . $filename));
+
         }
         //Hash::make
+        $data = array();
+        $validator =  Validator::make($data, [
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'password' => 'required|string|min:6|confirmed',
+        ]);
+        /*
+        $user = User::create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => Hash::make($data['password']),
+        ]);
+        */
+        //dd($validator);
         $user = new User();
+        
         $user->name         = $request->name;
         $user->email        = $request->email;    
-        $user->password     = $request->password;
-        $user->avatar       = $request->avatar;
+        //$user->password     = $request->password->Hash::make(['password']);
+        $user->password     = bcrypt(request('password'));
+        $user->avatar       = $filename;
         $user->save();
 
         $role = Role::Find($request->role_id);

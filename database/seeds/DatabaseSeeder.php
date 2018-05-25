@@ -16,12 +16,12 @@ class DatabaseSeeder extends Seeder
         //admin
         $this->call('AdminTableSeeder');
         //users 10
-        $this->call('UserTableSeeder');
+        //$this->call('UserTableSeeder');
         
         $this->call('CountryTableSeeder');
         $this->call('CityTableSeeder');
         $this->call('ProvinceTableSeeder');
-        $this->call('RoleTableSeeder');
+        //$this->call('RoleTableSeeder');
         
         
     }

@@ -4,7 +4,7 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="/uploads/avatars/{{ Auth::user()->avatar }}" class="img-circle" alt="User Image">
+          <img src="/uploads/avatar_user/{{ Auth::user()->avatar }}" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
           <p>{{ auth()->user()->name }}</p>
@@ -30,13 +30,13 @@
         <li class="header">ENLACES</li>
         <!-- Optionally, you can add icons to the links -->
         <li class="active">
-          <a href="{{url('province')}}" method="get" method="GET">
+          <a href="#" >
             <i class="fa fa-hand-paper-o"></i> 
-            <span>Provincias</span>
+            <span>Link</span>
           </a>
         </li>
         <li>
-          <a href="{{url('turisticsite')}}" method="get"><i class="fa fa-get-pocket"></i> <span>Sitios Turisticos</span></a></li>
+          <a href="" method=""><i class="fa fa-get-pocket"></i> <span>link</span></a></li>
         <li class="treeview">
           <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>
             <span class="pull-right-container">

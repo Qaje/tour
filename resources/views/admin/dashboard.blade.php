@@ -1,9 +1,10 @@
 
 @extends('main_m')
 
-@section('title', '| Provincias')
+@section('title', '| Bienvenido Administrador')
 
 @section('content')
-	<h1>Dashboard</h1>
-
+	<h1>Se recomienda ver el video.</h1>
+	@component('components-who')
+	@endcomponent
 @endsection

@@ -60,6 +60,9 @@
 		     				<div class="input-group">
 		     					<span class="input-group-addon"><i class="fa fa-bus"></i></span>
 		     					<input type="password" class="form-control" name='password' placeholder="Clave o Password">
+		     					{{--
+		     						{{ Form::password('password',['class' => 'form-control']) }}
+		     						--}}
 		     				</div>
 		     				<br>
 							

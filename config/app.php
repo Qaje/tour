@@ -166,6 +166,10 @@ return [
         Intervention\Image\ImageServiceProvider::class,
         //
         //yajra\DataTables\DataTablesServiceProvider::class,
+        
+        //MaddHatter\LaravelFullcalendar\ServiceProvider::class,
+        //Barryvdh\Debugbar\ServiceProvider::class,
+
 
 
 
@@ -226,6 +230,11 @@ return [
         //
         //'DataTables' => yajra\DataTables\Facades\DataTables::class,
         //' Datatables '  =>  Yajra \ Datatables \ Datatables :: clase ,
+        
+        //'Calendar' => MaddHatter\LaravelFullcalendar\Facades\Calendar::class,
+//        'Debugbar' => Barryvdh\Debugbar\Facade::class,
+
+
     ],
 
 ];

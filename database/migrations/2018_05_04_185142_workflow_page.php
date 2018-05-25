@@ -200,21 +200,16 @@ class WorkflowPage extends Migration
             $table->decimal('lat', 20,10);
             $table->string('photorgrafic', 100);
             $table->string('author', 100);
-            $table->boolean('status');
+            $table->boolean('all_day');
+            $table->string('color');
             $table->timestamps();
         });
         Schema::create('events_user', function (Blueprint $table) {
+            $table->increments('id');
             $table->integer('events_id')->unsigned();
             $table->integer('users_id')->unsigned();
-            $table->foreign('events_id')
-                  ->references('id')
-                  ->on('events')
-                  ->onDelete('cascade');      
-            $table->foreign('users_id')
-                  ->references('id')
-                  ->on('users')
-                  ->onDelete('cascade');
-            $table->primary(['events_id','users_id']);
+            $table->foreign('events_id')->references('id')->on('events')->onDelete('cascade');      
+            $table->foreign('users_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
         Schema::create('news', function (Blueprint $table) {

@@ -12,6 +12,7 @@ class UserTableSeeder extends Seeder
      */
     public function run()
     {
+        /*
     	$faker = Faker::create();
 
     	for ($i=0; $i < 10; $i++) { 
@@ -22,5 +23,6 @@ class UserTableSeeder extends Seeder
             	'password'	=> \Hash::make('123456'),
             ));
         }
+        */
     }
 }
