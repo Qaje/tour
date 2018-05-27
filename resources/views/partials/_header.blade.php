@@ -155,14 +155,15 @@
                     Profile</a>
                   </div>
                   <div class="pull-right">
-                    <a href="{{ url('users/logout') }}" class="btn btn-default btn-flat"
-                      onclick="event.preventDefault();
-                      document.getElementById('logout-form').submit();" >
-                      Logout
+                                          <!--start naav logout--> 
+                    <a href="{{ route('logout') }}"onclick="event.preventDefault();
+                        document.getElementById('logout-form').submit();" class="btn btn-default btn-flat">
+                        {{ __('Logout') }}
                     </a>
-                    <form id="logout-form" action="{{ 'App\User' == Auth::getProvider()->getModel() ? route('user.logout') : route('logout') }}" method="POST" style="display: none;">
-                    {{ csrf_field() }}
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
                     </form>
+                    <!--end nav logout-->
                   </div>
                 </li>
               </li>

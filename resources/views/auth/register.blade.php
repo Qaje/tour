@@ -34,7 +34,7 @@
   </div>
 
   <div class="register-box-body">
-    <p class="login-box-msg">Register a new membership</p>
+    <p class="login-box-msg">Registro de un Nuevo Usuario</p>
 
     <form action="register" method="post">
       <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">

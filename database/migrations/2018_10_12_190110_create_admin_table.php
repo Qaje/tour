@@ -19,7 +19,7 @@ class CreateAdminTable extends Migration
             $table->string('email')->unique();
             $table->string('job_title');
             $table->string('password');
-            $table->string('avatar')->default('default.jpg');//extension jpg,png
+            $table->string('avatar')->default('avatar_admin/default.jpg');//extension jpg,png
             $table->rememberToken();
             $table->timestamps();
         });
