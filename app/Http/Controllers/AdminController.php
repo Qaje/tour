@@ -38,9 +38,11 @@ class AdminController extends Controller
     public function index()
     {
         $users = User::orderBy('id','name')->paginate(5);
+        $role = new Role();
         $roles = Role::all();
-
-        return view('admin.admin_user.index')->withUsers($users);
+        //$role = Role::Find(1);
+        //dd($role);
+        return view('admin.admin_user.index')->withUsers($users)->withRoles($roles);
         
     }
     public function create()
@@ -106,7 +108,8 @@ class AdminController extends Controller
     {
         $user = User::find($id);
         $roles = Role::all();
-        //dd($user);
+        $role = new Role();
+            //dd($user);
         foreach ($user->roles as $role) 
         {
            $role->id;
@@ -119,6 +122,7 @@ class AdminController extends Controller
 
         $user = User::find($id);
         $roles= Role::all();
+        $role = new Role();
         foreach ($user->roles as $role) 
         {
             $role->id;

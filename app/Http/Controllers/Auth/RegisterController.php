@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Roles;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
@@ -28,7 +29,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/admin-lte';
+    protected $redirectTo = '/home';
 
     /**
      * Create a new controller instance.
@@ -63,11 +64,15 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        dd($data);
+        //dd($data);
         return User::create([
             'name'      => $data['name'],
             'email'     => $data['email'],
-            'password'  => Hash::make($data['password']), 
+            'password'  => Hash::make($data['password']),
         ]);
+        $roles = Role::all();
+        $role = Role::Find(1);
+        $user->roles()->attach(1);
+
     }
 }

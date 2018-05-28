@@ -60,15 +60,15 @@
                         @endforeach
                         <td>
                  
-            {{Form::open(array('method'=>'DELETE', 'route' => array('user.destroy', $user->id)))}}
+                        {{Form::open(array('method'=>'DELETE', 'route' => array('user.destroy', $user->id)))}}
                             <a href="/user/{{$user->id}}/edit" method="get" class="btn btn-warning " role="button" >
                                     <i class="fa fa-edit"></i> Editar
                                 </a>                            
                                 <a href="/user/{{$user->id}}" method="get" class="btn btn-success " role="button" >
                                     <i class="fa fa-eye"></i> Ver
                                 </a>
-                            {{Form::submit('Delete', array('class'=>'btn btn-danger'))}}
-                            {{Form::close()}}
+                        {{Form::submit('Delete', array('class'=>'btn btn-danger'))}}
+                        {{Form::close()}}
                             
                         </td>
                     </tr>

@@ -72,7 +72,7 @@
 		     				<br>
 
 		     				<div class="box-footer">
-		     					<a href="{{url('role')}}" method="get" class="btn btn-danger " role="button" aria-pressed="true"><i class="fa fa-arrow-left"></i>   Volver</a>
+		     					<a href="{{url('user')}}" method="get" class="btn btn-danger " role="button" aria-pressed="true"><i class="fa fa-arrow-left"></i>   Volver</a>
                     			<button type="submit" class="btn btn-success"><i class="fa fa-arrow-right"></i> Guardar</button>
 		     				</div>
 
