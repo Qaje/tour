@@ -7,8 +7,27 @@
 <!-- Full calendar-->
 <script src="/plugins/lib/jquery.slimscroll.min.js"></script>
 <script src="/plugins/lib/jquery-ui.min.js"></script>
+{{--
 <script src="/plugins/lib/jquery.min.js"></script>
 <script src="/plugins/lib/moment.min.js"></script>
 <script src="/plugins/fullcalendar.js"></script>
 
-
+	--}}
+<script src='/plugins/lib/jquery.min.js'></script>
+<script src='/plugins/lib/moment.min.js'></script>
+<script src='/plugins/fullcalendar.js'></script>
+ <script>
+  $(document).ready(function() {
+    $('#calendar').fullCalendar({
+      defaultDate: '2018-03-12',
+      editable: true,
+      eventLimit: true, // allow "more" link when too many events
+      events: [
+        {
+          title: 'All Day Event',
+          start: '2018-03-01'
+        },
+      ]
+    });
+  });
+  </script>
