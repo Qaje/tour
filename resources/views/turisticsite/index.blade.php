@@ -4,7 +4,7 @@
 
 @section('content')
 
-<h1>Sitios Truristicos</h1>
+<h1>Sitios Turisticos</h1>
 
 <div class="row">
     <div class="col-xs-12">
@@ -13,7 +13,7 @@
                 <td>
                     
                 <tr class="form-control">
-                <h3 class="box-title">Sitios Truristicos en Bolivia</h3>
+                <h3 class="box-title">Sitios Turisticos en Bolivia</h3>
                 </tr>
                 <tr class="form-control pull-right">
                     <td>
