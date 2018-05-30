@@ -26,6 +26,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 	Route::resource('province','ProvinceController');
 //Event
 	Route::resource('event','EventController');
+//Categiry
+	Route::resource('category','CategoryController');
 
 
 //Users

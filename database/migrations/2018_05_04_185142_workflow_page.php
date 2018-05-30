@@ -47,7 +47,6 @@ class WorkflowPage extends Migration
             $table->increments('id');
             $table->string('name',200);
             $table->string('description',200);
-            $table->datetime('last_modification');
             $table->timestamps();
         });
         Schema::create('turistic_types_companies',function(Blueprint $table){
@@ -55,7 +54,6 @@ class WorkflowPage extends Migration
             $table->increments('id');
             $table->string('name',200);
             $table->string('description',200);
-            $table->string('last_modification',20);
             $table->string('service_type',40);
             $table->timestamps();
         });
@@ -77,7 +75,6 @@ class WorkflowPage extends Migration
             $table->string('email',200);
             $table->date('date_born', 100);
             $table->string('photografic', 100);
-            $table->datetime('last_modification');
             $table->string('cellnumber',10);
             $table->timestamps();
         });
@@ -89,7 +86,6 @@ class WorkflowPage extends Migration
             $table->boolean('status');
             $table->string('email_siteweb',200);
             $table->string('photografic', 100);
-            $table->datetime('last_modification');
             $table->string('observation',500);
             $table->integer('liable_id')->unsigned();
             $table->foreign('liable_id')->references('id')->on('liables');
