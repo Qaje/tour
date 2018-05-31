@@ -55,6 +55,7 @@ class WorkflowPage extends Migration
             $table->string('name',200);
             $table->string('description',200);
             $table->string('service_type',40);
+            $table->string('slug')->unique();
             $table->timestamps();
         });
         Schema::create('categories_turistic_type_companies', function (Blueprint $table) {

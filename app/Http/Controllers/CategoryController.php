@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Category;
 use Auth;
+use Response;
+use Session;
     
 class CategoryController extends Controller
 {
@@ -27,7 +29,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('category.create');
     }
 
     /**
@@ -38,7 +40,19 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,array(
+            'name'        =>    'required',
+            'description' =>    'required'
+         ));
+         $category = new Category;
+         $category->name = $request->name;
+         $category->description = $request->description;
+ 
+         $category->save();
+ 
+         Session::Flash('success','New Categoria was successfully created!');
+ 
+         return redirect()->route('category.index');
     }
 
     /**
@@ -49,7 +63,8 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-        //
+        $category = Category::find($id);
+        return view('category.show')->withCategory($category);
     }
 
     /**
@@ -60,7 +75,8 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $category = Category::find($id);
+        return view('category.edit')->withCategory($category);
     }
 
     /**
@@ -72,7 +88,19 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request,array(
+            'name'           =>'required',
+            'description'=>'required',
+        ));
+         $category = Category::find($id);
+         $category->name = $request->name;
+         $category->description = $request->description;
+         
+         $category->save();
+ 
+         Session::Flash('success','New Category was successfully UPdate!');
+         
+         return redirect()->route('category.index');
     }
 
     /**
@@ -83,6 +111,10 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $category = Category::find($id);
+        $category->delete();
+
+        return redirect()->route('category.index');
     }
+
 }
