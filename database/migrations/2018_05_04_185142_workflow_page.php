@@ -320,7 +320,7 @@ class WorkflowPage extends Migration
         Schema::DropIfExists('turistic_companies');
         Schema::DropIfExists('liables');
 
-        Schema::DropIfExists('categories_turistic_type_companies');
+        Schema::DropIfExists('category_turistic_type_companies');
         Schema::DropIFExists('turistic_type_companies');
         Schema::DropIfEXists('categories');
 

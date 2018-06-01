@@ -42,26 +42,28 @@ class TuristictypecompanyController extends Controller
     public function store(Request $request)
     {
         //dd($request);
+        //dd($request);
+        /*
         $this->validate($request, array(
             'name'         => 'required',
             'description'  => 'required',
             'service_type' => 'required',
             'slug'         => 'required'
         ));
-        $turistictypecompany = new Turistictypecompany();
-
-        $turistictypecompany->name = $request->name;
-        $turistictypecompany->description = $request->description;
-        $turistictypecompany->service_type = $request->service_type;
-        $turistictypecompany->slug = $request->slug;
-
-        $category = Category::Find($request->category_id);
-        
-        $turistictypecompany->categories()->attach($category);
+        */
+        $turistictypecompany                = new Turistictypecompany();
+        $turistictypecompany->name          = $request->name;
+        $turistictypecompany->description   = $request->description;
+        $turistictypecompany->service_type  = $request->service_type;
+        $turistictypecompany->slug          = $request->slug;
 
         $turistictypecompany->save();
 
-        return redirect()->route('turistictypecompany');
+        $category = Category::Find($request->category_id);
+        $turistictypecompany->categories()->attach($category);
+        
+
+        //return redirect()->route('turistictypecompany');
     }
 
     /**
@@ -72,7 +74,13 @@ class TuristictypecompanyController extends Controller
      */
     public function show($id)
     {
+
         $turistictypecompany = Turistictypecompany::find($id);
+        //$categories = Category::all();
+        foreach ($turistictypecompany->categories as $category) 
+        {
+           $category->id.$category->name;
+        }
         return view('turistictypecompany.show')->withTuristictypecompany($turistictypecompany);
     }
 

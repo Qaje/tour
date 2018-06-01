@@ -71,7 +71,7 @@
 		     				<br>	
 							<div class="input-group">
 		     					<span class="input-group-addon"><i class="fa fa-random"></i></span>
-		     					<input type="text" class="form-control" name='category_id' placeholder="Categoriaa" value="{{ $category->id }} - {{ $category->name }}">
+		     					<input type="text" class="form-control" name='category' placeholder="Categoriaa" value="{{ $category->id }} - {{ $category->name }}">
 		     				</div>
 							<br>
 		     				<div class="box-footer">
