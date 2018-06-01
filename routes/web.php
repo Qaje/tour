@@ -28,6 +28,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 	Route::resource('event','EventController');
 //Categiry
 	Route::resource('category','CategoryController');
+//Turistictypecompany
+	Route::resource('turistictypecompany','TuristictypecompanyController');
 
 
 //Users

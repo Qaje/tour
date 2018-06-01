@@ -47,6 +47,10 @@
           <a href="{{url('category')}}" method="get"><i class="fa fa-get-pocket"></i> 
           <span>Categorias de Servicios</span></a>
         </li>
+        <li class="active">
+          <a href="{{url('turistictypecompany')}}" method="get"><i class="fa fa-get-pocket"></i> 
+          <span>Tipo de Compañia Turistica</span></a>
+        </li>
 
         <li class="treeview">
             <a href="#"><i class="fa  fa-users"></i> <span>Gestion de Usuarios</span>

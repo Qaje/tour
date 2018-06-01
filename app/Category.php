@@ -12,9 +12,9 @@ class Category extends Model
 		'name',
 		'description'
 	]; 
-    public function Turistictypes()
+    public function Turistictypecompanies()
     {
     	// belongsTo(RelatedModel, foreignKey = _id, keyOnRelatedModel = id)
-    	return $this->belongsToMany('App\Turistictype')->withTimestamps();
+    	return $this->belongsToMany('App\Turistictypecompany')->withTimestamps();
     }
 }

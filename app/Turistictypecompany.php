@@ -4,18 +4,19 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Turistictype extends Model
+class Turistictypecompany extends Model
 {
-    protected $table = 'turistic_types_companies';
+    protected $table = 'turistic_type_companies';
 
 	protected $fillable = [
 		'name',
-		'description'
-		'service_type'
+		'description',
+		'service_type',
+        'slug'
 	]; 
     public function categories()
     {
     	// belongsTo(RelatedModel, foreignKey = _id, keyOnRelatedModel = id)
-    	return $this->belongsToMany('App\Category','categories_turistic_type_companies','category_id','turistic_type_company_id')->withTimestamps();
+    return $this->belongsToMany('App\Category','categories_turistic_type_companies','turistic_type_company_id','category_id')->withTimestamps();
     }
 }

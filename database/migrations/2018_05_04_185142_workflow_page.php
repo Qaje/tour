@@ -49,21 +49,21 @@ class WorkflowPage extends Migration
             $table->string('description',200);
             $table->timestamps();
         });
-        Schema::create('turistic_types_companies',function(Blueprint $table){
+        Schema::create('turistic_type_companies',function(Blueprint $table){
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->string('name',200);
             $table->string('description',200);
             $table->string('service_type',40);
-            $table->string('slug')->unique();
+            $table->string('slug')->unique()->after('name');
             $table->timestamps();
         });
         Schema::create('categories_turistic_type_companies', function (Blueprint $table) {
             $table->increments('id')->unique();
             $table->integer('category_id')->unsigned();
-            $table->integer('turistic_type_company_id')->unsigned();
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');      
-            $table->foreign('turistic_type_company_id')->references('id')->on('turistic_types_companies')->onDelete('cascade');
+            $table->integer('turistic_type_company_id')->unsigned();
+            $table->foreign('turistic_type_company_id')->references('id')->on('turistic_type_companies')->onDelete('cascade');
             $table->timestamps();
         });
         Schema::create('liables',function(Blueprint $table){
@@ -118,9 +118,9 @@ class WorkflowPage extends Migration
         Schema::create('turistic_companies_turistic_type', function (Blueprint $table) {
             $table->increments('id')->unique();
             $table->integer('turistic_company_id')->unsigned();
-            $table->integer('turistic_type')->unsigned();
             $table->foreign('turistic_company_id')->references('id')->on('turistic_companies')->onDelete('cascade');      
-            $table->foreign('turistic_type')->references('id')->on('turistic_types_companies')->onDelete('cascade');
+            $table->integer('turistic_type')->unsigned();
+            $table->foreign('turistic_type')->references('id')->on('turistic_type_companies')->onDelete('cascade');
             $table->timestamps();
         });
         Schema::create('countries',function(Blueprint $table){
@@ -321,7 +321,7 @@ class WorkflowPage extends Migration
         Schema::DropIfExists('liables');
 
         Schema::DropIfExists('categories_turistic_type_companies');
-        Schema::DropIFExists('turistic_types_companies');
+        Schema::DropIFExists('turistic_type_companies');
         Schema::DropIfEXists('categories');
 
         Schema::DropIfExists('permission_role');
