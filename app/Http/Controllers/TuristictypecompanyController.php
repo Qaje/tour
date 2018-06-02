@@ -77,11 +77,12 @@ class TuristictypecompanyController extends Controller
 
         $turistictypecompany = Turistictypecompany::find($id);
         //$categories = Category::all();
+        $category = new Category();
         foreach ($turistictypecompany->categories as $category) 
         {
            $category->id.$category->name;
         }
-        return view('turistictypecompany.show')->withTuristictypecompany($turistictypecompany);
+        return view('turistictypecompany.show')->withTuristictypecompany($turistictypecompany)->withCategory($category);
     }
 
     /**

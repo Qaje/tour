@@ -63,10 +63,9 @@
 		     				<br>
 		     				<div class="input-group">
 		     					<span class="input-group-addon"><i class="fa fa-bus"></i></span>
-		     					<input type="text" class="form-control" name='slug' placeholder="Medios para llegar" value="{{ $turistictypecompany->slug }}">
+		     					<dd><a href="{{ url($turistictypecompany->slug) }}">{{($turistictypecompany->slug)}}</a></dd>
 		     				</div>
 		     				<div>
-		     					<dd><a href="{{ url($turistictypecompany->slug) }}"> url($turistictypecompany->slug)</a></dd>
 		     				</div>
 		     				<br>	
 							<div class="input-group">
@@ -75,7 +74,7 @@
 		     				</div>
 							<br>
 		     				<div class="box-footer">
-		     					<a href="{{url('turisticsite')}}" method="get" class="btn btn-danger " role="button" aria-pressed="true"><i class="fa fa-arrow-left"></i>   Volver</a>
+		     					<a href="{{url('turistictypecompany')}}" method="get" class="btn btn-danger " role="button" aria-pressed="true"><i class="fa fa-arrow-left"></i>   Volver</a>
 		     				</div>
 
 
