@@ -68,16 +68,18 @@
 		     					<input type="text" class="form-control" name='slug' placeholder="Recomendation para estar en el lugar" value="{{$turistictypecompany->slug}}">
 		     				</div>
 							<br>
-							
+	
 							<div class="form-group">
-								<label>Categorias </label>
+								<label>Categoria </label>
 								<p>{{ $category->id }} {{ $category->name }}</p>
-								<select class="form-control" name="province_id" value="{{$category->id }}">
-									@foreach($caategories as $category)	
+								<select class="form-control" name="category_id" value="{{$category->id }}">
+									@foreach($categories as $category)	
 								<option value="{{ $category->id }}">{{ $category->id }}   .{{$category->name }}</option>
 									@endforeach
 								</select>
 							</div> 
+		     				<br>
+
 		     				<div class="box-footer">
 		     					<a href="{{url('turistictypecompany')}}" method="get" class="btn btn-danger " role="button" aria-pressed="true"><i class="fa fa-arrow-left"></i>   Volver</a>
                     			<button type="submit" class="btn btn-success"><i class="fa fa-arrow-right"></i> Guardar</button>
@@ -92,7 +94,7 @@
 		     	</div>
 		     	<!-- Input addon -->
 
-		     </form>
+		     </form>	
 		     
          {!!Form::close()!!}
 		 </section>

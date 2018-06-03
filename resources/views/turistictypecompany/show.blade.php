@@ -48,12 +48,12 @@
 		     				
 		     				<div class="input-group">
 		     					<span class="input-group-addon"><i class="fa fa-book"></i></span>
-		     					<input type="text" class="form-control" name='name' placeholder="Nombre del Lugar" value="{{ $turistictypecompany->name }}">
+		     					<input type="text" class="form-control" name='name' placeholder="Nombre" value="{{ $turistictypecompany->name }}">
 		     				</div>
 		     				<br>
 		     				<div class="input-group">
 		     					<span class="input-group-addon"><i class="fa fa-clone"></i></span>
-		     					<input type="text" class="form-control" name='description' placeholder="Resumen" value="{{ $turistictypecompany->description }}">
+		     					<input type="text" class="form-control" name='description' placeholder="descripcion" value="{{ $turistictypecompany->description }}">
 		     				</div>
 		     				<br>
 		     				<div class="input-group">
@@ -70,7 +70,7 @@
 		     				<br>	
 							<div class="input-group">
 		     					<span class="input-group-addon"><i class="fa fa-random"></i></span>
-		     					<input type="text" class="form-control" name='category' placeholder="Categoriaa" value="{{ $category->id }} - {{ $category->name }}">
+		     					<input type="text" class="form-control" name='category' placeholder="Categoria" value="{{ $category->id }} - {{ $category->name }}">
 		     				</div>
 							<br>
 		     				<div class="box-footer">
