@@ -14,7 +14,8 @@
 //reservado para HOMe
 Route::get('/home', 'HomeController@index')->name('home');
 
-//
+
+//Permissions
 	Route::resource('permission','PermissionController');
 //management_Users
 	Route::resource('user','AdminController');
@@ -30,7 +31,10 @@ Route::get('/home', 'HomeController@index')->name('home');
 	Route::resource('category','CategoryController');
 //Turistictypecompany
 	Route::resource('turistictypecompany','TuristictypecompanyController');
+//PAGE CONTROLLER
 
+//SLUGS	
+	Route::get('page/{slug}',['as' => 'page.single','uses'=>'TuristictypecompanyController@getSingle'])->where('slug','[\w\d\-\_]+');
 
 //Users
 	Auth::routes();

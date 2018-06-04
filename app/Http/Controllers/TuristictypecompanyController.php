@@ -121,7 +121,13 @@ class TuristictypecompanyController extends Controller
         {
             $category->id;
         }
-            //guardar en la base de datos
+        $this->validate($request,array(
+            'name'         => 'require',
+            'description'  => 'require',
+            'service_type' => 'require',
+            'slug'         => 'require|alpha_dash|min:5|max:255|unique:turistictypecompanies,slug'
+        ));
+        //guardar en la base de datos
         $turistictypecompany->name         = $request->input('name');
         $turistictypecompany->description  = $request->input('description'); 
         $turistictypecompany->service_type = $request->input('service_type');
@@ -150,5 +156,11 @@ class TuristictypecompanyController extends Controller
         $turistictypecompany->categories()->detach($category);
         $turistictypecompany->delete();
         return redirect()->route('turistictypecompany.index');        
+    }
+
+    public function getSingle($slug){
+        $turistictypecompany = Turistictypecompany::where('slug', '=', $slug)->first();
+
+        return view('turistictypecompany.page')->withTuristictypecompany($turistictypecompany);
     }
 }

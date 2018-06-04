@@ -1,6 +1,6 @@
 	@extends('main_m')
 
-	@section('title', '| Tipo de Compañias Turisticas')
+	@section('title', "| $turistictypecompany->name")
 
 	@section('content')
 
@@ -15,8 +15,8 @@
 </style>
 <section class="content-header">
 	<h1>
-		Tipo de Compañias Turisticas
-		<small>Estos son algunos sitios que se encuentran en las compañias</small>
+		Perzonalizacion de la Pagina de la  Compañia Turistica
+		<small>Estos son ...</small>
 	</h1>
 	<ol class="breadcrumb">
 		<li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
@@ -63,16 +63,18 @@
 		     				<br>
 		     				<div class="input-group">
 		     					<span class="input-group-addon"><i class="fa fa-bus"></i></span>
-		     					<dd><a href="{{ url("/page/".$turistictypecompany->slug) }}">{{($turistictypecompany->slug)}}</a></dd>
+		     					<dd><a href="{{ url($turistictypecompany->slug) }}">{{($turistictypecompany->slug)}}</a></dd>
 		     				</div>
 		     				<div>
 		     				</div>
 		     				<br>	
+							{{--
 							<div class="input-group">
 		     					<span class="input-group-addon"><i class="fa fa-random"></i></span>
 		     					<input type="text" class="form-control" name='category' placeholder="Categoria" value="{{ $category->id }} - {{ $category->name }}">
 		     				</div>
 							<br>
+							--}}
 		     				<div class="box-footer">
 		     					<a href="{{url('turistictypecompany')}}" method="get" class="btn btn-danger " role="button" aria-pressed="true"><i class="fa fa-arrow-left"></i>   Volver</a>
 		     				</div>
@@ -88,7 +90,7 @@
 
 		     </form>
 		     
-         {{Form::close()}}
+         {{Form::close()}} 
 </section>
 		 <!-- /.content -->
 @endsection
