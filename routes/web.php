@@ -35,6 +35,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 //SLUGS	
 	Route::get('page/{slug}',['as' => 'page.single','uses'=>'TuristictypecompanyController@getSingle'])->where('slug','[\w\d\-\_]+');
+//turistic company
+	Route::resource('turisticcompany','TuristiccompanyController');
 
 //Users
 	Auth::routes();

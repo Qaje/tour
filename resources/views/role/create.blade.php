@@ -57,6 +57,7 @@
 		     				</div>
 		     				<br>
 		     				<div class="form-group">
+		     					<span class="input-group-addon"><i class="fa fa-pencil">Estado </i></span>
                   					<div class="radio">
                     					<label>
                       						<input type="radio" name="status" id="status1" value="true" checked="">
@@ -69,7 +70,7 @@
                       						Desactivar
                     					</label>
                   					</div>
-                			</div>
+                	</div>
 		     				<br>
 							<div class="form-group">
 								<label>Permisos</label>
