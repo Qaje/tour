@@ -37,4 +37,8 @@ class Turisticcompany extends Model
 		{
 				return $this->belongsToMany('App\Turistictypecompany','turistic_companies_turistic_type','turistic_company_id','turistic_type_id')->withTimestamps();
 		}
+		public function offices()
+		{
+				return $this->belongsToMany('App\Office','turistic_company_offices','turistic_company_id','office_id')->withTimestamps();
+		}
 }

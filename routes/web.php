@@ -31,6 +31,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 	Route::resource('category','CategoryController');
 //Turistictypecompany
 	Route::resource('turistictypecompany','TuristictypecompanyController');
+//offices
+	Route::resource('office','OfficeController');
 //PAGE CONTROLLER
 
 //SLUGS	

@@ -14,14 +14,11 @@ class TuristiccompanyController extends Controller
 	    {
 	        $this->middleware('auth:admin');
 	    }
-	    /*
-	    public function __construct()
-	    {
-	        $this->middleware('auth');
-	    }
-	    */
+
+
 	    public function index()
 	    {
+
 	        $turisticcompanies = Turisticcompany::orderBy('id','name_reasonsocial')->paginate(3);
 	        return view('turisticcompany.index')->withTuristiccompanies($turisticcompanies);
 	    }
@@ -84,27 +81,28 @@ class TuristiccompanyController extends Controller
 
 	        $turisticcompany->save();
 
-		        $turistictype = Turistictypecompany::Find($request->turistic_type_id);
+		      $turistictype = Turistictypecompany::Find($request->turistic_type_id);
 	        $turisticcompany->turistictypes()->attach($turistictype);
 
-	        return redirect()->route('turisticcompany.index');
+	        return view('turisticcompany.index');
 	     }
 	     public function show($id)
 	     {
-	        $turisticcompany = Turisticsite::find($id);
-	        //$turisticsites = Turisticsite::with('provinces');
-	        foreach ($turisticsite->provinces as $province) 
+	        $turisticcompany = Turisticcompany::find($id);
+	        //$turisticsites = Turisticsite::withtu('provinces');
+	        foreach ($turisticcompany->turistictypes as $turistictype) 
 	        {
-	           $province->id;
-	       }
+	           $turistictype->id;
+	       	}
 	        //dd($province);
 	        //$province = Province::Find($turisticsite->province_id);
 	        //$provinces = Province::all();
-	       return view('turisticsite.show')->withTuristicsite($turisticsite)->withProvince($province);
-	   }
+	       	return view('turisticcompany.show')->withTuristiccompany($turisticcompany)->withTuristictype($turistictype);
+	   	}
 	   public function edit($id)
-	   {
-
+	   {	
+	    dd('no disposnible,estamos trabajando en ello');
+/**
 	    $provinces= Province::all();
 	    $turisticsite = Turisticsite::find($id);
 	    foreach ($turisticsite->provinces as $province) 
@@ -113,11 +111,13 @@ class TuristiccompanyController extends Controller
 	    }
 	    
 	    return view('turisticsite.edit')->withTuristicsite($turisticsite)->withProvince($province)->withProvinces($provinces);
+	    */
 	}
 
 	public function update(Request $request, $id)
 	{
-	    //dd($request);
+	    dd('no disposnible,estamos trabajando en ello');
+	    /*
 	    $turisticsite = Turisticsite::find($id);
 	    $provinces = Province::all();
 	    //dd($province);
@@ -160,15 +160,20 @@ class TuristiccompanyController extends Controller
 
 	    //Session::flash('success','This TuristicSite was suyccessfully update.');
 	    return redirect()->route('turisticsite.show', $turisticsite->id);
-
+*/
 	}
 
 
 	public function destroy($id)
 	{
-	    $turisticsite = Turisticsite::find($id);
-	    $turisticsite->provinces()->detach($province);
-	    $turisticsite->delete();
-	    return redirect()->route('turisticsites.index');
+	    $turisticcompany = Turisticcompany::find($id);
+	    foreach ($turisticcompany->turistictypes as $turistictype) 
+	    {
+	           $turistictype->id;
+	    }
+	    $turisticcompany->turistictypes()->detach($turistictype);
+	    $turisticcompany->delete();
+	    return view('turisticcompany.index');
+
 	}
 }

@@ -101,14 +101,12 @@ class WorkflowPage extends Migration
         Schema::create('offices',function(Blueprint $table){
             $table->engine = 'InnoDB';
             $table->increments('id');
+            $table->string('nominal',200);
             $table->string('direccion',200);
             $table->string('description',200);
-            $table->integer('country');
-            $table->integer('city');
-            $table->integer('province');
             $table->string('office_photo',100);
             $table->string('contact',200);
-            $table->string('geolocalization',100);
+            //$table->string('geolocalization',100);
             $table->decimal('long', 20,10);
             $table->decimal('lat', 20,10);
             $table->timestamps();   
@@ -323,7 +321,7 @@ class WorkflowPage extends Migration
         Schema::DropIfExists('turistic_companies_turistic_type');
         Schema::DropIfExists('turistic_company_offices');
         Schema::DropIfExists('offices');
-        
+
         Schema::DropIfExists('user_turistic_type_companies');
         Schema::DropIfExists('turistic_companies');
 

@@ -1,24 +1,25 @@
 @extends('main_m')
 
-@section('title', '| Tipo de Compañias Turisticas')
+@section('title', '| Oficina o Sucursales')
 
 @section('content')
 
-<h1>Tipo de Compañias Turisticas</h1>
+<h1>Oficina o Sucursal</h1>
 
 <div class="row">
     <div class="col-xs-12">
         <div class="box">
             <div class="box-header">
-                <td> 
+                <td>
+                    
                 <tr class="form-control">
-                <h3 class="box-title">Tipo de Compañias Turisticas en Bolivia</h3>
+                <h3 class="box-title">Oficina o Sucursal en Bolivia</h3>
                 </tr>
                 <tr class="form-control pull-right">
                     <td>
                         <div class="input-group input-group-sm" style="width: 50px;">
                             <td>
-                                <a href="{{url('turistictypecompany/create')}}" method="get" class="btn btn-primary " role="button" aria-pressed="true"><i class="fa fa-plus"></i> Agregar Tipo de Compañia Turistica</a>
+                                <a href="{{url('office/create')}}" method="get" class="btn btn-primary " role="button" aria-pressed="true"><i class="fa fa-plus"></i> Agregar Nueva Oficina o Sucursal</a>
                             </td>
                         </div>
                     </td>
@@ -44,28 +45,35 @@
                 <table class="table table-hover">
                     <tbody><tr>
                         <th>#</th>
-                        <th>Denominativo</th>
+                        <th>Denominativo de Sucursal</th>
+                        <th>Direccion</th>
                         <th>Descripcion</th>
-                        <th>Categoria de Servicio</th>
-                        <th>Pagina</th>
+                        <th>Fotografia de la Oficina</th>
+                        <th>Contacto</th>
+                        <th>Long</th>
+                        <th>Lat</th>
                         <th>Links</th>
                     </tr>
-                    @foreach ($turistictypecompanies as $turistictypecompany)
+                    @foreach ($offices as $office)        
                     <tr>
 
-                        <td>{{ $turistictypecompany->id }}</td>
-                        <td>{{ $turistictypecompany->name }}</td>
-                        <td>{{ $turistictypecompany->description }}</td>
-                        <td>{{ $turistictypecompany->service_type }}</td>
-                        <td>{{ $turistictypecompany->slug }}</td>
+                        <td>{{ $office->id }}</td>
+                        <td>{{ $office->nominal }}</td>
+                        <td>{{ $office->direccion }}</td>
+                        <td>{{ $office->description }}</td>
+                        <td>{{ $office->office_photo }}</td>
                         <td>
-                            
-                            {{Form::open(array('method'=>'DELETE', 'route' => array('turistictypecompany.destroy', $turistictypecompany->id)))}}
-                            <a href="/turistictypecompany/{{$turistictypecompany->id}}/edit" method="get" class="btn btn-warning " role="button" >
+                            <img src="/uploads/turistic_company/turistic_company_office/{{ $office->office_photo }}" alt="" border="0" height="50" width="65" style="max-width: 130px;">
+                        </td>
+                        <td>{{ $office->contact }}</td>
+                        <td>{{ $office->long }}</td>
+                        <td>{{ $office->lat }}</td>
+                        <td>
+                            {{Form::open(array('method'=>'DELETE', 'route' => array('office.destroy', $office->id)))}}
+                            <a href="/office/{{$office->id}}/edit" method="get" class="btn btn-warning " role="button" >
                                     <i class="fa fa-edit"></i> Editar
                                 </a>                            
-                                
-                                <a href="/turistictypecompany/{{$turistictypecompany->id}}" method="get" class="btn btn-success " role="button" >
+                                <a href="/office/{{$office->id}}" method="get" class="btn btn-success " role="button" >
                                     <i class="fa fa-eye"></i> Ver
                                 </a>
                             {{Form::submit('Delete', array('class'=>'btn btn-danger'))}}
@@ -75,12 +83,9 @@
                     @endforeach
                 </tbody>
             </table>
-            {{--
                         <div class="mx-auto" style="width: 200px;">
-                {!! $turistictypecompany->links() !!}
+               
             </div>
-                --}}   
-
         </div>
         <!-- /.box-body -->
     </div>
@@ -88,5 +93,6 @@
 </div>
 
 </div>
-
+{{-- //modal --}}
+    
 @endsection
