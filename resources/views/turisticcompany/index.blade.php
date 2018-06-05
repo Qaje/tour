@@ -92,7 +92,7 @@
                 </tbody>
             </table>
                         <div class="mx-auto" style="width: 200px;">
-               
+               {!! $turisticcompanies->links() !!}
             </div>
         </div>
         <!-- /.box-body -->

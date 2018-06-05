@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 
 use App\Turisticcompany;
 use App\Office;
-
+use Image;
 class OfficeController extends Controller
 {
      public function __construct()
@@ -24,9 +24,9 @@ class OfficeController extends Controller
 	    public function create()
 	    {
 
-	        $turistictypes = Turistictypecompany::all();
+	        $turisticcompanies = Turisticcompany::all();
 	        //dd($provinces);how_to_come
-	        return view('turisticcompany.create')->withTuristictypes($turistictypes);
+	        return view('office.create')->withTuristiccompanies($turisticcompanies);
 	        //return view('turisticsite.create');
 	    		//return view('turisticcompany.create');
 	    }
@@ -35,55 +35,30 @@ class OfficeController extends Controller
 	        /*$this->validate($request,[
 	            'select_file' => 'required|image|mimes:jpeg,png,jpg,gif'
 	        ]);*/                           
-	        $turistictypes = Turistictypecompany::all();
+	        $turisticcompanies = Turisticcompany::all();
 	        
 	        //dd($province);
 	            //menor a 4 MB IMAGEN
-	        if($request->hasFile('logo')){
-	            $logo = $request->file('logo');
-	            $filename_logo = 'logo' . time() . '.' . $logo->getClientOriginalExtension();
-	            Image::make($logo)->resize(200,167)->save(public_path('/uploads/turistic_company/turistic_company_logo/' . $filename_logo));
+	        if($request->hasFile('office_photo')){
+	            $office_photo = $request->file('office_photo');
+	            $filename_photo = 'office_photo' . time() . '.' . $office_photo->getClientOriginalExtension();
+	            Image::make($office_photo)->resize(200,167)->save(public_path('/uploads/turistic_company/turistic_company_office/' . $filename_photo));
 	        }
-	        if($request->hasFile('image_a')){
-	            $image_a = $request->file('image_a');
-	            $filename_image_a = 'image_a' . time() . '.' . $image_a->getClientOriginalExtension();
-	            Image::make($image_a)->resize(200,167)->save(public_path('/uploads/turistic_company/turistic_company_galery/' . $filename_image_a));
-	        }
-	        if($request->hasFile('image_b')){
-	            $image_b = $request->file('image_b');
-	            $filename_image_b = 'image_b' . time() . '.' . $image_b->getClientOriginalExtension();
-	            Image::make($image_b)->resize(200,167)->save(public_path('/uploads/turistic_company/turistic_company_galery/' . $filename_image_b));
-	        }
-	        if($request->hasFile('image_c')){
-	            $image_c = $request->file('image_c');
-	            $filename_image_c = 'image_c' . time() . '.' . $image_c->getClientOriginalExtension();
-	            Image::make($image_c)->resize(200,167)->save(public_path('/uploads/turistic_company/turistic_company_galery/' . $filename_image_c));
-	        }
-	        $turisticcompany = new Turisticcompany();
+	        $office = new Office();
 	          
-	        $turisticcompany->name_reasonsocial = $request->name_reasonsocial;
-	        $turisticcompany->status       			= $request->status; 
-	        $turisticcompany->history        = $request->history;
-	        $turisticcompany->mision        = $request->mision;
-	        $turisticcompany->vision        = $request->vision;
-	        $turisticcompany->valores        = $request->valores;
-	        $turisticcompany->logo 				= $filename_logo;
-	        $turisticcompany->image_a 		= $filename_image_a;
-	        $turisticcompany->image_b 		= $filename_image_b;
-	        $turisticcompany->image_c 		= $filename_image_c;
-	        $turisticcompany->observation = $request->observation;
-	        $turisticcompany->siteweb         = $request->siteweb;
-	        $turisticcompany->service         = $request->service;
-	        $turisticcompany->email         = $request->email;
-	        $turisticcompany->whattsapp         = $request->whattsapp;
-	        $turisticcompany->facebook         = $request->facebook;
+	        $office->nominal 			= $request->nominal;
+	        $office->direccion    = $request->direccion; 
+	        $office->description  = $request->description;
+	        $office->office_photo	= $filename_photo;
+	        $office->contact 			= $request->contact;
+	        $office->long       	= $request->long;
+	        $office->lat         	= $request->lat;
+	        $office->save();
 
-	        $turisticcompany->save();
+		      $turisticcompany = Turisticcompany::Find($request->turistic_company_id);
+	        $office->turisticcompanies()->attach($turisticcompanies);
 
-		      $turistictype = Turistictypecompany::Find($request->turistic_type_id);
-	        $turisticcompany->turistictypes()->attach($turistictype);
-
-	        return view('turisticcompany.index');
+	        return view('office.index');
 	     }
 	     public function show($id)
 	     {

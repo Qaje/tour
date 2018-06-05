@@ -84,7 +84,7 @@
                 </tbody>
             </table>
                         <div class="mx-auto" style="width: 200px;">
-               
+               {!! $offices->links() !!}
             </div>
         </div>
         <!-- /.box-body -->

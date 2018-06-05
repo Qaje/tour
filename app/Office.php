@@ -29,6 +29,6 @@ class Office extends Model
 
 		public function turisticcompanies()
 		{
-				return $this->belongsToMany('App\Turisticcompany');
+				return $this->belongsToMany('App\Turisticcompany','turistic_company_offices','office_id','turistic_company_id')->withTimestamps();
 		}
 }

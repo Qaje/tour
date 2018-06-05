@@ -12,7 +12,8 @@
 */
 
 //reservado para HOMe
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('home');
+Route::get('/verificador', 'HomeController@verificador')->name('verificador');
 
 
 //Permissions

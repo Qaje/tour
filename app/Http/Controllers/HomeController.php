@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+use App\Turisticsite;
+use App\Category;
+use Image;
 
 
 class HomeController extends Controller
@@ -13,11 +17,12 @@ class HomeController extends Controller
      * con guard es mas seguro la pagina
      * @return void
      */
+    /*
     public function __construct()
     {
         $this->middleware('auth');
     }
-
+*/
     /**
      * Show the application dashboard.
      *
@@ -25,10 +30,17 @@ class HomeController extends Controller
      */
     public function index()
     {
-        //$seid = Session::getId();
-        //$data = Session::getId();
-        //dd($data);
-        //return view('admin.dashboard', ['data' => $data]);        
-        return view ('main');
+        $tss = Turisticsite::All(); 
+        $ts = new Turisticsite();
+        $cs = Category::all();
+        $c = new Category();
+        //dd($cs);
+        return view ('page_main')->withTss($tss)->withTs($ts)->withCs($cs)->withC($c);
+    }
+
+    public function verificador()
+    {
+        //verificador de session
+        return view ('home');
     }
 }
