@@ -51,6 +51,7 @@
                         <th>Vision</th>
                         <th>Valores</th>
                         <th>Logo</th>
+                        <th>Tipo de Compañia</th>
                         <th>Links</th>
                     </tr>
                     @foreach ($turisticcompanies as $turisticcompany)        
@@ -66,6 +67,11 @@
                             <img src="/uploads/turistic_company/turistic_company_logo/{{ $turisticcompany->logo }}" alt="" border="0" height="50" width="65" style="max-width: 130px;">
                         </td>
                         <td>
+                            @foreach($turisticcompany->turistictypes as $turistictype)
+                            {{ $turistictype->id}} {{ $turistictype->name}} 
+                            @endforeach
+                        </td>
+                        <td>
                             {{Form::open(array('method'=>'DELETE', 'route' => array('turisticcompany.destroy', $turisticcompany->id)))}}
                             <a href="/turisticcompany/{{$turisticcompany->id}}/edit" method="get" class="btn btn-warning " role="button" >
                                     <i class="fa fa-edit"></i> Editar
@@ -73,6 +79,11 @@
                                 <a href="/turisticcompany/{{$turisticcompany->id}}" method="get" class="btn btn-success " role="button" >
                                     <i class="fa fa-eye"></i> Ver
                                 </a>
+                                
+                                <a href="/office" method="get" class="class="btn bg-navy btn-flat margin" role="button" >
+                                    <button type="button" class="btn bg-navy btn-flat margin" ><i class="fa fa-building"></i> Oficinas</button>
+                                </a>
+
                             {{Form::submit('Delete', array('class'=>'btn btn-danger'))}}
                             {{Form::close()}}
                         </td>

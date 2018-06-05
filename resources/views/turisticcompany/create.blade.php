@@ -52,7 +52,7 @@
 		     				</div>
 		     				<br>
 		     				<div class="form-group">
-		     					<span class="input-group-addon"><i class="fa fa-pencil">Estado de Publicacion</i></span>
+		     					<span class="input-group-addon"><i class="fa fa-pencil"></i>Estado de Publicacion</span>
                   					<div class="radio">
                     					<label>
                       						<input type="radio" name="status" id="status1" value="true" checked="">
@@ -167,53 +167,4 @@
          {{Form::close()}}
 		 </section>
 		 <!-- /.content -->
-		 <script>
-		 	function initMap() {
-		 		var bolivia = {
-		 			lat: -16.2901540, 
-		 			lng: -63.5886530};
-		 			var map = new google.maps.Map(document.getElementById('map'), {
-		 				zoom: 15,
-		 				center: bolivia
-		 			});
-		 			var marker = new google.maps.Marker({
-		 				position: {
-		 					lat: -16.2901540, 
-		 					lng: -63.5886530
-		 				},
-		 				map: map,
-		 				draggable: true
-		 			});
-
-		 			var searchBox = new google.maps.places.SearchBox(document.getElementById('searchmap'));
-
-		 			google.maps.event.addListener(searchBox,'places_changed', function(){
-		 				var places = searchBox.getPlaces();
-		 				var bounds = new  google.maps.LatLngBounds();
-		 				var i, place;
-
-		 				for (i = 0; place= places[i] ; i++)
-		 				{	
-		 					bounds.extend(place.geometry.location);
-		 					marker.setPosition(place.geometry.location);
-		 				}
-
-		 				map.fitBounds(bounds);
-		 				map.setZoom(15);
-
-		 			});
-
-		 			google.maps.event.addListener(marker,'position_changed',function(){
-		 				var lat = marker.getPosition().lat();
-		 				var lng = marker.getPosition().lng();
-
-		 				$('#lat').val(lat);
-		 				$('#lng').val(lng);
-		 			});
-		 		}
-		 	</script>
-
-		 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBzTmmwZQMrY6ZWG0Z_MppOXN9A4Cp92z4&callback=initMap&libraries=places" type="text/javascript">
-		 	</script>
-
-		 	@endsection
+@endsection

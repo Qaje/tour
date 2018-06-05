@@ -1,6 +1,6 @@
 	@extends('main_m')
 
-	@section('title', '| Turistic Sites')
+	@section('title', '| Compañia Turistica')
 
 	@section('content')
 
@@ -15,8 +15,8 @@
 </style>
 <section class="content-header">
 	<h1>
-		Turistic Sites
-		<small>Estos son algunos sitios que se encuentran en nuestra Bolivia</small>
+		Compañia Turistica
+		<small>Estos son ompañias turisticas que se encuentran en nuestra Bolivia</small>
 	</h1>
 	<ol class="breadcrumb">
 		<li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
@@ -30,8 +30,6 @@
 		     | Your Page Content Here |
 			 -------------------------->
 
-		{{Form::open(array('method'=>'POST', 'route' => array('turisticsite.store'),'files' =>true )) }}
-
 	{{--
 			   <form action="turisticsite" method="POST" enctype="multipart/form-data" >
 		--}}
@@ -39,7 +37,7 @@
 		     		<!-- Form Element sizes -->
 		     		<div class="box box-success">
 		     			<div class="box-header with-border">
-		     				<h3 class="box-title">Ver Sitio Turistico Nro {{$turisticsite->id}}</h3>
+		     				<h3 class="box-title">Ver Compañia Turistica Nro {{$turisticcompany->id}}</h3>
 		     			</div>
 		     			<div class="box-body">
 							{{--<input type="hidden" name="_token" value="{{ csrf_token() }}">--}}
@@ -48,132 +46,114 @@
 		     				
 		     				<div class="input-group">
 		     					<span class="input-group-addon"><i class="fa fa-book"></i></span>
-		     					<input type="text" class="form-control" name='name_title' placeholder="Nombre del Lugar" value="{{ $turisticsite->name_title }}">
+		     					<input type="text" class="form-control" name='name_title' placeholder="Nombre del Lugar" value="{{ $turisticcompany->name_reasonsocial }}">
 		     				</div>
 		     				<br>
 		     				<div class="input-group">
 		     					<span class="input-group-addon"><i class="fa fa-clone"></i></span>
-		     					<input type="text" class="form-control" name='summary' placeholder="Resumen" value="{{ $turisticsite->summary }}">
+		     					<input type="text" class="form-control" name='status' placeholder="Resumen" value="{{ $turisticcompany->status }}">
 		     				</div>
 		     				<br>
 		     				<div class="input-group">
 		     					<span class="input-group-addon"><i class="fa fa-pencil"></i></span>
-		     					<input type="text" class="form-control" name='description' placeholder="Breve descripcion del lugar" value="{{ $turisticsite->description }}">
+		     					<input type="text" class="form-control" name='history' placeholder="Breve descripcion del lugar" value="{{ $turisticcompany->history }}">
 		     				</div>
 		     				<br>
 		     				<div class="input-group">
 		     					<span class="input-group-addon"><i class="fa fa-bus"></i></span>
-		     					<input type="text" class="form-control" name='how_to_come' placeholder="Medios para llegar" value="{{ $turisticsite->how_to_come }}">
+		     					<input type="text" class="form-control" name='mision' placeholder="Medios para llegar" value="{{ $turisticcompany->mision }}">
 		     				</div>
 		     				<br>
 		     				<div class="input-group">
 		     					<span class="input-group-addon"><i class="fa fa-random"></i></span>
-		     					<input type="text" class="form-control" name='recomendation' placeholder="Recomendation para estar en el lugar" value="{{ $turisticsite->recomendation }}">
+		     					<input type="text" class="form-control" name='vision' placeholder="Recomendation para estar en el lugar" value="{{ $turisticcompany->vision }}">
 		     				</div>
-							<br>
-							
-							<div class="input-group">
+								<br>
+								<div class="input-group">
 		     					<span class="input-group-addon"><i class="fa fa-random"></i></span>
-		     					<input type="text" class="form-control" name='recomendation' placeholder="Recomendation para estar en el lugar" value="{{ $province->id }} - {{ $province->name }}">
+		     					<input type="text" class="form-control" name='valores' placeholder="Recomendation para estar en el lugar" value="{{ $turisticcompany->valores }}">
 		     				</div>
-							<br>
+								<br>
+
 							<div class="input-group">
-								<label>Imagen del LUgar </label>
+								<label>Imagen del Logo </label>
 		     					<div>
-		     						
 		     					<td>
-                           		<img src="/uploads/turisticsite_photos/{{ $turisticsite->turisticsite_photo }}" alt="" border="0" height="100" width="130" style="max-width: 130px;">
+                           		<img src="/uploads/turistic_company/turistic_company_logo/{{ $turisticcompany->logo }}" alt="" border="0" height="100" width="130" style="max-width: 130px;">
+                        		</td>
+		     					</div>
+		     				</div>
+		     				<br>
+							<div class="input-group">
+								<label>Imagen A </label>
+		     					<div>
+		     					<td>
+                           		<img src="/uploads/turistic_company/turistic_company_galery/{{ $turisticcompany->image_a }}" alt="" border="0" height="100" width="130" style="max-width: 130px;">
                         		</td>
 		     					</div>
 		     				</div>
 		     				<br>
 		     				<div class="input-group">
+								<label>Imagen B </label>
+		     					<div>
+		     					<td>
+                           		<img src="/uploads/turistic_company/turistic_company_galery/{{ $turisticcompany->image_b }}" alt="" border="0" height="100" width="130" style="max-width: 130px;">
+                        		</td>
+		     					</div>
+		     				</div>
+		     				<br>
+							<div class="input-group">
+								<label>Imagen C </label>
+		     					<div>
+		     					<td>
+                           		<img src="/uploads/turistic_company/turistic_company_galery/{{ $turisticcompany->image_c }}" alt="" border="0" height="100" width="130" style="max-width: 130px;">
+                        		</td>
+		     					</div>
+		     				</div>
+		     				<br>
+
+	
+								<div class="input-group">
+			     					<span class="input-group-addon"><i class="fa fa-random"></i></span>
+			     					<input type="text" class="form-control" name='turistictype' placeholder="" value="{{ $turistictype->id }} - {{ $turistictype->name }} - {{ $turistictype->description }}">
+			     				</div>
+								<br>
+		     				<div class="input-group">
 		     					<span class="input-group-addon"><i class="fa fa-bus"></i></span>
-		     					<input type="text" class="form-control" name='long' id="lng" placeholder="Logitud" value="{{$turisticsite->long }}">
+		     					<input type="text" class="form-control" name='observation' placeholder="Logitud" value="{{$turisticcompany->observation }}">
 		     				</div>
 		     				<br>
 		     				<div class="input-group">
 		     					<span class="input-group-addon"><i class="fa fa-bus"></i></span>
-		     					<input type="text" class="form-control" name='lat'  id="lat" placeholder="Latitud" value="{{$turisticsite->lat}}">
+		     					<input type="text" class="form-control" name='service' placeholder="Latitud" value="{{$turisticcompany->service}}">
 		     				</div>
 		     				<br>
-		     				<h3 class="box-title">Localizacion</h3>
 		     				<div class="input-group">
-		     					<span class="input-group-addon"><i class="fa fa-map"></i></span>
-		     					<input type="text" class="form-control"  id="searchmap">
+		     					<span class="input-group-addon"><i class="fa fa-bus"></i></span>
+		     					<input type="text" class="form-control" name='email' placeholder="Logitud" value="{{$turisticcompany->email }}">
 		     				</div>
 		     				<br>
-		     				<div class="input-group" id="map">
-
+		     				<div class="input-group">
+		     					<span class="input-group-addon"><i class="fa fa-bus"></i></span>
+		     					<input type="text" class="form-control" name='whattsapp' placeholder="Latitud" value="{{$turisticcompany->whattsapp}}">
 		     				</div>
 		     				<br>
-
+		     				<div class="input-group">
+		     					<span class="input-group-addon"><i class="fa fa-bus"></i></span>
+		     					<input type="text" class="form-control" name='facebook' placeholder="Latitud" value="{{$turisticcompany->facebook}}">
+		     				</div>
+		     				<br>
 		     				<div class="box-footer">
-		     					<a href="{{url('turisticsite')}}" method="get" class="btn btn-danger " role="button" aria-pressed="true"><i class="fa fa-arrow-left"></i>   Volver</a>
+		     					<a href="{{url('turisticcompany')}}" method="get" class="btn btn-danger " role="button" aria-pressed="true"><i class="fa fa-arrow-left"></i>   Volver</a>
 		     				</div>
-
-
 		     			</div>
 		     			<!-- /.box-body -->
 		     		</div>
-
 		     		<!-- /.box -->
 		     	</div>
 		     	<!-- Input addon -->
-
 		     </form>
 		     
-         {{Form::close()}}
 		 </section>
 		 <!-- /.content -->
-		 <script>
-		 	function initMap() {
-		 		var bolivia = {
-		 			lat: {{$turisticsite->lat}}, 
-		 			lng: {{$turisticsite->long}}
-		 		};
-		 			var map = new google.maps.Map(document.getElementById('map'), {
-		 				zoom: 15,
-		 				center: bolivia
-		 			});
-		 			var marker = new google.maps.Marker({
-		 				position: {
-		 					lat: {{$turisticsite->lat}}, 
-		 					lng: {{$turisticsite->long}}
-		 				},
-		 				map: map,
-		 				draggable: true
-		 			});
-
-		 			var searchBox = new google.maps.places.SearchBox(document.getElementById('searchmap'));
-
-		 			google.maps.event.addListener(searchBox,'places_changed', function(){
-		 				var places = searchBox.getPlaces();
-		 				var bounds = new  google.maps.LatLngBounds();
-		 				var i, place;
-
-		 				for (i = 0; place= places[i] ; i++)
-		 				{	
-		 					bounds.extend(place.geometry.location);
-		 					marker.setPosition(place.geometry.location);
-		 				}
-
-		 				map.fitBounds(bounds);
-		 				map.setZoom(15);
-
-		 			});
-
-		 			google.maps.event.addListener(marker,'position_changed',function(){
-		 				var lat = marker.getPosition().lat();
-		 				var lng = marker.getPosition().lng();
-
-		 				$('#lat').val(lat);
-		 				$('#lng').val(lng);
-		 			});
-		 		}
-		 	</script>
-
-		 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBzTmmwZQMrY6ZWG0Z_MppOXN9A4Cp92z4&callback=initMap&libraries=places" type="text/javascript">
-		 	</script>
-
 		 	@endsection
