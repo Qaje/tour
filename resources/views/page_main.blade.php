@@ -8,7 +8,7 @@
   <meta content="" name="description">
 
   <!-- Favicons -->
-  <link href="bp/img/favicon.png" rel="icon">
+  <link href="bp/img/to update.png" rel="icon">
   <link href="bp/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
@@ -51,7 +51,7 @@
 
       <nav id="nav-menu-container">
         <ul class="nav-menu">
-          <li class="menu-active"><a href="#intro">Home</a></li>
+          <li class="menu-active"><a href="#intro">SItios Turisticos</a></li>
           <li><a href="#about">Nosotros</a></li>
           <li><a href="#services">Servicios</a></li>
           <li><a href="#portfolio">Compañias</a></li>
@@ -87,7 +87,7 @@
                       <div class="carousel-content">
                         <h2>{{ $ts->name_title }}</h2>
                         <p>{{ $ts->summary}}</p>
-                        <a href="#featured-services" class="btn-get-started scrollto">Get Started</a>
+                        <a href="#featured-services" class="btn-get-started scrollto">Comenzar</a>
                       </div>
                     </div>
                   </div>
@@ -109,7 +109,7 @@
   </section><!-- #intro -->
 
   <main id="main">
-
+{{--
     <!--==========================
       Featured Services Section
     ============================-->
@@ -138,6 +138,7 @@
         </div>
       </div>
     </section><!-- #featured-services -->
+  --}}
 
     <!--==========================
       About Us Section
@@ -157,10 +158,10 @@
           <div class="col-md-4 wow fadeInUp">
             <div class="about-col">
               <div class="img">
-                <img src="bp/img/about-mission.jpg" alt="" class="img-fluid">
+                <img src="bp/img/corazon del sur latino america.jpeg" alt="" class="img-fluid">
                 <div class="icon"><i class="ion-ios-speedometer-outline"></i></div>
               </div>
-              <h2 class="title"><a href="#">Mision</a></h2>
+              <h2 class="title"><a href="#">Misión</a></h2>
               <p>
                 Promover la construcción de la identidad boliviana plurinacional, intercultural, descolonizada y comunitaria. 
               </p>
@@ -170,7 +171,7 @@
           <div class="col-md-4 wow fadeInUp" data-wow-delay="0.1s">
             <div class="about-col">
               <div class="img">
-                <img src="bp/img/about-plan.jpg" alt="" class="img-fluid">
+                <img src="bp/img/corazon del sur.png" alt="" class="img-fluid">
                 <div class="icon"><i class="ion-ios-list-outline"></i></div>
               </div>
               <h2 class="title"><a href="#">Como Estado</a></h2>
@@ -183,10 +184,10 @@
           <div class="col-md-4 wow fadeInUp" data-wow-delay="0.2s">
             <div class="about-col">
               <div class="img">
-                <img src="bp/img/about-vision.jpg" alt="" class="img-fluid">
+                <img src="bp/img/images uyuni.jpeg" alt="" class="img-fluid">
                 <div class="icon"><i class="ion-ios-eye-outline"></i></div>
               </div>
-              <h2 class="title"><a href="#">Vision</a></h2>
+              <h2 class="title"><a href="#">Visión</a></h2>
               <p>
                 Que las bolivianas y bolivianos valoremos la diversidad cultural y la asumamos como identidad plurinacional
               </p>
@@ -733,7 +734,7 @@
               <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
               <div class="validation"></div>
             </div>
-            <div class="text-center"><button type="submit">Send Message</button></div>
+            <div class="text-center"><button type="submit">Enviar Mensaje</button></div>
           </form>
         </div>
 
@@ -756,7 +757,7 @@
           </div>
 
           <div class="col-lg-3 col-md-6 footer-links">
-            <h4>Useful Links</h4>
+            <h4>Links</h4>
             <ul>
               <li><i class="ion-ios-arrow-right"></i> <a href="#">Home</a></li>
               <li><i class="ion-ios-arrow-right"></i> <a href="#">Nosotros</a></li>
@@ -765,11 +766,10 @@
               <li><i class="ion-ios-arrow-right"></i> <a href="#">Politicas de Privacidad</a></li>
             </ul>
           </div>
-
           <div class="col-lg-3 col-md-6 footer-contact">
             <h4>Contacto</h4>
             <p>
-              C.Madidi<br>
+              <br>
               Nuestra Señora de La Paz<br>
               Bolivia <br>
               <strong>Celular:</strong> +591 73551142<br>

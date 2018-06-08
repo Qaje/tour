@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 use App\Turisticsite;
 use App\Category;
+use App\Turistictypecompany;
 use Image;
 
 
@@ -34,7 +35,9 @@ class HomeController extends Controller
         $ts = new Turisticsite();
         $cs = Category::all();
         $c = new Category();
-        //dd($cs);
+        $ttcs = Turistictypecompany::all();
+        $ttc = new Turistictypecompany();
+        dd($ttcs);
         return view ('page_main')->withTss($tss)->withTs($ts)->withCs($cs)->withC($c);
     }
 
