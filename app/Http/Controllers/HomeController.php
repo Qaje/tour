@@ -37,7 +37,7 @@ class HomeController extends Controller
         $c = new Category();
         $ttcs = Turistictypecompany::all();
         $ttc = new Turistictypecompany();
-        dd($ttcs);
+        //dd($ttcs);
         return view ('page_main')->withTss($tss)->withTs($ts)->withCs($cs)->withC($c);
     }
 

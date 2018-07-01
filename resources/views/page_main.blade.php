@@ -79,19 +79,30 @@
         <ol class="carousel-indicators"></ol>
 
         <div class="carousel-inner" role="listbox">
-            @foreach ($tss as $ts)  
-            {{-- expr --}}
-                <div class="carousel-item active">
-                    <div class="carousel-background"><img src="/uploads/turisticsite_photos/{{ $ts->turisticsite_photo }}" alt=""></div>
-                    <div class="carousel-container">
-                      <div class="carousel-content">
-                        <h2>{{ $ts->name_title }}</h2>
-                        <p>{{ $ts->summary}}</p>
-                        <a href="#featured-services" class="btn-get-started scrollto">Comenzar</a>
-                      </div>
-                    </div>
-                  </div>
-            @endforeach
+            
+          <div class="carousel-item active">
+            <div class="carousel-background"><img src="img/intro-carousel/1.jpg" alt=""></div>
+            <div class="carousel-container">
+              <div class="carousel-content">
+                <h2>We are professional</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <a href="#featured-services" class="btn-get-started scrollto">Comenzar</a>
+              </div>
+            </div>
+          </div>
+
+          @foreach($tss as $ts)
+          <div class="carousel-item">
+            <div class="carousel-background"><img src="/uploads/turisticsite_photos/{{ $ts->turisticsite_photo }}" alt=""></div>
+            <div class="carousel-container">
+              <div class="carousel-content">
+                <h2>{{$ts->name_title }}</h2>
+                <p>{{$ts->description }}</p>
+                <a href="#featured-services" class="btn-get-started scrollto">Comenzar</a>
+              </div>
+            </div>
+          </div>
+          @endforeach
         </div>
 
         <a class="carousel-control-prev" href="#introCarousel" role="button" data-slide="prev">
@@ -230,8 +241,8 @@
     ============================-->
     <section id="call-to-action" class="wow fadeIn">
       <div class="container text-center">
-        <h3>Llamada a la acccion</h3>
-        <p> Si visitas una ciudad por primera vez, deberías sin duda ver todos los lugares de interés turístico y posar delante de ellos; después de todo, los monumentos y similares son famosos por alguna razón y tienes que tacharlos de la lista.</p>
+        <h3>Llamada a la acción</h3>
+        <p> Si visitas una ciudad por primera vez, deberías sin duda ver todos las empresas y lugares de interés turístico y posar delante de ellos; después de todo, los monumentos y similares son famosos de una gran historia </p>
         <a class="cta-btn" href="#">Ser parte</a>
       </div>
     </section><!-- #call-to-action -->
