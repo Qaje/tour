@@ -223,7 +223,7 @@
 
         <div class="row">
         @foreach ($cs as $c)
-          {{-- expr --}}
+
           <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-duration="1.4s">
             <div class="icon"><i class="ion-ios-analytics-outline"></i></div>
             <h4 class="title"><a href="">{{$c->name}}</a></h4>

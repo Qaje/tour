@@ -135,7 +135,7 @@
 		 * @protected
 		 */
 		this._drag = {
-			time: 5,
+			time: 5000,
 			target: null,
 			pointer: null,
 			stage: {

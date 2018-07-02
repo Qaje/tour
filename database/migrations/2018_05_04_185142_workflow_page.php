@@ -12,7 +12,7 @@ class WorkflowPage extends Migration
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->string('name')->unique();
-            $table->string('description');
+            $table->string('description',500);
             $table->boolean('status');
             $table->timestamps();
         });
@@ -30,7 +30,7 @@ class WorkflowPage extends Migration
             $table->engine = 'InnoDB';
             $table->increments('id')->unique();
             $table->string('name',100);
-            $table->string('description',200);
+            $table->string('description',500);
             $table->timestamps();
         });
         Schema::create('permission_role', function (Blueprint $table) {
@@ -46,14 +46,14 @@ class WorkflowPage extends Migration
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->string('name',200);
-            $table->string('description',200);
+            $table->string('description',500);
             $table->timestamps();
         });
         Schema::create('turistic_type_companies',function(Blueprint $table){
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->string('name',200);
-            $table->string('description',200);
+            $table->string('description',500);
             $table->string('service_type',40);
             $table->string('slug')->unique()->after('name');
             $table->timestamps();
@@ -103,7 +103,7 @@ class WorkflowPage extends Migration
             $table->increments('id');
             $table->string('nominal',200);
             $table->string('direccion',200);
-            $table->string('description',200);
+            $table->string('description',500);
             $table->string('office_photo',100);
             $table->string('contact',200);
             //$table->string('geolocalization',100);
@@ -163,7 +163,7 @@ class WorkflowPage extends Migration
             $table->increments('id');
             $table->string('name_title')->unsigned();
             $table->string('summary')->unsigned();
-            $table->string('description', 100);
+            $table->string('description', 500);
             $table->string('how_to_come', 100);
             $table->string('recomendation');
             $table->string('turisticsite_photo')->default('turisticsitedefault.jpeg');
