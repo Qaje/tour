@@ -169,6 +169,7 @@ return [
         
         //MaddHatter\LaravelFullcalendar\ServiceProvider::class,
         //Barryvdh\Debugbar\ServiceProvider::class,
+        Laravel\Socialite\SocialiteServiceProvider::class,
 
 
 
@@ -233,6 +234,7 @@ return [
         
         //'Calendar' => MaddHatter\LaravelFullcalendar\Facades\Calendar::class,
 //        'Debugbar' => Barryvdh\Debugbar\Facade::class,
+        'Socialite' => Laravel\Socialite\Facades\Socialite::class,
 
 
     ],

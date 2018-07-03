@@ -15,6 +15,9 @@
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/verificador', 'HomeController@verificador')->name('verificador');
 
+//facebook
+Route::get('login/facebook', 'Auth\LoginController@redirectToProvider');
+Route::get('login/facebook/callback', 'Auth\LoginController@handleProviderCallback');
 
 //Permissions
 	Route::resource('permission','PermissionController');
