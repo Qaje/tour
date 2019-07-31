@@ -13,7 +13,7 @@
                 <td>
                     
                 <tr class="form-control">
-                <h3 class="box-title">Usuarios Situr-BOL</h3>
+                <h3 class="box-title">Usuarios Patrimonio</h3>
                 </tr>
                 <tr class="form-control pull-right">
                     <td>

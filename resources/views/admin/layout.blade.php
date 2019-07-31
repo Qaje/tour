@@ -7,7 +7,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>TurismoBolivia| Welcome to Bolivia</title>
+  <title>Patrimonio App| Welcome to Bolivia</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <link rel="stylesheet" href="/adminlte/bootstrap/dist/css/bootstrap.min.css">
@@ -64,7 +64,7 @@ desired effect
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>BOLI</b>VIA</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Admin</b>TourBolivia</span>
+      <span class="logo-lg"><b>Admin</b>Patrimonio App Bolivia</span>
     </a>
 
     <!-- Header Navbar -->
@@ -323,7 +323,7 @@ desired effect
       Anything you want
     </div>
     <!-- Default to the left -->
-    <strong>Copyright &copy; 2016 <a href="#">Company</a>.</strong> All rights reserved.
+    <strong>Copyright &copy; 2019 <a href="#">Company</a>.</strong> All rights reserved.
   </footer>
 
   <!-- Control Sidebar -->

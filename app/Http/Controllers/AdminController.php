@@ -72,30 +72,25 @@ class AdminController extends Controller
             $avatar = $request->file('avatar');
             $filename = 'avatar_user' . time() . '.' . $avatar->getClientOriginalExtension();
             Image::make($avatar)->resize(128,120)->save(public_path('/uploads/avatar_user/' . $filename));
-
         }
-        //Hash::make
         $data = array();
         $validator =  Validator::make($data, [
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
         ]);
-        /*
-        $user = User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-        ]);
-        */
         //dd($validator);
         $user = new User();
         
         $user->name         = $request->name;
+        $user->last_name    = $request->last_name;
         $user->email        = $request->email;    
-        //$user->password     = $request->password->Hash::make(['password']);
+        $user->ident_card   = $request->ident_card;
+        $user->born_in      = $request->born_in;
+        $user->date_born    = $request->date_born;
         $user->password     = bcrypt(request('password'));
-        $user->avatar       = $filename;
+        $user->role_id      = $request->role_id;
+        //$user->avatar       = $filename;
         $user->save();
 
         $role = Role::Find($request->role_id);
@@ -143,8 +138,13 @@ class AdminController extends Controller
         }   
         //guardar en la base de datos
         $user->name         = $request->input('name');
-        $user->email            = $request->input('email'); 
-       
+        $user->last_name    = $request->input('last_name');
+        $user->email        = $request->input('email'); 
+        $user->ident_card   = $request->input('ident_card');
+        $user->born_in      = $request->input('born_in');
+        $user->date_born    = $request->input('date_born');
+        $user->password     = bcrypt(request('password'));
+        $user->avatar       = $filename;
         $user->save();
         //dd($request);
         
@@ -161,7 +161,8 @@ class AdminController extends Controller
     {
         $user = User::find($id);
         $user->roles()->detach();
-        $user->delete();
+        $user->role_id      = $request->role_id;$user->delete(
+        );
         return redirect()->route('user.index');
     }
 }

@@ -5,7 +5,7 @@
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>BOLI</b>VIA</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Admin</b>TourBolivia</span>
+      <span class="logo-lg"><b>Patrimonio App</b>Bolivia</span>
     </a>
 
     <!-- Header Navbar -->

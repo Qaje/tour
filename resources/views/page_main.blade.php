@@ -44,26 +44,26 @@
     <div class="container-fluid">
 
       <div id="logo" class="pull-left">
-        <h1><a href="#intro" class="scrollto">Turismo Bolivia</a></h1>
+        <h1><a href="#intro" class="scrollto">Patrimonios Bolivia</a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="#intro"><img src="img/logo.png" alt="" title="" /></a>-->
       </div>
 
       <nav id="nav-menu-container">
         <ul class="nav-menu">
-          <li class="menu-active"><a href="#intro">SItios Turisticos</a></li>
+          <li class="menu-active"><a href="#intro">Patrimonios </a></li>
           <li><a href="#about">Nosotros</a></li>
           <li><a href="#services">Servicios</a></li>
-          <li><a href="#portfolio">Compañias</a></li>
+          <li><a href="#portfolio">Campañas</a></li>
           <li><a href="#team">Personal</a></li>
           <li class="menu-has-children"><a href="">Ingresar</a>
             <ul>
-              <li><a href="#">Usuario Cliente </a></li>
-              <li><a href="{{ url('admin/login') }}">Administrador</a></li>
-              <li><a href="{{ url('login') }}">Usuario Empresa</a></li>
+              <li><a href="#">Usuario Visita</a></li>
+              <li><a href="{{ url('admin/login') }}">Usuario Administrador</a></li>
+              <li><a href="{{ url('login') }}">Usuario Declarador</a></li>
             </ul>
           </li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="#contact">Contactos</a></li>
         </ul>
       </nav><!-- #nav-menu-container -->
     </div>
@@ -347,11 +347,11 @@
           <div class="col-lg-12">
             <ul id="portfolio-flters">
               <li data-filter="*" class="filter-active">Todos</li>
-              <li data-filter=".filter-app">Alojamientos</li>
-              <li data-filter=".filter-card">Restaurants</li>
-              <li data-filter=".filter-web">Intermediarios</li>
-              <li data-filter=".filter-web">Alquileres</li>
-              <li data-filter=".filter-web">Informativos</li>
+              <li data-filter=".filter-app">Tipo</li>
+              <li data-filter=".filter-card">Ubicacion</li>
+              <li data-filter=".filter-web">Departamento</li>
+              <li data-filter=".filter-web">Provincia</li>
+              <li data-filter=".filter-web">Lengua</li>
             </ul>
           </div>
         </div>

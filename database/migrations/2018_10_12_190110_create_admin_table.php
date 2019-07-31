@@ -21,6 +21,7 @@ class CreateAdminTable extends Migration
             $table->string('password');
             $table->string('avatar')->default('default.jpg');//extension jpg,png
             $table->rememberToken();
+            //  $table->dateTime('created_at');
             $table->timestamps();
         });
     }

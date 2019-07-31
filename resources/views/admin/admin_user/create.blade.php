@@ -48,24 +48,47 @@
 		     				
 		     				<div class="input-group">
 		     					<span class="input-group-addon"><i class="fa fa-book"></i></span>
-		     					<input type="text" class="form-control" name='name' placeholder="Nombre Completo">
+		     					<input type="text" class="form-control" name='name' placeholder=" Ingrese Nombres ">
 		     				</div>
 		     				<br>
+		     				
+		     				<div class="input-group">
+		     					<span class="input-group-addon"><i class="fa fa-book"></i></span>
+		     					<input type="text" class="form-control" name='last_name' placeholder=" Ingrese Apellido(s) ">
+		     				</div>
+		     				<br>
+
 		     				<div class="input-group">
 		     					<span class="input-group-addon"><i class="fa fa-clone"></i></span>
-		     					<input type="text" class="form-control" name='email' placeholder="Email / Correo Electronico">
+		     					<input type="text" class="form-control" name='email' placeholder="Ingrese Email / Correo Electronico">
 		     				</div>
 		     				<br>
 
 		     				<div class="input-group">
 		     					<span class="input-group-addon"><i class="fa fa-bus"></i></span>
 		     					<input type="password" class="form-control" name='password' placeholder="Clave o Password">
-		     					{{--
-		     						{{ Form::password('password',['class' => 'form-control']) }}
-		     						--}}
 		     				</div>
 		     				<br>
 							
+
+		     				<div class="input-group">
+		     					<span class="input-group-addon"><i class="fa fa-book"></i></span>
+		     					<input type="text" class="form-control" name='ident_card' placeholder=" Ingrese Numero de Identificación ">
+		     				</div>
+		     				<br>
+
+							<div class="input-group">
+		     					<span class="input-group-addon"><i class="fa fa-book"></i></span>
+		     					<input type="text" class="form-control" name='born_in' placeholder=" Extendido en Ciudad ">
+		     				</div>
+		     				<br>
+
+							<div class="input-group">
+		     					<span class="input-group-addon"><i class="fa fa-book"></i></span>
+		     					<input type="text" class="form-control" name='date_born' placeholder="Fecha de Nacimiento ">
+		     				</div>
+		     				<br>
+
 							<div class="form-group">
 								<label>Roles</label>
 								<select class="form-control" name="role_id">
@@ -74,14 +97,14 @@
 									@endforeach
 								</select>
 							</div> 
-							
+							<!--
 							<div class="input-group">
 								<label>Seleccione una imagen </label>
 		     					<input type="file"  name='avatar' class="form-control">
 
 		     				</div>
 		     				<br>
-		     				
+		     				-->
 
 		     				<div class="box-footer">
 		     					<a href="{{url('user')}}" method="get" class="btn btn-danger " role="button" aria-pressed="true"><i class="fa fa-arrow-left"></i>   Volver</a>

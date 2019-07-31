@@ -12,17 +12,22 @@ class UserTableSeeder extends Seeder
      */
     public function run()
     {
-        /*
+        
     	$faker = Faker::create();
 
     	for ($i=0; $i < 10; $i++) { 
             \DB::table('users')->insert(array (
             	'name'	=> $faker->name,
+                'last_name'  => $faker->name,
                 'email'	=> $faker->email,
+                'ident_card' => $faker->PhoneNumber,
+                'born_in' =>$faker->state,
+                'date_born'=> $faker->dateTime,
                 'avatar' => 'default.jpg',
             	'password'	=> \Hash::make('123456'),
+                'role_id' => $faker->numberBetween(1,2) 
             ));
         }
-        */
+        
     }
 }

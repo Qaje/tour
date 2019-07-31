@@ -1,4 +1,4 @@
-
+  
 @extends('main_m')
 
 @section('title', '| Bienvenido Administrador')

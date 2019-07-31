@@ -11,17 +11,17 @@ class RoleTableSeeder extends Seeder
      */
     public function run()
     {
-        /*
+        
         \DB::table('roles')->insert(array (
         	'name'			=> 'Administrador',
         	'description'	=> 'Administrador del Sitio',
-        	'status'		=> 'true',
+        	'status'		=>  1,
         ));
         \DB::table('roles')->insert(array (
-        	'name'			=> 'Modelador',
-        	'description'	=> 'Modelador del Sitio',
-        	'status'		=> 'true',
+        	'name'			=> 'Declarador',
+        	'description'	=> 'Declarador de Patrimonio',
+        	'status'		=>  1,
         ));
-        */
+        
     }
 }

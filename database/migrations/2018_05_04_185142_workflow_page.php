@@ -47,7 +47,7 @@ class WorkflowPage extends Migration
             $table->increments('id');
             $table->string('name',200);
             $table->string('description',500);
-            $table->timestamps();
+            //$table->timestamps();
         });
         Schema::create('turistic_type_companies',function(Blueprint $table){
             $table->engine = 'InnoDB';
@@ -55,16 +55,16 @@ class WorkflowPage extends Migration
             $table->string('name',200);
             $table->string('description',500);
             $table->string('service_type',40);
-            $table->string('slug')->unique()->after('name');
-            $table->timestamps();
+            $table->string('slug')->unique();
+            //$table->timestamps();
         });
         Schema::create('categories_turistic_type_companies', function (Blueprint $table) {
             $table->increments('id')->unique();
             $table->integer('category_id')->unsigned();
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');      
-            $table->integer('turistic_type_company_id')->unsigned();
-            $table->foreign('turistic_type_company_id')->references('id')->on('turistic_type_companies')->onDelete('cascade');
-            $table->timestamps();
+            $table->integer('turis_type_comp_id')->unsigned();
+            $table->foreign('turis_type_comp_id')->references('id')->on('turistic_type_companies')->onDelete('cascade');
+            //$table->timestamps();
         });
 
         Schema::create('turistic_companies',function(Blueprint $table){
@@ -94,8 +94,8 @@ class WorkflowPage extends Migration
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');      
-            $table->integer('turistic_company_id')->unsigned();
-            $table->foreign('turistic_company_id')->references('id')->on('turistic_companies')->onDelete('cascade');
+            $table->integer('tur_comp_id')->unsigned();
+            $table->foreign('tur_comp_id')->references('id')->on('turistic_companies')->onDelete('cascade');
             $table->timestamps();
         });
         Schema::create('offices',function(Blueprint $table){
@@ -161,8 +161,8 @@ class WorkflowPage extends Migration
         Schema::create('turistic_sites', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->string('name_title')->unsigned();
-            $table->string('summary')->unsigned();
+            $table->string('name_title');
+            $table->string('summary');
             $table->string('description', 500);
             $table->string('how_to_come', 100);
             $table->string('recomendation');
@@ -212,7 +212,7 @@ class WorkflowPage extends Migration
         Schema::create('news', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->date('publication_date')->unsigned();
+            $table->date('publication_date');
             $table->string('title',150);
             $table->string('content', 500);
             $table->string('how_to_come', 100); 
@@ -242,7 +242,7 @@ class WorkflowPage extends Migration
         Schema::create('announcements', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->date('publication_date')->unsigned();
+            $table->date('publication_date');
             $table->string('title',150);
             $table->string('content', 500);
             $table->string('how_to_come', 100); //hospedae
@@ -291,7 +291,7 @@ class WorkflowPage extends Migration
                 $table->string('first_name',100);
                 $table->string('email',200)->unique();
                 $table->boolean('status');
-                $table->date('date_born', 100);
+                $table->date('date_born');
                 $table->string('geolocalization', 100);
                 $table->decimal('long', 20,10);
                 $table->decimal('lat', 20,10);

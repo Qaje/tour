@@ -19,7 +19,7 @@
  <script>
   $(document).ready(function() {
     $('#calendar').fullCalendar({
-      defaultDate: '2018-03-12',
+      defaultDate: '2019-07-26',
       editable: true,
       eventLimit: true, // allow "more" link when too many events
       events: [
