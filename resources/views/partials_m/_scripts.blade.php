@@ -31,3 +31,42 @@
     });
   });
   </script>
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+  <script>
+  $(function() {
+    $( "#datepicker" ).datepicker();
+  });
+  </script>
+   <script type="text/javascript">
+  $(function() {
+          $( "#datepicker" ).datepicker( "option", "dateFormat", 'd MM, y');
+  });
+  </script>
+  <script type="text/javascript">
+  $(function() {
+    $( "#datepicker" ).datepicker({
+      changeMonth: true,
+      changeYear: true
+    });
+  });
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>  
+  <script type="text/javascript">
+
+    $('.timepicker').datetimepicker({
+
+        format: 'HH:mm:ss'
+
+    }); 
+
+</script>  
+
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script>
+
+ <script type="text/javascript">
+    $('.date').datepicker({  
+       format: 'yyyy-mm-dd'
+     });  
+</script>

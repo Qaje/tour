@@ -15,8 +15,8 @@
 </style>
 <section class="content-header">
 	<h1>
-		Turistic Sites
-		<small>Estos son algunos sitios que se encuentran en nuestra Bolivia</small>
+		Patrimonios
+		<small>Estos son algunos patrimonios que se encuentran en nuestra Bolivia</small>
 	</h1>
 	<ol class="breadcrumb">
 		<li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
@@ -39,7 +39,7 @@
 		     		<!-- Form Element sizes -->
 		     		<div class="box box-success">
 		     			<div class="box-header with-border">
-		     				<h3 class="box-title">Register a New Turistic Site</h3>
+		     				<h3 class="box-title">Registrar Patrimonio</h3>
 		     			</div>
 		     			<div class="box-body">
 							{{--<input type="hidden" name="_token" value="{{ csrf_token() }}">--}}
@@ -48,27 +48,27 @@
 		     				
 		     				<div class="input-group">
 		     					<span class="input-group-addon"><i class="fa fa-book"></i></span>
-		     					<input type="text" class="form-control" name='name_title' placeholder="Nombre del Lugar">
+		     					<input type="text" class="form-control" name='name_title' placeholder="Numero">
 		     				</div>
 		     				<br>
 		     				<div class="input-group">
 		     					<span class="input-group-addon"><i class="fa fa-clone"></i></span>
-		     					<input type="text" class="form-control" name='summary' placeholder="Resumen">
+		     					<input type="text" class="form-control" name='summary' placeholder="Denominacion">
 		     				</div>
 		     				<br>
 		     				<div class="input-group">
 		     					<span class="input-group-addon"><i class="fa fa-pencil"></i></span>
-		     					<input type="text" class="form-control" name='description' placeholder="Breve descripcion del lugar">
+		     					<input type="text" class="form-control" name='description' placeholder="Tipo Patrimonio">
 		     				</div>
 		     				<br>
 		     				<div class="input-group">
 		     					<span class="input-group-addon"><i class="fa fa-bus"></i></span>
-		     					<input type="text" class="form-control" name='how_to_come' placeholder="Medios para llegar">
+		     					<input type="text" class="form-control" name='how_to_come' placeholder="Ambito">
 		     				</div>
 		     				<br>
 		     				<div class="input-group">
 		     					<span class="input-group-addon"><i class="fa fa-random"></i></span>
-		     					<input type="text" class="form-control" name='recomendation' placeholder="Recomendation para estar en el lugar">
+		     					<input type="text" class="form-control" name='recomendation' placeholder="Subambito">
 		     				</div>
 							<br>
 							

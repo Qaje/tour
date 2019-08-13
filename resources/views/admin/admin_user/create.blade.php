@@ -43,8 +43,8 @@
 		     			</div>
 		     			<div class="box-body">
 							{{--<input type="hidden" name="_token" value="{{ csrf_token() }}">--}}
-		     				     
-							{{ csrf_field() }}
+		     				{{ csrf_field() }}     
+							
 		     				
 		     				<div class="input-group">
 		     					<span class="input-group-addon"><i class="fa fa-book"></i></span>
@@ -63,31 +63,50 @@
 		     					<input type="text" class="form-control" name='email' placeholder="Ingrese Email / Correo Electronico">
 		     				</div>
 		     				<br>
-
+<!--
 		     				<div class="input-group">
 		     					<span class="input-group-addon"><i class="fa fa-bus"></i></span>
 		     					<input type="password" class="form-control" name='password' placeholder="Clave o Password">
 		     				</div>
 		     				<br>
-							
+-->							
 
-		     				<div class="input-group">
-		     					<span class="input-group-addon"><i class="fa fa-book"></i></span>
+		     				<div class="row">
+		     					<div class="col-sm-6">
+		     					<!--<span class="input-group-addon"><i class="fa fa-book"></i></span>-->
+		     					
 		     					<input type="text" class="form-control" name='ident_card' placeholder=" Ingrese Numero de Identificación ">
+		     					</div>
+		     				<!--</div>
+		     				<br>
+								
+							<div class="input-group">-->
+								<div class="col-sm-6">
+			     					<select class="form-control" name="born_in">
+			     						<option class="" value="">Selecione Ciudad</option>
+			     						<option class="Beni" value="Beni">Beni</option>
+			     						<option class="Chuquisaca" value="Chuquisaca">Chuquisaca</option>
+			     						<option class="Cochabamba" value="Cochabamba">Cochabamba</option>
+			     						<option class="La Paz" value="La Paz">La Paz</option>
+			     						<option class="Oruro" value="Oruro">Oruro</option>
+			     						<option class="Pando" value="Pando">Pando</option>
+			     						<option class="Potosi" value="Potosi">Potosi</option>
+			     						<option class="Santa Cruz" value="Santa Cruz">Santa Cruz</option>
+			     						<option class="Tarija" value="Tarija">Tarija</option>
+			     					</select>
+		     					</div>
+		     					<!--<span class="input-group-addon"><i class="fa fa-book"></i></span>
+		     					<input type="text" class="form-control" name='born_in' placeholder=" Extendido en Ciudad ">-->
 		     				</div>
 		     				<br>
 
-							<div class="input-group">
-		     					<span class="input-group-addon"><i class="fa fa-book"></i></span>
-		     					<input type="text" class="form-control" name='born_in' placeholder=" Extendido en Ciudad ">
+							<div class="input-group date" date-provide="datepicker">
+								    
+								<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+								<input class="date form-control" type="text" name="date_born" autocomplete="false">				
 		     				</div>
 		     				<br>
 
-							<div class="input-group">
-		     					<span class="input-group-addon"><i class="fa fa-book"></i></span>
-		     					<input type="text" class="form-control" name='date_born' placeholder="Fecha de Nacimiento ">
-		     				</div>
-		     				<br>
 
 							<div class="form-group">
 								<label>Roles</label>
@@ -97,14 +116,14 @@
 									@endforeach
 								</select>
 							</div> 
-							<!--
+							
 							<div class="input-group">
 								<label>Seleccione una imagen </label>
 		     					<input type="file"  name='avatar' class="form-control">
 
 		     				</div>
 		     				<br>
-		     				-->
+		     					
 
 		     				<div class="box-footer">
 		     					<a href="{{url('user')}}" method="get" class="btn btn-danger " role="button" aria-pressed="true"><i class="fa fa-arrow-left"></i>   Volver</a>

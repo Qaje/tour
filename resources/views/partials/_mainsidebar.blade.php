@@ -27,7 +27,7 @@
 
       <!-- Sidebar Menu -->
       <ul class="sidebar-menu" data-widget="tree">
-        <li class="header">ENLACES</li>
+        <li class="header">Patrimonios</li>
         <!-- Optionally, you can add icons to the links -->
         <li class="active">
           <a href="#" >

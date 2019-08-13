@@ -144,7 +144,7 @@ class WorkflowPage extends Migration
             $table->decimal('long', 20,10);
             $table->decimal('lat', 20,10);
             $table->integer('country_id')->unsigned();
-            $table->foreign('country_id')->references('id')->on('countries');
+            $table->foreign('country_id')->references('id')->on('countries')->onDelete('cascade');
             $table->timestamps();
         });
         Schema::create('provinces',function(Blueprint $table){
@@ -305,12 +305,7 @@ class WorkflowPage extends Migration
 
         Schema::DropIfExists('touristic_guides');
 
-        Schema::DropIfExists('announcements_user');
-        Schema::DropIfExists('announcements');
-        Schema::DropIfExists('news_user');
-        Schema::DropIfExists('news');
-        Schema::DropIfExists('events_user');
-        Schema::DropIfExists('events');
+
  
         Schema::DropIfExists('turistic_sites_province');
         Schema::DropIFExists('turistic_sites');
@@ -333,6 +328,13 @@ class WorkflowPage extends Migration
         Schema::DropIfExists('permissions');
         Schema::DropIfExists('role_user');
         Schema::DropIfExists('roles');
+
+                Schema::DropIfExists('announcements_user');
+        Schema::DropIfExists('announcements');
+        Schema::DropIfExists('news_user');
+        Schema::DropIfExists('news');
+        Schema::DropIfExists('events_user');
+        Schema::DropIfExists('events');
     }
 }
 

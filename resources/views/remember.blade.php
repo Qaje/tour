@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Patrimonio | Bolivia Log in </title>
+  <title>BolTour | Log in </title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -35,47 +35,82 @@
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
-    <p class="login-box-msg">Inicia tu Session de Usuario para Empezar</p>
-
-    <form action="login" method="post">
+    <p class="login-box-msg">Complete el Formulario de Validación Usuario</p>
+   
+    <form action="validation" method="post">
       <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
 
-      <div class="form-group has-feedback">
-          <input type="email" class="form-control" placeholder="Email" name="email">
-        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-      </div>
-      <div class="form-group has-feedback">
-        <input type="password" class="form-control" placeholder="Password" name="password">
-        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-      </div>
-      <div class="row">
-        <div class="col-xs-8">
-          <div class="checkbox icheck">
-            <label>
-              <input type="checkbox"> Remember Me
-            </label>
-          </div>
-        </div>
-        <!-- /.col -->
-        <div class="col-xs-4">
-          <button type="submit" class="btn btn-success btn-block btn-flat">Ingresar</button>
-        </div>
-        <!-- /.col -->
-      </div>
+                    <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-book"></i></span>
+                  <input type="text" class="form-control" name='name' placeholder=" Ingrese Nombres ">
+                </div>
+                <br>
+                
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-book"></i></span>
+                  <input type="text" class="form-control" name='last_name' placeholder=" Ingrese Apellido(s) ">
+                </div>
+                <br>
+
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-clone"></i></span>
+                  <input type="text" class="form-control" name='email' placeholder="Ingrese Email / Correo Electronico">
+                </div>
+                <br>
+<!--
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-bus"></i></span>
+                  <input type="password" class="form-control" name='password' placeholder="Clave o Password">
+                </div>
+                <br>
+-->             
+
+                <div class="row">
+                  <div class="col-sm-6">
+                  <!--<span class="input-group-addon"><i class="fa fa-book"></i></span>-->
+                  
+                  <input type="text" class="form-control" name='ident_card' placeholder=" Ingrese Numero de Identificación ">
+                  </div>
+                <!--</div>
+                <br>
+                
+              <div class="input-group">-->
+                <div class="col-sm-6">
+                    <select class="form-control" name="born_in">
+                      <option class="" value="">Selecione Ciudad</option>
+                      <option class="Beni" value="Beni">Beni</option>
+                      <option class="Chuquisaca" value="Chuquisaca">Chuquisaca</option>
+                      <option class="Cochabamba" value="Cochabamba">Cochabamba</option>
+                      <option class="La Paz" value="La Paz">La Paz</option>
+                      <option class="Oruro" value="Oruro">Oruro</option>
+                      <option class="Pando" value="Pando">Pando</option>
+                      <option class="Potosi" value="Potosi">Potosi</option>
+                      <option class="Santa Cruz" value="Santa Cruz">Santa Cruz</option>
+                      <option class="Tarija" value="Tarija">Tarija</option>
+                    </select>
+                  </div>
+                  <!--<span class="input-group-addon"><i class="fa fa-book"></i></span>
+                  <input type="text" class="form-control" name='born_in' placeholder=" Extendido en Ciudad ">-->
+                </div>
+                <br>
+
+              <div class="input-group date" date-provide="datepicker">
+                    
+                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                <input class="date form-control" type="text" name="date_born" autocomplete="false">       
+                </div>
+                <br>
+
+
+
+                <div class="box-footer">
+                  <a href="{{url('user')}}" method="get" class="btn btn-danger " role="button" aria-pressed="true"><i class="fa fa-arrow-left"></i> Cancelar</a>
+                          <button type="submit" class="btn btn-success"><i class="fa fa-arrow-right"></i> Enviar</button>
+                </div>
+
     </form>
 
-    <div class="social-auth-links text-center">
-      <p>- OR -</p>
-      <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign in using
-        Facebook</a>
-      <a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> Sign in using
-        Google+</a>
-    </div> 
-    <!-- /.social-auth-links -->
-
-    <a href="{{ url('remember') }}">I forgot my password</a><br>
-    <a href="{{ url('/') }}" class="text-center">Eres Visitante / Are you Visiting</a>
-
+ 
   </div>
   <!-- /.login-box-body -->
 </div>

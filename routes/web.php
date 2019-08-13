@@ -51,6 +51,8 @@ Route::get('login/facebook/callback', 'Auth\LoginController@handleProviderCallba
 	Route::get('/homeuser', 'UserController@index')->name('User index');
 	Route::get('/users/logout','Auth\LoginController@userLogout')->name('user.logout');
 
+	//Route::get('/remember','UserController@rememberpass')
+
 //Admins	
 	Route::prefix('admin')->group(function(){
 
@@ -66,3 +68,23 @@ Route::get('login/facebook/callback', 'Auth\LoginController@handleProviderCallba
 		Route::post('password/reset','Auth\AdminResetPasswordController@reset');
 		Route::get('password/reset/{token}','Auth\AdminResetPasswordController@showResetForm')->name('admin.password.reset');
 	});
+
+	//Remember Password
+	Route::get('/remember',function(){ return view('remember'); });
+	Route::post('/validation','UserController@validation');
+
+	//Respuesta
+	Route::get('/respuesta',function(){
+		return view('response');
+	});
+	//
+	Route::get('activacion/{code}','UserController@activate');
+	Route::post('complete/{id}','UserController@complete');	
+
+	/*
+	Route::post('validate', 'UserController@validateCredentials');
+
+	Route::get('validate', function()
+	{
+	    return View::make('user/login');
+	});*/

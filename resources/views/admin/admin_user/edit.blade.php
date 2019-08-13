@@ -56,38 +56,38 @@
 
 		     				<div class="input-group">
 		     					<span class="input-group-addon"><i class="fa fa-book"></i></span>
-		     					<input type="text" class="form-control" name='last_name' placeholder=" Ingrese Apellido(s) ">
+		     					<input type="text" class="form-control" name='last_name' placeholder=" Ingrese Apellido(s) " value="{{$user->last_name}}">
 		     				</div>
 		     				<br>
 
 		     				<div class="input-group">
 		     					<span class="input-group-addon"><i class="fa fa-clone"></i></span>
-		     					<input type="text" class="form-control" name='email' placeholder="Ingrese Email / Correo Electronico">
+		     					<input type="text" class="form-control" name='email' placeholder="Ingrese Email / Correo Electronico" value="{{$user->email}}">
 		     				</div>
 		     				<br>
 
-
+<!--
 		     				<div class="input-group">
 		     					<span class="input-group-addon"><i class="fa fa-bus"></i></span>
-		     					<input type="password" class="form-control" name='password' placeholder="Clave o Password">
+		     					<input type="password" class="form-control" name='password' placeholder="Clave o Password" value="{{$user->password}}">
 		     				</div>
 		     				<br>
-
+-->
 		     				<div class="input-group">
 		     					<span class="input-group-addon"><i class="fa fa-book"></i></span>
-		     					<input type="text" class="form-control" name='ident_card' placeholder=" Ingrese Numero de Identificación ">
+		     					<input type="text" class="form-control" name='ident_card' placeholder=" Ingrese Numero de Identificación " value="{{$user->ident_card}}">
 		     				</div>
 		     				<br>
 
 							<div class="input-group">
 		     					<span class="input-group-addon"><i class="fa fa-book"></i></span>
-		     					<input type="text" class="form-control" name='born_in' placeholder=" Extendido en Ciudad ">
+		     					<input type="text" class="form-control" name='born_in' placeholder=" Extendido en Ciudad " value="{{$user->born_in}}">
 		     				</div>
 		     				<br>
 
 							<div class="input-group">
 		     					<span class="input-group-addon"><i class="fa fa-book"></i></span>
-		     					<input type="text" class="form-control" name='date_born' placeholder="Fecha de Nacimiento ">
+		     					<input type="text" class="form-control" name='date_born' placeholder="Fecha de Nacimiento " value="{{$user->date_born}}">
 		     				</div>
 		     				<br>
 

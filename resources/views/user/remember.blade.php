@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>BolTour | Log in </title>
+  <title>Patrimonio Bolivia | Log in </title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -32,16 +32,12 @@
 <div class="login-box">
   <div class="login-logo">
     <a href="{{ url('homeuser') }}"><b>Patrimonios</b>BOLIVIA</a>
-    <h4>AdministradoR</h4>
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
-    <p class="login-box-msg">Inicia tu Sesion de Administrador para Empezar</p>
+    <p class="login-box-msg">Remeber Password</p>
 
-    {{--<form action="{{ route('admin.login.submit') }}" method="post">--}}
-    <form method="POST" action="{{ route('admin.login.submit') }}">
-            @csrf
-
+    <form action="login" method="post">
       <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
 
       <div class="form-group has-feedback">
@@ -78,7 +74,7 @@
     <!-- /.social-auth-links -->
 
     <a href="#">I forgot my password</a><br>
-    <a href="register.html" class="text-center">Register a new membership</a>
+    <a href="{{ url('register') }}" class="text-center">Register a new membership</a>
 
   </div>
   <!-- /.login-box-body -->
@@ -100,6 +96,33 @@
     });
   });
 </script>
+
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '{185329422138243}',
+      cookie     : true,
+      xfbml      : true,
+      version    : '{latest-api-version}'
+    });
+      
+    FB.AppEvents.logPageView();   
+      
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+
+  FB.getLoginStatus(function(response) {
+    statusChangeCallback(response);
+  });
+</script>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
 </body>
 </html>
 

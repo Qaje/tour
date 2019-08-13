@@ -12,7 +12,7 @@ class ProvinceTableSeeder extends Seeder
     public function run()
     {
         \DB::table('provinces')->insert(array (
-            'id'                =>  '0101',
+            'id'                =>  '01',
             'name'              => 'Oropeza',
             'geolocalization'   => 'data',
             'long'              => '-65.264841',
@@ -20,7 +20,7 @@ class ProvinceTableSeeder extends Seeder
             'city_id'           => '1', 
         ));
         \DB::table('provinces')->insert(array (
-            'id'                =>  '0102',
+            'id'                =>  '02',
             'name'              => 'Azurduy',
             'geolocalization'   => 'data',
             'long'              => '-64.294841',
@@ -28,7 +28,7 @@ class ProvinceTableSeeder extends Seeder
             'city_id'           => '1', 
         ));
         \DB::table('provinces')->insert(array (
-            'id'                =>  '0103',
+            'id'                =>  '03',
             'name'              => 'Zudañes',
             'geolocalization'   => 'data',
             'long'              => '-64.701705',
@@ -36,7 +36,7 @@ class ProvinceTableSeeder extends Seeder
             'city_id'           => '1', 
         ));
         \DB::table('provinces')->insert(array (
-            'id'                =>  '0104',
+            'id'                =>  '04',
             'name'              => 'Tomina',
             'geolocalization'   => 'data',
             'long'              => '-64.8731045',
@@ -44,7 +44,7 @@ class ProvinceTableSeeder extends Seeder
             'city_id'           => '1', 
         ));
         \DB::table('provinces')->insert(array (
-            'id'                =>  '0105',
+            'id'                =>  '05',
             'name'              => 'Hernando Siles',
             'geolocalization'   => 'data',
             'long'              => '-64.4828799',
@@ -52,7 +52,7 @@ class ProvinceTableSeeder extends Seeder
             'city_id'           => '1', 
         ));
         \DB::table('provinces')->insert(array (
-            'id'                =>  '0106',
+            'id'                =>  '06',
             'name'              => 'Yamparaez',
             'geolocalization'   => 'data',
             'long'              => '-88.9749226',
@@ -60,7 +60,7 @@ class ProvinceTableSeeder extends Seeder
             'city_id'           => '1', 
         ));
         \DB::table('provinces')->insert(array (
-            'id'                =>  '0107',
+            'id'                =>  '07',
             'name'              => 'Nor Cinti',
             'geolocalization'   => 'data',
             'long'              => '-65.3949534',
@@ -68,7 +68,7 @@ class ProvinceTableSeeder extends Seeder
             'city_id'           => '1', 
         ));
         \DB::table('provinces')->insert(array (
-            'id'                =>  '0108',
+            'id'                =>  '08',
             'name'              => 'Belisario Boeto',
             'geolocalization'   => 'data',
             'long'              => '-64.5610376',
@@ -76,7 +76,7 @@ class ProvinceTableSeeder extends Seeder
             'city_id'           => '1', 
         ));
         \DB::table('provinces')->insert(array (
-            'id'                =>  '0109',
+            'id'                =>  '09',
             'name'              => 'Sud Cinti',
             'geolocalization'   => 'data',
             'long'              => '-65.372164',
@@ -84,7 +84,7 @@ class ProvinceTableSeeder extends Seeder
             'city_id'           => '1', 
         ));
         \DB::table('provinces')->insert(array (
-            'id'                =>  '0110',
+            'id'                =>  '10',
             'name'              => 'Luis Calvo',
             'geolocalization'   => 'data',
             'long'              => '-64.239895',

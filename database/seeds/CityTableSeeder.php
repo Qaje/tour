@@ -12,13 +12,13 @@ class CityTableSeeder extends Seeder
     public function run()
     {
         \DB::table('cities')->insert(array (
-            'name'          => 'Chuquisaca/Sucre/Charcas',
+            'name'          => 'Chuquisaca',
             'description'   => 'Chuquisaca oficialmente conocida como Nuestra Señora de la Paz[nuestra señora de la Paz], también llamado Chuqi Yapu ( Chuquiago ) en Aymara , es la sede del gobierno y la capital nacional de facto del Estado Plurinacional de Bolivia (la capital constitucional de Bolivia es Sucre ). Con un estimado de 789,541 residentes a partir de 2015,  La Paz es ella tercera ciudad más populosa de Bolivia (después de Santa Cruz de la Sierra y El Alto ).',
             'long'          => '-64.215214',
             'lat'           => '-19.992775',
             'country_id'    => '1',
         ));
-        /*
+        
         \DB::table('cities')->insert(array (
         	'name'			=> 'La Paz',
         	'description'	=> 'La Paz oficialmente conocida como Nuestra Señora de la Paz[nuestra señora de la Paz], también llamado Chuqi Yapu ( Chuquiago ) en Aymara , es la sede del gobierno y la capital nacional de facto del Estado Plurinacional de Bolivia (la capital constitucional de Bolivia es Sucre ). Con un estimado de 789,541 residentes a partir de 2015,  La Paz es ella tercera ciudad más populosa de Bolivia (después de Santa Cruz de la Sierra y El Alto ).',
@@ -48,15 +48,15 @@ class CityTableSeeder extends Seeder
         	'country_id'    => '1',
         ));
         \DB::table('cities')->insert(array (
-        	'name'			=> 'Santa Cruz',
-        	'description'	=> 'Santa Cruz oficialmente conocida como Nuestra Señora de la Paz[nuestra señora de la Paz], también llamado Chuqi Yapu ( Chuquiago ) en Aymara , es la sede del gobierno y la capital nacional de facto del Estado Plurinacional de Bolivia (la capital constitucional de Bolivia es Sucre ). Con un estimado de 789,541 residentes a partir de 2015,  La Paz es ella tercera ciudad más populosa de Bolivia (después de Santa Cruz de la Sierra y El Alto ).',
-        	'long'			=> '-68.11929359999999',
-        	'lat'			=> '-16.489689',
-        	'country_id'    => '1',
+            'name'          => 'Tarija',
+            'description'   => 'Tarija oficialmente conocida como Nuestra Señora de la Paz[nuestra señora de la Paz], también llamado Chuqi Yapu ( Chuquiago ) en Aymara , es la sede del gobierno y la capital nacional de facto del Estado Plurinacional de Bolivia (la capital constitucional de Bolivia es Sucre ). Con un estimado de 789,541 residentes a partir de 2015,  La Paz es ella tercera ciudad más populosa de Bolivia (después de Santa Cruz de la Sierra y El Alto ).',
+            'long'          => '-68.11929359999999',
+            'lat'           => '-16.489689',
+            'country_id'    => '1',
         ));
         \DB::table('cities')->insert(array (
-        	'name'			=> 'Tarija',
-        	'description'	=> 'Tarija oficialmente conocida como Nuestra Señora de la Paz[nuestra señora de la Paz], también llamado Chuqi Yapu ( Chuquiago ) en Aymara , es la sede del gobierno y la capital nacional de facto del Estado Plurinacional de Bolivia (la capital constitucional de Bolivia es Sucre ). Con un estimado de 789,541 residentes a partir de 2015,  La Paz es ella tercera ciudad más populosa de Bolivia (después de Santa Cruz de la Sierra y El Alto ).',
+        	'name'			=> 'Santa Cruz',
+        	'description'	=> 'Santa Cruz oficialmente conocida como Nuestra Señora de la Paz[nuestra señora de la Paz], también llamado Chuqi Yapu ( Chuquiago ) en Aymara , es la sede del gobierno y la capital nacional de facto del Estado Plurinacional de Bolivia (la capital constitucional de Bolivia es Sucre ). Con un estimado de 789,541 residentes a partir de 2015,  La Paz es ella tercera ciudad más populosa de Bolivia (después de Santa Cruz de la Sierra y El Alto ).',
         	'long'			=> '-68.11929359999999',
         	'lat'			=> '-16.489689',
         	'country_id'    => '1',
@@ -75,6 +75,6 @@ class CityTableSeeder extends Seeder
         	'lat'			=> '-16.489689',
         	'country_id'    => '1',
         ));
-        */
+        
     }
 }

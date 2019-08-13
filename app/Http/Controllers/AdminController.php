@@ -13,6 +13,12 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
+use Mail;
+use RegistersUsers\Http\Request\UserRequest;
+//use Illuminate\Http\Request;
+//use Validator;
+//use Illuminate\Routing\Controller as BaseController;
+//use Illuminate\Support\Facades\Mail;        
 class AdminController extends Controller
 {
     /**
@@ -65,20 +71,30 @@ class AdminController extends Controller
     {   
         /*$this->validate($request,[
             'select_file' => 'required|image|mimes:jpeg,png,jpg,gif'
-        ]);*/                           
+        ]);*/            
+        $code = $this->generateCodigo(6);               
         $roles = Role::all();
-
+        
+        $data = array();
+/*        $this->validate($request,[
+            'name' => 'required|email',
+            'last_name' => 'required|min:6'
+        ]);*/
+        $validator =  Validator::make($data, [
+            'name'          => 'required|string|max:255',
+            'last_name'     => 'required|string|max:255',
+            //'email'       => 'required|string|email|max:255|unique:users',
+            //'ident_card'  => 'required|numeric|max:255',
+            //'born_in'     => 'required|string|max:255',
+            //'date_born'   => 'required|date|date_format:Y-m-d',
+           //'avatar'      => 'required|string|max:255',
+        ]);
+        
         if($request->hasFile('avatar')){
             $avatar = $request->file('avatar');
             $filename = 'avatar_user' . time() . '.' . $avatar->getClientOriginalExtension();
             Image::make($avatar)->resize(128,120)->save(public_path('/uploads/avatar_user/' . $filename));
         }
-        $data = array();
-        $validator =  Validator::make($data, [
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:6|confirmed',
-        ]);
         //dd($validator);
         $user = new User();
         
@@ -90,12 +106,19 @@ class AdminController extends Controller
         $user->date_born    = $request->date_born;
         $user->password     = bcrypt(request('password'));
         $user->role_id      = $request->role_id;
-        //$user->avatar       = $filename;
+        $user->avatar       = $filename;
+        $user->code         = $code;
+        $user->activate     = 0;
         $user->save();
 
         $role = Role::Find($request->role_id);
         $user->roles()->attach($role);
-        
+
+        $email = $request->email;
+        $dates = array('code' => $user->code, 'name'=> $user->name);
+        //dd($dates);
+        $this->Email($dates,$email);
+
         return redirect()->route('user.index');
      }
 
@@ -119,7 +142,7 @@ class AdminController extends Controller
         $roles= Role::all();
         $role = new Role();
         foreach ($user->roles as $role) 
-        {
+        {   
             $role->id;
         }
     
@@ -144,7 +167,7 @@ class AdminController extends Controller
         $user->born_in      = $request->input('born_in');
         $user->date_born    = $request->input('date_born');
         $user->password     = bcrypt(request('password'));
-        $user->avatar       = $filename;
+        $user->avatar       = $request->input('avatar');
         $user->save();
         //dd($request);
         
@@ -161,8 +184,40 @@ class AdminController extends Controller
     {
         $user = User::find($id);
         $user->roles()->detach();
-        $user->role_id      = $request->role_id;$user->delete(
-        );
+        $user->role_id= $user->role_id;
+        $user->delete();
         return redirect()->route('user.index');
     }
+/*
+    public function complete(UserRequest $request, $id)
+    {
+        $user = User::find($id);
+        $user->password = bcrypt($request->password);
+        $user->active = 1;
+        $user->save();
+        return redirect::to('login');
+    }
+ */   
+    public function generateCodigo($longitud){
+        $key = '';
+        $pattern = '1234567890abcdefghijklmnopqrstuvwxyz';
+        $max = strlen($pattern)-1;
+        for ($i=1; $i < $longitud ; $i++) 
+        {
+            $key .= substr($pattern, mt_rand(0, strlen($pattern)-1),1);
+        }
+            return $key;
+        
+    }
+
+    public function Email($dates,$email){
+        //dd($dates);
+        Mail::send('emails.plantilla',$dates,function($message)use ($email){
+            $message->subject('Bienvenido a la Plataforma');
+            //dd($email); 
+            $message->to($email);
+            $message->from('no-reply@gmail.com','Patrmonios Bolivia');
+        });
+    }
+
 }

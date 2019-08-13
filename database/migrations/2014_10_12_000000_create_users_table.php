@@ -21,11 +21,13 @@ class CreateUsersTable extends Migration
             $table->string('ident_card');
             $table->string('born_in');  
             $table->date('date_born');
-            $table->string('password');
+            $table->string('password')->nullable();
             $table->string('role_id');
             $table->string('avatar')->default('default.jpg');//extension jpg,png
+            $table->string('code')->nullable();
+            $table->integer('activate')->default(0);
             $table->rememberToken();
-            $table->timestamp();
+            $table->timestamps();
         });
     }
 

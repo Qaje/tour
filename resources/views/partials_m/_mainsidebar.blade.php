@@ -37,7 +37,7 @@
         </li>
         <li class="active">
           <a href="{{url('turisticsite')}}" method="get"><i class="fa fa-get-pocket"></i> 
-          <span>Sitios Turisticos</span></a>
+          <span>Patrimonios</span></a>
         </li>
         <li class="active">
           <a href="{{url('event')}}" method="get"><i class="fa fa-get-pocket"></i> 

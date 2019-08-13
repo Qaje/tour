@@ -28,7 +28,7 @@
 <!-- Automatic element centering -->
 <div class="lockscreen-wrapper">
   <div class="lockscreen-logo">
-    <a href="{{ url('homeuser') }}"><b>User</b>TourBolivia</a>
+    <a href="{{ url('homeuser') }}"><b>Patrimonios</b>BOLIVIA</a>
   </div>
   <!-- User name -->
   <div class="lockscreen-name">{{ $user->name }}'s Profile</div>

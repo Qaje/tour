@@ -56,9 +56,9 @@
           <li><a href="#services">Servicios</a></li>
           <li><a href="#portfolio">Campañas</a></li>
           <li><a href="#team">Personal</a></li>
-          <li class="menu-has-children"><a href="">Ingresar</a>
+          <li class="menu-has-children"><a href="#">Ingresar</a>
             <ul>
-              <li><a href="#">Usuario Visita</a></li>
+              <li><a href="{{ url('/welcome') }}">Usuario Visita</a></li>
               <li><a href="{{ url('admin/login') }}">Usuario Administrador</a></li>
               <li><a href="{{ url('login') }}">Usuario Declarador</a></li>
             </ul>
@@ -84,8 +84,8 @@
             <div class="carousel-background"><img src="img/intro-carousel/1.jpg" alt=""></div>
             <div class="carousel-container">
               <div class="carousel-content">
-                <h2>We are professional</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <h2>Casco Minero</h2>
+                <p>En Oruro hay varios monumentos erigidos durante el último decenio. Son muy singulares. Uno de ellos está dedicado al casco del minero, que en esencia es un canto al duro trabajo de los mineros. Desde lejos, el casco metálico de enormes dimensiones montado sobre firmes columnas, se ve como una nave de otro planeta con un único pasajero: la Virgen del Socavón, patrona de los mineros.</p>
                 <a href="#featured-services" class="btn-get-started scrollto">Comenzar</a>
               </div>
             </div>

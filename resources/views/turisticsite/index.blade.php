@@ -4,7 +4,7 @@
 
 @section('content')
 
-<h1>Sitios Turisticos</h1>
+<h1>Patrimonios </h1>
 
 <div class="row">
     <div class="col-xs-12">
@@ -13,13 +13,13 @@
                 <td>
                     
                 <tr class="form-control">
-                <h3 class="box-title">Sitios Turisticos en Bolivia</h3>
+                <h3 class="box-title">Patrimonios en Bolivia</h3>
                 </tr>
                 <tr class="form-control pull-right">
                     <td>
                         <div class="input-group input-group-sm" style="width: 50px;">
                             <td>
-                                <a href="{{url('turisticsite/create')}}" method="get" class="btn btn-primary " role="button" aria-pressed="true"><i class="fa fa-plus"></i> Agregar Sitio Turistico</a>
+                                <a href="{{url('turisticsite/create')}}" method="get" class="btn btn-primary " role="button" aria-pressed="true"><i class="fa fa-plus"></i> Agregar Patrimonio</a>
                             </td>
                         </div>
                     </td>
@@ -45,11 +45,11 @@
                 <table class="table table-hover">
                     <tbody><tr>
                         <th>Nro</th>
-                        <th>Nombre del Lugar</th>
-                        <th>Resumen del lugar</th>
-                        <th>Descripcion</th>
-                        <th>Como llego</th>
-                        <th>Recomendaciones para el Sitio</th>
+                        <th>Denominacion</th>
+                        <th>Tipo Patrimonios</th>
+                        <th>Ambito</th>
+                        <th>Subambito</th>
+                        <th>Descripcion Imagen</th>
                         <th>Fotografia</th>
                         <th>longitud</th>
                         <th>latitud</th>

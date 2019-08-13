@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>BolTour | Registration Page</title>
+  <title>Patrimonios Bolivia | Validacion Page</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -36,7 +36,7 @@
   <div class="register-box-body">
     <p class="login-box-msg">Registro de un Nuevo Usuario</p>
 
-    <form action="register" method="post">
+    <form action="../respuesta" method="post">
       <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
 
       <div class="form-group has-feedback">
@@ -47,14 +47,14 @@
         <input type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="Email" name="email" required autofocus>
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
       </div>
-      <div class="form-group has-feedback">
+<!--      <div class="form-group has-feedback">
         <input type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" placeholder="Password" name="password" required autofocus>
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
         <input type="password" class="form-control{{ $errors->has('password_confirmation') ? ' is-invalid' : '' }}" placeholder="password-confirmation" name="password_confirmation" required autofocus>
         <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
-      </div>
+      </div>-->
       <div class="row">
         <div class="col-xs-8">
           <div class="checkbox icheck">

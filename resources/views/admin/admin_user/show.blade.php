@@ -41,7 +41,7 @@
 		     		<!-- Form Element sizes -->
 		     		<div class="box box-success">
 		     			<div class="box-header with-border">
-		     				<h3 class="box-title">Editar  Usuario - {{$user->id}} {{$user->name}}</h3>
+		     				<h3 class="box-title">Información de Usuario - {{$user->id}} {{$user->name}}</h3>
 		     			</div>
 		     			<div class="box-body">
 							{{--<input type="hidden" name="_token" value="{{ csrf_token() }}">--}}
@@ -79,10 +79,6 @@
 		     		<!-- /.box -->
 		     	</div>
 		     	<!-- Input addon -->
-
-		     
-		     
-         
 </section>
 		 <!-- /.content -->
 @endsection

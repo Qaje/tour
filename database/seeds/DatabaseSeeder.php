@@ -13,18 +13,18 @@ class DatabaseSeeder extends Seeder
     {
         // $this->call(UsersTableSeeder::class);
         //Model::unguard();
+
         //admin
         $this->call('AdminTableSeeder');
         //users 10
         $this->call('UserTableSeeder');
         
         $this->call('CountryTableSeeder');
-        $this->call('CityTableSeeder');
+        $this->call('CityTableSeeder'); 
         $this->call('ProvinceTableSeeder');
         $this->call('CategoryTableSeeder');
         $this->call('TuristictypeTableSeeder');
         $this->call('RoleTableSeeder');
-        
         
     }
 }

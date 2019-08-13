@@ -21,10 +21,12 @@ class UserTableSeeder extends Seeder
                 'last_name'  => $faker->name,
                 'email'	=> $faker->email,
                 'ident_card' => $faker->PhoneNumber,
-                'born_in' =>$faker->state,
+                'born_in' =>'La Paz',
                 'date_born'=> $faker->dateTime,
                 'avatar' => 'default.jpg',
             	'password'	=> \Hash::make('123456'),
+                'code' => 'asd',
+                'activate' => 0,
                 'role_id' => $faker->numberBetween(1,2) 
             ));
         }

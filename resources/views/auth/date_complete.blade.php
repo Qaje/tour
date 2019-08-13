@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Patrimonio | Bolivia Log in </title>
+  <title>BolTour | Log in </title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -35,50 +35,43 @@
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
-    <p class="login-box-msg">Inicia tu Session de Usuario para Empezar</p>
+    <p class="login-box-msg">Establecer Contraseñas de Usuario para Empezar</p>
 
-    <form action="login" method="post">
-      <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
+    <form method="post" action="{{ url('/complete/'.$id) }}">
+      {{ csrf_field() }}
+      
+        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                        <div class="form-group row">
+                            <label for="password" class="col-md-4 control-label">Password</label>
+                              <div class="col-md-8">  
+                                <input id="password" type="password" class="form-control" name="password" required>
 
-      <div class="form-group has-feedback">
-          <input type="email" class="form-control" placeholder="Email" name="email">
-        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-      </div>
-      <div class="form-group has-feedback">
-        <input type="password" class="form-control" placeholder="Password" name="password">
-        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-      </div>
-      <div class="row">
-        <div class="col-xs-8">
-          <div class="checkbox icheck">
-            <label>
-              <input type="checkbox"> Remember Me
-            </label>
-          </div>
-        </div>
-        <!-- /.col -->
-        <div class="col-xs-4">
-          <button type="submit" class="btn btn-success btn-block btn-flat">Ingresar</button>
-        </div>
-        <!-- /.col -->
+                                @if ($errors->has('password'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
+
+                            <div class="col-md-8">
+                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-md-6 col-md-offset-4">
+                                <button type="submit" class="btn btn-primary">
+                                    Completar Datos
+                                </button>
+                            </div>
+                        </div>                   
+  <!-- /.login-box-body -->
       </div>
     </form>
-
-    <div class="social-auth-links text-center">
-      <p>- OR -</p>
-      <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign in using
-        Facebook</a>
-      <a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> Sign in using
-        Google+</a>
-    </div> 
-    <!-- /.social-auth-links -->
-
-    <a href="{{ url('remember') }}">I forgot my password</a><br>
-    <a href="{{ url('/') }}" class="text-center">Eres Visitante / Are you Visiting</a>
-
-  </div>
-  <!-- /.login-box-body -->
-</div>
 <!-- /.login-box -->
 
 <!-- jQuery 3 -->
@@ -87,41 +80,7 @@
 <script src="/adminlte/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- iCheck -->
 <script src="/adminlte/plugins/iCheck/icheck.min.js"></script>
-<script>
-  $(function () {
-    $('input').iCheck({
-      checkboxClass: 'icheckbox_square-blue',
-      radioClass: 'iradio_square-blue',
-      increaseArea: '20%' /* optional */
-    });
-  });
-</script>
 
-<script>
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '{185329422138243}',
-      cookie     : true,
-      xfbml      : true,
-      version    : '{latest-api-version}'
-    });
-      
-    FB.AppEvents.logPageView();   
-      
-  };
-
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "https://connect.facebook.net/en_US/sdk.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
-
-  FB.getLoginStatus(function(response) {
-    statusChangeCallback(response);
-  });
-</script>
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
 </body>
 </html>

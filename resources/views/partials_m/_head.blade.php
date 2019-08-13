@@ -29,5 +29,14 @@
   <!-- <link rel="stylesheet" href="/plugins/fullcalendar.css">-->
   <link rel='stylesheet' href='/plugins/fullcalendar.min.css'>
   <link rel='stylesheet' href='/plugins/fullcalendar.print.min.css' media='print'>
+
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.css" rel="stylesheet">
+
+
   
 
