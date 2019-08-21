@@ -26,5 +26,16 @@ class UserRequest extends FormRequest
         return [
             'password' =>'required|confirmed|min:10',
         ];
+/*
+        return [ 
+                'password' => [
+                'required',
+                'confirmed',
+                'min:6',
+                'max:25',
+                'regex:/^(?=.*[a-z|A-Z])(?=.*[A-Z])(?=.*\d)(?=.*(_|[^\w])).+$/',
+                ]
+        ];
+        */
     }
 }

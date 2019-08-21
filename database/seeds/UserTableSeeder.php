@@ -20,6 +20,7 @@ class UserTableSeeder extends Seeder
             	'name'	=> $faker->name,
                 'last_name'  => $faker->name,
                 'email'	=> $faker->email,
+                'job_title' => $faker->name,
                 'ident_card' => $faker->PhoneNumber,
                 'born_in' =>'La Paz',
                 'date_born'=> $faker->dateTime,

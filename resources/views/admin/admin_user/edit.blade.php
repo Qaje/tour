@@ -16,7 +16,7 @@
 <section class="content-header">
 	<h1>
 		Usuario
-		<small>Actulizacion de Usuario </small>
+		<small>Actualización de Usuario </small>
 	</h1>
 	<ol class="breadcrumb">
 		<li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
@@ -66,13 +66,13 @@
 		     				</div>
 		     				<br>
 
-<!--
 		     				<div class="input-group">
-		     					<span class="input-group-addon"><i class="fa fa-bus"></i></span>
-		     					<input type="password" class="form-control" name='password' placeholder="Clave o Password" value="{{$user->password}}">
+		     					<span class="input-group-addon"><i class="fa fa-book"></i></span>
+		     					<input type="text" class="form-control" name='job_title' placeholder=" Ingrese Ocupación " value="{{$user->job_title}}">
 		     				</div>
-		     				<br>
--->
+		     				<br>		     				
+
+
 		     				<div class="input-group">
 		     					<span class="input-group-addon"><i class="fa fa-book"></i></span>
 		     					<input type="text" class="form-control" name='ident_card' placeholder=" Ingrese Numero de Identificación " value="{{$user->ident_card}}">
@@ -82,12 +82,27 @@
 							<div class="input-group">
 		     					<span class="input-group-addon"><i class="fa fa-book"></i></span>
 		     					<input type="text" class="form-control" name='born_in' placeholder=" Extendido en Ciudad " value="{{$user->born_in}}">
+								<div class="col-sm-6">
+			     					<select class="form-control" value="{{$user->born_in}}" name="born_in" required>
+			     						<option class="" value="">Selecione Ciudad</option>
+			     						<option class="Beni" value="Beni">Beni</option>
+			     						<option class="Chuquisaca" value="Chuquisaca">Chuquisaca</option>
+			     						<option class="Cochabamba" value="Cochabamba">Cochabamba</option>
+			     						<option class="La Paz" value="La Paz">La Paz</option>
+			     						<option class="Oruro" value="Oruro">Oruro</option>
+			     						<option class="Pando" value="Pando">Pando</option>
+			     						<option class="Potosi" value="Potosi">Potosi</option>
+			     						<option class="Santa Cruz" value="Santa Cruz">Santa Cruz</option>
+			     						<option class="Tarija" value="Tarija">Tarija</option>
+			     					</select>
+			     					{!! Form::select('size', array('Beni' => 'Beni', 'Chuquisaca' => 'Chuquisaca'), '{{$user->born_in}}'); !!}
+		     					</div>		     					
 		     				</div>
 		     				<br>
 
-							<div class="input-group">
-		     					<span class="input-group-addon"><i class="fa fa-book"></i></span>
-		     					<input type="text" class="form-control" name='date_born' placeholder="Fecha de Nacimiento " value="{{$user->date_born}}">
+							<div class="input-group date" date-provide="datepicker">
+		     					<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+		     					<input type="text" class="date form-control" name='date_born' placeholder="Fecha de Nacimiento " value="{{$user->date_born}}">
 		     				</div>
 		     				<br>
 
@@ -105,9 +120,9 @@
 		     				<br>
 
 		     				<div class="input-group">
-								<label>Seleccione una imagen </label>
-		     					<input type="file"  name='avatar' class="form-control">
-
+		     					<span class="input-group-addon"><i class="fa fa-photo"></i></span>
+		     					<input type="file"  name='avatar' class="form-control" value="avatar">
+		     					<input type="text" class="form-control" name='avatar' placeholder="Seleccione una fotografia de Perfil " value="{{$user->avatar}}">
 		     				</div>
 		     				<br>
 		     				

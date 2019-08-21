@@ -47,7 +47,6 @@ class CategoryController extends Controller
          $category = new Category;
          $category->name = $request->name;
          $category->description = $request->description;
- 
          $category->save();
  
          Session::Flash('success','New Categoria was successfully created!');

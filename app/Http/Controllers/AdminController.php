@@ -38,6 +38,7 @@ class AdminController extends Controller
      */
     public function dashboard()
     {
+        //return view('admin.dashboard');
         return view('admin.dashboard');
         
     }
@@ -69,42 +70,73 @@ class AdminController extends Controller
 
     public function store(Request $request)
     {   
-        /*$this->validate($request,[
-            'select_file' => 'required|image|mimes:jpeg,png,jpg,gif'
-        ]);*/            
-        $code = $this->generateCodigo(6);               
+                 
+        $code = $this->generateCodigo(11);               
         $roles = Role::all();
         
-        $data = array();
+        //$data = array();
 /*        $this->validate($request,[
             'name' => 'required|email',
             'last_name' => 'required|min:6'
         ]);*/
+        /*
         $validator =  Validator::make($data, [
-            'name'          => 'required|string|max:255',
-            'last_name'     => 'required|string|max:255',
+            'name'          => 'required|string|max:255|min:3',
+            'last_name'     => 'required|string|max:255|min:2',
             //'email'       => 'required|string|email|max:255|unique:users',
             //'ident_card'  => 'required|numeric|max:255',
             //'born_in'     => 'required|string|max:255',
             //'date_born'   => 'required|date|date_format:Y-m-d',
            //'avatar'      => 'required|string|max:255',
-        ]);
+        ]);*/
         
+
+
+        //dd($request);
+
         if($request->hasFile('avatar')){
             $avatar = $request->file('avatar');
             $filename = 'avatar_user' . time() . '.' . $avatar->getClientOriginalExtension();
             Image::make($avatar)->resize(128,120)->save(public_path('/uploads/avatar_user/' . $filename));
+
         }
-        //dd($validator);
+
+        $request->validate([
+            'name'        => 'required|string|min:4|max:200',
+            'last_name'   => 'required|string|min:3|max:200',
+            'email'       => 'required|email|max:200|',
+            'job_title'   => 'required|string|min:4|max:200',
+            'ident_card'  => 'required|numeric|max:200',
+            'born_in'     => 'required|string|max:200',
+            'date_born'   => 'required|date|date_format:Y-m-d',
+            'avatar'      => 'required|string|max:200',
+        ]);
+/*        
+        $validator = Validator::make($request->all(), [
+            'name'        => 'required|string|min:4|max:200',
+            'last_name'   => 'required|string|min:3|max:200',
+            'email'       => 'required|email|max:200|',
+            'job_title'   => 'required|string|max:200',
+            'ident_card'  => 'required|numeric|max:200',
+            'born_in'     => 'required|string|max:200',
+            'date_born'   => 'required|date|date_format:Y-m-d',
+            'avatar'      => 'required|string|max:200',
+        ]);*/ 
+        /*
+        if ($validator->fails()) {
+            return redirect('user/create')
+                        ->withErrors($validator)
+                        ->withInput();
+        }*/
         $user = new User();
         
         $user->name         = $request->name;
         $user->last_name    = $request->last_name;
         $user->email        = $request->email;    
+        $user->job_title    = $request->job_title;
         $user->ident_card   = $request->ident_card;
         $user->born_in      = $request->born_in;
         $user->date_born    = $request->date_born;
-        $user->password     = bcrypt(request('password'));
         $user->role_id      = $request->role_id;
         $user->avatar       = $filename;
         $user->code         = $code;
@@ -162,16 +194,15 @@ class AdminController extends Controller
         //guardar en la base de datos
         $user->name         = $request->input('name');
         $user->last_name    = $request->input('last_name');
-        $user->email        = $request->input('email'); 
+        $user->email        = $request->input('email');
+        $user->job_title    = $request->input('job_title'); 
         $user->ident_card   = $request->input('ident_card');
         $user->born_in      = $request->input('born_in');
         $user->date_born    = $request->input('date_born');
-        $user->password     = bcrypt(request('password'));
         $user->avatar       = $request->input('avatar');
         $user->save();
         //dd($request);
         
-        //$user->roles()->detach();   
 
         $role = role::Find($request->role_id);
         $user->roles()->sync($role);

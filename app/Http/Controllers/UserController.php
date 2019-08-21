@@ -10,7 +10,6 @@ use App\User;
 use App\Role;
 use Illuminate\Foundation\Auth\RegisterUsers;
 use Illuminate\Support\Facades\Input;
-
 use Mail;
 use Redirect;
 //use App\Http\Request\UserRequest;
@@ -50,20 +49,14 @@ class UserController extends Controller
                         if($request->ident_card == $userfind->ident_card){
                             if($request->born_in == $userfind->born_in){
                                 if($request->date_born == $userfind->date_born){
-                                    //$vk = $userfind->code;
-                                    //return $this->Email($request,$email);
-                                    //dd($user->password);
                                     $user = User::find($fid);
                                     $user->password = bcrypt($request->password);
                                     $user->activate = 0;
                                     $user->save();
                                     $email = $user->email;
-                                    //dd($user);
                                     $dates = array('code' => $user->code, 'name'=> $user->name);
-                                    //dd($dates);
                                     $this->Email($dates,$email);
                                     return redirect::to('respuesta');
-
                                 }
                             }
                         }
@@ -219,4 +212,13 @@ class UserController extends Controller
       $user->save();
       return redirect::to('homeuser');
     }
+    /*
+    'password' => [
+        'required',
+        'confirmed',
+        'min:8',
+        'max:50',
+        'regex:/^(?=.*[a-z|A-Z])(?=.*[A-Z])(?=.*\d)(?=.*(_|[^\w])).+$/',
+    ]
+    */
 }

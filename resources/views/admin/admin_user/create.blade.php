@@ -23,7 +23,7 @@
 		<li class="active">Here</li>
 	</ol>
 </section>
-
+ 
 <section class="content container-fluid">
 
 		  	 <!--------------------------
@@ -48,25 +48,49 @@
 		     				
 		     				<div class="input-group">
 		     					<span class="input-group-addon"><i class="fa fa-book"></i></span>
-		     					<input type="text" class="form-control" name='name' placeholder=" Ingrese Nombres ">
+		     					<input type="text" class="form-control" name='name' placeholder=" Ingrese Nombres " id="name" required>
+		     					   @if ($errors->has('name'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('name') }}</strong>
+                                    </span>
+                                @endif
 		     				</div>
 		     				<br>
-		     				
+		     		<!--		
+                  <div class="form-group">
+                      {!! Form::label('name', 'Nombre') !!}
+                      {!! Form::text('name', null, ['class' => 'form-control' , 'required' => 'required']) !!}
+                  </div>
+
+	<div class="form-group">
+    	<label for="name" class="col-md-4 control-label">Nombre</label>
+ 
+        <div class="col-md-6">
+        	<input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}">
+        </div>
+    </div>
+-->
 		     				<div class="input-group">
 		     					<span class="input-group-addon"><i class="fa fa-book"></i></span>
-		     					<input type="text" class="form-control" name='last_name' placeholder=" Ingrese Apellido(s) ">
+		     					<input type="text" class="form-control" name='last_name' placeholder=" Ingrese Apellido(s)" id="last_name" required>
 		     				</div>
 		     				<br>
 
 		     				<div class="input-group">
 		     					<span class="input-group-addon"><i class="fa fa-clone"></i></span>
-		     					<input type="text" class="form-control" name='email' placeholder="Ingrese Email / Correo Electronico">
+		     					<input type="text" class="form-control" name='email' placeholder="Ingrese Email / Correo Electronico" required>
+		     				</div>
+		     				<br>
+
+		     				<div class="input-group">
+		     					<span class="input-group-addon"><i class="fa fa-book"></i></span>
+		     					<input type="text" class="form-control" name='job_title' placeholder=" Direccion de trabajo y Ocupacion" id="job_title" required>
 		     				</div>
 		     				<br>
 <!--
 		     				<div class="input-group">
 		     					<span class="input-group-addon"><i class="fa fa-bus"></i></span>
-		     					<input type="password" class="form-control" name='password' placeholder="Clave o Password">
+		     					<input type="name" class="form-control" name='name' placeholder="Clave o name">
 		     				</div>
 		     				<br>
 -->							
@@ -74,15 +98,14 @@
 		     				<div class="row">
 		     					<div class="col-sm-6">
 		     					<!--<span class="input-group-addon"><i class="fa fa-book"></i></span>-->
-		     					
-		     					<input type="text" class="form-control" name='ident_card' placeholder=" Ingrese Numero de Identificación ">
+		     					<input type="text" class="form-control" name='ident_card' placeholder=" Ingrese Numero de Identificación " required>
 		     					</div>
 		     				<!--</div>
 		     				<br>
 								
 							<div class="input-group">-->
 								<div class="col-sm-6">
-			     					<select class="form-control" name="born_in">
+			     					<select class="form-control" name="born_in" required>
 			     						<option class="" value="">Selecione Ciudad</option>
 			     						<option class="Beni" value="Beni">Beni</option>
 			     						<option class="Chuquisaca" value="Chuquisaca">Chuquisaca</option>
@@ -100,26 +123,25 @@
 		     				</div>
 		     				<br>
 
-							<div class="input-group date" date-provide="datepicker">
-								    
+							<div class="input-group date" date-provide="datepicker"> 
 								<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-								<input class="date form-control" type="text" name="date_born" autocomplete="false">				
+								<input type="text"  class="date form-control" name="date_born" autocomplete="off" required >				
 		     				</div>
 		     				<br>
 
 
 							<div class="form-group">
 								<label>Roles</label>
-								<select class="form-control" name="role_id">
+								<select class="form-control" name="role_id" required>
 									@foreach($roles as $role)	
-								<option value="{{ $role->id }}">{{ $role->id }}   .{{$role->name }}</option>
+										<option value="{{ $role->id }}">{{$role->name }}</option>
 									@endforeach
 								</select>
 							</div> 
 							
 							<div class="input-group">
 								<label>Seleccione una imagen </label>
-		     					<input type="file"  name='avatar' class="form-control">
+		     					<input type="file"  name='avatar' class="form-control" required>
 
 		     				</div>
 		     				<br>
