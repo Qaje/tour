@@ -101,6 +101,7 @@ class AdminController extends Controller
 
         }
 
+/*        
         $request->validate([
             'name'        => 'required|string|min:4|max:200',
             'last_name'   => 'required|string|min:3|max:200',
@@ -111,7 +112,7 @@ class AdminController extends Controller
             'date_born'   => 'required|date|date_format:Y-m-d',
             'avatar'      => 'required|string|max:200',
         ]);
-/*        
+        */ 
         $validator = Validator::make($request->all(), [
             'name'        => 'required|string|min:4|max:200',
             'last_name'   => 'required|string|min:3|max:200',
@@ -121,7 +122,8 @@ class AdminController extends Controller
             'born_in'     => 'required|string|max:200',
             'date_born'   => 'required|date|date_format:Y-m-d',
             'avatar'      => 'required|string|max:200',
-        ]);*/ 
+        ]);
+                //dd($request);
         /*
         if ($validator->fails()) {
             return redirect('user/create')
@@ -150,7 +152,6 @@ class AdminController extends Controller
         $dates = array('code' => $user->code, 'name'=> $user->name);
         //dd($dates);
         $this->Email($dates,$email);
-
         return redirect()->route('user.index');
      }
 

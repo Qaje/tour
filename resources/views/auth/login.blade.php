@@ -17,6 +17,10 @@
   <link rel="stylesheet" href="/adminlte/dist/css/AdminLTE.min.css">
   <!-- iCheck -->
   <link rel="stylesheet" href="/adminlte/plugins/iCheck/square/blue.css">
+  <!--PASS-->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <!--<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-show-password/1.0.3/bootstrap-show-password.min.js"></script>
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -45,8 +49,9 @@
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input type="password" class="form-control" placeholder="Password" name="password">
-        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+        <input type="password" id="password" name="password" class="form-control" data-toggle="password">
+        <!--<input type="password" class="form-control" placeholder="Password" name="password" data-toggle="password">
+        <span class="glyphicon glyphicon-lock form-control-feedback"></span>-->
       </div>
       <div class="row">
         <div class="col-xs-8">
@@ -87,7 +92,7 @@
 <script src="/adminlte/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- iCheck -->
 <script src="/adminlte/plugins/iCheck/icheck.min.js"></script>
-<script>
+<script type="text/javascript">
   $(function () {
     $('input').iCheck({
       checkboxClass: 'icheckbox_square-blue',
@@ -96,7 +101,6 @@
     });
   });
 </script>
-
 <script>
   window.fbAsyncInit = function() {
     FB.init({
@@ -122,7 +126,12 @@
     statusChangeCallback(response);
   });
 </script>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+
+
+<script type="text/javascript">
+  $("#password").password('toggle');
+</script>
+
 </body>
 </html>
 

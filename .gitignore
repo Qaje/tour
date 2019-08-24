@@ -1,6 +1,5 @@
 /node_modules
-/public/uploads/*
-/public/storage
+/public/*
 /storage/*.key
 /vendor
 /.idea

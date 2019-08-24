@@ -44,8 +44,8 @@
                         <div class="form-group row">
                             <label for="password" class="col-md-4 control-label">Password</label>
                               <div class="col-md-8">  
-                                <input id="password" type="password" class="form-control" name="password" required>
-
+                                <!--<input id="password" type="password" class="form-control" name="password" required>-->
+                                <input type="password" id="password" name="password" class="form-control" data-toggle="password">
                                 @if ($errors->has('password'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('password') }}</strong>
@@ -58,7 +58,8 @@
                             <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
 
                             <div class="col-md-8">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+                                <!--<input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>--> 
+                                <input type="password" id="password-confirm" name="password_confirmation" class="form-control" data-toggle="password">
                             </div>
                         </div>
 
