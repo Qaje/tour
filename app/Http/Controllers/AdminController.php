@@ -245,10 +245,9 @@ class AdminController extends Controller
     public function Email($dates,$email){
         //dd($dates);
         Mail::send('emails.plantilla',$dates,function($message)use ($email){
-            $message->subject('Bienvenido a la Plataforma');
+            $message->from('AdminPatrimonio@gmail.com','Patrmonios Bolivia');
+            $message->to($email)->subject('Bienvenido a la Plataforma');
             //dd($email); 
-            $message->to($email);
-            $message->from('no-reply@gmail.com','Patrmonios Bolivia');
         });
     }
 

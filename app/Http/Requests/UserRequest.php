@@ -24,7 +24,7 @@ class UserRequest extends FormRequest
     public function rules()
     {
         return [
-            'password' =>'required|confirmed|min:10',
+            'password' =>'required|confirmed|min:6',
         ];
 /*
         return [ 
