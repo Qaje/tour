@@ -1,4 +1,4 @@
-/node_modules
+/node_modules/*
 /public/*
 /storage/*.key
 /vendor
@@ -12,4 +12,4 @@ yarn-error.log
 .env
 yarn.lock"sendgrid.env"
 *.* 
-yarn.lock
+-yarn.lock
