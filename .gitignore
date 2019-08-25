@@ -5,8 +5,8 @@
 /.idea
 /.vscode
 /.vagrant
-Homestead.json
-Homestead.yaml
+package.json
+package.yaml
 npm-debug.log
 yarn-error.log
 sendgrid.env
