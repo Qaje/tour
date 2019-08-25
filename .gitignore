@@ -11,6 +11,7 @@ npm-debug.log
 yarn-error.log
 sendgrid.env
 .env
-*.*.*
-*.* 
+yarn.lock
+yarn-debug.log
+ 
 
