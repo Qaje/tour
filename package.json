@@ -22,6 +22,7 @@
     "dependencies": {
         "bootstrap-datepicker": "^1.9.0",
         "lodash.template": "^4.5.0",
+        "macaddress": "^0.2.9",
         "sweetalert": "^2.1.2"
     }
 }
