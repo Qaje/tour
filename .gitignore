@@ -12,3 +12,4 @@ yarn-error.log
 .env
 yarn.lock"sendgrid.env"
 *.* 
+yarn.lock
