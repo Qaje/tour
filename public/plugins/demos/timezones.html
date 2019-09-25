@@ -50,7 +50,7 @@
     // load the list of available timezones, build the <select> options
     $.getJSON('php/get-timezones.php', function(timezones) {
       $.each(timezones, function(i, timezone) {
-        if (timezone != 'UTC') { // UTC is already in the list
+        if (timezone != 'ES') { // UTC is already in the list
           $('#timezone-selector').append(
             $("<option/>").text(timezone).attr('value', timezone)
           );

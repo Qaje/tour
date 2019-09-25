@@ -11,7 +11,7 @@ class TuristictypeTableSeeder extends Seeder
      */
     public function run()
     {
-        \DB::table('turistic_type_companies')->insert(array (
+        /*\DB::table('turistic_type_companies')->insert(array (
         'name'	      => 'Agencia de Viajes',
         'description' => 'Una agencia de viajes es una empresa asociada al turismo, cuyo oficio es la intermediación, organización y realización de proyectos, planes e itinerarios, elaboración y venta de productos turísticos entre sus clientes y determinados proveedores de viajes.',
         'service_type' => 'Aereo o Terrestre',
@@ -76,6 +76,6 @@ class TuristictypeTableSeeder extends Seeder
         'description' => 'La intermediación turística engloba a las agencias de viajes (se dedican a la venta o comercialización de viajes combinados), a las excursiones de un día, la mediación en la venta de billetes o reserva de plazas en toda clase de medios de transporte, la reserva y contratación de alojamiento en establecimientos turísticos, y de servicios o actividades ofrecidos por las empresas turísticas.',
         'service_type' => 'Intermediacion',
         'slug' => 'intermediacion'
-        ));
+        ));*/
     }
 }

@@ -10,7 +10,7 @@ class Province extends Model
     protected $table = 'provinces';
 
     protected $fillable = [
-        'name', 'geolocalization', 'long','lat','city_id'
+        'name', 'code','city_id'
     ]; 
 
     /**

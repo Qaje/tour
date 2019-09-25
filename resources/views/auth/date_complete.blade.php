@@ -17,7 +17,10 @@
   <link rel="stylesheet" href="/adminlte/dist/css/AdminLTE.min.css">
   <!-- iCheck -->
   <link rel="stylesheet" href="/adminlte/plugins/iCheck/square/blue.css">
-
+  <!-- Password-->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <!--<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-show-password/1.0.3/bootstrap-show-password.min.js"></script>
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -41,18 +44,27 @@
       {{ csrf_field() }}
       
         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                        <div class="form-group row">
+                        <div class="form-group row has-feedback">
                             <label for="password" class="col-md-4 control-label">Password</label>
-                              <div class="col-md-8">  
-                                <!--<input id="password" type="password" class="form-control" name="password" required>-->
+                            <div class="col-md-8">  
+                                <!--<input id="password" type="password" class="form-control" name="password" required>
+                                <input type="password" id="password" name="password" class="form-control" data-toggle="password">
+                                -->
+                            
+                                
                                 <input type="password" id="password" name="password" class="form-control" data-toggle="password">
                                 @if ($errors->has('password'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('password') }}</strong>
                                     </span>
                                 @endif
+                            
                             </div>
                         </div>
+        <!--
+        <input type="password" id="password" name="password" class="form-control" data-toggle="password">
+        <input type="password" class="form-control" placeholder="Password" name="password" data-toggle="password">
+        <span class="glyphicon glyphicon-lock form-control-feedback"></span>-->
 
                         <div class="form-group row">
                             <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
@@ -82,6 +94,9 @@
 <!-- iCheck -->
 <script src="/adminlte/plugins/iCheck/icheck.min.js"></script>
 
+<script type="text/javascript">
+  $("#password").password('toggle');
+</script>
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
 </body>
 </html>

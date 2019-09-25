@@ -79,20 +79,11 @@ class AdminController extends Controller
             'name' => 'required|email',
             'last_name' => 'required|min:6'
         ]);*/
-        /*
-        $validator =  Validator::make($data, [
-            'name'          => 'required|string|max:255|min:3',
-            'last_name'     => 'required|string|max:255|min:2',
-            //'email'       => 'required|string|email|max:255|unique:users',
-            //'ident_card'  => 'required|numeric|max:255',
-            //'born_in'     => 'required|string|max:255',
-            //'date_born'   => 'required|date|date_format:Y-m-d',
-           //'avatar'      => 'required|string|max:255',
-        ]);*/
+        
+
         
 
 
-        //dd($request);
 
         if($request->hasFile('avatar')){
             $avatar = $request->file('avatar');
@@ -101,6 +92,7 @@ class AdminController extends Controller
 
         }
 
+        dd($request);
 /*        
         $request->validate([
             'name'        => 'required|string|min:4|max:200',

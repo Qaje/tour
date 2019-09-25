@@ -37,6 +37,9 @@ Route::get('login/facebook/callback', 'Auth\LoginController@handleProviderCallba
 	Route::resource('turistictypecompany','TuristictypecompanyController');
 //offices
 	Route::resource('office','OfficeController');
+//Patrimonial
+	Route::resource('patrimonialsite','PatrimonialsiteController');
+
 //PAGE CONTROLLER
 
 //SLUGS	
@@ -81,6 +84,42 @@ Route::get('login/facebook/callback', 'Auth\LoginController@handleProviderCallba
 	Route::get('activacion/{code}','UserController@activate');
 	Route::post('complete/{id}','UserController@complete');	
 
+	//bycity
+	Route::get('/city/{id}/provinces','PatrimonialsiteController@byCity');
+	Route::get('/city/{id}','PatrimonialsiteController@byCityCode');
+	//byprovinces
+	Route::get('/province/{id}/municipalities','PatrimonialsiteController@byProvince');
+	Route::get('/provincecode/{id}','PatrimonialsiteController@byProvinceCode');
+	//MUnicipality
+	Route::get('/municipalitycode/{id}','PatrimonialsiteController@byMunicipalityCode');
+	
+	//byCategory
+	Route::get('/catergory/{id}/ambits','PatrimonialsiteController@byCategory');
+	//byAmbit
+	Route::get('/ambit/{id}/subambits','PatrimonialsiteController@byAmbit');
+	Route::get('/ambit/{id}','PatrimonialsiteController@byAmbitCode');
+	
+	Route::get('/subambit/{id}','PatrimonialsiteController@bySubAmbitCode');
+	//byType
+	Route::get('/type/{id}/subtypes','PatrimonialsiteController@byType');
+	//numbergenerate
+	Route::get('/num/','PatrimonialsiteController@CountElements');
+	//oute::get('/city/{id}/provinces','PatrimonialsiteController@byCity');
+	//Route::get()
+
+	//use Symfony\Component\HttpFoundation\Response;
+// Route::get('/test', function () {
+// 	$response = $this->json('POST', '/user', ['name' => 'Sally']);
+
+// 	return  $response;
+//             // ->assertStatus(201)
+//             // ->assertExactJson([
+//             //     'created' => true,
+//             // ]);
+    
+// });
+
+    Route::get('pdf','PatrimonialsiteController@pdf');
 	/*
 	Route::post('validate', 'UserController@validateCredentials');
 
@@ -88,3 +127,18 @@ Route::get('login/facebook/callback', 'Auth\LoginController@handleProviderCallba
 	{
 	    return View::make('user/login');
 	});*/
+
+	/*Retorno de app en json*/
+	// use GuzzleHttp\Client;
+	// Route::get('/test',function(){
+
+	// 	$client = new Client([
+	// 	    // Base URI is used with relative requests
+	// 	    'base_uri' => 'http://api.open-elevation.com/api/v1/lookup?locations=41.161758,-8.583933',
+	// 	    // You can set any number of default request options.
+	// 	    'timeout'  => 8.0,
+	// 	]);
+	// 	$response = $client->request('GET', 'results');
+	// 	dd($response->getBody()->getContents());
+	// 	//return view('welcome');
+	// });

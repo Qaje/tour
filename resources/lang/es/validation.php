@@ -29,7 +29,7 @@ return [
         'array'   => ':attribute tiene que tener entre :min - :max ítems.',
     ],
     'boolean'              => 'El campo :attribute debe tener un valor verdadero o falso.',
-    'confirmed'            => 'La confirmación de :attribute no coincide. Y contraseña debe tener entre 6 y 8 dígitos, y debe contener una letra mayúscula, una o más letras minúsculas y números, y un carácter especial.',
+    'confirmed'            => 'La confirmación de :attribute no coincide.',
     'date'                 => ':attribute no es una fecha válida.',
     'date_equals'          => ':attribute debe ser una fecha igual a :date.',
     'date_format'          => ':attribute no corresponde al formato :format.',

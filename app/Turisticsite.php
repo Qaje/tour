@@ -6,18 +6,18 @@ use Illuminate\Database\Eloquent\Model;
 
 class Turisticsite extends Model
 {
-	protected $table = 'turistic_sites';
+	//protected $table = 'Turistic_sites';
 
-	protected $fillable = [
-		'name_title',
-		'summary',
-		'description',
-		'how_to_come',
-		'recomendation',
-		'turisticsite_photo',
-		'long',
-		'lat'
-	]; 
+      protected $fillable = [
+            'name_title',
+            'summary',
+            'description',
+            'how_to_come',
+            'recomendation',
+            'turisticsite_photo',
+            'long',
+            'lat'
+      ]; 
 
 	public function provinces()
 	{

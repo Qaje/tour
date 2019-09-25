@@ -168,8 +168,8 @@ return [
         //yajra\DataTables\DataTablesServiceProvider::class,
         
         //MaddHatter\LaravelFullcalendar\ServiceProvider::class,
-        //Barryvdh\Debugbar\ServiceProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class,
+        Barryvdh\DomPDF\ServiceProvider::class,
 
 
 
@@ -233,8 +233,9 @@ return [
         //' Datatables '  =>  Yajra \ Datatables \ Datatables :: clase ,
         
         //'Calendar' => MaddHatter\LaravelFullcalendar\Facades\Calendar::class,
-//        'Debugbar' => Barryvdh\Debugbar\Facade::class,
+//       'Debugbar' => Barryvdh\Debugbar\Facade::class,
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
+        'PDF' => Barryvdh\DomPDF\Facade::class,
 
 
     ],

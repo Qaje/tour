@@ -12,6 +12,12 @@ class ProvinceController extends Controller
     {
         $this->middleware('auth:admin');
     }
+
+    // public function byCity($id)
+    // {
+    //     dd($id);
+    //     return Level::where('city_id', $id)->get();
+    // }
     /*
     public function __construct()
     {
@@ -67,6 +73,7 @@ class ProvinceController extends Controller
     {
         $province = Province::find($id);
         $city =   City::find($province->city_id);
+        //dd($province);
         return view('province.show')->withProvince($province)->withCity($city);
     }
 

@@ -197,15 +197,19 @@ class UserController extends Controller
 
     public function validator(array $data)
     {
+      
         return validator::make($data, [
-                'name' => 'required|max:255',
-                'email' => 'required|email|max:255|unique:users',
+                /*'name' => 'required|max:255',
+                'email' => 'required|email|max:255|unique:users',*/
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'password' => 'required|string|min:6|max:50|regex:^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{6,16}$', 
         ]);
     }
 
     public function complete(UserRequest $request,$id)
     {
-      //dd($request);
+        
       $user = User::find($id);
       $user->password = bcrypt($request->password);
       $user->activate = 1;

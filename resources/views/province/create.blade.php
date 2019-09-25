@@ -24,8 +24,8 @@
     </ol>
 </section>
 
-<section class="content container-fluid">
-
+<!-- <section class="content container-fluid">
+ -->
            <!-------------------------- 
          | Your Page Content Here |
          -------------------------->
@@ -70,11 +70,11 @@
                             @endforeach
                         </select>
                     </div> 
+                 </div>
                     <h3 class="box-title">Localizacion</h3>
                     <div class="input-group">
                      <span class="input-group-addon"><i class="fa fa-map"></i></span>
                      <input type="text" class="form-control"  id="searchmap">
-                 </div>
                  <br>
                  <div class="input-group" id="map">
 

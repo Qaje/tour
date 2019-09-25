@@ -36,7 +36,7 @@
           </a>
         </li>
         <li class="active">
-          <a href="{{url('turisticsite')}}" method="get"><i class="fa fa-get-pocket"></i> 
+          <a href="{{url('patrimonialsite')}}" method="get"><i class="fa fa-get-pocket"></i> 
           <span>Patrimonios</span></a>
         </li>
         <li class="active">

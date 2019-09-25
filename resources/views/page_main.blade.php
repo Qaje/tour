@@ -33,6 +33,10 @@
     Author: BootstrapMade.com
     License: https://bootstrapmade.com/license/
   ======================================================= -->
+  <!--twitter Bootstrap datatables-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap-grid.min.css">
+  <link rel="stylesheet" href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+
 </head>
 
 <body>
@@ -89,21 +93,7 @@
                 <a href="#featured-services" class="btn-get-started scrollto">Comenzar</a>
               </div>
             </div>
-          </div>
 
-          @foreach($tss as $ts)
-          <div class="carousel-item">
-            <div class="carousel-background"><img src="/uploads/turisticsite_photos/{{ $ts->turisticsite_photo }}" alt=""></div>
-            <div class="carousel-container">
-              <div class="carousel-content">
-                <h2>{{$ts->name_title }}</h2>
-                <p>{{$ts->description }}</p>
-                <a href="#featured-services" class="btn-get-started scrollto">Comenzar</a>
-              </div>
-            </div>
-          </div>
-          @endforeach
-        </div>
 
         <a class="carousel-control-prev" href="#introCarousel" role="button" data-slide="prev">
           <span class="carousel-control-prev-icon ion-chevron-left" aria-hidden="true"></span>
@@ -215,23 +205,41 @@
     ============================-->
     <section id="services">
       <div class="container">
+        <h3>Patrimonios Nacionales</h3>
+        <table class="table" id="patrimonialsites">
+                    <tbody><tr>
+                        <th>Nro</th>
+                        <th>Codigo</th>
+                        <th>Nombre del Patrimonios</th>
+                        <th>Tipo Patrimonios</th>
+                        <th>Ambito</th>
+                        <th>Subambito</th>
+                        <th>Fotografia</th>
+                        <th></th>
+                        <!--<th>Links</th> -->
+                    </tr>
+                    @foreach ($patrimonialsites as $patrimonialsite)             
+                    <tr>
 
+                        <td>{{ $patrimonialsite->id }}</td>
+                        <td>{{ $patrimonialsite->codemat }}</td>
+                        <td>{{ $patrimonialsite->name_title  }}</td>
+                        <td>{{ $patrimonialsite->category }}</td>
+                        <td>{{ $patrimonialsite->scope }}</td>
+                        <td>{{ $patrimonialsite->subscope }}</td>
+
+                         <td>
+                            <img src="/uploads/patrimonialsite_photos/{{ $patrimonialsite->patrimonial_photo }}" alt="" border="0" height="200" width="600" style="max-width: 130px;">
+                        </td>
+                    </tr>
+                    @endforeach
+        </table>
         <header class="section-header wow fadeInUp">
           <h3>Servicios</h3>
           <p>Son empresas de servicios turísticos complementarios los Centros recreativos turísticos. Parques temáticos y aquéllas dedicadas a proporcionar, mediante precio, actividades y servicios para el esparcimiento y recreo de sus clientes, de tipo deportivo, medioambiental, cultural, recreativas o de salud y que reglamentariamente se clasifiquen como tales.</p>
         </header>
 
-        <div class="row">
-        @foreach ($cs as $c)
 
-          <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-duration="1.4s">
-            <div class="icon"><i class="ion-ios-analytics-outline"></i></div>
-            <h4 class="title"><a href="">{{$c->name}}</a></h4>
-            <p class="description">{{$c->description}}</p>
-          </div>
-        @endforeach
-          
-        </div>
 
       </div>
     </section><!-- #services -->
@@ -811,7 +819,7 @@
 
     <div class="container">
       <div class="copyright">
-        &copy; Copyright <strong>J@Po</strong>. All Rights Reserved
+        &copy; Copyright <strong>QaJe</strong>. All Rights Reserved
       </div>
     </div>
   </footer><!-- #footer -->
@@ -838,5 +846,13 @@
   <!-- Template Main Javascript File -->
   <script src="bp/js/main.js"></script>
 
+  <!-- datatable-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready( function () {
+     $('#patrimonialsites').DataTable();
+    });
+  </script>
 </body>
 </html>

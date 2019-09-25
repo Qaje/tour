@@ -23,19 +23,19 @@ class UserRequest extends FormRequest
      */
     public function rules()
     {
+/*
         return [
             'password' =>'required|confirmed|min:6',
         ];
-/*
+        */
+        //dd($request);
         return [ 
                 'password' => [
                 'required',
-                'confirmed',
                 'min:6',
-                'max:25',
-                'regex:/^(?=.*[a-z|A-Z])(?=.*[A-Z])(?=.*\d)(?=.*(_|[^\w])).+$/',
+                'regex:/^(?=.*\d)(?=.*[!-+<-@])(?=.*[A-Z])(?=.*[a-z])\S{6,16}$/',
                 ]
         ];
-        */
+        dd();
     }
 }
