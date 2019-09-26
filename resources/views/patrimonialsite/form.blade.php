@@ -63,7 +63,7 @@
                                             <label for="validationTooltipUsername">Ambito</label>
                                             <div class="form-group">
                                               <select class="form-control" id="amb" name="amb" placeholder="Tipo Ambito">
-                                                <option value="0" disabled="true" selected="true">Selecione Provincia</option>
+                                                <option value="0" disabled="true" selected="true">Selecione Ambito</option>
                                               </select>
                                             </div>
                                         </div> 
