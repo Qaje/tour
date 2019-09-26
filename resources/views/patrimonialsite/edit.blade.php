@@ -53,7 +53,8 @@
                                     PatrimonialsiteController
                                     --}} -->
                                     <!-- <form action="patrimonialsite" method="POST" enctype="multipart/form-data" > -->
-                                    <form action="/patrimonialsite" method="POST" id="myform" name="myform" enctype="multipart/form-data" >
+                                    <!-- <form action="/patrimonialsite" method="POST" id="myform" name="myform" enctype="multipart/form-data" > -->
+                                      <form action="/patrimonialsite/{{$patrimonialsite->id}}" method="GET" enctype="multipart/form-data" >
                                 <!-- <form class="needs-validation" id="fn_sitepatri" method="post" action="agregar_sitepatri"> -->
                                         <input type="text" value="" id="text1" name="text1" size="30">
                                         <!-- <input type="text" value="" id="text2" name="text2" size="30">    -->

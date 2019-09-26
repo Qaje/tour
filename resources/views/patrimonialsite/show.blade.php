@@ -53,7 +53,7 @@
                                     PatrimonialsiteController
                                     --}} -->
                                     <!-- <form action="patrimonialsite" method="POST" enctype="multipart/form-data" > -->
-                                    <form action="/patrimonialsite" method="POST" id="myform" name="myform" enctype="multipart/form-data" >
+                                    <form action="/patrimonialsite/{{$patrimonialsite->id}}" method="GET" id="myform" name="myform" enctype="multipart/form-data" >
                                 <!-- <form class="needs-validation" id="fn_sitepatri" method="post" action="agregar_sitepatri"> -->
                                         <input type="text" value="" id="text1" name="text1" size="30">
                                         <!-- <input type="text" value="" id="text2" name="text2" size="30">    -->
@@ -63,7 +63,7 @@
                                     <div class="col-12 col-sm-6 col-md-7">
                                        <div class="col-12 col-sm-6 col-md-12">
                                           <label for="vttden">Denominación (Actual)</label>
-                                          <input type="text" class="form-control" id="denom" name="denom" placeholder="Denominación " value="" required autocomplete="off">
+                                          <input type="text" class="form-control" id="denom" name="denom" placeholder="Denominación " value="{{$patrimonialsite->name_title}}" required autocomplete="off">
                                         </div>
                                         <div class="col-12 col-sm-6 col-md-12">
                                             <label for="validationTooltipUsername">Tipo Patrimonio</label>

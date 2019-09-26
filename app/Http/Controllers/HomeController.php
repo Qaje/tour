@@ -46,14 +46,15 @@ class HomeController extends Controller
         $ttc = new Turistictypecompany();
         return view ('page_main')->withTss($tss)->withTs($ts)->withCs($cs)->withC($c)->withTtcs($ttcs)->withTtc($ttc);
         */
-        $patrimonialsites = Patrimonialsite::orderBy('id','name')->paginate(6);
+        //$patrimonialsites = Patrimonialsite::orderBy('id','name')->paginate(6);
+        $patrimonialsites = Patrimonialsite::All();
         //dd($patrimonialsites);
-        $categories = Category::all();
+        //$categories = Category::all();
         //dd($categories);
-        $types = Type::all();
+        //$types = Type::all();
         //dd($types);
        // return view('patrimonialsite.index', compact('cities','patrimonialsites','categories','types'));
-        return view ('page_main', compact('cities','patrimonialsites','categories','types'));
+        return view ('page_main', compact('patrimonialsites'));
     }
 
     public function verificador()

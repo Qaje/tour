@@ -268,15 +268,24 @@ class PatrimonialsiteController extends Controller
     }
     
 
-    public function pdf()
+    public function pdf($id)
     {
-        $patrimonialsites = Patrimonialsite::All();
+        //dd($id);
+        $patrimonialsite = Patrimonialsite::find($id);
+        //$province = Province::find($id);
         //$data = ['title' => 'Welcome to HDTuto.com'];
         //$pdf = PDF::loadView('myPDF', $data);
             //$pdf = PDF::loadView('myPDF');
             //return $pdf->download('itsolutionstuff.pdf');
-        //dd($patrimonialsites);
-        return view('patrimonialsite.myPDF',compact('patrimonialsites'));
+        //dd($patrimonialsite);
+        return view('patrimonialsite.myPDF',compact('patrimonialsite'));
+
+    }
+    public function visitpdf($id)
+    {
+        $patrimonialsite = Patrimonialsite::find($id);
+        //dd($patrimonialsite);
+        return view('patrimonialsite.visitPDF',compact('patrimonialsite'));
 
     }
     public function setPropertiesAttribute($value)
@@ -298,14 +307,19 @@ class PatrimonialsiteController extends Controller
      */
     public function show($id)
     {
-        $patrimonialsite = Patrimonialsite::find($id);
+        $where = array('id' => $id);
+        $patrimonialsite  = Patrimonialsite::where($where)->first();
+        dd($patrimonialsite);       
+        return Response::json($patrimonialsite);
+
+        // $patrimonialsite = Patrimonialsite::find($id);
+        // $cities = City::all();
+        // $categories = Category::all();
+        // $types = Type::all();
         //dd($patrimonialsite);
         //$patrimonialsites = Patrimonialsite::All();
-        $cities = City::all();
-        $categories = Category::all();
         //dd($categories);
-        $types = Type::all();
-        //dd($types);
+        //dd($patrimonialsite);
         //dd($patrimonialsite);
         //return view('patrimonialsite.show');
         return view('patrimonialsite.show',compact('patrimonialsite','categories','cities','types'));

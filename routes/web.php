@@ -119,7 +119,8 @@ Route::get('login/facebook/callback', 'Auth\LoginController@handleProviderCallba
     
 // });
 
-    Route::get('pdf','PatrimonialsiteController@pdf');
+    Route::get('patrimonialsite/pdf/{id}','PatrimonialsiteController@pdf');
+    Route::get('visit/pdf/{id}','PatrimonialsiteController@visitpdf');
 	/*
 	Route::post('validate', 'UserController@validateCredentials');
 

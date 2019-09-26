@@ -34,8 +34,14 @@
     License: https://bootstrapmade.com/license/
   ======================================================= -->
   <!--twitter Bootstrap datatables-->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap-grid.min.css">
-  <link rel="stylesheet" href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap-grid.min.css">
+  <link rel="stylesheet" href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">-->
+  <!-- <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css">
+  <link rel="stylesheet"  href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css"> -->
+
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap.min.css">
 
 </head>
 
@@ -205,34 +211,37 @@
     ============================-->
     <section id="services">
       <div class="container">
-        <h3>Patrimonios Nacionales</h3>
-        <table class="table" id="patrimonialsites">
-                    <tbody><tr>
+        <table class="table" class="table table-striped table-bordered" id="patrimonialsites">
+                    <thead>
+                      <tr>
                         <th>Nro</th>
-                        <th>Codigo</th>
+                        <th>Provincia</th>
+                        <th>Municipio</th>
+                        <th>SubAmbito</th>
                         <th>Nombre del Patrimonios</th>
-                        <th>Tipo Patrimonios</th>
-                        <th>Ambito</th>
-                        <th>Subambito</th>
                         <th>Fotografia</th>
-                        <th></th>
-                        <!--<th>Links</th> -->
-                    </tr>
-                    @foreach ($patrimonialsites as $patrimonialsite)             
-                    <tr>
-
-                        <td>{{ $patrimonialsite->id }}</td>
-                        <td>{{ $patrimonialsite->codemat }}</td>
-                        <td>{{ $patrimonialsite->name_title  }}</td>
-                        <td>{{ $patrimonialsite->category }}</td>
-                        <td>{{ $patrimonialsite->scope }}</td>
-                        <td>{{ $patrimonialsite->subscope }}</td>
-
-                         <td>
-                            <img src="/uploads/patrimonialsite_photos/{{ $patrimonialsite->patrimonial_photo }}" alt="" border="0" height="200" width="600" style="max-width: 130px;">
-                        </td>
-                    </tr>
-                    @endforeach
+                        <th>Más Información</th>
+                      </tr>
+                    </thead>
+                    <tbody> 
+                      @foreach ($patrimonialsites as $patrimonialsite)             
+                      <tr>
+                          <td>{{ $patrimonialsite->id }}</td>
+                          <td>{{ $patrimonialsite->province }}</td>
+                          <td>{{ $patrimonialsite->municipality  }}</td>
+                          <td>{{ $patrimonialsite->subscope }}</td>
+                          <td>{{ $patrimonialsite->name_title }}</td>
+                          <td>
+                              <img src="/uploads/patrimonialsite_photos/{{ $patrimonialsite->patrimonial_photo }}" alt="" border="0" height="200" width="600" style="max-width: 130px;">
+                          </td>
+                          <td>
+                              <a href="/visit/pdf/{{$patrimonialsite->id}}" method="get" class="btn btn-primary" role="button"> <!--data-toggle="modal" data-target="#EditPatrimonial" data-mytitle="Hello">-->
+                                    <i class="fa fa-file-text-o"></i> Generar PDF
+                                </a>
+                          </td>
+                      </tr>
+                      @endforeach
+                    </tbody>
         </table>
         <header class="section-header wow fadeInUp">
           <h3>Servicios</h3>
@@ -829,6 +838,7 @@
   <!-- JavaScript Libraries -->
   <script src="bp/lib/jquery/jquery.min.js"></script>
   <script src="bp/lib/jquery/jquery-migrate.min.js"></script>
+  <script src="bp/lib/touchSwipe/jquery.touchSwipe.min.js"></script>
   <script src="bp/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="bp/lib/easing/easing.min.js"></script>
   <script src="bp/lib/superfish/hoverIntent.js"></script>
@@ -839,7 +849,6 @@
   <script src="bp/lib/owlcarousel/owl.carousel.min.js"></script>
   <script src="bp/lib/isotope/isotope.pkgd.min.js"></script>
   <script src="bp/lib/lightbox/js/lightbox.min.js"></script>
-  <script src="bp/lib/touchSwipe/jquery.touchSwipe.min.js"></script>
   <!-- Contact Form JavaScript File -->
   <script src="bp/contactform/contactform.js"></script>
 
@@ -847,11 +856,17 @@
   <script src="bp/js/main.js"></script>
 
   <!-- datatable-->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script> --> 
+  <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
   <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+
+
+
   <script type="text/javascript">
     $(document).ready( function () {
-     $('#patrimonialsites').DataTable();
+     $ name('#patrimonialsites').DataTable();
     });
   </script>
 </body>
