@@ -1,219 +1,61 @@
-@extends('main_m')
 
-@section('title', '| Patrimonios Bolivia')
-
-@section('content')
-
-<h1>Patrimonios </h1>
-
-<style type="text/css">
-#map{
-    width: 100%;
-    height: 400px;
-
-}
-</style>
-
-<div class="row">
-    <div class="col-xs-12">
-        <div class="box">
-            <div class="box-header">
-                <td>
-                    
-                <tr class="form-control">
-                <h3 class="box-title">Patrimonios en Bolivia</h3>
-                </tr>
-                <tr class="form-control pull-right">
-                    <td>
-                        <div class="input-group input-group-sm" style="width: 50px;">
-                            <td>
-                                <!-- <a href="{{url('patrimonialsite/create')}}" method="get" class="btn btn-primary " role="button" aria-pressed="true"><i class="fa fa-plus"></i> Agregar Patrimonio</a>
-                                 -->
-                                  
-                                 <!-- <a href="#" class="btn btn-primary pull-right" data-toggle="modal" data-target="#create">Nuevo Patrimonio</a> -->
-                                 <!-- Button trigger modal -->
-                                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#CreatePatrimonial"><i class="fa fa-plus"></i>
-                                    Agregar Patrimonio
-                                    </button>
-
-                            </td>
-                            <td>
-                                
-                            </td>
-                        </div>
-                    </td>
-                </tr>
-                </td>
-                <div class="box-tools">
-                    <div class="input-group input-group-sm" style="width: 150px;">
-
-                        <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
-
-                        <div class="input-group-btn">
-                            <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="box-tools">
-
-                </div>
-            </div>
-            <!-- /.box-header -->
-            <div class="box-body table-responsive no-padding">
-                <table class="table table-hover">
-                    <tbody><tr>
-                        <th>Nro</th>
-                        <th>Codigo</th>
-                        <th>Nombre Patrimonios</th>
-                        <th>Tipo Patrimonios</th>
-                        <th>Ambito</th>
-                        <th>Subambito</th>
-                        <th>Fotografia</th>
-                        <th>Links</th>
-                    </tr>
-                    @foreach ($patrimonialsites as $patrimonialsite)             
-                    <tr>
-
-                        <td>{{ $patrimonialsite->id }}</td>
-                        <td>{{ $patrimonialsite->codemat }}</td>
-                        <td>{{ $patrimonialsite->name_title  }}</td>
-                        <td>{{ $patrimonialsite->category }}</td>
-                        <td>{{ $patrimonialsite->scope }}</td>
-                        <td>{{ $patrimonialsite->subscope }}</td>
-                        <td>
-                            <img src="/uploads/patrimonialsite_photos/{{ $patrimonialsite->patrimonial_photo }}" alt="" border="0" height="200" width="600" style="max-width: 130px;">
-                        </td>
-                        <td>    
-                        
-                            <!-- <a href="" method="get" class="btn btn-danger delete" role="button" >
-                                    <i class="fa fa-trash"></i> Eliminar</a> -->     
-
-                            <!-- <button class="btn btn-warning" data-toggle="modal" data-target="#EditPatrimonial" data-mytitle="Hello"><i class="fa fa-edit" ></i> Edit</button> -->
-                            <a href="/patrimonialsite/pdf/{{$patrimonialsite->id}}" method="get" class="btn btn-primary" role="button"> <!--data-toggle="modal" data-target="#EditPatrimonial" data-mytitle="Hello">-->
-                                    <i class="fa fa-file-text-o"></i> Generar PDF
-                                </a>
-                            
-                            <a href="/patrimonialsite/{{$patrimonialsite->id}}" method="get" class="btn btn-warning " role="button" data-toggle="modal" data-target="#EditPatrimonial" data-mytitle="Hello">
-                                    <i class="fa fa-edit"></i> Editar
-                                </a>  
-                            <!-- Extra large modal -->
-                            <button type="button" class="btn btn-danger delete" data-toggle="modal" data-target=".bd-example-modal-xl"><i class="fa fa-trash"></i> Eliminar</button>
-        
-                        </td>
-                    </tr>
-                    @endforeach
-                </table>
-                </tbody>
-            
-                <div class="mx-auto" style="width: 200px;">
-                    {!! $patrimonialsites->links() !!}
-                </div>
-        </div>
-        <!-- /.box-body -->
-    </div>
-    <!-- /.box -->
-</div>
-
-    <!-- Start Modal -->
-    <div class="modal fade " id="CreatePatrimonial" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-xl">
-            <div class="modal-content modal-lg">
-                <div class="modal-header">
-                    
-                    <button type="button" class="close" data-dismiss="modal">×</button>
-                    <!-- <input type="text" value="" id="text1" name="text1">
-                    <input type="text" value="" id="text2" name="text2" size="30">    -->
-
-                    <h3 ng-hide="newUser">Nuevo Patrimonio</h3>
-                </div>
-                
-                @include('patrimonialsite.form')
-
-        </div>                  
-    </div>
-<!-- End Model-->
-    <!-- Edit Modal -->
-    <div class="modal fade " id="EditPatrimonial" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-xl">
-            <div class="modal-content modal-lg">
-                <div class="modal-header">
-                    
-                    <button type="button" class="close" data-dismiss="modal">×</button>
-                    <!-- <input type="text" value="" id="text1" name="text1">
-                    <input type="text" value="" id="text2" name="text2" size="30">    -->
-
-                    <h3 ng-hide="newUser">Editar Patrimonio</h3>
-                </div>
-                
-                @include('patrimonialsite.formedit')
-
-        </div>                  
-    </div>
-<!-- End Model-->
-
-<!--Begin Edit Modañ--> 
-<!-- 
-     <div class="modal fade " id="EditPatrimonial" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content modal-lg">
-                <div class="modal-header">
-                    
-                    <button type="button" class="close" data-dismiss="modal">×</button>
-                    <h3 ng-hide="newUser">Editar Patrimonio</h3>
-               
-                </div>
-                <div class="modal-body">
+<!-- Modal -->
+<div class="modal-body">
                     <div role="tabpanel">
-                        
-                        <ul class="nav nav-tabs" role="tablistup">
+                        <!-- Nav tabs -->
+                        <ul class="nav nav-tabs" role="tablistupdate">
                             <li role="presentation" class="active">
-                                <a href="#IdenTabup" aria-controls="IdenTab" role="tab" data-toggle="tab">IDENTIFICACIÓN</a>
+                                <a href="#IdenTab" aria-controls="IdenTab" role="tab" data-toggle="tab">IDENTIFICACIÓN</a>
                             </li>
                             <li role="presentation">
-                                <a href="#LocalTabup" aria-controls="LocalTab" role="tab" data-toggle="tab">LOCALIZACIÓN</a>
+                                <a href="#LocalTab" aria-controls="LocalTab" role="tab" data-toggle="tab">LOCALIZACIÓN</a>
                             </li>
                             <li role="presentation">
-                                <a href="#EgpTabup" aria-controls="EgpTab" role="tab" data-toggle="tab">ESTADO GENERAL DEL PATRIMONIO</a>
+                                <a href="#EgpTab" aria-controls="EgpTab" role="tab" data-toggle="tab">ESTADO GENERAL DEL PATRIMONIO</a>
                             </li>
                             <li role="presentation">
-                                <a href="#ItTabup" aria-controls="ItTab" role="tab" data-toggle="tab">INFORMACIÓN TURISTÍCA</a>
+                                <a href="#ItTab" aria-controls="ItTab" role="tab" data-toggle="tab">INFORMACIÓN TURISTÍCA</a>
                             </li>
                             <li role="presentation">
-                                <a href="#CloTabup" aria-controls="CloTab" role="tab" data-toggle="tab">CONDICIÓN LEGAL </a>
+                                <a href="#CloTab" aria-controls="CloTab" role="tab" data-toggle="tab">CONDICIÓN LEGAL </a>
                             </li>
                             <li role="presentation">
-                                <a href="#ObsTabup" aria-controls="ObsTab" role="tab" data-toggle="tab">OBSERVACIONES</a>
+                                <a href="#ObsTab" aria-controls="ObsTab" role="tab" data-toggle="tab">OBSERVACIONES</a>
                             </li>                            
                             <li role="presentation">
-                                <a href="#FubiTabup" aria-controls="FubiTab" role="tab" data-toggle="tab">FUENTE BIBLIOGRAFICA</a>
+                                <a href="#FubiTab" aria-controls="FubiTab" role="tab" data-toggle="tab">FUENTE BIBLIOGRAFICA</a>
                             </li>
                             <li role="presentation">
-                                <a href="#DatTabup" aria-controls="DatTab" role="tab" data-toggle="tab">DATOS DE CONTROL</a>
+                                <a href="#DatTab" aria-controls="DatTab" role="tab" data-toggle="tab">DATOS DE CONTROL</a>
                             </li>
                         </ul>
-                     
+                        <!-- Tab panes -->
                         <div class="tab-content">
-                            <div role="tabpanel row no-gutters" class="tab-pane active" id="IdenTabup">
-                              
-                                <form action="{{route('patrimonialsite.update','test')}}" method="POST" id="myformupdate" name="myformupdate" enctype="multipart/form-data" >
-                                
-                                        {{ csrf_field() }}
-                                        
+                            <div role="tabpanel row no-gutters" class="tab-pane active" id="IdenTab">
+                                <!-- {{Form::open(array('method'=>'POST', 'route' => array('patrimonialsite.store'),'files' =>true )) }}
+                                {{--
+                                    PatrimonialsiteController
+                                    --}} -->
+                                    <!-- <form action="patrimonialsite" method="POST" enctype="multipart/form-data" > -->
+                                    
+                                    <!-- <form action="/patrimonialsite" method="POST" id="myform" name="myform" enctype="multipart/form-data" > -->
+                                    <form action="/patrimonialsite" method="POST" id="myform" name="myform" enctype="multipart/form-data" >
                                         <input type="text" value="" id="text1" name="text1" size="30">
-                                
+                                        <!-- <input type="text" value="" id="text2" name="text2" size="30">    -->
+                                        <!-- {{--<input type="hidden" name="_token" value="{{ csrf_token() }}">--}} -->
+                                        {{ csrf_field() }}   
                                     <div class="col-12 col-sm-6 col-md-7">
                                        <div class="col-12 col-sm-6 col-md-12">
                                           <label for="vttden">Denominación (Actual)</label>
-                                          <input type="text" class="form-control" id="denom" name="denom" placeholder="Denominación " value="" required autocomplete="off">
+                                          <input type="text" class="form-control" id="denom" name="denom" placeholder="Denominación " value="{{$patrimonialsite->name_title}}" required autocomplete="off">
                                         </div>
                                         <div class="col-12 col-sm-6 col-md-12">
                                             <label for="validationTooltipUsername">Tipo Patrimonio</label>
                                             <div class="form-group">
                                                 <select class="form-control" id="catpat" name="catpat" placeholder="Tipo Patrimonio ">
-                                                    <option value="0" disabled="true" selected="true">Selecione Categoria</option>
+                                                    <option value="{{$patrimonialsite->category}}" selected="true">Selecione Categoria</option>
                                                         @foreach ($categories as $category)
-                                                            <option value="{{ $category->id }}">{{$category->description}}</option>
+                                                            <option value="$patrimonialsite->category">{{$category->description}}</option>
                                                         @endforeach
                                                 </select>
                                             </div>
@@ -222,7 +64,7 @@
                                             <label for="validationTooltipUsername">Ambito</label>
                                             <div class="form-group">
                                               <select class="form-control" id="amb" name="amb" placeholder="Tipo Ambito">
-                                                <option value="0" disabled="true" selected="true">Selecione Provincia</option>
+                                                <option value="0" disabled="true" selected="true">Selecione Ambito</option>
                                               </select>
                                             </div>
                                         </div> 
@@ -263,7 +105,7 @@
                                     <div class="5">
                                         <div class="modal-body">
                                         <input id="uploadImage1" type="file" name="uploadImage1" onchange="previewImage(1);" />
-                                        
+                                        <!-- <input type="file"  name='turisticsite_photo' class="form-control"> -->
                                         <img id="uploadPreview1" width="304" height="236"   src="/uploads/patrimonialsite_photos/image_not_available.jpg" />
                                         </div>      
                                         
@@ -271,7 +113,7 @@
                                     <div class="col-12 col-sm-6 col-md-12">
                                             <label class="vttden">Descripción de la Imagen</label>
                                               <input type="text" class="form-control" id="descima" name="descima" placeholder="Descripción " required>
-                                        
+                                            <!-- </div> -->
                                     </div>
                                     <div class=" col-12 col-sm-6 col-md-6">
                                           <label for="vttden">Ubicación</label>
@@ -332,10 +174,10 @@
                                             </div>
                                         </div>
 
-                                        <div role="tabpanel" class="tab-pane" id="LocalTabup">
+                                        <div role="tabpanel" class="tab-pane" id="LocalTab">
                                             <div class="row no-gutters">
                                               <div class="col-12 col-sm-6 col-md-6">                                  
-                                                 
+                                                  <!-- <div class="form-row"> -->
                                                     <div class="col-12 mb-3 col-md-4">
                                                         <label for="validationTooltipUsername">Departamento</label>
                                                         <div class="form-group">
@@ -399,7 +241,13 @@
                                                         <input type="text" class="form-control" id="zona" name="zona" placeholder="Denominación " value="" required>                                                        
                                                         </div>
                                                     </div>
-                       
+                                                  <!--  <div class="col-12 mb-3 col-md-12">
+                                                        <label for="zon">Zona</label>
+                                                        <div class="input-group text"> 
+                                                            <span class="input-group-addon"><i class="fa fa-bus"></i></span>
+                                                            <input type="text" class="form-control" name='zon'  id="zon" placeholder="Latitud">
+                                                        </div>                                                        
+                                                    </div> -->
                                                 </div>
                                                 <div class="col-12 com-sm-6 col-md-6">
                                                     <div class="form-group"> 
@@ -418,20 +266,22 @@
                                                 </div>
                                             </div>                                            
                                         </div>
-                                        
-                                        <div role="tabpanel" class="tab-pane" id="EgpTabup">
+                                        <!--egp-->
+                                        <div role="tabpanel" class="tab-pane" id="EgpTab">
                                             <div class="row no-gutters">
                                                 <div class="col-12 col-sm-6 col-md-6">                                  
-                                        
+                                                  <!-- <div class="form-row"> -->
                                                     <div class="col-12 mb-3 col-md-12">
                                                         <label for="dat">Conservación</label>
                                                         <div class="form-group">
-                                        
+                                                            <!-- <input type="radio" id="edc" name="edc" value="1" onclick="sumar()"> Bueno
+                                                              <input type="radio" id="edc" name="edc" value="3" onclick="sumar()"> Regular
+                                                              <input type="radio" id="edc" name="edc" value="2" onclick="sumar()"> Malo -->
                                                           <select class="form-control" id="selectconser" name="selectconser" placeholder="Datación">
                                                             <option value="0" disabled="true" selected="true">Seleccione Datación</option>
                                                             <option value="1">BUENO - menos del 50% de deterioro</option>
-                                                            <option value="2">REGULAR - más del 50% y menos del 75% de deterioro</option>
-                                                            <option value="3">MALO - más del 75% de deterioro</option>
+                                                            <option value="3">REGULAR - más del 50% y menos del 75% de deterioro</option>
+                                                            <option value="2">MALO - más del 75% de deterioro</option>
                                                           </select>
                                                         </div>
                                                     </div>
@@ -457,7 +307,7 @@
                                                     <div class="col-12 mb-3 col-md-6">
                                                         <h4 for="fol">&nbsp;</h4>
                                                         <label for="dat">Antrópicos</label>
-
+                                                            <!-- <form name="fomr2" method="post" action=""> -->
                                                             <div class="form-group">
                                                                 <input type="checkbox" id="antdurb" name="antdurb" value="D. Urbano">
                                                                 <label for="antdurb">D. Urbano</label>
@@ -478,41 +328,41 @@
                                                                 <label for="oth">Otros</label>
                                                                 <input id="antot" name="antot" type="text" size="15" maxlength="50" disabled>
                                                             </div>
-                                                            
+                                                            <!-- </form>                                                        -->
                                                     </div>
                                                 </div>
-                                                
+                                                <!-- </div> -->
                                                 <div class="col-12 com-sm-6 col-md-6">
                                                     <h4 for="fol">Condición Legal</h4>
                                                     <div class="col-12 mb-3 col-md-6">
                                                         <div class="form-group"> 
                                                             <label for="dat">Propietario/Custodia</label>
-                                                            
+                                                            <!-- <form name="form1" method="post" action=""> -->
                                                                 <br>
-                                                                <input type="radio" id="prop" name="prop" value="Público Comunal">
+                                                                <input type="radio" id="propc" name="prop" value="Público Comunal">
                                                                 <label for="prop">Público Comunal</label>
                                                                 <br>
-                                                                <input type="radio" id="prop" name="prop" value="Privado Religioso">
+                                                                <input type="radio" id="propr" name="prop" value="Privado Religioso">
                                                                 <label for="prop">Privado Religioso</label>
                                                                 <br>
-                                                                <input type="radio" id="prop" name="prop" value="Privado Colectivo">
+                                                                <input type="radio" id="propco" name="prop" value="Privado Colectivo">
                                                                 <label for="prop">Privado Colectivo</label>
                                                                 <br>
-                                                                <input type="radio" id="prop" name="prop" value="Privado Individual">
+                                                                <input type="radio" id="propi" name="prop" value="Privado Individual">
                                                                 <label for="prop">Privado Individual</label>
                                                                 <br>
-                                                                <input type="radio" id="prop" name="prop" value="Público Estatal">
+                                                                <input type="radio" id="prope" name="prop" value="Público Estatal">
                                                                 <label for="prop">Público Estatal</label>
                                                                 <br>
-                                                                <input type="radio" id="prop" name="prop" value="De Corresposabilidad">
+                                                                <input type="radio" id="dcorr" name="prop" value="De Corresposabilidad">
                                                                 <label for="prop">De Corresposabilidad</label>
                                                                 <br>
-                                                           
+                                                            <!-- </form>  -->
                                                         </div>
                                                     </div>                                                    
                                                       <div class="col-12 mb-3 col-md-6">
                                                         <label for="dat">Uso</label>
-                                                            
+                                                            <!-- <form name="fom3" method="post" action=""> -->
                                                                 <br>
                                                                 <input type="radio" id="uso" name="uso" value="Turistico">
                                                                 <label for="use">Turistico</label>
@@ -538,7 +388,7 @@
                                                                 <input type="radio" id="checkbox1" value="checkbox" onchange="checkuso(this)">
                                                                 <label for="use">Otros</label>
                                                                 <input id="uotr" name="uotr" type="text" size="15" maxlength="50" disabled>
-                                                
+                                                            <!-- </form> -->                                                       
                                                     </div>                                                                                                           
                                                 </div>
                                             </div>
@@ -557,7 +407,7 @@
                                                             <tr>
                                                               <th scope="row">{{$i}}</th>
                                                               <th ><input type="text" name="owner[{{ $i }}][name]" class="form-control" value="{{ old('owner['.$i.'][name]') }}"></th>
-                                                                
+                                                                   <!-- <input type="text" name="law[{{ $i }}][numero]" class="form-control" value="{{ old('law['.$i.'][numero]') }}"></th> -->
                                                             </tr>
                                                             @endfor
                                                         </tbody>
@@ -568,7 +418,8 @@
                                         <div role="tabpanel" class="tab-pane" id="ItTab">
                                             <div class="row no-gutters">
                                                 <div class="col-12 col-sm-6 col-md-6">                            
-      
+                                                  <!-- <div class="form-row"> -->
+            <!--                                         <h4 for="fol">INFORMACIÓN TURÍSTICA</h4> -->
                                                     <div class="col-12 col-sm-6 col-md-12">
                                                         <label for="validationTooltipUsername">Tipo Patrimonio</label>
                                                         <div class="form-group">
@@ -589,20 +440,16 @@
                                                         </div>
                                                     </div>                                                     
                                                     <div class="col-12 mb-3 col-md-12">
-                                                                                                              
+                                                        <label>APi:</label><input type="text" value="" id="rapi" name="rapi" disabled="true">                                                      
                                                         <label for="chkPassport">    
                                                             <input type="checkbox" name="check" id="check" value="1" onchange="javascript:showContent()" />
                                                             API Accesibilidad turística de Punto de Interés Patrimonial Identificado
                                                         </label>
-                                 
-                                                        <input type="text" value="" id="resapi" name="resapi">
-
-
 
                                                         <div id="content" style="display: none;">
-                                                            
+                                                            <!-- <form name="formapi" id="formapi">  -->
                                                             <ul type="disc">
-                   
+                                                                
 
                                                             <li>Seleccione la situación actual:</li>
                                                               <input type="radio" id="sa" name="sa" value="1" onclick="sumar()"> Protegido &nbsp;&nbsp;&nbsp;&nbsp;
@@ -616,23 +463,30 @@
 
                                                             <li>Seleccione Seguridad Fisica:</li>
                                                               <input type="checkbox" id="sf" name="sf" value="1" onclick="sumar()">Sistema de Alarma&nbsp;&nbsp;&nbsp;&nbsp;
-                                                              <input type="checkbox" id="sf" name="sf" value="2" onclick="sumar()">Comunidad Organizada&nbsp;&nbsp;&nbsp;&nbsp;
-                                                              <input type="checkbox" id="sf" name="sf" value="3" onclick="sumar()">Otro typo de seguridad  &nbsp;&nbsp;&nbsp;&nbsp;
+                                                              <input type="checkbox" id="sf" name="sf" value="1" onclick="sumar()">Comunidad Organizada&nbsp;&nbsp;&nbsp;&nbsp;
+                                                              <input type="checkbox" id="sf" name="sf" value="1" onclick="sumar()">Otro typo de seguridad  &nbsp;&nbsp;&nbsp;&nbsp;
 
                                                             </ul>
-                                                  
-                                                            <input type="text" value="" id="resapi" name="resapi">                                                           
+                                                            <!--   <input type="submit" value="Submit">-->
+                                                            <!-- </form>                                                           -->
                                                          </div>
+                                                         <label>Subresultado APi:</label><input type="text" value="" id="resapi" name="resapi" disabled="true">
                                                         <hr /> 
                                                         <label for="chkPassport"> 
                                                         <input type="checkbox" name="checkrca" id="checkrca" value="1" onchange="javascript:showContentRca()" />
-                                                        CARACTERISTICAS DE ACCESIBILIDAD 
+                                                        Característicad de Accesibilidad 
                                                         </label> 
-                                                   
+                                                        <!-- <input type="text" value="" id="rca" name="rca"> -->
+                                                        
                                                         <div id="contentrca" style="display: none;">
-
+                                                            <!-- <form name="formapi" id="formapi">  -->
                                                             <ul type="disc">
-                               
+                                                                
+                                    <!--                         <li>Selecione estado de conservacion:</li>
+                                                              <input type="radio" id="edc" name="edc" value="1" onclick="sumar()"> Bueno
+                                                              <input type="radio" id="edc" name="edc" value="3" onclick="sumar()"> Regular
+                                                              <input type="radio" id="edc" name="edc" value="2" onclick="sumar()"> Malo
+                                                               -->
                                                             <li>Posibilidad de Ingreso :</li>
                                                               <input type="radio" id="pi" name="pi" value="1" onclick="sumarac()"> Completo &nbsp;&nbsp;&nbsp;&nbsp;
                                                               <input type="radio" id="pi" name="pi" value="2" onclick="sumarac()"> Mala o Ausente &nbsp;&nbsp;&nbsp;&nbsp;
@@ -651,15 +505,15 @@
                                                             </ul>
                                                             
                                                          </div>
-                                                         <input type="text" value="" id="rapi" name="rapi">                                                      
+                                                         <br>
+                                                         <label>Subresultado Acceso:</label><input type="text" value="" id="resacapi" name="resacapi" disabled="true">
                                                         <label for="chkPassport">    
                                                             <input type="checkbox" name="check" id="checkacceso" value="1" onchange="javascript:showContentAcceso()" />
                                                             AEPI Accesibilidad turística de Entorno de Punto de Interés Patrimonial Identificado
                                                         </label>
-                                                       
-                                                        <input type="text" value="" id="resaepi" name="resaepi">
+                                                        <!-- <div id="reapi" >ESTADO AEPI</div> -->
                                                         <div id="contentacceso" style="display: none;">
-                                                       
+                                                            <!-- <form name="myform" id="myform"> -->
                                                             <ul type="disc">
                                                                 
                                                             <li>Existencia de urbanización básica (agua/alcantarillado/electricidad):</li>
@@ -691,9 +545,9 @@
                                                               <input type="radio" name="essv" id="essv" value="1" onclick="sumarae()">No &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                                             </ul>
 
-                                                                                                                     
+                                                            <!-- </form>                                                            -->
                                                          </div>
-                                                        
+                                                        <label>Resultado AEPI:</label><input type="text" value="" id="resaepi" name="resaepi" disabled="true">
                                                     </div>
                                                     <hr />  
                                                     <div class="col-12 mb-3 col-md-12">
@@ -783,10 +637,10 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div role="tabpanel" class="tab-pane" id="CloTabup">
+                                        <div role="tabpanel" class="tab-pane" id="CloTab">
                                             <div class="row no-gutters">
                                                 <div class="col-12 col-sm-6 col-md-12">                                  
-                                                  
+                                                  <!-- <div class="form-row"> -->
                                                     <h4 for="fol">Condición Legal</h4>
                                                     <div class="col-12 col-sm-6 col-md-12">
                                                         <label for="zon">Reconocido</label>
@@ -799,7 +653,17 @@
                                                     </div>
                                                     </hr>
                                                     <div class="col-6 col-sm-6 col-md-12">
-                                
+                                                       <!--  <label for="validationTooltipUsername">Tipo de Ley</label>
+                                                        <div class="form-group">
+                                                          <select class="form-control" id="validationTooltip02" placeholder="Tipo de Ley">
+                                                            <option value="0" disabled="true" selected="true">Seleccione Tipo de Ley</option>
+                                                            <option value="Internacional">Internacional</option>
+                                                            <option value="Nacional">Nacional</option>
+                                                            <option value="Departamental">Departamental</option>
+                                                            <option value="Municipal">Municipal</option>
+                                                            <option value="Ninguna">Ninguna</option>
+                                                          </select>
+                                                        </div>  -->
                                                             <label for="law"></label>
                                                                      <table class="table">
                                                                           <thead class="thead-dark">
@@ -836,7 +700,7 @@
 
                                             </div>
                                         </div>
-                                        <div role="tabpanel" class="tab-pane" id="ObsTabup">
+                                        <div role="tabpanel" class="tab-pane" id="ObsTab">
                                             <div class="row no-gutters">
                                                 <div class="col-12 col-sm-6 col-md-12">                            
                                                   
@@ -848,7 +712,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div role="tabpanel" class="tab-pane" id="FubiTabup">
+                                        <div role="tabpanel" class="tab-pane" id="FubiTab">
                                             <div class="row no-gutters">
                                                 <div class="col-12 col-sm-6 col-md-12">                            
                                                 
@@ -864,10 +728,9 @@
                                                             Grado de Confianbilidad del Patrimonial Identificado
                                                         </label>
                                                         </br>
-                                                    
-                                                        <input type="text" value="" id="resconf" name="resconf">
+                                                        <!-- <div id="rconf" >ESTADO CONFIABILIDAD</div> -->
                                                         <div id="contentaccesoconfi" style="display: none;">
-                                                    
+                                                            <!-- <form name="formconf" id="formconf"> -->
                                                                 <ul type="disc">
                                                                 <li> Coordenada de ubicación, en cualquier proyección geográfica</li>
                                                                   <input type="radio" name="cucp" id="cucp" value="0" onclick="sumaconf()"> Si&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -889,17 +752,22 @@
                                                                   <input type="radio" name="inva" id="inva" value="0" onclick="sumaconf()"> Si&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                                                   <input type="radio" name="inva" id="inva" value="1" onclick="sumaconf()"> No&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                                                 </ul>
-                                                                                                                      
-                                                         </div>                                                                                                                    
+                                                            <!-- </form>                                                            -->
+                                                         </div>
+                                                         <label>Grado Confidencial:</label><input type="text" value="" id="resconf" name="resconf" disabled="true">
                                                     </div> 
                                                 </div>
                                                 
                                                 </div>
                                             </div>                                            
-                                            <div role="tabpanel" class="tab-pane" id="DatTabup">
+                                            <div role="tabpanel" class="tab-pane" id="DatTab">
                                                 <div class="row no-gutters">
                                                     <div class="col-12 col-sm-6 col-md-12">                            
-              
+                                                      
+                      <!--                                   <div class="col-12 col-sm-6 col-md-12">
+                                                            <label class="custom-file-label" for="inputGroupFile01">Observaciones</label>
+                                                            <textarea class="form-control" resize="off" id="obser" rows="3"></textarea> 
+                                                        </div> -->
                                                         <div class="col-6 col-sm-6 col-md-12">
                                                            <div class="col-12 com-sm-6 col-md-12">
                                                     <div class="col-12 col-sm-6 col-md-12">
@@ -986,10 +854,10 @@
                                                             @endfor
                                                         </tbody>
                                                         </table>
-                                                   
+                                                    <!-- </div> -->
 
                                                     <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-                                                    <button type="submit" class="btn btn-success" form="myform">Enviar Cambios</button>
+                                                    <button type="submit" class="btn btn-success" form="myform">Enviar</button>
                                                 </div> 
                                                         </div>                
                                                     </div>
@@ -998,604 +866,10 @@
                                         </div>
                                     </div>
                                     <div class="modal-footer">
-                                    
+                                        <!-- <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                                        <button type="submit" class="btn btn-success">Enviar</button> -->
+                                        <!-- <button type="submit" class="btn btn-success"><i class="fa fa-arrow-right"></i> Guardar</button> -->
                                     </div>
                                 </form>
                             </div>
-                        </div>
                     </div>
-                </div>
-            </div> -->
-<!--End Show Modal-->
-<!--Start Delete Modal --->
-<div class="modal fade bd-example-modal-xl" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-xl" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3 class="modal-title" id="exampleModelLabel">Eliminar Patrimonio</h>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-                <form action="/patrimonialsite" method="POST" id="deleteForm">
-                    {{ csrf_field() }}
-                    {{ method_field('DELETE') }}
-                    <div class="modal-body">
-                        <input type="hidden" name="_method" value="DELETE">
-                        <p> Esta seguro ?.. Quieres eliminar los Datos.</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-success">Si!, Eliminar</button>
-                    </div>
-                </form>
-
-        </div>
-    </div>
-</div>
-<!-- End Delete Modal-->
-             <script>
-            function initMap() {
-                var bolivia = {
-                    lat: -16.2901540, 
-                    lng: -63.5886530};
-                    var map = new google.maps.Map(document.getElementById('map'), {
-                        zoom: 5,
-                        center: bolivia
-                    });
-                    var marker = new google.maps.Marker({
-                        position: {
-                            lat: -16.2901540, 
-                            lng: -63.5886530,
-                            //alt: 500,
-                        },
-                        map: map,
-                        draggable: true
-                    });
-
-                    var searchBox = new google.maps.places.SearchBox(document.getElementById('searchmap'));
-                        var elevator = new google.maps.ElevationService;
-                         var infowindow = new google.maps.InfoWindow({map: map});
-
-                    google.maps.event.addListener(searchBox,'places_changed', function(){
-                        var places = searchBox.getPlaces();
-                        var bounds = new  google.maps.LatLngBounds();
-                        var i, place;
-                        
-                        for (i = 0; place= places[i] ; i++)
-                        {   
-                            bounds.extend(place.geometry.location);
-                            marker.setPosition(place.geometry.location);
-                        }
-
-                        map.fitBounds(bounds);
-                        map.setZoom(15);
-
-                    });
-
-                    google.maps.event.addListener(marker,'position_changed',function(){
-                        var lat = marker.getPosition().lat();
-                        var lng = marker.getPosition().lng();
-                        //var alt = marker.getPosition().alt();
-
-                        $('#lat').val(lat);
-                        $('#lng').val(lng);
-                        //alert(val(lat));
-                        //$('#lat').val(lat);
-
-                    });
-
-                    // function showAltitude(){
-                    //     console.log('altitud');
-                    }
-
-
-
-//                     function displayLocationElevation(location, elevator, infowindow) {
-//   // Initiate the location request
-//   elevator.getElevationForLocations({
-//     'locations': [location]
-//   }, function(results, status) {
-//     infowindow.setPosition(location);
-//     if (status === 'OK') {
-//       // Retrieve the first result
-//       if (results[0]) {
-//         // Open the infowindow indicating the elevation at the clicked position.
-//         infowindow.setContent('The elevation at this point <br>is ' +
-//             results[0].elevation + ' meters.');
-//       } else {
-//         infowindow.setContent('No results found');
-//       }
-//     } else {
-//       infowindow.setContent('Elevation service failed due to: ' + status);
-//     }
-//   });
-// }
-//}
-            </script>
-
-           <script type="text/javascript">
-
-            function showContent() {
-            element = document.getElementById("content");
-            check = document.getElementById("check");
-                if (check.checked) {
-                    element.style.display='block';
-                }
-                else {
-                    element.style.display='none';
-                }
-            }
-
-            function showContentRca() {
-            element = document.getElementById("contentrca");
-            check = document.getElementById("checkrca");
-                if (check.checked) {
-                    element.style.display='block';
-                }
-                else {
-                    element.style.display='none';
-                }
-            }
-
-            function showContentAcceso() {
-            element = document.getElementById("contentacceso");
-            check = document.getElementById("checkacceso");
-                if (check.checked) {
-                    element.style.display='block';
-                }
-                else {
-                    element.style.display='none';
-                }
-            }
-
-            function showContentConfi() {
-            element = document.getElementById("contentaccesoconfi");
-            check = document.getElementById("checkaccesoconf");
-                if (check.checked) {
-                    element.style.display='block';
-                }
-                else {
-                    element.style.display='none';
-                }
-            }
-           </script>
-
-            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBzTmmwZQMrY6ZWG0Z_MppOXN9A4Cp92z4&callback=initMap&libraries=places" type="text/javascript">
-            </script>
-
-            <script type="text/javascript">
-                function previewImage(nb) {        
-                    var reader = new FileReader();         
-                    reader.readAsDataURL(document.getElementById('uploadImage'+nb).files[0]);         
-                    reader.onload = function (e) {             
-                    document.getElementById('uploadPreview'+nb).src = e.target.result;         
-                    };     
-                }
-            </script>
-            <script type="text/javascript">
-            var aux = 0;
-            var subacceSumado = 0;
-            $(function(){
-                $('#selectconser').on('change', onSelectConser);
-            });
-                function onSelectConser(){
-                var type_idc = $(this).val();
-                subacceSumado = subacceSumado + parseInt(type_idc);
-                document.getElementById('resapi').value = 'ACCESIBLE';
-                console.log(subacceSumado);
-                }
-            </script>
-            //sa
-            <script type="text/javascript">
-// $(document).ready(function(e) {
- 
-//             $('#sa').change(function() {
- 
-//                var obj = {};
-//                var string = '';
-//                var sum = 0;
- 
-//                // Grupo 1
-//                if ($("input:radio[name=sa]").is(':checked')) {
-//                   var n1 = $("input:radio[name=sa]:checked").val();
-//                   sum += parseInt(n1);
-//                    console.log('sum is '+ sum);
-//                }
-//                $('#resultado').val(sum);
- 
-//             });
-//          });
-
-                function sumar()
-                {
-                    // var rd1 = document.getElementById("sa1");
-                    // var rd1 = document.getElementById("sa2");
-                    // var rd1 = document.getElementById("sa3");
-                    // alert(parseInt(rd1.value));
-                    // subacceSumado = subacceSumado + parseInt(rd1.value); 
-
-                    // var rd2 = document.getElementById("ue");
-                    // alert(rd2.value);
-                    // subacceSumado = subacceSumado + parseInt(rd2.value); 
-                    // var rd3 = document.getElementById("sf");
-                    // alert(rd3.value);
-                    // subacceSumado = subacceSumado + parseInt(rd3.value); 
-
-                    obj = document.getElementById('sa1');
-                    obj = document.getElementById('sa2');
-                    obj = document.getElementById('sa3');
-                    
-                    subacceSumado = subacceSumado + parseInt(obj.value);
-                    console.log(subacceSumado);
-
-                    obj = document.getElementById('ue1');
-                    obj = document.getElementById('ue2');
-                    obj = document.getElementById('ue3');
-                    
-                    subacceSumado = subacceSumado + parseInt(obj.value);
-                    console.log(subacceSumado);
-
-                    obj = document.getElementById('sf1');
-                    obj = document.getElementById('sf2');
-                    obj = document.getElementById('sf3');
-                    
-                    subacceSumado = subacceSumado + parseInt(obj.value);
-                    console.log(subacceSumado);
-                     //obj = document.getElementById('sa').innerHTML;
-                     //totalsumado = 0;
-                     //totalChecks1 = obj.length;
-                    // console.log(obj.value);
-                    //  for( i=0; i<totalChecks1; i++){
-                    //      if( obj[i].checked == true ){
-                    //          valor1 = obj[i].value.split('-');
-                    //          subacceSumado = subacceSumado + parseInt(valor1[0],10);
-                    //      console.log('res'+subacceSumado);
-                    //      }
-                    //  }
-                    //document.getElementById('content').innerHTML = 'estas s'+ subacceSumado;
-
-                    // obj1 = document.myform['ue'];
-                    // totalChecks2 = obj1.length;
-                    
-                    // console.log(totalChecks2);
-                    // for( i=0; i<totalChecks2; i++){
-                    //     if( obj1[i].checked == true ){
-                    //         valor2 = obj1[i].value.split('-');
-                    //         subacceSumado = subacceSumado + parseInt(valor2[0],10);
-                    //     }
-                    // }
-                    // obj2 = document.myform['sf'];
-                    // totalChecks3 = obj2.length;
-                    
-                    // console.log(totalChecks3);
-                    // for( i=0; i<totalChecks3; i++){
-                    //     if( obj2[i].checked == true ){
-                    //         valor1 = obj2[i].value.split('-');
-                    //         subacceSumado = subacceSumado + parseInt(valor1[0],10);
-                    //     }
-                    // }
-                    if(subacceSumado<=5){
-                    document.getElementById('resapi').value = 'ACCESIBLE ';
-                    }else{
-                        if(subacceSumado>=6 && subacceSumado<=7){
-                            document.getElementById('resapi').value = 'MEJORABLE ';
-                        }else {
-                            document.getElementById('resapi').value = 'NO ACCESIBLE';
-                        }
-                    }
-                }
-                
-                </script>
-                <script type="text/javascript">
-                var subcaraSumadoca = 0;
-                var sum =0;
-                function sumarac(){
-                    obj = document.getElementById('pi1');
-                    obj = document.getElementById('pi2');
-                    obj = document.getElementById('pi3');
-                    
-                    subcaraSumadoca = subcaraSumadoca + parseInt(obj.value);
-                    console.log(subcaraSumadoca);
-
-                    obj = document.getElementById('vi1');
-                    obj = document.getElementById('vi2');
-                    obj = document.getElementById('vi3');
-                    
-                    subcaraSumadoca = subcaraSumadoca + parseInt(obj.value);
-                    console.log(subcaraSumadoca);
-
-                    obj = document.getElementById('in1');
-                    obj = document.getElementById('in2');
-                    obj = document.getElementById('in3');
-                    
-                    subcaraSumadoca = subcaraSumadoca + parseInt(obj.value);
-                    console.log(subcaraSumadoca);
-                    // obj = document.myform['pi'];
-                    // totalChecks4 = obj.length;
-                    // for( i=0; i<totalChecks4; i++){
-                    //     if( obj[i].checked == true ){
-                    //         valor1 = obj[i].value.split('-');
-                    //         subcaraSumadoca = subcaraSumadoca + parseInt(valor1[0],10);
-                    //     }
-                    // }
-                    //  obj = document.myform['vi'];
-                    //  totalChecks5 = obj.length;
-                    //  for( i=0; i<totalChecks5; i++){
-                    //      if( obj[i].checked == true ){
-                    //          valor1 = obj[i].value.split('-');
-                    //          subcaraSumadoca = subcaraSumadoca + parseInt(valor1[0],10);
-                    //      }
-                    //  }
-                    //  obj = document.myform['in'];
-                    //  totalChecks6 = obj.length;
-                    //  for( i=0; i<totalChecks6; i++){
-                    //      if( obj[i].checked == true ){
-                    //          valor1 = obj[i].value.split('-');
-                    //          subcaraSumadoca = subcaraSumadoca + parseInt(valor1[0],10);
-                    //      }
-                    //  }
-                    if(subcaraSumadoca<=5){
-                    document.getElementById('resacapi').value = 'BUENAS ';
-                    }else{
-                        if(subcaraSumadoca>=6 && subcaraSumadoca<=7){
-                            document.getElementById('resacapi').value = 'REGULARES';
-                        }else {
-                            document.getElementById('resacapi').value = 'MEJORABLES';
-                        }
-                    }                     
-                    //alert(subacceSumado +' '+ subcaraSumadoca );
-                    sum = subacceSumado * subcaraSumadoca;
-                    
-                     if(sum==30){
-                     //document.getElementById('rapi').innerHTML = 'SI ';
-                     document.getElementById("rapi").value =  'NO ACCESIBLE';
-                     }else{
-                         if(sum>31 && sum<=50){
-                             //document.getElementById('rapi').innerHTML = 'LIMITADA ';
-                             document.getElementById("rapi").value =  'ACCESIBLE';
-                         }else {
-                             //document.getElementById('rapi').innerHTML = 'NO' ;
-                             document.getElementById("rapi").value =  'MEJORABLE';
-                         }
-                     }
-                    // document.getElementById('reapi').innerHTML =  totalSumadoa;
-                }
-            </script>
-            <script type="text/javascript">
-                totalSumadoa = 0;
-                function sumarae(){
-                    obj = document.getElementById('eub1');
-                    obj = document.getElementById('eub2');
-                    
-                    obj = document.getElementById('esc1');
-                    obj = document.getElementById('esc2');
-
-                    obj = document.getElementById('esco1');
-                    obj = document.getElementById('esco2');
-
-                    obj = document.getElementById('esa1');
-                    obj = document.getElementById('esa2');
-
-                    obj = document.getElementById('esal1');
-                    obj = document.getElementById('esal2');
-
-                    obj = document.getElementById('est1');
-                    obj = document.getElementById('est2');
-
-                    obj = document.getElementById('essv1');
-                    obj = document.getElementById('essv2');
-                    
-
-
-                    totalSumadoa = totalSumadoa + parseInt(obj.value);
-                    console.log('totalSumadoa'+totalSumadoa);
-                    // obj = document.myform['eub'];
-                    // totalChecks4 = obj.length;
-                    // for( i=0; i<totalChecks4; i++){
-                    //     if( obj[i].checked == true ){
-                    //         valor1 = obj[i].value.split('-');
-                    //         totalSumadoa = totalSumadoa + parseInt(valor1[0],10);
-                    //     }
-                    // }
-                    //  obj = document.myform['esc'];
-                    //  totalChecks5 = obj.length;
-                    //  //totalSumadoa = 0;
-                    //  for( i=0; i<totalChecks5; i++){
-                    //      if( obj[i].checked == true ){
-                    //          valor1 = obj[i].value.split('-');
-                    //          totalSumadoa = totalSumadoa + parseInt(valor1[0],10);
-                    //      }
-                    //  }
-                    //  obj = document.myform['esco'];
-                    //  totalChecks6 = obj.length;
-                    //  //totalSumadoa = 0;
-                    //  for( i=0; i<totalChecks6; i++){
-                    //      if( obj[i].checked == true ){
-                    //          valor1 = obj[i].value.split('-');
-                    //          totalSumadoa = totalSumadoa + parseInt(valor1[0],10);
-                    //      }
-                    //  }
-                    //  obj = document.myform['esa'];
-                    //  totalChecks7 = obj.length;
-                    // // totalSumadoa = 0;
-                    //  for( i=0; i<totalChecks7; i++){
-                    //      if( obj[i].checked == true ){
-                    //          valor1 = obj[i].value.split('-');
-                    //          totalSumadoa = totalSumadoa + parseInt(valor1[0],10);
-                    //      }
-                    //  }
-                    //  obj = document.myform['esal'];
-                    //  totalChecks8 = obj.length;
-                    //  //totalSumadoa = 0;
-                    //  for( i=0; i<totalChecks8; i++){
-                    //      if( obj[i].checked == true ){
-                    //          valor1 = obj[i].value.split('-');
-                    //          totalSumadoa = totalSumadoa + parseInt(valor1[0],10);
-                    //      }
-                    //  }
-                    //  obj = document.myform['est'];
-                    //  totalChecks9 = obj.length;
-                    //  //totalSumadoa = 0;
-                    //  for( i=0; i<totalChecks9; i++){
-                    //      if( obj[i].checked == true ){
-                    //          valor1 = obj[i].value.split('-');
-                    //          totalSumadoa = totalSumadoa + parseInt(valor1[0],10);
-                    //      }
-                    //  }
-                    //  obj = document.myform['essv'];
-                    //  totalChecks10 = obj.length;
-                    //  //totalSumadoa = 0;
-                    //  for( i=0; i<totalChecks10; i++){
-                    //      if( obj[i].checked == true ){
-                    //          valor1 = obj[i].value.split('-');
-                    //          totalSumadoa = totalSumadoa + parseInt(valor1[0],10);
-                    //      }
-                    //  }
-                    //alert(totalSumadoa);
-                     if(totalSumadoa<=1){
-                     //document.getElementById('reapi').innerHTML = 'ACCESIBLE '+totalSumadoa;
-                     document.getElementById("resaepi").value =  'ACCESIBLE';
-                     //resaepi
-                     }else{
-                         if(totalSumadoa>=2 && totalSumadoa<=3){
-                             //document.getElementById('reapi').innerHTML = 'MEJORABLE '+totalSumadoa;
-                             document.getElementById("resaepi").value =  'MEJORABLE';
-                         }else {
-                             //document.getElementById('reapi').innerHTML = 'NO ACCESIBLE'+totalSumadoa;
-                             document.getElementById("resaepi").value =  'NO ACCESIBLE';
-                         }
-                     }
-                    //document.getElementById('reapi').innerHTML =  totalSumadoa;
-                }
-                //car accesibilidad
-//                <script type="text/javascript">
-
-            </script>
-            <script type="text/javascript">
-                totalSumadob = 0;
-                function sumaconf(){
-                    obj = document.getElementById('cucp1');
-                    obj = document.getElementById('cucp2');
-
-                    obj = document.getElementById('refo1');
-                    obj = document.getElementById('refo2');
-
-                    obj = document.getElementById('ibi1');
-                    obj = document.getElementById('ibi2');
-
-                    obj = document.getElementById('ite1');
-                    obj = document.getElementById('ite2');
-
-                    obj = document.getElementById('inva1');
-                    obj = document.getElementById('inva2');
-                    
-
-
-                    totalSumadob = totalSumadob + parseInt(obj.value);
-                    console.log('totalSumadob'+totalSumadob);
-
-                    //alert('hola');
-                    // obj = document.myform['cucp'];
-                    // totalChecks11 = obj.length;
-                    // for( i=0; i<totalChecks11; i++){
-                    //     if( obj[i].checked == true ){
-                    //         valor1 = obj[i].value.split('-');
-                    //         totalSumadob = totalSumadob + parseInt(valor1[0],10);
-                    //     }
-                    // }
-
-                    // obj = document.myform['refo'];
-                    // totalChecks12 = obj.length;
-                    // //totalSumadob = 0;
-                    // for( i=0; i<totalChecks12; i++){
-                    //     if( obj[i].checked == true ){
-                    //         valor1 = obj[i].value.split('-');
-                    //         totalSumadob = totalSumadob + parseInt(valor1[0],10);
-                    //     }
-                    // }
-
-
-                    // obj = document.myform['ibi'];
-                    // totalChecks13 = obj.length;
-                    // //totalSumadob = 0;
-                    // for( i=0; i<totalChecks13; i++){
-                    //     if( obj[i].checked == true ){
-                    //         valor1 = obj[i].value.split('-');
-                    //         totalSumadob = totalSumadob + parseInt(valor1[0],10);
-                    //     }
-                    // }
-
-
-                    // obj = document.myform['ite'];
-                    // totalChecks14 = obj.length;
-                    // //totalSumadob = 0;
-                    // for( i=0; i<totalChecks14; i++){
-                    //     if( obj[i].checked == true ){
-                    //         valor1 = obj[i].value.split('-');
-                    //         totalSumadob = totalSumadob + parseInt(valor1[0],10);
-                    //     }
-                    // }
-
-
-                    // obj = document.myform['inva'];
-                    // totalChecks15 = obj.length;
-                    // //totalSumadob = 0;
-                    // for( i=0; i<totalChecks15; i++){
-                    //     if( obj[i].checked == true ){
-                    //         valor1 = obj[i].value.split('-');
-                    //         totalSumadob = totalSumadob + parseInt(valor1[0],10);
-                    //     }
-                    // }
-                    if(totalSumadob<=1){
-                    //document.getElementById('rconf').innerHTML = 'CONFIABLE';
-                    document.getElementById("resconf").value =  'CONFIABLE';
-                    }else{
-                        if(totalSumadob<=2){
-                            //document.getElementById('rconf').innerHTML = 'POR CONFIRMAR';
-                            document.getElementById("resconf").value =  'POR CONFIRMAR';
-                        }else {
-                            //document.getElementById('rconf').innerHTML = 'NO CONFIABLE';
-                            document.getElementById("resconf").value =  'NO CONFIABLE';
-                        }
-                    }
-                    //document.getElementById('rconf').innerHTML =  totalSumadob;
-                }
-            </script>
-            <script type="text/javascript">
-
-                function checka(checkbox) {
-                  var elCampo = document.getElementById('natot');
-                  //elCampo.disabled = checkbox.checked;
-                    if(document.getElementById('natot').disabled == true)
-                        document.getElementById('natot').disabled = false;
-                    else
-                        document.getElementById('natot').disabled = true;
-
-                }
-
-                function checkantro(checkantrobox) {
-                  var elCampo = document.getElementById('antot');
-                  //elCampo.disabled = checkbox.checked;
-                    if(document.getElementById('antot').disabled == true)
-                        document.getElementById('antot').disabled = false;
-                    else
-                        document.getElementById('antot').disabled = true;
-                }
-                function checkuso(checkusobox) {
-                  var elCampo = document.getElementById('uotr');
-                  //elCampo.disabled = checkbox.checked;
-                    if(document.getElementById('uotr').disabled == true)
-                        document.getElementById('uotr').disabled = false;
-                    else
-                        document.getElementById('uotr').disabled = true;
-                }
-            </script>
-
-           
-{{-- //modal --}}
-
-
-    
-@endsection
-

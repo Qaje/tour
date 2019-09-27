@@ -309,7 +309,7 @@ class PatrimonialsiteController extends Controller
     {
         $where = array('id' => $id);
         $patrimonialsite  = Patrimonialsite::where($where)->first();
-        dd($patrimonialsite);       
+        //dd($patrimonialsite);       
         return Response::json($patrimonialsite);
 
         // $patrimonialsite = Patrimonialsite::find($id);

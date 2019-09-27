@@ -1,5 +1,3 @@
-<!-- jQuery 3 -->
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>
 <!-- Patrimonial -->
 <script src="/js/admin/create.js"></script>
 <!-- jQuery 3 -->
@@ -11,6 +9,8 @@
 <!-- AdminLTE App -->
 <script src="/adminlte/dist/js/adminlte.min.js"></script>
 
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js" async defer></script>
+
 <!-- Full calendar-->
 <!-- <script src="/plugins/lib/jquery.slimscroll.min.js"></script> -->
 <!-- <script src="/plugins/lib/jquery-ui.min.js"></script> -->
@@ -20,9 +20,9 @@
 <script src="/plugins/fullcalendar.js"></script> -->
 
   
-<!-- <script src='/plugins/lib/jquery.min.js'></script> -->
-<!-- <script src='/plugins/lib/moment.min.js'></script> -->
-<!-- <script src='/plugins/fullcalendar.js'></script> -->
+<!-- <script src='/plugins/lib/jquery.min.js'></script>
+<script src='/plugins/lib/moment.min.js'></script>
+<script src='/plugins/fullcalendar.js'></script> -->
  
 
 

@@ -37,8 +37,9 @@
                                     PatrimonialsiteController
                                     --}} -->
                                     <!-- <form action="patrimonialsite" method="POST" enctype="multipart/form-data" > -->
+                                    
+                                    <!-- <form action="/patrimonialsite" method="POST" id="myform" name="myform" enctype="multipart/form-data" > -->
                                     <form action="/patrimonialsite" method="POST" id="myform" name="myform" enctype="multipart/form-data" >
-                                <!-- <form class="needs-validation" id="fn_sitepatri" method="post" action="agregar_sitepatri"> -->
                                         <input type="text" value="" id="text1" name="text1" size="30">
                                         <!-- <input type="text" value="" id="text2" name="text2" size="30">    -->
                                         <!-- {{--<input type="hidden" name="_token" value="{{ csrf_token() }}">--}} -->
@@ -440,7 +441,7 @@
                                                     </div>                                                     
                                                     <div class="col-12 mb-3 col-md-12">
                                                         <label>APi:</label><input type="text" value="" id="rapi" name="rapi" disabled="true">                                                      
-                                                        <label for="chkPassport">    
+                                                        <label for="chkPassport">
                                                             <input type="checkbox" name="check" id="check" value="1" onchange="javascript:showContent()" />
                                                             API Accesibilidad turística de Punto de Interés Patrimonial Identificado
                                                         </label>
@@ -451,19 +452,19 @@
                                                                 
 
                                                             <li>Seleccione la situación actual:</li>
-                                                              <input type="radio" id="sa" name="sa" value="1" onclick="sumar()"> Protegido &nbsp;&nbsp;&nbsp;&nbsp;
-                                                              <input type="radio" id="sa" name="sa" value="2" onclick="sumar()"> Vulnerable&nbsp;&nbsp;&nbsp;&nbsp;
-                                                              <input type="radio" id="sa" name="sa" value="3" onclick="sumar()"> En amenaza  &nbsp;&nbsp;&nbsp;&nbsp;
+                                                              <input type="radio" id="sa1" name="sa1" value="1" onclick="sumar()"> Protegido &nbsp;&nbsp;&nbsp;&nbsp;
+                                                              <input type="radio" id="sa2" name="sa2" value="2" onclick="sumar()"> Vulnerable&nbsp;&nbsp;&nbsp;&nbsp;
+                                                              <input type="radio" id="sa3" name="sa3" value="3" onclick="sumar()"> En amenaza  &nbsp;&nbsp;&nbsp;&nbsp;
 
                                                             <li>Seleccione Urgencia de Intervencion:</li>
-                                                              <input type="radio" id="ue" name="ue" value="2" onclick="sumar()">Espera&nbsp;&nbsp;&nbsp;&nbsp;
-                                                              <input type="radio" id="ue" name="ue" value="0" onclick="sumar()">Sin dato&nbsp;&nbsp;&nbsp;&nbsp;
-                                                              <input type="radio" id="ue" name="ue" value="1" onclick="sumar()">Inmediato&nbsp;&nbsp;&nbsp;&nbsp;
+                                                              <input type="radio" id="ue1" name="ue1" value="2" onclick="sumar()">Espera&nbsp;&nbsp;&nbsp;&nbsp;
+                                                              <input type="radio" id="ue2" name="ue2" value="0" onclick="sumar()">Sin dato&nbsp;&nbsp;&nbsp;&nbsp;
+                                                              <input type="radio" id="ue3" name="ue3" value="1" onclick="sumar()">Inmediato&nbsp;&nbsp;&nbsp;&nbsp;
 
                                                             <li>Seleccione Seguridad Fisica:</li>
-                                                              <input type="checkbox" id="sf" name="sf" value="1" onclick="sumar()">Sistema de Alarma&nbsp;&nbsp;&nbsp;&nbsp;
-                                                              <input type="checkbox" id="sf" name="sf" value="1" onclick="sumar()">Comunidad Organizada&nbsp;&nbsp;&nbsp;&nbsp;
-                                                              <input type="checkbox" id="sf" name="sf" value="1" onclick="sumar()">Otro typo de seguridad  &nbsp;&nbsp;&nbsp;&nbsp;
+                                                              <input type="checkbox" id="sf1" name="sf1" value="1" onclick="sumar()">Sistema de Alarma&nbsp;&nbsp;&nbsp;&nbsp;
+                                                              <input type="checkbox" id="sf2" name="sf2" value="1" onclick="sumar()">Comunidad Organizada&nbsp;&nbsp;&nbsp;&nbsp;
+                                                              <input type="checkbox" id="sf3" name="sf3" value="1" onclick="sumar()">Otro typo de seguridad  &nbsp;&nbsp;&nbsp;&nbsp;
 
                                                             </ul>
                                                             <!--   <input type="submit" value="Submit">-->
@@ -487,19 +488,19 @@
                                                               <input type="radio" id="edc" name="edc" value="2" onclick="sumar()"> Malo
                                                                -->
                                                             <li>Posibilidad de Ingreso :</li>
-                                                              <input type="radio" id="pi" name="pi" value="1" onclick="sumarac()"> Completo &nbsp;&nbsp;&nbsp;&nbsp;
-                                                              <input type="radio" id="pi" name="pi" value="2" onclick="sumarac()"> Mala o Ausente &nbsp;&nbsp;&nbsp;&nbsp;
-                                                              <input type="radio" id="pi" name="pi" value="3" onclick="sumarac()"> Adaptable  &nbsp;&nbsp;&nbsp;&nbsp;
+                                                              <input type="radio" id="pi1" name="pi" value="1" onclick="sumarac()"> Completo &nbsp;&nbsp;&nbsp;&nbsp;
+                                                              <input type="radio" id="pi2" name="pi" value="2" onclick="sumarac()"> Mala o Ausente &nbsp;&nbsp;&nbsp;&nbsp;
+                                                              <input type="radio" id="pi3" name="pi" value="3" onclick="sumarac()"> Adaptable  &nbsp;&nbsp;&nbsp;&nbsp;
 
                                                             <li>Visibilidad:</li>
-                                                              <input type="radio" id="vi" name="vi" value="1" onclick="sumarac()">Buena&nbsp;&nbsp;&nbsp;&nbsp;
-                                                              <input type="radio" id="vi" name="vi" value="2" onclick="sumarac()">Regular&nbsp;&nbsp;&nbsp;&nbsp;
-                                                              <input type="radio" id="vi" name="vi" value="3" onclick="sumarac()">Mala o Ausente&nbsp;&nbsp;&nbsp;&nbsp;
+                                                              <input type="radio" id="vi1" name="vi" value="1" onclick="sumarac()">Buena&nbsp;&nbsp;&nbsp;&nbsp;
+                                                              <input type="radio" id="vi2" name="vi" value="2" onclick="sumarac()">Regular&nbsp;&nbsp;&nbsp;&nbsp;
+                                                              <input type="radio" id="vi3" name="vi" value="3" onclick="sumarac()">Mala o Ausente&nbsp;&nbsp;&nbsp;&nbsp;
 
                                                             <li>Infomación:</li>
-                                                              <input type="radio" id="in" name="in" value="1" onclick="sumarac()">Buena&nbsp;&nbsp;&nbsp;&nbsp;
-                                                              <input type="radio" id="in" name="in" value="2" onclick="sumarac()">Regular&nbsp;&nbsp;&nbsp;&nbsp;
-                                                              <input type="radio" id="in" name="in" value="3" onclick="sumarac()">Mala o Ausente&nbsp;&nbsp;&nbsp;&nbsp;
+                                                              <input type="radio" id="in1" name="in" value="1" onclick="sumarac()">Buena&nbsp;&nbsp;&nbsp;&nbsp;
+                                                              <input type="radio" id="in2" name="in" value="2" onclick="sumarac()">Regular&nbsp;&nbsp;&nbsp;&nbsp;
+                                                              <input type="radio" id="in3" name="in" value="3" onclick="sumarac()">Mala o Ausente&nbsp;&nbsp;&nbsp;&nbsp;
 
                                                             </ul>
                                                             
@@ -516,32 +517,32 @@
                                                             <ul type="disc">
                                                                 
                                                             <li>Existencia de urbanización básica (agua/alcantarillado/electricidad):</li>
-                                                              <input type="radio" name="eub" id="eub" value="0" onclick="sumarae()" > Si&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                              <input type="radio" name="eub" id="eub" value="1" onclick="sumarae()"> No&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                              <input type="radio" name="eub" id="eub1" value="0" onclick="sumarae()" > Si&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                              <input type="radio" name="eub" id="eub2" value="1" onclick="sumarae()"> No&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
                                                             <li>Estabilidad y seguridad de caminos</li>
-                                                              <input type="radio" name="esc" id="esc" value="0" onclick="sumarae()">Si&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                              <input type="radio" name="esc" id="esc" value="1" onclick="sumarae()">No&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                              <input type="radio" name="esc" id="esc1" value="0" onclick="sumarae()">Si&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                              <input type="radio" name="esc" id="esc2" value="1" onclick="sumarae()">No&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                  
                                                             <li>Estabilidad y seguridad de construcciones</li>
-                                                              <input type="radio" name="esco" id="esco" value="0" onclick="sumarae()"> Si&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                              <input type="radio" name="esco" id="esco" value="1" onclick="sumarae()"> No&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                              <input type="radio" name="esco" id="esco1" value="0" onclick="sumarae()"> Si&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                              <input type="radio" name="esco" id="esco2" value="1" onclick="sumarae()"> No&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
                                                             <li>Existencia de servicio de alojamiento</li>
-                                                              <input type="radio" name="esa" id="esa" value="0" onclick="sumarae()">Si&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                              <input type="radio" name="esa" id="esa" value="1" onclick="sumarae()">No&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                              <input type="radio" name="esa" id="esa1" value="0" onclick="sumarae()">Si&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                              <input type="radio" name="esa" id="esa2" value="1" onclick="sumarae()">No&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                                             
                                                             <li>Existencia de servicio de alimentación</li>
-                                                              <input type="radio" name="esal" id="esal" value="0" onclick="sumarae()"> Si&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                              <input type="radio" name="esal" id="esal" value="1" onclick="sumarae()"> No&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                              <input type="radio" name="esal" id="esal1" value="0" onclick="sumarae()"> Si&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                              <input type="radio" name="esal" id="esal2" value="1" onclick="sumarae()"> No&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
                                                             <li>Existencia de servicio de transporte</li>
-                                                              <input type="radio" name="est" id="est" value="0" onclick="sumarae()">Si&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                              <input type="radio" name="est" id="est" value="1" onclick="sumarae()">No &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                              <input type="radio" name="est" id="est1" value="0" onclick="sumarae()">Si&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                              <input type="radio" name="est" id="est2" value="1" onclick="sumarae()">No &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
                                                             <li>Existencia de servicio de seguridad al viajero</li>
-                                                              <input type="radio" name="essv" id="essv" value="0" onclick="sumarae()">Si&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                              <input type="radio" name="essv" id="essv" value="1" onclick="sumarae()">No &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                              <input type="radio" name="essv" id="essv1" value="0" onclick="sumarae()">Si&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                              <input type="radio" name="essv" id="essv2" value="1" onclick="sumarae()">No &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                                             </ul>
 
                                                             <!-- </form>                                                            -->
@@ -732,24 +733,24 @@
                                                             <!-- <form name="formconf" id="formconf"> -->
                                                                 <ul type="disc">
                                                                 <li> Coordenada de ubicación, en cualquier proyección geográfica</li>
-                                                                  <input type="radio" name="cucp" id="cucp" value="0" onclick="sumaconf()"> Si&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                                  <input type="radio" name="cucp" id="cucp" value="1" onclick="sumaconf()"> No&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                  <input type="radio" name="cucp" id="cucp1" value="0" onclick="sumaconf()"> Si&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                  <input type="radio" name="cucp" id="cucp2" value="1" onclick="sumaconf()"> No&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
                                                                 <li> Registro fotográfico</li>
-                                                                  <input type="radio" name="refo" id="refo" value="0" onclick="sumaconf()">Si&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                                  <input type="radio" name="refo" id="refo" value="1" onclick="sumaconf()">No&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                  <input type="radio" name="refo" id="refo1" value="0" onclick="sumaconf()">Si&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                  <input type="radio" name="refo" id="refo2" value="1" onclick="sumaconf()">No&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                      
                                                                 <li> Institución que brinda la información (fuente de información).</li>
-                                                                  <input type="radio" name="ibi" id="ibi" value="0" onclick="sumaconf()"> Si&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                                  <input type="radio" name="ibi" id="ibi" value="1" onclick="sumaconf()"> No&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                  <input type="radio" name="ibi" id="ibi1" value="0" onclick="sumaconf()"> Si&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                  <input type="radio" name="ibi" id="ibi2" value="1" onclick="sumaconf()"> No&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
                                                                 <li> Informe técnico. </li>
-                                                                  <input type="radio" name="ite" id="ite" value="0" onclick="sumaconf()">Si&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                                  <input type="radio" name="ite" id="ite" value="1" onclick="sumaconf()">No&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                  <input type="radio" name="ite" id="ite1" value="0" onclick="sumaconf()">Si&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                  <input type="radio" name="ite" id="ite2" value="1" onclick="sumaconf()">No&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                                                 
                                                                 <li> Investigaciones varias.</li>
-                                                                  <input type="radio" name="inva" id="inva" value="0" onclick="sumaconf()"> Si&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                                  <input type="radio" name="inva" id="inva" value="1" onclick="sumaconf()"> No&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                  <input type="radio" name="inva" id="inva1" value="0" onclick="sumaconf()"> Si&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                  <input type="radio" name="inva" id="inva2" value="1" onclick="sumaconf()"> No&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                                                 </ul>
                                                             <!-- </form>                                                            -->
                                                          </div>
