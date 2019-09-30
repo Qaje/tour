@@ -92,7 +92,7 @@ class AdminController extends Controller
 
         }
 
-        dd($request);
+        //dd($request);
 /*        
         $request->validate([
             'name'        => 'required|string|min:4|max:200',

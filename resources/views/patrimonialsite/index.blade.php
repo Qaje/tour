@@ -1080,6 +1080,30 @@
 
                         $('#lat').val(lat);
                         $('#lng').val(lng);
+
+                        var latn = Math.abs(lat); /* Devuelve el valor absoluto de un número, sea positivo o negativo */
+                        var latgr = Math.floor(latn * 1); /* Redondea un número hacia abajo a su entero más cercano */
+                        var latmin = Math.floor((latn - latgr) * 60); /* Vamos restando el número entero para transformarlo en minutos */
+                        var latseg = ((((latn - latgr) * 60) - latmin) * 60); /* Restamos el entero  anterior ahora para segundos */
+                        var latc = (latgr + "º " + latmin + "\' " + latseg.toFixed(2) + '\"'); /* Prolongamos a centésimas de segundo */
+                        if (lat > 0) {
+                          x = latc + ' N'; /* Si el número original era positivo, es Norte */
+                        } else {
+                          x = latc + ' S'; /* Si el número original era negativo, es Sur */
+                        } /* Repetimos el proceso para la longitud (Este, -W-Oeste) */
+                        var lngn = Math.abs(lng);
+                        var lnggr = Math.floor(lngn * 1);
+                        var lngmin = Math.floor((lngn - lnggr) * 60);
+                        var lngseg = ((((lngn - lnggr) * 60) - lngmin) * 60);
+                        var lngc = (lnggr + "º " + lngmin + "\' " + lngseg.toFixed(2) + '\"');
+                        if (lng > 0) {
+                          y = lngc + ' E';
+                        } else {
+                          y = lngc + ' W';
+                        }
+                        //document.getElementById('mensaje').innerHTML = 'Latitud: ' + x + ' Longitud: ' + y;
+                        $('#lngg').val(y);
+                        $('#latg').val(x);
                         //alert(val(lat));
                         //$('#lat').val(lat);
 

@@ -87,19 +87,25 @@ Route::get('login/facebook/callback', 'Auth\LoginController@handleProviderCallba
 	//bycity
 	Route::get('/city/{id}/provinces','PatrimonialsiteController@byCity');
 	Route::get('/city/{id}','PatrimonialsiteController@byCityCode');
+	Route::get('/cityname/{id}', 'PatrimonialsiteController@Cityname');
 	//byprovinces
 	Route::get('/province/{id}/municipalities','PatrimonialsiteController@byProvince');
 	Route::get('/provincecode/{id}','PatrimonialsiteController@byProvinceCode');
+	Route::get('/provincename/{id}', 'PatrimonialsiteController@Provincename');
 	//MUnicipality
 	Route::get('/municipalitycode/{id}','PatrimonialsiteController@byMunicipalityCode');
+	Route::get('/municipalityname/{id}', 'PatrimonialsiteController@Municipalityname');
 	
 	//byCategory
 	Route::get('/catergory/{id}/ambits','PatrimonialsiteController@byCategory');
+	Route::get('/categoryname/{id}', 'PatrimonialsiteController@Categoryname');
 	//byAmbit
 	Route::get('/ambit/{id}/subambits','PatrimonialsiteController@byAmbit');
 	Route::get('/ambit/{id}','PatrimonialsiteController@byAmbitCode');
+	Route::get('/ambitname/{id}', 'PatrimonialsiteController@Ambitname');
 	
 	Route::get('/subambit/{id}','PatrimonialsiteController@bySubAmbitCode');
+	Route::get('/subambitname/{id}', 'PatrimonialsiteController@SubAmbitname');
 	//byType
 	Route::get('/type/{id}/subtypes','PatrimonialsiteController@byType');
 	//numbergenerate
@@ -119,8 +125,9 @@ Route::get('login/facebook/callback', 'Auth\LoginController@handleProviderCallba
     
 // });
 
-    Route::get('patrimonialsite/pdf/{id}','PatrimonialsiteController@pdf');
-    Route::get('visit/pdf/{id}','PatrimonialsiteController@visitpdf');
+    Route::get('/patrimonialsite/pdf/{id}','PatrimonialsiteController@pdf');
+    Route::get('/visit/pdf/{id}','PatrimonialsiteController@visitpdf');
+	
 	/*
 	Route::post('validate', 'UserController@validateCredentials');
 

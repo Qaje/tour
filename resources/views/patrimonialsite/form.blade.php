@@ -58,6 +58,7 @@
                                                             <option value="{{ $category->id }}">{{$category->description}}</option>
                                                         @endforeach
                                                 </select>
+                                                <input type="hidden" name="catpath" id="catpath" value="{{$category->description}}">
                                             </div>
                                         </div>
                                         <div class="col-6 col-sm-6 col-md-6">
@@ -66,6 +67,7 @@
                                               <select class="form-control" id="amb" name="amb" placeholder="Tipo Ambito">
                                                 <option value="0" disabled="true" selected="true">Selecione Ambito</option>
                                               </select>
+                                              <input type="hidden" name="ambh" id="ambh" value="">
                                             </div>
                                         </div> 
                                         <div class="col-6 col-sm-6 col-md-6">
@@ -74,6 +76,7 @@
                                               <select class="form-control" id="subamb" name="subamb" placeholder="Subambito ">
                                                 <option value="0" disabled="true" selected="true">Selecione Sub-Ambit</option>
                                               </select>
+                                              <input type="hidden" name="subambh" id="subambh" value="">
                                             </div>
                                         </div>
                                         <div class="col-12 col-sm-6 col-md-12">
@@ -187,6 +190,7 @@
                                                                 <option value="{{ $city->id }}">{{$city->name}}</option>
                                                             @endforeach
                                                           </select>
+                                                          <input type="hidden" name="cityh" id="cityh" value="">
                                                         </div>
                                                     </div>
                                                     <div class="col-12 mb-3 col-md-4">
@@ -195,6 +199,7 @@
                                                           <select class="form-control" id="selectprovince" name="selectprovince" placeholder="Tipo Patrimonio ">
                                                             <option value="0" disabled="true" selected="true">Selecione Provincia</option>
                                                           </select>
+                                                          <input type="hidden" name="provinceh" id="provinceh" value="">
                                                         </div>
                                                     </div>
                                                     <div class="col-12 mb-3 col-md-4">
@@ -204,6 +209,7 @@
                                                             <option value="0" disabled="true" selected="true">Selecione Municipio</option>
                                                             <option>Tipo Patrimonio</option>
                                                           </select>
+                                                          <input type="hidden" name="municipalityh" id="municipalityh" value="">
                                                         </div>
                                                     </div>
                                                     <div class="col-12 mb-3 col-md-12">
@@ -227,11 +233,25 @@
                                                             <input type="text" class="form-control" name='lat'  id="lat" placeholder="Latitud">
                                                         </div>                                                        
                                                     </div>
-                                                   <div class="col-12 mb-3 col-md-12">
+                                                    <div class="col-12 mb-3 col-md-12">
+                                                        <label for="zona">Longitud-GMS</label>
+                                                        <div class="input-group text">
+                                                            <span class="input-group-addon"><i class="fa fa-map"></i></span>
+                                                        <input type="text" class="form-control" id="lngg" name="lngg" placeholder="Denominación " value="" required>                                                        
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12 mb-3 col-md-12">
+                                                        <label for="alt">Latitud-GMS</label>
+                                                        <div class="input-group text"> 
+                                                            <span class="input-group-addon"><i class="fa fa-globe"></i></span>
+                                                            <input type="text" class="form-control" name='latg'  id="latg" placeholder="Latitud">
+                                                        </div>                                                        
+                                                    </div>
+                                                    <div class="col-12 mb-3 col-md-12">
                                                         <label for="alt">Altitud</label>
                                                         <div class="input-group text"> 
                                                             <span class="input-group-addon"><i class="fa fa-globe"></i></span>
-                                                            <input type="text" class="form-control" name='alt'  id="alt" placeholder="Latitud">
+                                                            <input type="text" class="form-control" name='alt'  id="alt" placeholder="Altitud">
                                                         </div>                                                        
                                                     </div>
                                                     <div class="col-12 mb-3 col-md-12">
@@ -240,7 +260,7 @@
                                                             <span class="input-group-addon"><i class="fa fa-map"></i></span>
                                                         <input type="text" class="form-control" id="zona" name="zona" placeholder="Denominación " value="" required>                                                        
                                                         </div>
-                                                    </div>
+                                                    </div>                                                    
                                                   <!--  <div class="col-12 mb-3 col-md-12">
                                                         <label for="zon">Zona</label>
                                                         <div class="input-group text"> 

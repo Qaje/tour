@@ -29,13 +29,49 @@ class PatrimonialsiteController extends Controller
         $this->middleware('auth:admin');
     }
 
-    public function provinces(){
-        
-        
-        $city_id = Input::get('city_id');
-        $provinces = Province::where('city_id','=',$city_id)->get();
+    public function Categoryname($id){
+         $get_num = Category::where('id',$id)->get();
+    //     dd($get_num);
+          return $get_num;
+    //     //return response()->json($provinces);    
 
-        return response()->json($provinces);    
+    }
+
+    public function Ambitname($id){
+         $get_num = Ambit::where('id',$id)->get();
+    //     dd($get_num);
+          return $get_num;
+    //     //return response()->json($provinces);    
+
+    }
+
+    public function SubAmbitname($id){
+         $get_num = Subambit::where('id',$id)->get();
+    //     dd($get_num);
+          return $get_num;
+    //     //return response()->json($provinces);    
+
+    }
+
+    public function Cityname($id){
+         $get_num = City::where('id',$id)->get();
+    //     dd($get_num);
+          return $get_num;
+    //     //return response()->json($provinces);    
+
+    }
+    public function Provincename($id){
+         $get_num = Province::where('id',$id)->get();
+    //     dd($get_num);
+          return $get_num;
+    //     //return response()->json($provinces);    
+
+    }    
+    public function Municipalityname($id){
+         $get_num = Municipality::where('id',$id)->get();
+    //     dd($get_num);
+          return $get_num;
+    //     //return response()->json($provinces);    
 
     }
 
@@ -75,6 +111,7 @@ class PatrimonialsiteController extends Controller
     public function byCategory($id)
     {
        $get_amb = Ambit::where('category_id', $id)->get();
+        //dd($get_amb);
         return $get_amb;
     }
     public function byAmbitCode($id)
@@ -106,8 +143,8 @@ class PatrimonialsiteController extends Controller
      public function CountElements()
     {
          //dd($id);
-         $get_num = Patrimonialsite::All()->count();
-         return $get_num;
+         $get_num = Patrimonialsite::All();
+         return $get_num->last()->id;
     }
 
     public function index()
@@ -158,16 +195,17 @@ class PatrimonialsiteController extends Controller
      */
     public function store(Request $request)
     {
-        //  $validator = Validator::make($request->all(), [
-        //     'name'        => 'required|string|min:4|max:200',
-        //     'last_name'   => 'required|string|min:3|max:200',
-        //     'email'       => 'required|email|max:200|',
-        //     'job_title'   => 'required|string|max:200',
-        //     'ident_card'  => 'required|numeric|max:200',
-        //     'born_in'     => 'required|string|max:200',
-        //     'date_born'   => 'required|date|date_format:Y-m-d',
-        //     'avatar'      => 'required|string|max:200',
-        // ]);
+
+        $validator = Validator::make($request->all(), [
+            'denom'     => 'required|string|min:5|max:50',
+            // 'last_name'   => 'required|string|min:5|max:200',
+            // 'email'       => 'required|email|max:200|',
+            // 'job_title'   => 'required|string|max:200',
+            // 'ident_card'  => 'required|numeric|max:200',
+            // 'born_in'     => 'required|string|max:200',
+            // 'date_born'   => 'required|date|date_format:Y-m-d',
+            // 'avatar'      => 'required|string|max:200',
+        ]);
         //dd($request);
         if($request->hasFile('uploadImage1'))
         {
@@ -180,9 +218,9 @@ class PatrimonialsiteController extends Controller
             $patrimonialsite->codemat                   = $request->text1;
             $patrimonialsite->code_photo                = $request->text2;
             $patrimonialsite->name_title                = $request->denom;
-            $patrimonialsite->category                  = $request->catpat;
-            $patrimonialsite->scope                     = $request->amb;
-            $patrimonialsite->subscope                  = $request->subamb;
+            $patrimonialsite->category                  = $request->catpath;
+            $patrimonialsite->scope                     = $request->ambh;
+            $patrimonialsite->subscope                  = $request->subambh;
             $patrimonialsite->description_patrimonial   = $request->desc_pat;
             $patrimonialsite->patrimonial_photo         = $filename;
             $patrimonialsite->description_photo         = $request->descima;
@@ -193,9 +231,9 @@ class PatrimonialsiteController extends Controller
            
             $patrimonialsite->history_in_charge         = $request->history_in_charge;
 
-            $patrimonialsite->department                = $request->selectcity;    
-            $patrimonialsite->province                  = $request->selectprovince;    
-            $patrimonialsite->municipality              = $request->selectmunicipality;    
+            $patrimonialsite->department                = $request->cityh;    
+            $patrimonialsite->province                  = $request->provinceh;
+            $patrimonialsite->municipality              = $request->municipalityh;
             $patrimonialsite->direction                 = $request->direccion;
             $patrimonialsite->long                      = $request->lng;
             $patrimonialsite->lat                       = $request->lat;
@@ -310,7 +348,7 @@ class PatrimonialsiteController extends Controller
         $where = array('id' => $id);
         $patrimonialsite  = Patrimonialsite::where($where)->first();
         //dd($patrimonialsite);       
-        return Response::json($patrimonialsite);
+        //return Response::json($patrimonialsite);
 
         // $patrimonialsite = Patrimonialsite::find($id);
         // $cities = City::all();

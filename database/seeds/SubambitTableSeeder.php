@@ -227,6 +227,11 @@ class SubambitTableSeeder extends Seeder
             'code'             =>  '03',
             'ambit_id'	       => '7', 
         ));
+        \DB::table('subambits')->insert(array (
+            'name'             => 'Festividad',
+            'code'             =>  '04',
+            'ambit_id'         => '7', 
+        ));
        \DB::table('subambits')->insert(array (
             'name'			   => 'Música',
             'code'             =>  '01',
