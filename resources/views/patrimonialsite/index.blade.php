@@ -1210,7 +1210,7 @@
                 console.log(subacceSumado);
                 }
             </script>
-            //sa
+            
             <script type="text/javascript">
 // $(document).ready(function(e) {
  

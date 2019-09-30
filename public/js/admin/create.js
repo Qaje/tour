@@ -219,64 +219,8 @@ function onSelectSubambit(){
 	});
 
 }
-//edit
+//validations
 
 
-// function sumar(){
-// 	obj = document.formapi['edc'];
-// 	totalChecks = obj.length;
-// 	totalSumado = 0;
-// 	for(i=0; i<totalChecks; i++){
-// 		if(obj[i].checked == true){
-// 			valor = obj[i].value.split('-');
-// 			totalSumado = totalSumado + parseInt(valor1[0],10);
-// 		}
-// 	}
-// 	document.getElementById('rapi').innerHTML = totalSumado;
-// }
-/*$(function(){
-	$('#amb').on('change', onSelectAmb);
-});
-	function onSelectAmb(){
-		var cad = $(this).val();
-		alert(cad);
-		//var cadcode;
-		// if( cad == null)
-		// {
-		// 	document.getElementById("text1").value = "";
-		// }
-		// else
-		// {
-			//document.getElementById("text1").value = document.getElementById("catpat").value;
-			if(cad == 1){
-				cadcode = cadcode+'-0'+cad;
-				document.getElementById("text1").value =  cadcode;
-			}
-			if(cad == 2){
-				cadcode = cadcode+'-0'+cad;
-				document.getElementById("text1").value =  cadcode;
-			}
-			if(cad == 3){
-				cadcode = cadcode+'-0'+cad;
-				document.getElementById("text1").value =  cadcode;
-			}
-	//	}
-	}*/
-
-// END CATEGORY AMBIT SUBAMBIT
-/*		
-                $('#province').on('change',function(e){
-                    console.log('e');
-                    var city_id = e.target.value;
-                    $.get('/json-provinces?city_id=' + city_id,function(data){
-                        console.log(data);
-                        $('#provinces').empty();
-                        $('#provinces').append('<option value="0" disabled="true" selected="true">Selecione Provincia</option>');
-                    
-                        $.each(data, function(index, provincesObj){
-                            $('#provinces').append('<option value="'+ provincesObj.id +'">'+ provincesObj.name +'</option>');
-                        });
-                    });
-                });
-*/        
+  
 

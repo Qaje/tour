@@ -196,16 +196,26 @@ class PatrimonialsiteController extends Controller
     public function store(Request $request)
     {
 
-        $validator = Validator::make($request->all(), [
-            'denom'     => 'required|string|min:5|max:50',
-            // 'last_name'   => 'required|string|min:5|max:200',
+        // $validator = Validator::make($request->all(), [
+        //     'denom'     => 'required|string|min:5|max:50',
+        //     'catpath'   => 'required|string|min:3|max:200',
+        //     'ambh'   => 'required|string|min:3|max:200',
+        //     'subambh'   => 'required|string|min:3|max:200',
+        //     'descima'     => 'required|string|min:5|max:50',
+        //     'ubi'     => 'required|string|min:5|max:20',
+        //     'photognam'     => 'required|string|min:5|max:30',
+        //     'desc_pat'     => 'required|string|min:5|max:500',
+        // ]);
+        // if($validator->fails())
+        // {
+        //     return response()->json(['errors'=>$validator->errors()->all()]);
+        // }
             // 'email'       => 'required|email|max:200|',
             // 'job_title'   => 'required|string|max:200',
             // 'ident_card'  => 'required|numeric|max:200',
             // 'born_in'     => 'required|string|max:200',
             // 'date_born'   => 'required|date|date_format:Y-m-d',
             // 'avatar'      => 'required|string|max:200',
-        ]);
         //dd($request);
         if($request->hasFile('uploadImage1'))
         {

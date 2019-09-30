@@ -39,7 +39,7 @@
                                     <!-- <form action="patrimonialsite" method="POST" enctype="multipart/form-data" > -->
                                     
                                     <!-- <form action="/patrimonialsite" method="POST" id="myform" name="myform" enctype="multipart/form-data" > -->
-                                    <form action="/patrimonialsite" method="POST" id="myform" name="myform" enctype="multipart/form-data" >
+                                    <form action="/patrimonialsite" method="POST" id="myform" name="myform" enctype="multipart/form-data">
                                         <input type="text" value="" id="text1" name="text1" size="30">
                                         <!-- <input type="text" value="" id="text2" name="text2" size="30">    -->
                                         <!-- {{--<input type="hidden" name="_token" value="{{ csrf_token() }}">--}} -->
@@ -58,7 +58,7 @@
                                                             <option value="{{ $category->id }}">{{$category->description}}</option>
                                                         @endforeach
                                                 </select>
-                                                <input type="hidden" name="catpath" id="catpath" value="{{$category->description}}">
+                                                <input type="hidden" name="catpath" id="catpath" value="{{$category->description}}" required>
                                             </div>
                                         </div>
                                         <div class="col-6 col-sm-6 col-md-6">
@@ -67,7 +67,7 @@
                                               <select class="form-control" id="amb" name="amb" placeholder="Tipo Ambito">
                                                 <option value="0" disabled="true" selected="true">Selecione Ambito</option>
                                               </select>
-                                              <input type="hidden" name="ambh" id="ambh" value="">
+                                              <input type="hidden" name="ambh" id="ambh" value="" required>
                                             </div>
                                         </div> 
                                         <div class="col-6 col-sm-6 col-md-6">
@@ -76,7 +76,7 @@
                                               <select class="form-control" id="subamb" name="subamb" placeholder="Subambito ">
                                                 <option value="0" disabled="true" selected="true">Selecione Sub-Ambit</option>
                                               </select>
-                                              <input type="hidden" name="subambh" id="subambh" value="">
+                                              <input type="hidden" name="subambh" id="subambh" value="" required>
                                             </div>
                                         </div>
                                         <div class="col-12 col-sm-6 col-md-12">
@@ -359,22 +359,22 @@
                                                             <label for="dat">Propietario/Custodia</label>
                                                             <!-- <form name="form1" method="post" action=""> -->
                                                                 <br>
-                                                                <input type="radio" id="propc" name="prop" value="Público Comunal">
+                                                                <input type="checkbox" id="propc" name="prop" value="Público Comunal">
                                                                 <label for="prop">Público Comunal</label>
                                                                 <br>
-                                                                <input type="radio" id="propr" name="prop" value="Privado Religioso">
+                                                                <input type="checkbox" id="propr" name="prop" value="Privado Religioso">
                                                                 <label for="prop">Privado Religioso</label>
                                                                 <br>
-                                                                <input type="radio" id="propco" name="prop" value="Privado Colectivo">
+                                                                <input type="checkbox" id="propco" name="prop" value="Privado Colectivo">
                                                                 <label for="prop">Privado Colectivo</label>
                                                                 <br>
-                                                                <input type="radio" id="propi" name="prop" value="Privado Individual">
+                                                                <input type="checkbox" id="propi" name="prop" value="Privado Individual">
                                                                 <label for="prop">Privado Individual</label>
                                                                 <br>
-                                                                <input type="radio" id="prope" name="prop" value="Público Estatal">
+                                                                <input type="checkbox" id="prope" name="prop" value="Público Estatal">
                                                                 <label for="prop">Público Estatal</label>
                                                                 <br>
-                                                                <input type="radio" id="dcorr" name="prop" value="De Corresposabilidad">
+                                                                <input type="checkbox" id="dcorr" name="prop" value="De Corresposabilidad">
                                                                 <label for="prop">De Corresposabilidad</label>
                                                                 <br>
                                                             <!-- </form>  -->
@@ -384,28 +384,28 @@
                                                         <label for="dat">Uso</label>
                                                             <!-- <form name="fom3" method="post" action=""> -->
                                                                 <br>
-                                                                <input type="radio" id="uso" name="uso" value="Turistico">
+                                                                <input type="checkbox" id="uso" name="uso" value="Turistico">
                                                                 <label for="use">Turistico</label>
                                                                 <br>
-                                                                <input type="radio" id="uso" name="uso" value="Unidad Educativa">
+                                                                <input type="checkbox" id="uso" name="uso" value="Unidad Educativa">
                                                                 <label for="use">Unidad Educativa</label>
                                                                 <br>
-                                                                <input type="radio" id="uso" name="uso" value="Ninguno">
+                                                                <input type="checkbox" id="uso" name="uso" value="Ninguno">
                                                                 <label for="use">Ninguno</label>
                                                                 <br>
-                                                                <input type="radio" id="uso" name="uso" value="Habitacional">
+                                                                <input type="checkbox" id="uso" name="uso" value="Habitacional">
                                                                 <label for="use">Habitacional</label>
                                                                 <br>
-                                                                <input type="radio" id="uso" name="uso" value="Religioso">
+                                                                <input type="checkbox" id="uso" name="uso" value="Religioso">
                                                                 <label for="use">Religioso</label>
                                                                 <br>
-                                                                <input type="radio" id="uso" name="uso" value="Comercial">
+                                                                <input type="checkbox" id="uso" name="uso" value="Comercial">
                                                                 <label for="use">Comercial</label>
                                                                 <br>
-                                                                <input type="radio" id="uso" name="uso" value="Museo">
+                                                                <input type="checkbox" id="uso" name="uso" value="Museo">
                                                                 <label for="use">Museo</label>
                                                                 <br>
-                                                                <input type="radio" id="checkbox1" value="checkbox" onchange="checkuso(this)">
+                                                                <input type="checkbox" id="checkbox1" value="checkbox" onchange="checkuso(this)">
                                                                 <label for="use">Otros</label>
                                                                 <input id="uotr" name="uotr" type="text" size="15" maxlength="50" disabled>
                                                             <!-- </form> -->                                                       
