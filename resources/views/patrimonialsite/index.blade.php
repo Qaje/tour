@@ -1212,8 +1212,7 @@
             </script>
             
             <script type="text/javascript">
-// $(document).ready(function(e) {
- 
+    //$("#sa1").is('checked')
 //             $('#sa').change(function() {
  
 //                var obj = {};
@@ -1229,8 +1228,8 @@
 //                $('#resultado').val(sum);
  
 //             });
-//          });
-
+        
+                var subacceSumado = 0;
                 function sumar()
                 {
                     // var rd1 = document.getElementById("sa1");
@@ -1245,27 +1244,47 @@
                     // var rd3 = document.getElementById("sf");
                     // alert(rd3.value);
                     // subacceSumado = subacceSumado + parseInt(rd3.value); 
+                    //if()
+                    //var obj;
+                    // if(document.getElementById("sa1").onclick)
+                    // {
+                    //     var type_idc = $(this).val();
+                    //     obj = document.getElementById('sa1');
+                    //     alert(obj);
+                    // }
 
+                //     var ele = document.getElementsById('sa'); 
+                //     console.log(ele.length);
+                // for(i = 0; i < ele.length; i++) { 
+                //     if(ele[i].checked) 
+                //     {
+                //         valor1 = ele[i].val;
+                //         console.log('res'+valor1);
+                //         //subacceSumado = subacceSumado + parseInt(valor1[0],10);
+                //     }
+                // }    
+        
                     obj = document.getElementById('sa1');
                     obj = document.getElementById('sa2');
                     obj = document.getElementById('sa3');
                     
                     subacceSumado = subacceSumado + parseInt(obj.value);
-                    console.log(subacceSumado);
+                    //console.log(subacceSumado);
 
                     obj = document.getElementById('ue1');
                     obj = document.getElementById('ue2');
                     obj = document.getElementById('ue3');
                     
                     subacceSumado = subacceSumado + parseInt(obj.value);
-                    console.log(subacceSumado);
+                    //console.log(subacceSumado);
 
                     obj = document.getElementById('sf1');
                     obj = document.getElementById('sf2');
                     obj = document.getElementById('sf3');
                     
                     subacceSumado = subacceSumado + parseInt(obj.value);
-                    console.log(subacceSumado);
+                    //console.log(subacceSumado);
+                    
                      //obj = document.getElementById('sa').innerHTML;
                      //totalsumado = 0;
                      //totalChecks1 = obj.length;
