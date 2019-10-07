@@ -1223,113 +1223,81 @@
                 }
             </script>
             
-            <script type="text/javascript">
-    //$("#sa1").is('checked')
-//             $('#sa').change(function() {
- 
-//                var obj = {};
-//                var string = '';
-//                var sum = 0;
- 
-//                // Grupo 1
-//                if ($("input:radio[name=sa]").is(':checked')) {
-//                   var n1 = $("input:radio[name=sa]:checked").val();
-//                   sum += parseInt(n1);
-//                    console.log('sum is '+ sum);
-//                }
-//                $('#resultado').val(sum);
- 
-//             });
-        
-                var subacceSumado = 0;
-                function sumar()
+            <script language="javascript" type="text/javascript">
+            var subacceSumado = 0;
+            var auxsub= 0;
+            var valor1 = 0;
+            var valor2 = 0;
+            function sumarui(radio)
+            {
+                var valor = parseInt(radio.value);
+                if(radio.name == "RadioGroup3")
                 {
-                    // var rd1 = document.getElementById("sa1");
-                    // var rd1 = document.getElementById("sa2");
-                    // var rd1 = document.getElementById("sa3");
-                    // alert(parseInt(rd1.value));
-                    // subacceSumado = subacceSumado + parseInt(rd1.value); 
+                    valor1 = valor;
+                    subacceSumado = subacceSumado + valor1;
+                    //obj = document.getElementById('ec1').value;
+                    //alert('cheacdo'+obj);
+                }else{
+                    valor2 = valor;
+                }
+                //alert(valor);
+            }
+            function sumarsa(radio)
+            {
+                var valor = parseInt(radio.value);
+                if(radio.name == "RadioGroup2")
+                {
+                    valor1 = valor;
+                    subacceSumado = subacceSumado + valor1;
+                    //obj = document.getElementById('ec1').value;
+                    //alert('cheacdo'+obj);
+                }else{
+                    valor2 = valor;
+                }
+                //alert(valor);
+            }
+            function sumarec(radio)
+            {
+                var valor = parseInt(radio.value);
+                if(radio.name == "RadioGroup1")
+                {
+                    valor1 = valor;
+                    subacceSumado = subacceSumado + valor1;
+                    //obj = document.getElementById('ec1').value;
+                    //alert('cheacdo'+obj);
+                }else{
+                    valor2 = valor;
+                }
+                //alert(valor);
 
-                    // var rd2 = document.getElementById("ue");
-                    // alert(rd2.value);
-                    // subacceSumado = subacceSumado + parseInt(rd2.value); 
-                    // var rd3 = document.getElementById("sf");
-                    // alert(rd3.value);
-                    // subacceSumado = subacceSumado + parseInt(rd3.value); 
-                    //if()
-                    //var obj;
-                    // if(document.getElementById("sa1").onclick)
-                    // {
-                    //     var type_idc = $(this).val();
-                    //     obj = document.getElementById('sa1');
-                    //     alert(obj);
-                    // }
 
-                //     var ele = document.getElementsById('sa'); 
-                //     console.log(ele.length);
-                // for(i = 0; i < ele.length; i++) { 
-                //     if(ele[i].checked) 
-                //     {
-                //         valor1 = ele[i].val;
-                //         console.log('res'+valor1);
-                //         //subacceSumado = subacceSumado + parseInt(valor1[0],10);
-                //     }
-                // }    
-        
-                    obj = document.getElementById('sa1');
-                    obj = document.getElementById('sa2');
-                    obj = document.getElementById('sa3');
+                    // obj = document.getElementById('sa1');
+                    // obj = document.getElementById('sa2');
+                    // obj = document.getElementById('sa3');
                     
-                    subacceSumado = subacceSumado + parseInt(obj.value);
-                    //console.log(subacceSumado);
+                    // subacceSumado = subacceSumado + parseInt(obj.value);
+                    // console.log(subacceSumado);
 
-                    obj = document.getElementById('ue1');
-                    obj = document.getElementById('ue2');
-                    obj = document.getElementById('ue3');
+                    // obj = document.getElementById('sa1');
+                    // obj = document.getElementById('sa2');
+                    // obj = document.getElementById('sa3');
                     
-                    subacceSumado = subacceSumado + parseInt(obj.value);
-                    //console.log(subacceSumado);
+                    // subacceSumado = subacceSumado + parseInt(obj.value);
+                    // console.log(subacceSumado);
 
-                    obj = document.getElementById('sf1');
-                    obj = document.getElementById('sf2');
-                    obj = document.getElementById('sf3');
+                    // obj = document.getElementById('ue1');
+                    // obj = document.getElementById('ue2');
+                    // obj = document.getElementById('ue3');
                     
-                    subacceSumado = subacceSumado + parseInt(obj.value);
-                    //console.log(subacceSumado);
-                    
-                     //obj = document.getElementById('sa').innerHTML;
-                     //totalsumado = 0;
-                     //totalChecks1 = obj.length;
-                    // console.log(obj.value);
-                    //  for( i=0; i<totalChecks1; i++){
-                    //      if( obj[i].checked == true ){
-                    //          valor1 = obj[i].value.split('-');
-                    //          subacceSumado = subacceSumado + parseInt(valor1[0],10);
-                    //      console.log('res'+subacceSumado);
-                    //      }
-                    //  }
-                    //document.getElementById('content').innerHTML = 'estas s'+ subacceSumado;
+                    // subacceSumado = subacceSumado + parseInt(obj.value);
+                    // //console.log(subacceSumado);
 
-                    // obj1 = document.myform['ue'];
-                    // totalChecks2 = obj1.length;
+                    // obj = document.getElementById('sf1');
+                    // obj = document.getElementById('sf2');
+                    // obj = document.getElementById('sf3');
                     
-                    // console.log(totalChecks2);
-                    // for( i=0; i<totalChecks2; i++){
-                    //     if( obj1[i].checked == true ){
-                    //         valor2 = obj1[i].value.split('-');
-                    //         subacceSumado = subacceSumado + parseInt(valor2[0],10);
-                    //     }
-                    // }
-                    // obj2 = document.myform['sf'];
-                    // totalChecks3 = obj2.length;
-                    
-                    // console.log(totalChecks3);
-                    // for( i=0; i<totalChecks3; i++){
-                    //     if( obj2[i].checked == true ){
-                    //         valor1 = obj2[i].value.split('-');
-                    //         subacceSumado = subacceSumado + parseInt(valor1[0],10);
-                    //     }
-                    // }
+                    // subacceSumado = subacceSumado + parseInt(obj.value);
+                   
                     if(subacceSumado<=5){
                     document.getElementById('resapi').value = 'ACCESIBLE ';
                     }else{
@@ -1339,6 +1307,8 @@
                             document.getElementById('resapi').value = 'NO ACCESIBLE';
                         }
                     }
+                    console.log('sub'+subacceSumado);
+
                 }
                 
                 </script>

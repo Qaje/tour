@@ -473,24 +473,24 @@
                                                             <ul type="disc">
                                                             
                                                             <li>Estado de Conservación:</li>
-                                                              <input type="radio" id="ec1" name="ec1" value="1" onclick="sumar()"> Bueno &nbsp;&nbsp;&nbsp;&nbsp;
-                                                              <input type="radio" id="ec2" name="ec2" value="3" onclick="sumar()"> Regular &nbsp;&nbsp;&nbsp;&nbsp;
-                                                              <input type="radio" id="ec3" name="ec3" value="2" onclick="sumar()"> Malo  &nbsp;&nbsp;&nbsp;&nbsp;
+                                                              <input type="radio" id="ec1" name="RadioGroup1" value="1" onclick="sumarec(this)"> Bueno &nbsp;&nbsp;&nbsp;&nbsp;
+                                                              <input type="radio" id="ec2" name="RadioGroup1" value="3" onclick="sumarec(this)"> Regular &nbsp;&nbsp;&nbsp;&nbsp;
+                                                              <input type="radio" id="ec3" name="RadioGroup1" value="2" onclick="sumarec(this)"> Malo  &nbsp;&nbsp;&nbsp;&nbsp;
 
                                                             <li>Seleccione la situación actual:</li>
-                                                              <input type="radio" id="sa1" name="sa1" value="1" onclick="sumar()"> Protegido &nbsp;&nbsp;&nbsp;&nbsp;
-                                                              <input type="radio" id="sa2" name="sa2" value="2" onclick="sumar()"> Vulnerable&nbsp;&nbsp;&nbsp;&nbsp;
-                                                              <input type="radio" id="sa3" name="sa3" value="3" onclick="sumar()"> En amenaza  &nbsp;&nbsp;&nbsp;&nbsp;
+                                                              <input type="radio" id="sa1" name="RadioGroup2" value="1" onclick="sumarsa(this)"> Protegido &nbsp;&nbsp;&nbsp;&nbsp;
+                                                              <input type="radio" id="sa2" name="RadioGroup2" value="2" onclick="sumarsa(this)"> Vulnerable&nbsp;&nbsp;&nbsp;&nbsp;
+                                                              <input type="radio" id="sa3" name="RadioGroup2" value="3" onclick="sumarsa(this)"> En amenaza  &nbsp;&nbsp;&nbsp;&nbsp;
 
                                                             <li>Seleccione Urgencia de Intervencion:</li>
-                                                              <input type="radio" id="ue1" name="ue1" value="2" onclick="sumar()">Espera&nbsp;&nbsp;&nbsp;&nbsp;
-                                                              <input type="radio" id="ue2" name="ue2" value="0" onclick="sumar()">Sin dato&nbsp;&nbsp;&nbsp;&nbsp;
-                                                              <input type="radio" id="ue3" name="ue3" value="1" onclick="sumar()">Inmediato&nbsp;&nbsp;&nbsp;&nbsp;
+                                                              <input type="radio" id="ue1" name="RadioGroup3" value="2" onclick="sumarui(this)">Espera&nbsp;&nbsp;&nbsp;&nbsp;
+                                                              <input type="radio" id="ue2" name="RadioGroup3" value="0" onclick="sumarui(this)">Sin dato&nbsp;&nbsp;&nbsp;&nbsp;
+                                                              <input type="radio" id="ue3" name="RadioGroup3" value="1" onclick="sumarui(this)">Inmediato&nbsp;&nbsp;&nbsp;&nbsp;
 
                                                             <li>Seleccione Seguridad Fisica:</li>
-                                                              <input type="checkbox" id="sf1" name="sf1" value="1" onclick="sumar()">Sistema de Alarma&nbsp;&nbsp;&nbsp;&nbsp;
-                                                              <input type="checkbox" id="sf2" name="sf2" value="1" onclick="sumar()">Comunidad Organizada&nbsp;&nbsp;&nbsp;&nbsp;
-                                                              <input type="checkbox" id="sf3" name="sf3" value="1" onclick="sumar()">Otro typo de seguridad  &nbsp;&nbsp;&nbsp;&nbsp;
+                                                              <input type="checkbox" id="sf1" name="sf" value="1" onclick="sumar()">Sistema de Alarma&nbsp;&nbsp;&nbsp;&nbsp;
+                                                              <input type="checkbox" id="sf2" name="sf" value="1" onclick="sumar()">Comunidad Organizada&nbsp;&nbsp;&nbsp;&nbsp;
+                                                              <input type="checkbox" id="sf3" name="sf" value="1" onclick="sumar()">Otro typo de seguridad  &nbsp;&nbsp;&nbsp;&nbsp;
 
                                                             </ul>
                                                             <!--   <input type="submit" value="Submit">-->
