@@ -9,7 +9,7 @@
 <!-- AdminLTE App -->
 <script src="/adminlte/dist/js/adminlte.min.js"></script>
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js" async defer></script>
+<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js" async defer></script> -->
 
 <!-- Full calendar-->
 <!-- <script src="/plugins/lib/jquery.slimscroll.min.js"></script> -->

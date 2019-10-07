@@ -85,16 +85,19 @@ class Patrimonialsite extends Model
       ]; 
       protected $casts = [
           'history_in_charge' => 'array',
-      ];
-      protected $casts1 = [
           'owner' => 'array',
-      ];
-      protected $casts2 = [
           'law' => 'array',
-      ];
-      protected $casts3 = [
           'historychange' => 'array',
       ];
+      // protected $casts1 = [
+      //     'owner' => 'array',
+      // ];
+      // protected $casts2 = [
+      //     'law' => 'array',
+      // ];
+      // protected $casts3 = [
+      //     'historychange' => 'array',
+      // ];
 
 
 

@@ -211,13 +211,13 @@ desired effect
               <li class="user-footer">
                   <div class="pull-left">
                     <a href="{{ url('profile') }}" class="btn btn-default btn-flat">
-                    Profile</a>
+                    Perfile</a>
                   </div>
                   <div class="pull-right">
                     <a href="{{ route('logout') }}" class="btn btn-default btn-flat"
                       onclick="event.preventDefault();
                       document.getElementById('logout-form').submit();" >
-                      Logout
+                      Salir
                     </a>
                     <form id="logout-form" action="{{ 'App\Admin' == Auth::getProvider()->getModel() ? route('user.logout') : route('logout') }}" method="POST" style="display: none;">
                     {{ csrf_field() }}

@@ -44,7 +44,7 @@
           <span>Eventos</span></a>
         </li>
 
-        <li class="treeview">
+<!--         <li class="treeview">
             <a href="#"><i class="fa  fa-users"></i> <span>Gestion de Compañia</span>
               <span class="pull-right-container">
                   <i class="fa fa-angle-left pull-right"></i>
@@ -60,7 +60,7 @@
                   <span>Oficinas</span></a>
                 </li>              
             </ul>
-        </li>
+        </li> -->
 
         <li class="treeview">
             <a href="#"><i class="fa  fa-users"></i> <span>Gestion de Categoria</span>
@@ -73,10 +73,10 @@
                   <a href="{{url('category')}}" method="get"><i class="fa fa-get-pocket"></i> 
                   <span>Categorias de Servicios</span></a>
                 </li>
-                <li class="active">
+                <!-- <li class="active">
                   <a href="{{url('turistictypecompany')}}" method="get"><i class="fa fa-get-pocket"></i> 
                   <span>Tipo de Compañia Turistica</span></a>
-                </li>              
+                </li>           -->    
             </ul>
         </li>
 

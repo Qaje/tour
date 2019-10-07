@@ -45,6 +45,22 @@
    <style>
       /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
+      
+       /*LISTA GOOGLE MAPS AUTCOMPLETION*/
+      .CreatePatrimonialcontainer {
+          background-color: #FFF;
+          z-index: 20;
+          position: fixed;
+          display: inline-block;
+          float: left;
+      }
+      .modal{
+          z-index: 20;   
+      }
+      .modal-backdrop{
+          z-index: 10;        
+      }​
+
       #map {
         height: 100%;
       }

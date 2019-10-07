@@ -196,20 +196,20 @@ class PatrimonialsiteController extends Controller
     public function store(Request $request)
     {
 
-        // $validator = Validator::make($request->all(), [
-        //     'denom'     => 'required|string|min:5|max:50',
-        //     'catpath'   => 'required|string|min:3|max:200',
-        //     'ambh'   => 'required|string|min:3|max:200',
-        //     'subambh'   => 'required|string|min:3|max:200',
-        //     'descima'     => 'required|string|min:5|max:50',
-        //     'ubi'     => 'required|string|min:5|max:20',
-        //     'photognam'     => 'required|string|min:5|max:30',
-        //     'desc_pat'     => 'required|string|min:5|max:500',
-        // ]);
-        // if($validator->fails())
-        // {
-        //     return response()->json(['errors'=>$validator->errors()->all()]);
-        // }
+        $validator = Validator::make($request->all(), [
+            'denom'     => 'required|string|min:5|max:50',
+            'catpath'   => 'required|string|min:3|max:200',
+            'ambh'      => 'required|string|min:3|max:200',
+            'subambh'   => 'required|string|min:3|max:200',
+            'descima'   => 'required|string|min:5|max:50',
+            'ubi'       => 'required|string|min:5|max:20',
+            'photognam' => 'required|string|min:5|max:30',
+            'desc_pat'  => 'required|string|min:5|max:500',
+        ]);
+        if($validator->fails())
+        {
+            return response()->json(['errors'=>$validator->errors()->all()]);
+        }
             // 'email'       => 'required|email|max:200|',
             // 'job_title'   => 'required|string|max:200',
             // 'ident_card'  => 'required|numeric|max:200',
@@ -262,7 +262,7 @@ class PatrimonialsiteController extends Controller
             $patrimonialsite->deteriorate_turismo         = $request->anttur;
             $patrimonialsite->deteriorate_antropico_otros = $request->antot;
                 
-                //--$patrimonialsite->owner                       = $request->owner;
+            $patrimonialsite->owner                       = $request->owner;
             
 
             $patrimonialsite->property_pub_com            = $request->publicom;
@@ -299,13 +299,13 @@ class PatrimonialsiteController extends Controller
 
             $patrimonialsite->recognized                  = $request->rec;
                
-                //$patrimonialsite->law                         = $request->law;
+            $patrimonialsite->law                         = $request->law;
 
             $patrimonialsite->observation                 = $request->obser;
             $patrimonialsite->source                      = $request->sour;
             $patrimonialsite->degree_of_reliability       = $request->resconf;
                 
-                //--$patrimonialsite->historychange               = $request->historychange;
+            $patrimonialsite->historychange               = $request->historychange;
 
             //$patrimonialsite->pub_state = $request->pubest;
             $patrimonialsite->save();
@@ -370,8 +370,8 @@ class PatrimonialsiteController extends Controller
         //dd($patrimonialsite);
         //dd($patrimonialsite);
         //return view('patrimonialsite.show');
-        return view('patrimonialsite.show',compact('patrimonialsite','categories','cities','types'));
-        //return view('patrimonialsite',compact('patrimonialsite'));
+        //return view('patrimonialsite.show',compact('patrimonialsite','categories','cities','types'));
+        return view('patrimonialsite',compact('patrimonialsite'));
     }
 
     /**
@@ -382,12 +382,23 @@ class PatrimonialsiteController extends Controller
      */
     public function edit($id)
     {
-        // $patrimonialsite = Patrimonialsite::find($id);
+        //dd($id);
+        $cities = City::all();
+        //$patrimonialsites = Patrimonialsite::orderBy('id','name')->paginate(6);
+        $patrimonialsite = Patrimonialsite::find($id);
+        //dd($patrimonialsites);
+        $categories = Category::all();
+        //dd($categories);
+        $types = Type::all();
+        //dd($types);
+        return view('patrimonialsite.edit', compact('cities','patrimonialsite','categories','types'));
+
+
         // $city = City::all();
         // $categories = Category::all();
         // //dd($categories);
         // $types = Type::all();
-        // return view('patrimonialsite.edit');
+         //return view('patrimonialsite.edit');
     }
 
     /**
@@ -411,19 +422,17 @@ class PatrimonialsiteController extends Controller
      */
     public function destroy($id)
     {
+        //    $user = User::find($id);
+        // $user->roles()->detach();
+        // $user->role_id= $user->role_id;
+        // $user->delete();
+        // return redirect()->route('user.index');
+
         $patrimonialsite = Patrimonialsite::find($id);
-        //$cities = City::all();
-        //$categories = Category::all();
-        //dd($categories);
-        //$types = Type::all();
+        //($patrimonialsite);
+            
         $patrimonialsite->delete();
-
-//        return redirect('/empl')
-        //dd($types);
-        //dd($patrimonialsite);
-        //$patrimonialsites = Patrimonialsite::All();
-
-        //return redirect('/patrimonialsite')->with('success','Data Delete');
-        return redirect('/patrimonialsite');
+        return redirect()->route('patrimonialsite.index');
+        //return back();
     }
 }

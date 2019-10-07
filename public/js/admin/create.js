@@ -57,7 +57,7 @@ function onSelectCategory(){
 			$('#amb').html(html_select);		
 	});
 	$.get('/categoryname/'+category_id,function(data){
-		console.log(data[0].description);
+		//console.log(data[0].description);
 	});
 }
 
@@ -219,7 +219,7 @@ function onSelectSubambit(){
 	});
 
 }
-//validations
+//
 
 
   

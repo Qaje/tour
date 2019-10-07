@@ -37,57 +37,57 @@
                                     PatrimonialsiteController
                                     --}} -->
                                     <!-- <form action="patrimonialsite" method="POST" enctype="multipart/form-data" > -->
-                                    
+
                                     <!-- <form action="/patrimonialsite" method="POST" id="myform" name="myform" enctype="multipart/form-data" > -->
                                     <form action="/patrimonialsite" method="POST" id="myform" name="myform" enctype="multipart/form-data">
-                                        <input type="text" value="" id="text1" name="text1" size="30">
+                                        <input type="text" value="{{ old('text1') }}" id="text1" name="text1" size="30">
                                         <!-- <input type="text" value="" id="text2" name="text2" size="30">    -->
                                         <!-- {{--<input type="hidden" name="_token" value="{{ csrf_token() }}">--}} -->
                                         {{ csrf_field() }}   
                                     <div class="col-12 col-sm-6 col-md-7">
                                        <div class="col-12 col-sm-6 col-md-12">
                                           <label for="vttden">Denominación (Actual)</label>
-                                          <input type="text" class="form-control" id="denom" name="denom" placeholder="Denominación " value="" required autocomplete="off">
+                                          <input type="text" class="form-control" id="denom" name="denom" placeholder="Denominación " value="{{ old('denom') }}"  autocomplete="off">
                                         </div>
                                         <div class="col-12 col-sm-6 col-md-12">
                                             <label for="validationTooltipUsername">Tipo Patrimonio</label>
                                             <div class="form-group">
-                                                <select class="form-control" id="catpat" name="catpat" placeholder="Tipo Patrimonio ">
+                                                <select class="form-control" id="catpat" name="catpat" placeholder="Tipo Patrimonio " value="{{ old('catpat') }}" >
                                                     <option value="0" disabled="true" selected="true">Selecione Categoria</option>
                                                         @foreach ($categories as $category)
                                                             <option value="{{ $category->id }}">{{$category->description}}</option>
                                                         @endforeach
                                                 </select>
-                                                <input type="hidden" name="catpath" id="catpath" value="{{$category->description}}" required>
+                                                <input type="hidden" name="catpath" id="catpath" value="{{$category->description}}" value="{{ old('catpath') }}" >
                                             </div>
                                         </div>
                                         <div class="col-6 col-sm-6 col-md-6">
                                             <label for="validationTooltipUsername">Ambito</label>
                                             <div class="form-group">
-                                              <select class="form-control" id="amb" name="amb" placeholder="Tipo Ambito">
+                                              <select class="form-control" id="amb" name="amb" placeholder="Tipo Ambito" value="{{ old('amb') }}" >
                                                 <option value="0" disabled="true" selected="true">Selecione Ambito</option>
                                               </select>
-                                              <input type="hidden" name="ambh" id="ambh" value="" required>
+                                              <input type="hidden" name="ambh" id="ambh" value="{{ old('ambh') }}"  >
                                             </div>
                                         </div> 
                                         <div class="col-6 col-sm-6 col-md-6">
                                             <label for="validationTooltipUsername">Sub-Ambito</label>
                                             <div class="form-group">
-                                              <select class="form-control" id="subamb" name="subamb" placeholder="Subambito ">
+                                              <select class="form-control" id="subamb" name="subamb" placeholder="Subambito " value="{{ old('subamb') }}" >
                                                 <option value="0" disabled="true" selected="true">Selecione Sub-Ambit</option>
                                               </select>
-                                              <input type="hidden" name="subambh" id="subambh" value="" required>
+                                              <input type="hidden" name="subambh" id="subambh" value="{{ old('subambh') }}"  >
                                             </div>
                                         </div>
                                         <div class="col-12 col-sm-6 col-md-12">
                                             <label class="custom-file-label" for="inputGroupFile01">Descripcion Patrimonio</label>
-                                            <textarea class="form-control" resize="off" id="desc_pat" name="desc_pat" rows="8"></textarea>                                             
+                                            <textarea class="form-control" resize="off" id="desc_pat" name="desc_pat" rows="8" value="{{ old('desc_pat') }}"></textarea>                                             
                                         </div>
 
                                         <div class="col-6 col-sm-6 col-md-12">
                                             <label for="validationTooltipUsername">Datación</label>
                                             <div class="form-group">
-                                              <select class="form-control" id="datin" name="datin" placeholder="Datación">
+                                              <select class="form-control" id="datin" name="datin" placeholder="Datación" value="{{ old('datin') }}">
                                                 <option value="0" disabled="true" selected="true">Seleccione Datación</option>
                                                 <option value="No Documentado (S/D)">No Documentado (S/D)</option>
                                                 <option value="PreCerámico/Arcaico (8000 ~ 2000/1500 a.C.)">PreCerámico/Arcaico (8000 ~ 2000/1500 a.C.)</option>
@@ -107,36 +107,36 @@
                                   <div class="col-12 col-sm-6 col-md-5">      
                                     <div class="5">
                                         <div class="modal-body">
-                                        <input id="uploadImage1" type="file" name="uploadImage1" onchange="previewImage(1);" />
+                                        <input id="uploadImage1" type="file" name="uploadImage1" onchange="previewImage(1);" value="{{ old('uploadImage1') }}" />
                                         <!-- <input type="file"  name='turisticsite_photo' class="form-control"> -->
-                                        <img id="uploadPreview1" width="304" height="236"   src="/uploads/patrimonialsite_photos/image_not_available.jpg" />
+                                        <img id="uploadPreview1" width="304" height="236"   src="/uploads/patrimonialsite_photos/image_not_available.jpg" value="{{ old('uploadPreview1') }}" />
                                         </div>      
                                         
                                     </div>
                                     <div class="col-12 col-sm-6 col-md-12">
                                             <label class="vttden">Descripción de la Imagen</label>
-                                              <input type="text" class="form-control" id="descima" name="descima" placeholder="Descripción " required>
+                                              <input type="text" class="form-control" id="descima" name="descima" placeholder="Descripción " value="{{ old('descima') }}">
                                             <!-- </div> -->
                                     </div>
                                     <div class=" col-12 col-sm-6 col-md-6">
                                           <label for="vttden">Ubicación</label>
-                                          <input type="text" class="form-control" id="ubi" name="ubi" placeholder="Donde fue tomada la Foto " value="" required>
+                                          <input type="text" class="form-control" id="ubi" name="ubi" placeholder="Donde fue tomada la Foto " value="{{ old('ubi') }}" >
                                     </div>                                    
                                     <div class=" col-12 col-sm-6 col-md-6">
                                           <label for="vttden">Fecha</label>
                                             <div class="input-group date" date-provide="datepicker"> 
                                                 <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                                                <input type="text"  class="date form-control" name="datetake" id="datetake" autocomplete="off" required >                
+                                                <input type="text"  class="date form-control" name="datetake" id="datetake" autocomplete="off" value="{{ old('datetake') }}" >                
                                             </div>                                      
                                     </div>
                                     <div class=" col-12 col-sm-6 col-md-6">
                                           <label for="vttden">Codigo Foto</label>
-                                                <input type="text" class="form-control" value="" id="text2" name="text2" size="30"> 
+                                                <input type="text" class="form-control" id="text2" name="text2" size="30" value="{{ old('text2') }}"> 
                                                                              
                                     </div>
                                     <div class="col-12 col-sm-6 col-md-6">
                                             <label for="vttden">Fotógrafo / Autor</label>
-                                            <input type="text" class="form-control" id="photognam" name="photognam" placeholder="Nombre Fotógrafo" autocomplete="off" value="" required>
+                                            <input type="text" class="form-control" id="photognam" name="photognam" placeholder="Nombre Fotógrafo" autocomplete="off" value="{{ old('photognam') }}" >
                                     </div>                                      
                                     
                                   </div>
@@ -184,38 +184,38 @@
                                                     <div class="col-12 mb-3 col-md-4">
                                                         <label for="validationTooltipUsername">Departamento</label>
                                                         <div class="form-group">
-                                                          <select class="form-control" id="selectcity" name="selectcity" placeholder="Tipo Patrimonio ">
+                                                          <select class="form-control" id="selectcity" name="selectcity" placeholder="Tipo Patrimonio" value="{{old('selectcity')}}">
                                                             <option value="0" disabled="true" selected="true">Selecione Departamento</option>
                                                             @foreach ($cities as $city)
                                                                 <option value="{{ $city->id }}">{{$city->name}}</option>
                                                             @endforeach
                                                           </select>
-                                                          <input type="hidden" name="cityh" id="cityh" value="">
+                                                          <input type="hidden" name="cityh" id="cityh" value="{{old('cityh')}}">
                                                         </div>
                                                     </div>
                                                     <div class="col-12 mb-3 col-md-4">
                                                         <label for="validationTooltipUsername">Provincia</label>
                                                         <div class="form-group">
-                                                          <select class="form-control" id="selectprovince" name="selectprovince" placeholder="Tipo Patrimonio ">
+                                                          <select class="form-control" id="selectprovince" name="selectprovince" placeholder="Tipo Patrimonio" value="{{old('selectprovince')}}">
                                                             <option value="0" disabled="true" selected="true">Selecione Provincia</option>
                                                           </select>
-                                                          <input type="hidden" name="provinceh" id="provinceh" value="">
+                                                          <input type="hidden" name="provinceh" id="provinceh" value="{{old('provinceh')}}">
                                                         </div>
                                                     </div>
                                                     <div class="col-12 mb-3 col-md-4">
                                                         <label for="validationTooltipUsername">Municipio</label>
                                                         <div class="form-group">
-                                                          <select class="form-control" id="selectmunicipality" name="selectmunicipality" placeholder="Tipo Patrimonio ">
+                                                          <select class="form-control" id="selectmunicipality" name="selectmunicipality" placeholder="Tipo Patrimonio" value="{{old('selectmunicipality')}}">
                                                             <option value="0" disabled="true" selected="true">Selecione Municipio</option>
                                                             <option>Tipo Patrimonio</option>
                                                           </select>
-                                                          <input type="hidden" name="municipalityh" id="municipalityh" value="">
+                                                          <input type="hidden" name="municipalityh" id="municipalityh" value="{{old('municipalityh')}}">
                                                         </div>
                                                     </div>
                                                     <div class="col-12 mb-3 col-md-12">
                                                         <label for="direccion">Dirección</label>
                                                         <div class="form-group">
-                                                        <input type="text" class="form-control" id="direccion" name="direccion" placeholder="Dirección " value="" required>
+                                                        <input type="text" class="form-control" id="direccion" name="direccion" placeholder="Dirección " value="{{old('direccion')}}">
                                                         </div>
                                                     </div>
                                                     <h4 for="fol"> Coordenadas/UTM</h4>
@@ -223,42 +223,42 @@
                                                         <label for="lng">Longitud</label>
                                                         <div class="input-group text">
                                                             <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
-                                                            <input type="text" class="form-control" name='lng' id="lng" placeholder="Logitud">
+                                                            <input type="text" class="form-control" name='lng' id="lng" placeholder="Logitud" value="{{old('lng')}}">
                                                         </div>                                                        
                                                     </div>
                                                    <div class="col-12 mb-3 col-md-12">
                                                         <label for="lat">Latitud</label>
                                                         <div class="input-group text">
                                                             <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
-                                                            <input type="text" class="form-control" name='lat'  id="lat" placeholder="Latitud">
+                                                            <input type="text" class="form-control" name='lat'  id="lat" placeholder="Latitud" value="{{old('lat')}}">
                                                         </div>                                                        
                                                     </div>
                                                     <div class="col-12 mb-3 col-md-12">
                                                         <label for="zona">Longitud-GMS</label>
                                                         <div class="input-group text">
                                                             <span class="input-group-addon"><i class="fa fa-map"></i></span>
-                                                        <input type="text" class="form-control" id="lngg" name="lngg" placeholder="Denominación " value="" required>                                                        
+                                                        <input type="text" class="form-control" id="lngg" name="lngg" placeholder="Denominación " value="{{old('lngg')}}"> 
                                                         </div>
                                                     </div>
                                                     <div class="col-12 mb-3 col-md-12">
                                                         <label for="alt">Latitud-GMS</label>
                                                         <div class="input-group text"> 
                                                             <span class="input-group-addon"><i class="fa fa-globe"></i></span>
-                                                            <input type="text" class="form-control" name='latg'  id="latg" placeholder="Latitud">
+                                                            <input type="text" class="form-control" name='latg'  id="latg" placeholder="Latitud" value="{{old('latg')}}">
                                                         </div>                                                        
                                                     </div>
                                                     <div class="col-12 mb-3 col-md-12">
                                                         <label for="alt">Altitud</label>
                                                         <div class="input-group text"> 
                                                             <span class="input-group-addon"><i class="fa fa-globe"></i></span>
-                                                            <input type="text" class="form-control" name='alt'  id="alt" placeholder="Altitud">
+                                                            <input type="text" class="form-control" name='alt'  id="alt" placeholder="Altitud" value="{{old('alt')}}">
                                                         </div>                                                        
                                                     </div>
                                                     <div class="col-12 mb-3 col-md-12">
                                                         <label for="zona">Zona</label>
                                                         <div class="input-group text">
                                                             <span class="input-group-addon"><i class="fa fa-map"></i></span>
-                                                        <input type="text" class="form-control" id="zona" name="zona" placeholder="Denominación " value="" required>                                                        
+                                                        <input type="text" class="form-control" id="zona" name="zona" placeholder="Denominación " value="{{old('zona')}}" required> 
                                                         </div>
                                                     </div>                                                    
                                                   <!--  <div class="col-12 mb-3 col-md-12">
@@ -273,9 +273,9 @@
                                                     <div class="form-group"> 
                                                         <label  class="box-title">Búscador de Lugar</label>
                                                         <div class="form-group">
-                                                            <input id="searchmap" class="controls" type="text" placeholder="Search Box">
+                                                            <input id="searchmap" class="controls" type="text" placeholder="Search Box" size="60" value="{{old('searchmap')}}">
                                                             <div id="map">
-                                                         </div>
+                                                            </div>
 
 
                                                         </div>
@@ -297,7 +297,7 @@
                                                             <!-- <input type="radio" id="edc" name="edc" value="1" onclick="sumar()"> Bueno
                                                               <input type="radio" id="edc" name="edc" value="3" onclick="sumar()"> Regular
                                                               <input type="radio" id="edc" name="edc" value="2" onclick="sumar()"> Malo -->
-                                                          <select class="form-control" id="selectconser" name="selectconser" placeholder="Datación">
+                                                          <select class="form-control" id="selectconser" name="selectconser" placeholder="Datación" value="{{old('selectconser')}}">
                                                             <option value="0" disabled="true" selected="true">Seleccione Datación</option>
                                                             <option value="1">BUENO - menos del 50% de deterioro</option>
                                                             <option value="3">REGULAR - más del 50% y menos del 75% de deterioro</option>
@@ -310,17 +310,17 @@
                                                             <label for="dat">Naturales</label>
                                                                 <br>
                                                             <div class="form-group">
-                                                                <input type="checkbox" id="natgeo" name="natgeo" value="Geológico">
+                                                                <input class="form-check-input" type="checkbox" id="natgeo" name="natgeo" value="Geológico">
                                                                 <label for="natgeo">Geológico</label>
                                                                 <br>
-                                                                <input type="checkbox" id="nathid" name="nathid" value="Hídrico">
+                                                                <input class="form-check-input" type="checkbox" id="nathid" name="nathid" value="Hídrico">
                                                                 <label for="nathid">Hídrico</label>
                                                                 <br>
-                                                                <input type="checkbox" id="nateol" name="nateol" value="Eólico">
+                                                                <input class="form-check-input" type="checkbox" id="nateol" name="nateol" value="Eólico">
                                                                 <label for="nateol">Eólico</label>
                                                                 <br>
-                                                                <input type="checkbox" id="checkbox1" value="otros" onchange="checka(this)">
-                                                                <label for="geo">Otros</label>
+                                                                <input class="form-check-input" type="checkbox" id="checkbox1" value="otros" onchange="checka(this)">
+                                                                <label for="checkbox1">Otros</label>
                                                                 <input id="natot" name="natot" type="text" size="15" maxlength="50" disabled>
                                                             </div>
                                                     </div>
@@ -329,23 +329,23 @@
                                                         <label for="dat">Antrópicos</label>
                                                             <!-- <form name="fomr2" method="post" action=""> -->
                                                             <div class="form-group">
-                                                                <input type="checkbox" id="antdurb" name="antdurb" value="D. Urbano">
+                                                                <input class="form-check-input" type="checkbox" id="antdurb" name="antdurb" value="D. Urbano">
                                                                 <label for="antdurb">D. Urbano</label>
                                                                 <br>
-                                                                <input type="checkbox" id="antdagr" name="antdagr" value="D.Agricola">
+                                                                <input class="form-check-input" type="checkbox" id="antdagr" name="antdagr" value="D.Agricola">
                                                                 <label for="antdagr">D.Agricola</label>
                                                                 <br>
-                                                                <input type="checkbox" id="antdsaq" name="antdsaq" value="Saqueo / Vandalismo">
+                                                                <input class="form-check-input" type="checkbox" id="antdsaq" name="antdsaq" value="Saqueo / Vandalismo">
                                                                 <label for="antdsaq">Saqueo / Vandalismo</label>
                                                                 <br>
-                                                                <input type="checkbox" id="antinf" name="antinf" value="Infraestructura Civil">
+                                                                <input class="form-check-input" type="checkbox" id="antinf" name="antinf" value="Infraestructura Civil">
                                                                 <label for="antinf">Infraestructura Civil</label>
                                                                 <br>
-                                                                <input type="checkbox" id="anttur" name="anttur" value="Turismo">
+                                                                <input class="form-check-input" type="checkbox" id="anttur" name="anttur" value="Turismo">
                                                                 <label for="anttur">Turismo</label>
                                                                 <br>
-                                                                <input type="checkbox" id="checkbox1" value="checkbox" onchange="checkantro(this)">
-                                                                <label for="oth">Otros</label>
+                                                                <input class="form-check-input" type="checkbox" id="checkbox2" value="checkbox" onchange="checkantro(this)">
+                                                                <label for="checkbox2">Otros</label>
                                                                 <input id="antot" name="antot" type="text" size="15" maxlength="50" disabled>
                                                             </div>
                                                             <!-- </form>                                                        -->
@@ -359,23 +359,23 @@
                                                             <label for="dat">Propietario/Custodia</label>
                                                             <!-- <form name="form1" method="post" action=""> -->
                                                                 <br>
-                                                                <input type="checkbox" id="propc" name="prop" value="Público Comunal">
-                                                                <label for="prop">Público Comunal</label>
+                                                                <input class="form-check-input" type="checkbox" id="propc" name="prop" value="Público Comunal">
+                                                                <label for="propc">Público Comunal</label>
                                                                 <br>
-                                                                <input type="checkbox" id="propr" name="prop" value="Privado Religioso">
-                                                                <label for="prop">Privado Religioso</label>
+                                                                <input class="form-check-input" type="checkbox" id="propr" name="prop" value="Privado Religioso">
+                                                                <label for="propr">Privado Religioso</label>
                                                                 <br>
-                                                                <input type="checkbox" id="propco" name="prop" value="Privado Colectivo">
-                                                                <label for="prop">Privado Colectivo</label>
+                                                                <input class="form-check-input" type="checkbox" id="propco" name="prop" value="Privado Colectivo">
+                                                                <label for="propco">Privado Colectivo</label>
                                                                 <br>
-                                                                <input type="checkbox" id="propi" name="prop" value="Privado Individual">
-                                                                <label for="prop">Privado Individual</label>
+                                                                <input class="form-check-input" type="checkbox" id="propi" name="prop" value="Privado Individual">
+                                                                <label for="propi">Privado Individual</label>
                                                                 <br>
-                                                                <input type="checkbox" id="prope" name="prop" value="Público Estatal">
-                                                                <label for="prop">Público Estatal</label>
+                                                                <input class="form-check-input" type="checkbox" id="prope" name="prop" value="Público Estatal">
+                                                                <label for="prope">Público Estatal</label>
                                                                 <br>
-                                                                <input type="checkbox" id="dcorr" name="prop" value="De Corresposabilidad">
-                                                                <label for="prop">De Corresposabilidad</label>
+                                                                <input class="form-check-input" type="checkbox" id="dcorr" name="prop" value="De Corresposabilidad">
+                                                                <label for="dcorr">De Corresposabilidad</label>
                                                                 <br>
                                                             <!-- </form>  -->
                                                         </div>
@@ -384,29 +384,29 @@
                                                         <label for="dat">Uso</label>
                                                             <!-- <form name="fom3" method="post" action=""> -->
                                                                 <br>
-                                                                <input type="checkbox" id="uso" name="uso" value="Turistico">
-                                                                <label for="use">Turistico</label>
+                                                                <input class="form-check-input" type="checkbox" id="usot" name="uso" value="Turistico">
+                                                                <label for="usot">Turistico</label>
                                                                 <br>
-                                                                <input type="checkbox" id="uso" name="uso" value="Unidad Educativa">
-                                                                <label for="use">Unidad Educativa</label>
+                                                                <input class="form-check-input" type="checkbox" id="usoue" name="uso" value="Unidad Educativa">
+                                                                <label for="usoue">Unidad Educativa</label>
                                                                 <br>
-                                                                <input type="checkbox" id="uso" name="uso" value="Ninguno">
-                                                                <label for="use">Ninguno</label>
+                                                                <input class="form-check-input" type="checkbox" id="uson" name="uso" value="Ninguno">
+                                                                <label for="uson">Ninguno</label>
                                                                 <br>
-                                                                <input type="checkbox" id="uso" name="uso" value="Habitacional">
-                                                                <label for="use">Habitacional</label>
+                                                                <input class="form-check-input" type="checkbox" id="usoh" name="uso" value="Habitacional">
+                                                                <label for="usoh">Habitacional</label>
                                                                 <br>
-                                                                <input type="checkbox" id="uso" name="uso" value="Religioso">
-                                                                <label for="use">Religioso</label>
+                                                                <input class="form-check-input" type="checkbox" id="usor" name="uso" value="Religioso">
+                                                                <label for="usor">Religioso</label>
                                                                 <br>
-                                                                <input type="checkbox" id="uso" name="uso" value="Comercial">
-                                                                <label for="use">Comercial</label>
+                                                                <input class="form-check-input" type="checkbox" id="usoc" name="uso" value="Comercial">
+                                                                <label for="usoc">Comercial</label>
                                                                 <br>
-                                                                <input type="checkbox" id="uso" name="uso" value="Museo">
-                                                                <label for="use">Museo</label>
+                                                                <input class="form-check-input" type="checkbox" id="usom" name="uso" value="Museo">
+                                                                <label for="usom">Museo</label>
                                                                 <br>
-                                                                <input type="checkbox" id="checkbox1" value="checkbox" onchange="checkuso(this)">
-                                                                <label for="use">Otros</label>
+                                                                <input class="form-check-input" type="checkbox" id="checkbox3" value="checkbox" onchange="checkuso(this)">
+                                                                <label for="checkbox3">Otros</label>
                                                                 <input id="uotr" name="uotr" type="text" size="15" maxlength="50" disabled>
                                                             <!-- </form> -->                                                       
                                                     </div>                                                                                                           
@@ -414,7 +414,7 @@
                                             </div>
                                             <div class="col-12 mb-3 col-md-12">
                                                 <div class="form-group">
-                                                    <label for="owner">Propietario Custodia</label>
+                                                    <label for="propr">Propietario Custodia</label>
                                                         <table class="table">
                                                           <thead class="thead-dark">
                                                             <tr>
@@ -426,7 +426,9 @@
                                                             @for ($i=1; $i <= 8; $i++)
                                                             <tr>
                                                               <th scope="row">{{$i}}</th>
-                                                              <th ><input type="text" name="owner[{{ $i }}][name]" class="form-control" value="{{ old('owner['.$i.'][name]') }}"></th>
+                                                              <th ><input type="text" name="owner[{{ $i }}][name]"   class="form-control"  value="{{ old('owner['.$i.'][name]') }}"></th>
+                                                              <!-- <th ><input type="text" name="owner[{{ $i }}][nombre]" class="form-control" value="{{ old('owner['.$i.'][nombre]') }}"></th> -->
+                                                                   
                                                                    <!-- <input type="text" name="law[{{ $i }}][numero]" class="form-control" value="{{ old('law['.$i.'][numero]') }}"></th> -->
                                                             </tr>
                                                             @endfor
@@ -443,8 +445,8 @@
                                                     <div class="col-12 col-sm-6 col-md-12">
                                                         <label for="validationTooltipUsername">Tipo Patrimonio</label>
                                                         <div class="form-group">
-                                                            <select class="form-control" id="typ" name="typ" placeholder="Tipo Patrimonio ">
-                                                                <option value="0" disabled="true" selected="true">Selecione Ambito</option>
+                                                            <select class="form-control" id="typ" name="typ" placeholder="Tipo Patrimonio" value="{{old('typ')}}">
+                                                                <option value="0" disabled="true" selected="true">Selecione Tipo</option>
                                                                     @foreach ($types as $type)
                                                                         <option value="{{ $type->id }}">{{$type->description}}</option>
                                                                     @endforeach
@@ -452,10 +454,10 @@
                                                         </div>
                                                     </div>
                                                     <div class="col-6 col-sm-6 col-md-12">
-                                                        <label for="validationTooltipUsername">Sub Tipo</label>
+                                                        <label for="validationTooltipUsername">Seleccione SubTipo</label>
                                                         <div class="form-group">
-                                                          <select class="form-control" id="subtyp" name="subtyp" placeholder="Tipo SubTipo">
-                                                            <option value="0" disabled="true" selected="true">Selecione Subambito</option>
+                                                          <select class="form-control" id="subtyp" name="subtyp" placeholder="Tipo SubTipo" value="{{old('subtyp')}}">
+                                                            <option value="0" disabled="true" selected="true">Selecione Subtipo</option>
                                                           </select>
                                                         </div>
                                                     </div>                                                     
@@ -469,7 +471,11 @@
                                                         <div id="content" style="display: none;">
                                                             <!-- <form name="formapi" id="formapi">  -->
                                                             <ul type="disc">
-                                                                
+                                                            
+                                                            <li>Estado de Conservación:</li>
+                                                              <input type="radio" id="ec1" name="ec1" value="1" onclick="sumar()"> Bueno &nbsp;&nbsp;&nbsp;&nbsp;
+                                                              <input type="radio" id="ec2" name="ec2" value="3" onclick="sumar()"> Regular &nbsp;&nbsp;&nbsp;&nbsp;
+                                                              <input type="radio" id="ec3" name="ec3" value="2" onclick="sumar()"> Malo  &nbsp;&nbsp;&nbsp;&nbsp;
 
                                                             <li>Seleccione la situación actual:</li>
                                                               <input type="radio" id="sa1" name="sa1" value="1" onclick="sumar()"> Protegido &nbsp;&nbsp;&nbsp;&nbsp;
@@ -573,7 +579,7 @@
                                                     <div class="col-12 mb-3 col-md-12">
                                                          <label for="validationTooltipUsername">Jerarquia Turística Actual</label>
                                                         <div class="form-group">
-                                                          <select class="form-control" id="jerar" name="jerar" placeholder="Jerarquia">
+                                                          <select class="form-control" id="jerar" name="jerar" placeholder="Jerarquia" value="{{old('jerar')}}">
                                                             <option value="0" disabled="true" selected="true">Seleccione Jerarquia</option>
                                                             <option value="Jeraquía I">Jeraquía I</option>
                                                             <option value="Jeraquía II">Jeraquía II</option>
@@ -598,7 +604,7 @@
                                                         <h4 for="fol">Calidad Básica de Atractivo</h4>
                                                             <label for="dat">Factores Objetivos</label>
                                                         <div class="form-group">
-                                                          <select class="form-control" id="facobj" name="facobj" placeholder="Datación">
+                                                          <select class="form-control" id="facobj" name="facobj" placeholder="Datación" value="{{old('facobj')}}">
                                                             <option value="0" disabled="true" selected="true">Seleccione Factor</option>
                                                             <option value="POSITIVA">POSITIVA</option>
                                                             <option value="MEDIA">MEDIA</option>
@@ -609,7 +615,7 @@
                                                     <div class="col-12 mb-3 col-md-12">
                                                         <label for="dat">Percepción de Turista</label>
                                                         <div class="form-group">
-                                                          <select class="form-control" id="pertur" name="pertur" placeholder="Datación" >
+                                                          <select class="form-control" id="pertur" name="pertur" placeholder="Datación" value="{{old('pertur')}}">
                                                             <option value="0" disabled="true" selected="true">Seleccione Percepción</option>
                                                             <option value="POSITIVA">POSITIVA</option>
                                                             <option value="MEDIA">MEDIA</option>
@@ -622,36 +628,36 @@
                                                         <label for="zon">Registrado Por</label>
                                                         <div class="input-group text"> 
                                                             <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                                            <input type="text" class="form-control" name='rnam'  id="rnam" placeholder="Nombre">
+                                                            <input type="text" class="form-control" name='rnam'  id="rnam" placeholder="Nombre" value="{{old('rnam')}}" >
                                                         </div>
                                                         <label for="vttden">Fecha</label>
                                                         <div class="input-group date" date-provide="datepicker"> 
                                                             <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                                                            <input type="text"  class="date form-control" name="rfec" id="rfec" autocomplete="off" required >                
-                                                        </div>                                                       
+                                                            <input type="text"  class="date form-control" name="rfec" id="rfec" autocomplete="off" value="{{old('rfec')}}" >
+                                                        </div>                                       
                                                     </div>
                                                     <div class="col-12 mb-3 col-md-12">
                                                         <label for="zon">Revisado Por</label>
                                                         <div class="input-group text"> 
                                                             <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                                            <input type="text" class="form-control" name='renam'  id="renam" placeholder="Nombre">
+                                                            <input type="text" class="form-control" name='renam'  id="renam" placeholder="Nombre" value="{{old('renam')}}" >
                                                         </div>
                                                         <label for="vttden">Fecha</label>
                                                         <div class="input-group date" date-provide="datepicker"> 
                                                             <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                                                            <input type="text"  class="date form-control" name="refec" id="refec" autocomplete="off" required >                
-                                                        </div>                                                       
+                                                            <input type="text"  class="date form-control" name="refec" id="refec" autocomplete="off"  value="{{old('refec')}}"> 
+                                                        </div>                                        
                                                     </div>
                                                     <div class="col-12 mb-3 col-md-12">
                                                         <label for="zon">Aprobado Por</label>
                                                         <div class="input-group text"> 
                                                             <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                                            <input type="text" class="form-control" name='apnam'  id="apnam" placeholder="Nombre">
+                                                            <input type="text" class="form-control" name='apnam'  id="apnam" placeholder="Nombre" value="{{old('apnam')}}" >
                                                         </div>
                                                         <label for="vttden">Fecha</label>
                                                         <div class="input-group date" date-provide="datepicker"> 
                                                             <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                                                            <input type="text"  class="date form-control" name="apfec" id="apfec" autocomplete="off" required >                
+                                                            <input type="text"  class="date form-control" name="apfec" id="apfec" autocomplete="off"  value="{{old('apfec')}}"> 
                                                         </div>                                                       
                                                     </div>
                                                 </div>
@@ -726,7 +732,7 @@
                                                   
                                                     <div class="col-12 col-sm-6 col-md-12">
                                                         <label class="custom-file-label" for="inputGroupFile01">Observaciones</label>
-                                                        <textarea class="form-control" resize="off" id="obser" name="obser" rows="3"></textarea> 
+                                                        <textarea class="form-control" resize="off" id="obser" name="obser" rows="3" value="{{old('obser')}}"></textarea> 
                                                     </div>
 
                                                 </div>
@@ -738,7 +744,7 @@
                                                 
                                                     <div class="col-12 col-sm-6 col-md-12">
                                                         <label class="custom-file-label" for="inputGroupFile01">Fuente Bibliografica</label>
-                                                        <textarea class="form-control" resize="off" id="sour" name="sour" rows="5"></textarea> 
+                                                        <textarea class="form-control" resize="off" id="sour" name="sour" rows="5" value="{{old('sour')}}"></textarea> 
                                                     </div>                                                     
                                                     <div class="col-12 mb-3 col-md-12">
                                                         <label class="custom-file-label" for="inputGroupFile01">Grado de Confiabilidad</label>
@@ -794,44 +800,44 @@
                                                         <label for="zon">Entidad Investigadora</label>
                                                         <div class="input-group text"> 
                                                             <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                                            <input type="text" class="form-control" name='reen'  id="reen" placeholder="Indique la Entidad ">
+                                                            <input type="text" class="form-control" name='reei'  id="reei" placeholder="Indique la Entidad " value="{{old('reei')}}">
                                                         </div>
                                                     </div>
                                                     <div class="col-12 col-sm-6 col-md-4">
                                                         <label for="zon">Registrado Por</label>
                                                         <div class="input-group text"> 
                                                             <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                                            <input type="text" class="form-control" name='zon'  id="zon" placeholder="Nombre">
+                                                            <input type="text" class="form-control" name='rnei'  id="rnei" placeholder="Nombre" value="{{old('rnei')}}">
                                                         </div>
                                                         <label for="vttden">Fecha</label>
                                                         <div class="input-group date" date-provide="datepicker"> 
                                                             <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                                                            <input type="text"  class="date form-control" name="date_born" autocomplete="off" required >                
-                                                        </div>                                                       
+                                                            <input type="text"  class="date form-control" name="rdei" id="rdei" autocomplete="off" value="{{old('rdei')}}">
+                                                        </div>                                       
                                                     </div>
                                                     <div class="col-12 col-sm-6 col-md-4">
                                                         <label for="zon">Revisado Por</label>
                                                         <div class="input-group text"> 
                                                             <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                                            <input type="text" class="form-control" name='zon'  id="zon" placeholder="Nombre">
+                                                            <input type="text" class="form-control" name='rpei'  id="rpei" placeholder="Nombre" value="{{old('rpei')}}">
                                                         </div>
                                                         <label for="vttden">Fecha</label>
                                                         <div class="input-group date" date-provide="datepicker"> 
                                                             <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                                                            <input type="text"  class="date form-control" name="date_born" autocomplete="off" required >                
-                                                        </div>                                                       
+                                                            <input type="text"  class="date form-control" name="rpdei" id="" autocomplete="off"   value="{{old('rpdei')}}">
+                                                        </div>                                       
                                                     </div>
                                                     <div class="col-12 col-sm-6 col-md-4">
                                                         <label for="zon">Aprobado Por</label>
                                                         <div class="input-group text"> 
                                                             <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                                            <input type="text" class="form-control" name='zon'  id="zon" placeholder="Nombre">
+                                                            <input type="text" class="form-control" name='apei'  id="apei" placeholder="Nombre" value="{{old('apei')}}">
                                                         </div>
                                                         <label for="vttden">Fecha</label>
                                                         <div class="input-group date" date-provide="datepicker"> 
                                                             <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                                                            <input type="text"  class="date form-control" name="date_born" autocomplete="off" required >                
-                                                        </div>                                                       
+                                                            <input type="text"  class="date form-control" name="apdei" id="apdei" autocomplete="off"   value="{{old('apdei')}}">
+                                                        </div>                                       
                                                     </div>
                                                 </div>
                                                     <div class="col-6 col-sm-6 col-md-12">

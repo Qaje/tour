@@ -90,6 +90,7 @@
                                     <i class="fa fa-trash"></i> Eliminar</a> -->     
 
                             <!-- <button class="btn btn-warning" data-toggle="modal" data-target="#EditPatrimonial" data-mytitle="Hello"><i class="fa fa-edit" ></i> Edit</button> -->
+
                             <a href="/patrimonialsite/pdf/{{$patrimonialsite->id}}" method="get" class="btn btn-primary" role="button"> <!--data-toggle="modal" data-target="#EditPatrimonial" data-mytitle="Hello">-->
                                     <i class="fa fa-file-text-o"></i> Generar PDF
                                 </a>
@@ -98,8 +99,13 @@
                                     <i class="fa fa-edit"></i> Editar
                                 </a>  
                             <!-- Extra large modal -->
-                            <button type="button" class="btn btn-danger delete" data-toggle="modal" data-target=".bd-example-modal-xl"><i class="fa fa-trash"></i> Eliminar</button>
-        
+                            <!--<a href="/patrimonialsite/{{$patrimonialsite->id}}" method="delete" class="btn btn-primary" role="button"> 
+                                    <i class="fa fa-file-text-o"></i> Eliminar
+                                </a>-->
+                             <button class="btn btn-danger" data-toggle="modal" data-target="#delete"><i class="fa fa-trash"></i> Eliminar</button>
+
+
+
                         </td>
                     </tr>
                     @endforeach
@@ -110,9 +116,7 @@
                     {!! $patrimonialsites->links() !!}
                 </div>
         </div>
-        <!-- /.box-body -->
     </div>
-    <!-- /.box -->
 </div>
 
     <!-- Start Modal -->
@@ -130,7 +134,8 @@
                 
                 @include('patrimonialsite.form')
 
-        </div>                  
+            </div>                  
+        </div>
     </div>
 <!-- End Model-->
     <!-- Edit Modal -->
@@ -148,7 +153,8 @@
                 
                 @include('patrimonialsite.formedit')
 
-        </div>                  
+            </div>                  
+        </div>
     </div>
 <!-- End Model-->
 
@@ -1008,27 +1014,33 @@
             </div> -->
 <!--End Show Modal-->
 <!--Start Delete Modal --->
-<div class="modal fade bd-example-modal-xl" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+<div class="modal fade bd-example-modal-xl" id="delete" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-xl" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h3 class="modal-title" id="exampleModelLabel">Eliminar Patrimonio</h>
+                <h3 class="modal-title" id="exampleModelLabel">Eliminar Patrimonio</h3>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
+                <h4 class="modal-title " id="myModalLabel">Confirmacion de Elimincación</h4>
             </div>
-                <form action="/patrimonialsite" method="POST" id="deleteForm">
-                    {{ csrf_field() }}
-                    {{ method_field('DELETE') }}
+                <form action="" method="">
+
                     <div class="modal-body">
-                        <input type="hidden" name="_method" value="DELETE">
-                        <p> Esta seguro ?.. Quieres eliminar los Datos.</p>
+                        <!-- <input type="hidden" name="_method" value="DELETE"> -->
+                        <p class="text-center"> Esta seguro ?.. Quieres eliminar los Datos.</p>
+                        <input type="hidden" name="patrimonial_id" id="pat_id" value="">
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-success">Si!, Eliminar</button>
-                    </div>
+                    
+                    <!-- {{ method_field('DELETE') }} -->
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">No, Cancelar</button>
                 </form>
+                    
+                        {{Form::open(array('method'=>'DELETE', 'route' => array('patrimonialsite.destroy', $patrimonialsite->id)))}}
+                        {{Form::submit('Si,Eliminar', array('class'=>'btn btn-success'))}}
+                        {{Form::close()}}
+                        
+
 
         </div>
     </div>
