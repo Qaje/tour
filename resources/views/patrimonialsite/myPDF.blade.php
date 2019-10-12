@@ -4,8 +4,8 @@
 	<title>Hi</title>
 </head>
 <body>
-	<table border="1" width="500">
-		<table align="left" cellspacing="0" border="0">
+	<table border="1" width="">
+	<table align="left" cellspacing="0" border="0">
 	<colgroup span="8" width="68"></colgroup>
 	<colgroup width="72"></colgroup>
 	<colgroup span="3" width="68"></colgroup>
@@ -129,51 +129,18 @@
 		<td style="border-bottom: 2px solid #000000; border-right: 2px solid #000000" colspan="2" align="center" valign="middle" bgcolor="#F2F2F2"><font color="#000000">Fecha desde</font></td>
 		<td align="left" valign="middle"><font color="#000000"><br></font></td>
 	</tr>
+	@foreach($historyd as $histo)
 	<tr>
-		<td style="border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 1px solid #000000" colspan="2" height="20" align="left" valign="top"><font color="#000000"><br></font></td>
-		<td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000" colspan="2" align="left" valign="middle"><font color="#000000"><br></font></td>
-		<td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000" colspan="2" align="left" valign="middle"><font color="#000000"><br></font></td>
-		<td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000" colspan="2" align="left" valign="middle"><font color="#000000"><br></font></td>
-		<td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan="2" align="left" valign="middle"><font color="#000000"><br></font></td>
-		<td style="border-bottom: 1px solid #000000; border-right: 2px solid #000000" colspan="2" align="left" valign="middle"><font color="#000000"><br></font></td>
+		<td style="border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 1px solid #000000" colspan="2" height="20" align="left" valign="top"><font color="#000000"><br>{{ $histo['nombre'] }}</font></td>
+		<td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000" colspan="2" align="left" valign="middle"><font color="#000000"><br>{{ $histo['apellido'] }}</font></td>
+		<td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000" colspan="2" align="left" valign="middle"><font color="#000000"><br>{{ $histo['fechadesde'] }}</font></td>
+		<td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000" colspan="2" align="left" valign="middle"><font color="#000000"><br>{{ $histo['organizacion'] }}</font></td>
+		<td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan="2" align="left" valign="middle"><font color="#000000"><br>{{ $histo['segundonombre'] }}</font></td>
+		<td style="border-bottom: 1px solid #000000; border-right: 2px solid #000000" colspan="2" align="left" valign="middle"><font color="#000000"><br>{{ $histo['numerocontacto'] }}</font></td>
 		<td align="left" valign="middle"><font color="#000000"><br></font></td>
 	</tr>
-	<tr>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 1px solid #000000" colspan="2" height="20" align="left" valign="top"><font color="#000000"><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" colspan="2" align="left" valign="middle"><font color="#000000"><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" colspan="2" align="left" valign="middle"><font color="#000000"><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" colspan="2" align="left" valign="middle"><font color="#000000"><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan="2" align="left" valign="middle"><font color="#000000"><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 2px solid #000000" colspan="2" align="left" valign="middle"><font color="#000000"><br></font></td>
-		<td align="left" valign="middle"><font color="#000000"><br></font></td>
-	</tr>
-	<tr>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 1px solid #000000" colspan="2" height="20" align="left" valign="top"><font color="#000000"><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" colspan="2" align="left" valign="middle"><font color="#000000"><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" colspan="2" align="left" valign="middle"><font color="#000000"><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" colspan="2" align="left" valign="middle"><font color="#000000"><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan="2" align="left" valign="middle"><font color="#000000"><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 2px solid #000000" colspan="2" align="left" valign="middle"><font color="#000000"><br></font></td>
-		<td align="left" valign="middle"><font color="#000000"><br></font></td>
-	</tr>
-	<tr>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 1px solid #000000" colspan="2" height="20" align="left" valign="top"><font color="#000000"><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" colspan="2" align="left" valign="middle"><font color="#000000"><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" colspan="2" align="left" valign="middle"><font color="#000000"><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" colspan="2" align="left" valign="middle"><font color="#000000"><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan="2" align="left" valign="middle"><font color="#000000"><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 2px solid #000000" colspan="2" align="left" valign="middle"><font color="#000000"><br></font></td>
-		<td align="left" valign="middle"><font color="#000000"><br></font></td>
-	</tr>
-	<tr>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 1px solid #000000" colspan="2" height="22" align="left" valign="top"><font color="#000000"><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" colspan="2" align="left" valign="middle"><font color="#000000"><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" colspan="2" align="left" valign="middle"><font color="#000000"><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" colspan="2" align="left" valign="middle"><font color="#000000"><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan="2" align="left" valign="middle"><font color="#000000"><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 2px solid #000000" colspan="2" align="left" valign="middle"><font color="#000000"><br></font></td>
-		<td align="left" valign="middle"><font color="#000000"><br></font></td>
-	</tr>
+	@endforeach
+	
 	<tr>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 2px solid #000000" colspan="12" height="3" align="left" valign="top"><font color="#000000"><br></font></td>
 		<td align="left" valign="middle"><font color="#000000"><br></font></td>
@@ -184,20 +151,20 @@
 	</tr>
 	<tr>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 1px solid #000000" colspan="3" height="20" align="left" valign="middle" bgcolor="#E2F0D9">1. DEPARTAMENTO </td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan="3" align="left" valign="middle" bgcolor="#FFFF00"><br></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan="3" align="left" valign="middle" bgcolor="#FFFF00">{{$patrimonialsite->department}}<br></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan="3" align="left" valign="middle" bgcolor="#E2F0D9">1. PROVINCIA</td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000" colspan="3" align="left" valign="middle" bgcolor="#FFFF00"><br></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000" colspan="3" align="left" valign="middle" bgcolor="#FFFF00">{{$patrimonialsite->province}}<br></td>
 		<td align="left" valign="middle"><font color="#000000"><br></font></td>
 	</tr>
 	<tr>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 1px solid #000000" colspan="3" height="20" align="left" valign="middle" bgcolor="#E2F0D9">1. MUNICIPIO </td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan="3" align="left" valign="middle" bgcolor="#FFFF00"><br></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan="3" align="left" valign="middle" bgcolor="#FFFF00">{{$patrimonialsite->municipality}}<br></ td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000" colspan="6" align="left" valign="middle" bgcolor="#A6A6A6"><br></td>
 		<td align="left" valign="middle"><font color="#000000"><br></font></td>
 	</tr>
 	<tr>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 1px solid #000000" colspan="2" height="44" align="left" valign="middle" bgcolor="#E2F0D9">2. DIRECCIÓN</td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000" colspan="10" align="left" valign="middle"><br></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000" colspan="10" align="left" valign="middle">{{$patrimonialsite->direction}}<br></td>
 		<td align="left" valign="middle"><font color="#000000"><br></font></td>
 	</tr>
 	<tr>
@@ -214,16 +181,16 @@
 	</tr>
 	<tr>
 		<td style="border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 1px solid #000000" colspan="3" height="20" align="left" valign="top"> LATITUD(X)</td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000" colspan="3" align="left" valign="middle"><br></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000" colspan="3" align="left" valign="middle">{{$patrimonialsite->lat}}<br></td>
 		<td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan="3" align="left" valign="top"> LONGITUD(Y)</td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000" colspan="3" align="left" valign="middle"><br></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000" colspan="3" align="left" valign="middle">{{$patrimonialsite->long}}<br></td>
 		<td align="left" valign="middle"><font color="#000000"><br></font></td>
 	</tr>
 	<tr>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 1px solid #000000" colspan="3" height="20" align="left" valign="top"> ALTURA(Z)</td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000" colspan="3" align="left" valign="middle"><br></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000" colspan="3" align="left" valign="middle">{{$patrimonialsite->alt}}<br></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan="3" align="left" valign="top"> ZONA</td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000" colspan="3" align="left" valign="middle"><br></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000" colspan="3" align="left" valign="middle">{{$patrimonialsite->zone}}<br></td>
 		<td align="left" valign="middle"><font color="#000000"><br></font></td>
 	</tr>
 	<tr>
@@ -236,7 +203,7 @@
 	</tr>
 	<tr>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 1px solid #000000" colspan="3" height="20" align="left" valign="middle" bgcolor="#E2F0D9"><font color="#000000">1. CONSERVACIÓN</font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000" colspan="9" align="left" valign="middle" bgcolor="#FFFF00"><font color="#000000"><br></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000" colspan="9" align="left" valign="middle" bgcolor="#FFFF00"><font color="#000000">{{$patrimonialsite->conservation}}<br></font></td>
 		<td align="left" valign="middle"><font color="#000000"><br></font></td>
 	</tr>
 	<tr>
@@ -245,16 +212,24 @@
 	</tr>
 	<tr>
 		<td style="border-top: 1px hidden #000000; border-bottom: 1px hidden #000000; border-left: 2px solid #000000; border-right: 1px solid #000000" colspan="2" height="20" align="left" valign="middle" bgcolor="#E2F0D9"><font color="#000000"> NATURALES</font></td>
-		<td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000" colspan="4" align="center" valign="middle" bgcolor="#FFFF00"><font color="#000000">5 : OTROS</font></td>
+		<td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000" colspan="4" align="center" valign="middle" bgcolor="#FFFF00"><font color="#000000">
+		{{$patrimonialsite->natural_geologico}}
+		{{$patrimonialsite->natural_hidrico}}
+		{{$patrimonialsite->natural_eolico}}</font></td>
 		<td style="border-top: 1px hidden #000000; border-bottom: 1px hidden #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan="2" align="left" valign="middle" bgcolor="#E2F0D9"><font color="#000000"> ANTRÓPICO </font></td>
-		<td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000" colspan="4" align="center" valign="middle" bgcolor="#FFFF00"><font color="#000000"><br></font></td>
+		<td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000" colspan="4" align="center" valign="middle" bgcolor="#FFFF00"><font color="#000000">
+			{{$patrimonialsite->deteriorate_urbano}}
+		{{$patrimonialsite->deteriorate_agricola}}
+		{{$patrimonialsite->deteriorate_saq_van}}
+		{{$patrimonialsite->deteriorate_inf_civ}}
+		{{$patrimonialsite->deteriorate_turismo}}<br></font></td>
 		<td align="left" valign="middle"><font color="#000000"><br></font></td>
 	</tr>
 	<tr>
 		<td style="border-top: 1px hidden #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 1px solid #000000" colspan="2" height="20" align="center" valign="middle" bgcolor="#E2F0D9"><font color="#000000">OTROS</font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan="4" align="center" valign="middle" bgcolor="#FFFF00"><i><font color="#0000FF"> Razón para los otros</font></i></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan="4" align="center" valign="middle" bgcolor="#FFFF00"><i><font color="#0000FF">{{$patrimonialsite->natural_natural_otros}}</font></i></td>
 		<td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan="2" align="center" valign="middle" bgcolor="#E2F0D9"><font color="#000000">OTROS</font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000" colspan="4" align="center" valign="middle" bgcolor="#FFFF00"><font color="#000000"> Razón para los otros</font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000" colspan="4" align="center" valign="middle" bgcolor="#FFFF00"><font color="#000000">{{$patrimonialsite->deteriorate_antropico_otros}}</font></td>
 		<td align="left" valign="middle"><font color="#000000"><br></font></td>
 	</tr>
 	<tr>
@@ -262,39 +237,28 @@
 		<td align="left" valign="middle"><font color="#000000"><br></font></td>
 	</tr>
 	<tr>
-		<td style="border-left: 2px solid #000000" colspan="3" height="20" align="left" valign="middle" bgcolor="#FFFFFF"><font color="#000000"> Pubulico Comual</font></td>
-		<td style="border-right: 1px solid #000000" align="center" valign="middle"><font face="Wingdings" color="#000000">o</font></td>
-		<td style="border-left: 1px solid #000000" colspan="3" align="left" valign="middle" bgcolor="#FFFFFF"><font color="#000000"> Privado Colectivo</font></td>
-		<td style="border-right: 1px solid #000000" align="center" valign="middle"><font face="Wingdings" color="#000000">o</font></td>
-		<td colspan="3" align="left" valign="middle" bgcolor="#FFFFFF"><font color="#000000">Pubulico Estatal </font></td>
-		<td style="border-right: 2px solid #000000" align="center" valign="middle" bgcolor="#FFFFFF"><font face="Wingdings" color="#000000">o</font></td>
+		<td style="border-left: 2px solid #000000" colspan="3" height="20" align="left" valign="middle" bgcolor="#FFFFFF"><font color="#000000">
+		{{$patrimonialsite->property_pub_com}}
+		{{$patrimonialsite->property_religious}}
+		{{$patrimonialsite->property_collective}}
+		{{$patrimonialsite->property_individual}}
+		{{$patrimonialsite->public_state}}
+		{{$patrimonialsite->joint_responsability}}
+		</font></td>
 		<td align="left" valign="middle"><font color="#000000"><br></font></td>
 	</tr>
-	<tr>
-		<td style="border-bottom: 1px solid #000000; border-left: 2px solid #000000" colspan="3" height="20" align="left" valign="middle" bgcolor="#FFFFFF"><font color="#000000"> Privado Religloso</font></td>
-		<td style="border-bottom: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle" bgcolor="#FFFFFF"><font face="Wingdings" color="#000000">o</font></td>
-		<td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000" colspan="3" align="left" valign="middle" bgcolor="#FFFFFF"><font color="#000000"> Privado Individual</font></td>
-		<td style="border-bottom: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle" bgcolor="#FFFFFF"><font face="Wingdings" color="#000000">o</font></td>
-		<td style="border-bottom: 1px solid #000000" colspan="3" align="left" valign="middle" bgcolor="#FFFFFF"><font color="#000000">De Corresponsabilidad</font></td>
-		<td style="border-bottom: 1px solid #000000; border-right: 2px solid #000000" align="center" valign="middle" bgcolor="#FFFFFF"><font face="Wingdings" color="#000000">o</font></td>
-		<td align="left" valign="middle"><font color="#000000"><br></font></td>
-	</tr>
+
 	<tr>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 1px solid #000000" colspan="4" height="20" align="left" valign="middle" bgcolor="#E2F0D9"><font color="#000000">3-1. PROPIETARIO/CUSTODIA      </font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan="4" align="left" valign="middle" bgcolor="#FFFFFF"><font color="#000000">(1)</font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000" colspan="4" align="left" valign="middle"><font color="#000000">(2)</font></td>
+		
 		<td align="left" valign="middle"><font color="#000000"><br></font></td>
 	</tr>
+		@foreach($ownerd as $owner)
 	<tr>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 1px solid #000000" colspan="4" height="20" align="left" valign="middle"><font color="#000000">(3)</font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan="4" align="left" valign="middle"><font color="#000000">(4)</font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000" colspan="4" align="left" valign="middle"><font color="#000000">(5)</font></td>
-		<td align="left" valign="middle"><font color="#000000"><br></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 1px solid #000000" colspan="4" height="20" align="left" valign="middle"><font color="#000000">{{ $owner['name'] }}</font></td>
 	</tr>
+		@endforeach
 	<tr>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 1px solid #000000" colspan="4" height="20" align="left" valign="middle"><font color="#000000">(6)</font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan="4" align="left" valign="middle"><font color="#000000">(7)</font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000" colspan="4" align="left" valign="middle"><font color="#000000">(8)</font></td>
 		<td align="left" valign="middle"><font color="#000000"><br></font></td>
 	</tr>
 	<tr>
@@ -302,29 +266,14 @@
 		<td align="left" valign="middle"><font color="#000000"><br></font></td>
 	</tr>
 	<tr>
-		<td style="border-top: 1px hidden #000000; border-left: 2px solid #000000; border-right: 1px solid #000000" colspan="3" height="20" align="left" valign="middle"><font color="#000000"> TURISTICO</font></td>
-		<td style="border-top: 1px hidden #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle"><font face="Wingdings" color="#000000">o</font></td>
-		<td style="border-top: 1px hidden #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan="3" align="left" valign="middle"><font color="#000000"> HABITACIONAL</font></td>
-		<td style="border-top: 1px hidden #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle"><font face="Wingdings" color="#000000">o</font></td>
-		<td style="border-top: 1px hidden #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan="3" align="left" valign="middle"><font color="#000000"> COMERCIAL</font></td>
-		<td style="border-top: 1px hidden #000000; border-left: 1px solid #000000; border-right: 2px solid #000000" align="center" valign="middle"><font face="Wingdings" color="#000000">o</font></td>
-		<td align="left" valign="middle"><font color="#000000"><br></font></td>
-	</tr>
-	<tr>
-		<td style="border-left: 2px solid #000000; border-right: 1px solid #000000" colspan="3" height="20" align="left" valign="middle"><font color="#000000"> UNIDAD EDUCATIVA</font></td>
-		<td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle"><font face="Wingdings" color="#000000">o</font></td>
-		<td style="border-left: 1px solid #000000; border-right: 1px solid #000000" colspan="3" align="left" valign="middle"><font color="#000000"> RELIGIOSO</font></td>
-		<td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle"><font face="Wingdings" color="#000000">o</font></td>
-		<td style="border-left: 1px solid #000000; border-right: 1px solid #000000" colspan="3" align="left" valign="middle"><font color="#000000"> MUSEO</font></td>
-		<td style="border-left: 1px solid #000000; border-right: 2px solid #000000" align="center" valign="middle"><font face="Wingdings" color="#000000">o</font></td>
-		<td align="left" valign="middle"><font color="#000000"><br></font></td>
-	</tr>
-	<tr>
-		<td style="border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 1px solid #000000" colspan="3" height="20" align="left" valign="middle"><font color="#000000"> NINGUNO</font></td>
-		<td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle"><font face="Wingdings" color="#000000">o</font></td>
-		<td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan="3" align="left" valign="middle"><font color="#000000"> Otros,especifique</font></td>
-		<td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle"><font face="Wingdings" color="#000000">o</font></td>
-		<td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000" colspan="4" align="left" valign="middle"><i><font color="#0000FF"> Razón para los otros</font></i></td>
+		<td style="border-top: 1px hidden #000000; border-left: 2px solid #000000; border-right: 1px solid #000000" colspan="12" height="20" align="middle" valign="middle"><font color="#000000">{{$patrimonialsite->turistic}}</font></td>
+		{{$patrimonialsite->educational_unit}}<br>
+		{{$patrimonialsite->none}}<br>
+		{{$patrimonialsite->housing}}<br>
+		{{$patrimonialsite->religous}}<br>
+		{{$patrimonialsite->commerce}}<br>
+		{{$patrimonialsite->museum}}<br>
+		{{$patrimonialsite->other}}</font></td>
 		<td align="left" valign="middle"><font color="#000000"><br></font></td>
 	</tr>
 	<tr>
@@ -337,55 +286,33 @@
 	</tr>
 	<tr>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 1px solid #000000" colspan="3" height="20" align="left" valign="middle" bgcolor="#E2F0D9"><font color="#000000">1. TIPO DE TURÍSTICA</font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000" colspan="9" align="left" valign="middle" bgcolor="#FFFF00"><font color="#000000"><br></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000" colspan="9" align="left" valign="middle" bgcolor="#FFFF00"><font color="#000000">{{$patrimonialsite->turistic_type}}<br></font></td>
 		<td align="left" valign="middle"><font color="#000000"><br></font></td>
 	</tr>
 	<tr>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 2px solid #000000" colspan="12" height="20" align="left" valign="middle" bgcolor="#E2F0D9"><font color="#000000">2. SUBTIPO DE TURÍSTICA</font></td>
-		<td align="left" valign="middle"><font color="#000000"><br></font></td>
-	</tr>
-	<tr>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 1px solid #000000" colspan="5" height="20" align="left" valign="middle" bgcolor="#E2F0D9"><font color="#000000">   (1) Patrimonio Urbano, Arquitetonico y Otros</font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000" colspan="7" align="center" valign="middle" bgcolor="#FFFF00"><font color="#000000"><br></font></td>
-		<td align="left" valign="middle"><font color="#000000"><br></font></td>
-	</tr>
-	<tr>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 1px solid #000000" colspan="5" height="20" align="left" valign="middle" bgcolor="#E2F0D9"><font color="#000000">   (2) Etnografia y folklore</font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000" colspan="7" align="center" valign="middle" bgcolor="#FFFF00"><font color="#000000"><br></font></td>
-		<td align="left" valign="middle"><font color="#000000"><br></font></td>
-	</tr>
-	<tr>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 1px solid #000000" colspan="5" height="20" align="left" valign="middle" bgcolor="#E2F0D9"><font color="#000000">   (3) Realizaciones Tecnicas Cientificas</font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000" colspan="7" align="center" valign="middle" bgcolor="#FFFF00"><font color="#000000"><br></font></td>
-		<td align="left" valign="middle"><font color="#000000"><br></font></td>
-	</tr>
-	<tr>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 1px solid #000000" colspan="5" height="20" align="left" valign="middle" bgcolor="#E2F0D9"><font color="#000000">   (4) Acontecimientos Programados</font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000" colspan="7" align="center" valign="middle" bgcolor="#FFFF00"><font color="#000000"><br></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 1px solid #000000" colspan="3" height="20" align="left" valign="middle" bgcolor="#E2F0D9"><font color="#000000">2. SUBTIPO DE TURÍSTICA</font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000" colspan="9" align="left" valign="middle" bgcolor="#FFFF00"><font color="#000000">{{$patrimonialsite->turistic_sub_type}}<br></font></td>
 		<td align="left" valign="middle"><font color="#000000"><br></font></td>
 	</tr>
 	<tr>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000" colspan="10" height="45" align="left" valign="middle" bgcolor="#E2F0D9"><font color="#000000">3. API (Accesibilidad turística de Punto de Interés Patrimonial Identificado)<br>    * Refer to the worksheet of "Code 12 Detail"</font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000" colspan="2" align="left" valign="middle" bgcolor="#FFFF00"><font color="#000000"><br></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000" colspan="2" align="left" valign="middle" bgcolor="#FFFF00"><font color="#000000">{{$patrimonialsite->api}}<br></font></td>
 		<td align="left" valign="middle"><font color="#000000"><br></font></td>
 	</tr>
 	<tr>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000" colspan="10" height="45" align="left" valign="middle" bgcolor="#E2F0D9"><font color="#000000">4. AEPI (Accesibilidad turística de Entorno de Punto de Interés Patrimonial Identificado)<br>    * Refer to the worksheet of "Code 13 Detail"</font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000" colspan="2" align="left" valign="middle" bgcolor="#FFFF00"><font color="#000000"><br></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000" colspan="2" align="left" valign="middle" bgcolor="#FFFF00"><font color="#000000">{{$patrimonialsite->aepi}}<br></font></td>
 		<td align="left" valign="middle"><font color="#000000"><br></font></td>
 	</tr>
 	<tr>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 1px solid #000000" colspan="9" height="20" align="left" valign="middle" bgcolor="#E2F0D9"><font color="#000000">5. JERARQUÍA TURÍSTICA ACTUAL </font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000" colspan="3" align="left" valign="middle" bgcolor="#FFFF00"><font color="#000000"><br></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000" colspan="3" align="left" valign="middle" bgcolor="#FFFF00"><font color="#000000">{{$patrimonialsite->hierarchy}}<br></font></td>
 		<td align="left" valign="middle"><font color="#000000"><br></font></td>
 	</tr>
 	<tr>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 1px solid #000000" colspan="8" height="20" align="left" valign="middle" bgcolor="#E2F0D9"><font color="#000000">6. ESTUDIO DE CAPACIDAD DE CARGA  </font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="center" valign="middle" bgcolor="#FFFFFF"><font color="#000000">SI</font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle" bgcolor="#FFFFFF"><font face="Wingdings" color="#000000">o</font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="center" valign="middle" bgcolor="#FFFFFF"><font color="#000000">NO</font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 2px solid #000000" align="center" valign="middle" bgcolor="#FFFFFF"><font face="Wingdings" color="#000000">o</font></td>
-		<td align="left" valign="middle"><font color="#000000"><br></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="center" valign="middle" bgcolor="#FFFFFF" colspan="4"><font color="#000000">{{$patrimonialsite->capacity}}</font></td>
+
 	</tr>
 	<tr>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 2px solid #000000" colspan="12" height="20" align="left" valign="middle" bgcolor="#E2F0D9"><font color="#000000">7. CALIDAD BÁSICA DE ATRACTIVO </font></td>
@@ -393,9 +320,9 @@
 	</tr>
 	<tr>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 1px solid #000000" colspan="3" height="20" align="left" valign="middle" bgcolor="#E2F0D9"><font color="#000000">(1) Factores objetivos</font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000" colspan="3" align="left" valign="middle" bgcolor="#FFFF00"><font color="#000000"><br></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000" colspan="3" align="left" valign="middle" bgcolor="#FFFF00"><font color="#000000">{{$patrimonialsite->objetics_factor}}<br></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan="3" align="left" valign="middle" bgcolor="#E2F0D9"><font color="#000000">(2) Percepción de turista</font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000" colspan="3" align="left" valign="middle" bgcolor="#FFFF00"><font color="#000000"><br></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000" colspan="3" align="left" valign="middle" bgcolor="#FFFF00"><font color="#000000">{{$patrimonialsite->touristic_perception}}<br></font></td>
 		<td align="left" valign="middle"><font color="#000000"><br></font></td>
 	</tr>
 	<tr>
@@ -418,34 +345,12 @@
 		<td align="left" valign="middle"><font color="#000000"><br></font></td>
 	</tr>
 	<tr>
-		<td style="border-top: 1px solid #000000; border-bottom: 2px solid #000000; border-left: 2px solid #000000; border-right: 1px solid #000000" colspan="2" height="21" align="left" valign="middle"><font color="#000000"><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 2px solid #000000; border-left: 1px solid #000000" colspan="2" align="left" valign="middle"><font color="#000000"><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 2px solid #000000; border-left: 2px double #000000; border-right: 1px solid #000000" colspan="2" align="left" valign="middle"><font color="#000000"><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 2px solid #000000; border-left: 1px solid #000000" colspan="2" align="left" valign="middle"><font color="#000000"><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 2px solid #000000; border-left: 2px double #000000; border-right: 1px solid #000000" colspan="2" align="left" valign="middle"><font color="#000000"><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 2px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000" colspan="2" align="left" valign="middle"><font color="#000000"><br></font></td>
-		<td align="left" valign="middle"><font color="#000000"><br></font></td>
-	</tr>
-	<tr>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 1px solid #000000" colspan="3" height="20" align="left" valign="middle" bgcolor="#E2F0D9"><font color="#000000"><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000" colspan="3" align="left" valign="middle" bgcolor="#FFFF00"><font color="#000000"><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan="3" align="left" valign="middle" bgcolor="#E2F0D9"><font color="#000000"><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000" colspan="3" align="left" valign="middle" bgcolor="#FFFF00"><font color="#000000"><br></font></td>
-		<td align="left" valign="middle"><font color="#000000"><br></font></td>
-	</tr>
-	<tr>
-		<td style="border-left: 2px solid #000000" height="3" align="left" valign="middle" bgcolor="#FFFFFF"><font color="#000000"><br></font></td>
-		<td align="left" valign="middle" bgcolor="#FFFFFF"><font color="#000000"><br></font></td>
-		<td align="left" valign="middle" bgcolor="#FFFFFF"><font color="#000000"><br></font></td>
-		<td align="left" valign="middle" bgcolor="#FFFFFF"><font color="#000000"><br></font></td>
-		<td align="left" valign="middle" bgcolor="#FFFFFF"><font color="#000000"><br></font></td>
-		<td align="left" valign="middle" bgcolor="#FFFFFF"><font color="#000000"><br></font></td>
-		<td align="left" valign="middle" bgcolor="#FFFFFF"><font color="#000000"><br></font></td>
-		<td align="left" valign="middle" bgcolor="#FFFFFF"><font color="#000000"><br></font></td>
-		<td align="left" valign="middle" bgcolor="#FFFFFF"><font color="#000000"><br></font></td>
-		<td align="left" valign="middle" bgcolor="#FFFFFF"><font color="#000000"><br></font></td>
-		<td align="left" valign="middle" bgcolor="#FFFFFF"><font color="#000000"><br></font></td>
-		<td style="border-right: 2px solid #000000" align="left" valign="middle" bgcolor="#FFFFFF"><font color="#000000"><br></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 2px solid #000000; border-left: 2px solid #000000; border-right: 1px solid #000000" colspan="2" height="21" align="left" valign="middle"><font color="#000000">{{$patrimonialsite->ctr_turnamer}}<br></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 2px solid #000000; border-left: 1px solid #000000" colspan="2" align="left" valign="middle"><font color="#000000">{{$patrimonialsite->ctr_turnamerfoto}}<br></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 2px solid #000000; border-left: 2px double #000000; border-right: 1px solid #000000" colspan="2" align="left" valign="middle"><font color="#000000">{{$patrimonialsite->ctr_turnbmeb}}<br></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 2px solid #000000; border-left: 1px solid #000000" colspan="2" align="left" valign="middle"><font color="#000000">{{$patrimonialsite->ctr_turnbmebfoto}}<br></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 2px solid #000000; border-left: 2px double #000000; border-right: 1px solid #000000" colspan="2" align="left" valign="middle"><font color="#000000">{{$patrimonialsite->ctr_turncmeb}}<br></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 2px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000" colspan="2" align="left" valign="middle"><font color="#000000">{{$patrimonialsite->ctr_turncmebfoto}}<br></font></td>
 		<td align="left" valign="middle"><font color="#000000"><br></font></td>
 	</tr>
 	<tr>
@@ -454,26 +359,18 @@
 	</tr>
 	<tr>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 1px solid #000000" colspan="3" height="20" align="left" valign="middle" bgcolor="#E2F0D9"><font color="#000000">1. RECONOCIDO</font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000" align="center" valign="middle"><font color="#000000">SI</font></td>
-		<td style="border-right: 1px solid #000000" align="center" valign="middle"><font face="Wingdings" color="#000000">o</font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="center" valign="middle"><font color="#000000">NO</font></td>
-		<td style="border-right: 1px solid #000000" align="center" valign="middle" bgcolor="#FFFFFF"><font face="Wingdings" color="#000000">o</font></td>
-		<td style="border-top: 1px solid #000000; border-left: 1px solid #000000" align="left" valign="middle" bgcolor="#A6A6A6"><font color="#000000"><br></font></td>
-		<td style="border-top: 1px solid #000000" align="left" valign="middle" bgcolor="#A6A6A6"><font color="#000000"><br></font></td>
-		<td style="border-top: 1px solid #000000" align="left" valign="middle" bgcolor="#A6A6A6"><font color="#000000"><br></font></td>
-		<td style="border-top: 1px solid #000000" align="left" valign="middle" bgcolor="#A6A6A6"><font color="#000000"><br></font></td>
-		<td style="border-top: 1px solid #000000; border-right: 2px solid #000000" align="left" valign="middle" bgcolor="#A6A6A6"><font color="#000000"><br></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000" align="center" valign="middle"><font color="#000000">{{$patrimonialsite->recognized}}</font></td>
 		<td align="left" valign="middle"><font color="#000000"><br></font></td>
 	</tr>
 	<tr>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px hidden #000000; border-left: 2px solid #000000; border-right: 1px solid #000000" colspan="3" height="20" align="left" valign="middle" bgcolor="#FF0000"><font color="#000000">2. TIPO DE LEY</font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" colspan="2" align="center" valign="middle" bgcolor="#A6A6A6"><font color="#000000"><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000" colspan="2" align="center" valign="middle" bgcolor="#A6A6A6"><font color="#000000"><br></font></td>
-		<td style="border-bottom: 1px solid #000000" align="left" valign="middle" bgcolor="#A6A6A6"><b><font color="#BFBFBF"><br></font></b></td>
-		<td align="left" valign="middle" bgcolor="#A6A6A6"><b><font color="#BFBFBF"><br></font></b></td>
-		<td align="left" valign="middle" bgcolor="#A6A6A6"><b><font color="#BFBFBF"><br></font></b></td>
-		<td align="left" valign="middle" bgcolor="#A6A6A6"><b><font color="#BFBFBF"><br></font></b></td>
-		<td style="border-right: 2px solid #000000" align="left" valign="middle" bgcolor="#A6A6A6"><b><font color="#BFBFBF"><br></font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px hidden #000000; border-left: 2px solid #000000; border-right: 1px solid #000000" colspan="3" height="20" align="left" valign="middle" bgcolor=""><font color="#000000">2. TIPO DE LEY</font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" colspan="2" align="center" valign="middle" bgcolor=""><font color="#000000"><br></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000" colspan="2" align="center" valign="middle" bgcolor=""><font color="#000000"><br></font></td>
+		<td style="border-bottom: 1px solid #000000" align="left" valign="middle" bgcolor=""><b><font color="#BFBFBF"><br></font></b></td>
+		<td align="left" valign="middle" bgcolor=""><b><font color="#BFBFBF"><br></font></b></td>
+		<td align="left" valign="middle" bgcolor=""><b><font color="#BFBFBF"><br></font></b></td>
+		<td align="left" valign="middle" bgcolor=""><b><font color="#BFBFBF"><br></font></b></td>
+		<td style="border-right: 2px solid #000000" align="left" valign="middle" bgcolor=""><b><font color="#BFBFBF"><br></font></b></td>
 		<td align="left" valign="middle"><font color="#000000"><br></font></td>
 	</tr>
 	<tr>
@@ -482,59 +379,23 @@
 		<td style="border-bottom: 2px double #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan="2" align="center" valign="middle" bgcolor="#BF9000"><font color="#000000">NÚMERO (2)</font></td>
 		<td style="border-bottom: 2px double #000000; border-left: 1px solid #000000" colspan="2" align="center" valign="middle" bgcolor="#BF9000"><font color="#000000">FECHA (3)</font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 2px double #000000; border-left: 1px solid #000000; border-right: 2px solid #000000" colspan="4" align="center" valign="middle" bgcolor="#BF9000"><font color="#000000">DECLARATORIA/TÍTULO (4)  </font></td>
-		<td align="left" valign="middle" bgcolor="#FF0000"><font color="#000000">solo 5EN TABLE</font></td>
 	</tr>
+	@foreach($lawd as $law)
 	<tr>
 		<td style="border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 1px solid #000000" height="21" align="center" valign="middle" sdval="1" sdnum="1033;"><font color="#000000">1</font></td>
-		<td style="border-top: 2px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan="3" align="left" valign="middle" bgcolor="#FFFF00"><b><font color="#000000"><br></font></b></td>
-		<td style="border-top: 2px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" colspan="2" align="left" valign="middle"><font color="#000000"><br></font></td>
-		<td style="border-top: 2px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" colspan="2" align="left" valign="middle"><font color="#000000"><br></font></td>
-		<td style="border-top: 2px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000" colspan="4" align="center" valign="middle"><font color="#000000"><br></font></td>
-		<td align="left" valign="middle"><font color="#000000">DISPLAY 5 ESPACIOS </font></td>
+		<td style="border-top: 2px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan="3" align="left" valign="middle" bgcolor="#FFFF00"><b><font color="#000000"><br><br></font></b></td>
+		<td style="border-top: 2px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" colspan="2" align="left" valign="middle"><font color="#000000">{{ $law['numero'] }}<br></font></td>
+		<td style="border-top: 2px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" colspan="2" align="left" valign="middle"><font color="#000000">{{ $law['fecha'] }}<br></font></td>
+		<td style="border-top: 2px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000" colspan="4" align="center" valign="middle"><font color="#000000">{{ $law['declaratoria'] }}<br></font></td>
 	</tr>
-	<tr>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 1px solid #000000" height="20" align="center" valign="middle" sdval="2" sdnum="1033;"><font color="#000000">2</font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan="3" align="left" valign="middle" bgcolor="#FFFF00"><b><font color="#000000"><br></font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" colspan="2" align="left" valign="middle"><font color="#000000"><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" colspan="2" align="left" valign="middle"><font color="#000000"><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000" colspan="4" align="center" valign="middle"><font color="#000000"><br></font></td>
-		<td align="left" valign="middle"><br></td>
-	</tr>
-	<tr>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 1px solid #000000" height="20" align="center" valign="middle" sdval="3" sdnum="1033;"><font color="#000000">3</font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan="3" align="left" valign="middle" bgcolor="#FFFF00"><b><font color="#000000"><br></font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" colspan="2" align="left" valign="middle"><font color="#000000"><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" colspan="2" align="left" valign="middle"><font color="#000000"><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000" colspan="4" align="center" valign="middle"><font color="#000000"><br></font></td>
-		<td align="left" valign="middle"><font color="#000000"><br></font></td>
-	</tr>
-	<tr>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 1px solid #000000" height="20" align="center" valign="middle" sdval="4" sdnum="1033;"><font color="#000000">4</font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan="3" align="left" valign="middle" bgcolor="#FFFF00"><b><font color="#000000"><br></font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" colspan="2" align="left" valign="middle"><font color="#000000"><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" colspan="2" align="left" valign="middle"><font color="#000000"><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000" colspan="4" align="center" valign="middle"><font color="#000000"><br></font></td>
-		<td align="left" valign="middle"><font color="#000000">SEPARAR EN 8 SECCIONES</font></td>
-	</tr>
-	<tr>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 1px solid #000000" height="20" align="center" valign="middle" sdval="5" sdnum="1033;"><font color="#000000">5</font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan="3" align="left" valign="middle" bgcolor="#FFFF00"><b><font color="#000000"><br></font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" colspan="2" align="left" valign="middle"><font color="#000000"><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" colspan="2" align="left" valign="middle"><font color="#000000"><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000" colspan="4" align="center" valign="middle"><font color="#000000"><br></font></td>
-		<td align="left" valign="middle"><font color="#000000"><br></font></td>
-	</tr>
-	<tr>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 2px solid #000000" colspan="12" height="3" align="left" valign="middle"><font color="#000000"><br></font></td>
-		<td align="left" valign="middle"><font color="#000000"><br></font></td>
-	</tr>
+	@endforeach
 	<tr>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 2px solid #000000" colspan="12" height="20" align="left" valign="middle" bgcolor="#FFF2CC"><b>Ⅵ. OBSERVACIONES</b></td>
 		<td align="left" valign="middle"><font color="#000000"><br></font></td>
 	</tr>
 	<tr>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 1px solid #000000" colspan="2" height="20" align="left" valign="middle" bgcolor="#E2F0D9"><font color="#000000">1. OBSERVACIONES</font></td>
-		<td style="border-top: 1px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000" colspan="10" align="left" valign="middle" bgcolor="#FFFFFF"><font color="#000000"><br></font></td>
+		<td style="border-top: 1px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000" colspan="10" align="left" valign="middle" bgcolor="#FFFFFF"><font color="#000000"><br>{{$patrimonialsite->observation}}</font></td>
 		<td align="left" valign="middle"><font color="#000000"><br></font></td>
 	</tr>
 	<tr>
@@ -551,7 +412,7 @@
 	</tr>
 	<tr>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 2px solid #000000" colspan="2" height="20" align="left" valign="middle" bgcolor="#E2F0D9">1. FUENTE</td>
-		<td style="border-top: 1px solid #000000; border-left: 2px solid #000000; border-right: 2px solid #000000" colspan="10" align="left" valign="middle" bgcolor="#FFFFFF"><b><font color="#FF0000"><br></font></b></td>
+		<td style="border-top: 1px solid #000000; border-left: 2px solid #000000; border-right: 2px solid #000000" colspan="10" align="left" valign="middle" bgcolor="#FFFFFF"><b><font color=""><br>{{$patrimonialsite->source}}</font></b></td>
 		<td align="left" valign="middle"><font color="#000000"><br></font></td>
 	</tr>
 	<tr>
@@ -572,7 +433,7 @@
 	</tr>
 	<tr>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000" colspan="4" height="23" align="left" valign="middle" bgcolor="#E2F0D9"><font color="#000000">2. GRADO DE CONFIABILIDAD </font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000" colspan="8" align="left" valign="middle" bgcolor="#FFFF00"><font color="#000000"><br></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000" colspan="8" align="left" valign="middle" bgcolor="#FFFF00"><font color="#000000">{{$patrimonialsite->degree_of_reliability}}<br></font></td>
 		<td align="left" valign="middle"><font color="#000000"><br></font></td>
 	</tr>
 	<tr>

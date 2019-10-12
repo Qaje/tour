@@ -1615,6 +1615,17 @@
                     else
                         document.getElementById('uotr').disabled = true;
                 }
+
+
+                // $(document).ready(function(){
+                //     $(#selectconser).change(function(){
+                //         if(this.value=='1')
+                //         {
+                //             alert("one");
+                //             $("#ec1").prop("checked",true);
+                //         }
+                //     });
+                // });
             </script>
 
            

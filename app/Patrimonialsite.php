@@ -8,9 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Patrimonialsite extends Model
 {
     protected $table = 'patrimonial_sites';
-    // protected $casts = [
-    //       'history_in_charge' => 'json',
-    // ];
 
 
       protected $fillable = [
@@ -27,7 +24,6 @@ class Patrimonialsite extends Model
         'date_take_photo',
         'photographer',
         'dating',
-        //'history_in_charge' => 'json',
         'department',
         'province',
         'municipality',
@@ -128,25 +124,29 @@ class Patrimonialsite extends Model
       return $this->belongsToMany('App\Categories')->withTimestamps();
       //return $this->belongsToMany('App\Cities','role_user','user_id','role_id')->withTimestamps();
     }
-    /**
-     * 
-     */
+
+    public function decity()
+    {
+      return $this->hasOne('App\Cities','id','name');
+    }
     
-
-    
-
-    /**
-     * 
-     */
-
-/*
-/*
-/*
-	public function municipies()
-	{
-			return $this->belongsToMany('App\Province','turistic_sites_province','turistic_sites_id','province_id')->withTimestamps();
-		
-	}
-*/
+    public function scopeBusqueda($query,$city,$dato="")
+    {
+      if($city==0){
+        $resultado = $query->where('category','like','%'.$dato.'%')
+                           ->orWhere('department','like','%'.$dato.'%')
+                           ->orWhere('province','like','%'.$dato.'%');
+      }
+      else
+      {
+        $resultado = $query->where("city","=",$city)
+                            ->where(function($q) use ($city,$dato){
+                              $q->where('category','like','%'.$dato.'%')
+                           ->orWhere('department','like','%'.$dato.'%')
+                           ->orWhere('province','like','%'.$dato.'%');
+                          }); 
+      }
+      return $resultado;
+    }
 }
  

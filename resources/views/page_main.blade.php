@@ -211,10 +211,41 @@
     ============================-->
     <section id="services">
       <div class="container">
+
+         <h4 class="box-title">Buscar Usuarios</h4>
+                <div class="input-group input-group-sm">
+                                    <input type="text" class="form-control" id="dato_buscado">
+                                    <span class="input-group-btn">
+                                      <button class="btn btn-info btn-flat" type="button" onclick="buscarpatrimonio();" >Buscar!</button>
+                                    </span>
+                </div>
+                <div  >
+                <select  id="select_filtro_pais"  onchange="buscarpatrimonio();" >
+                 <?php  if(isset($paissel)){ 
+                     $listadopais=$paissel->nombre; 
+                     $optsel= '<option value="'.$paissel->id.'">'.$paissel->nombre.' </option>';
+                }else{  
+                    $listadopais="General";
+                    $optsel="";
+                 } ?>
+
+                 <?=  $optsel;  ?>
+                <option value="0">General </option>
+                <?php foreach($patrimonialsites as $patrimonialsite){   ?>
+                <option value="<?= $patrimonialsite->id; ?>" > <?= $patrimonialsite->department; ?></option>
+                <?php }  ?>
+                </select>
+               
+                <span >  Resultados en  listado <b><?= $listadopais; ?></b></span>
+                </div>
+        </div>
+
+
         <table class="table" class="table table-striped table-bordered" id="patrimonialsites">
                     <thead>
                       <tr>
                         <th>Nro</th>
+                        <th>Ciudad</th>
                         <th>Provincia</th>
                         <th>Municipio</th>
                         <th>SubAmbito</th>
@@ -227,6 +258,7 @@
                       @foreach ($patrimonialsites as $patrimonialsite)             
                       <tr>
                           <td>{{ $patrimonialsite->id }}</td>
+                          <td>{{ $patrimonialsite->department }}</td>
                           <td>{{ $patrimonialsite->province }}</td>
                           <td>{{ $patrimonialsite->municipality  }}</td>
                           <td>{{ $patrimonialsite->subscope }}</td>
@@ -866,8 +898,29 @@
 
   <script type="text/javascript">
     $(document).ready( function () {
-     $ name('#patrimonialsites').DataTable();
+     $ name('#patrimonialsite').DataTable();
     });
+
+    function buscar_patrimonios(){
+
+      var pais=$("#select_filtro_pais").val();
+      var dato=$("#dato_buscado").val();
+          if(dato == "")
+        {
+        
+          var url="buscar_usuarios/"+pais+"";
+        }
+        else
+        {
+          var url="buscar_usuarios/"+pais+"/"+dato+"";
+        }
+      
+      $("#contenido_principal").html($("#cargador_empresa").html());
+     $.get(url,function(resul){
+        $("#contenido_principal").html(resul);  
+      })
+
+    }
   </script>
 </body>
 </html>

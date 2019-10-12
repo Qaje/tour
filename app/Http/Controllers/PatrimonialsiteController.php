@@ -318,15 +318,26 @@ class PatrimonialsiteController extends Controller
 
     public function pdf($id)
     {
-        //dd($id);
         $patrimonialsite = Patrimonialsite::find($id);
+        $history = json_encode($patrimonialsite->history_in_charge);
+        $historyd = json_decode($history,true);
+        $owner = json_encode($patrimonialsite->owner);
+        $ownerd = json_decode($owner,true);
+        $law = json_encode($patrimonialsite->law);
+        $lawd = json_decode($law,true);
+        $historychange = json_encode($patrimonialsite->historychange);
+        $historychanged = json_decode($historychange,true);
+        //$history = json_encode($patrimonialsite->history_in_charge);
+            //dd($lawd);
+        //dd($patrimonialsite);
         //$province = Province::find($id);
         //$data = ['title' => 'Welcome to HDTuto.com'];
         //$pdf = PDF::loadView('myPDF', $data);
             //$pdf = PDF::loadView('myPDF');
             //return $pdf->download('itsolutionstuff.pdf');
         //dd($patrimonialsite);
-        return view('patrimonialsite.myPDF',compact('patrimonialsite'));
+        return view('patrimonialsite.myPDF',compact('patrimonialsite','historyd','ownerd','lawd','historychanged'));
+        //return view('patrimonialsite.myPDF',compact('patrimonialsite'))->with('history',json_decode($history,true));
 
     }
     public function visitpdf($id)
@@ -434,5 +445,17 @@ class PatrimonialsiteController extends Controller
         $patrimonialsite->delete();
         return redirect()->route('patrimonialsite.index');
         //return back();
+    }
+    //ready
+    public function buscar_patrimonios($city,$dato="")
+    {
+        $patrimonialsites = Patrimonialsite::Busqueda($city,$dato)->paginate(3);
+        //dd($patrimonialsites);
+        $cities = City::all();
+        $citissel = $cities->find($city);
+        return view('listados.listados_cities')
+        ->with("cities", $cities )
+        ->with("citissel", $citisel)
+        ->with("patrimonialsites", $patrimonialsites);
     }
 }
