@@ -195,6 +195,7 @@ class PatrimonialsiteController extends Controller
      */
     public function store(Request $request)
     {
+        
 
         $validator = Validator::make($request->all(), [
             'denom'     => 'required|string|min:5|max:50',
@@ -265,25 +266,25 @@ class PatrimonialsiteController extends Controller
             $patrimonialsite->owner                       = $request->owner;
             
 
-            $patrimonialsite->property_pub_com            = $request->publicom;
-            $patrimonialsite->property_religious          = $request->prirel;
-            $patrimonialsite->property_collective         = $request->pricol;
-            $patrimonialsite->property_individual         = $request->priind;
-            $patrimonialsite->public_state                = $request->pubest;
-            $patrimonialsite->joint_responsability        = $request->decor;
-            $patrimonialsite->turistic                    = $request->utur;
-            $patrimonialsite->educational_unit            = $request->uuni;
-            $patrimonialsite->none                        = $request->unin;
-            $patrimonialsite->housing                     = $request->uhab;
-            $patrimonialsite->religous                    = $request->urel;
-            $patrimonialsite->commerce                    = $request->ucom;
+            $patrimonialsite->property_pub_com            = $request->propc;
+            $patrimonialsite->property_religious          = $request->propr;
+            $patrimonialsite->property_collective         = $request->propco;
+            $patrimonialsite->property_individual         = $request->propi;
+            $patrimonialsite->public_state                = $request->prope;
+            $patrimonialsite->joint_responsability        = $request->dcorr;
+            $patrimonialsite->turistic                    = $request->usot;
+            $patrimonialsite->educational_unit            = $request->usoue;
+            $patrimonialsite->none                        = $request->uson;
+            $patrimonialsite->housing                     = $request->usoh;
+            $patrimonialsite->religous                    = $request->usor;
+            $patrimonialsite->commerce                    = $request->usoc;
             $patrimonialsite->museum                      = $request->umus;
             $patrimonialsite->other                       = $request->uotr;
-
+ 
             $patrimonialsite->turistic_type               = $request->typ;
             $patrimonialsite->turistic_sub_type           = $request->subtyp;
             $patrimonialsite->api                         = $request->rapi;
-            $patrimonialsite->aepi                        = $request->reapi;
+            $patrimonialsite->aepi                        = $request->resapi;
             $patrimonialsite->hierarchy                   = $request->jerar;
             $patrimonialsite->capacity                    = $request->ecc;
             $patrimonialsite->objetics_factor             = $request->facobj;

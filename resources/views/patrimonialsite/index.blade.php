@@ -12,6 +12,7 @@
     height: 400px;
 
 }
+
 </style>
 
 <div class="row">
@@ -1113,41 +1114,30 @@
                         } else {
                           y = lngc + ' W';
                         }
-                        //document.getElementById('mensaje').innerHTML = 'Latitud: ' + x + ' Longitud: ' + y;
                         $('#lngg').val(y);
                         $('#latg').val(x);
-                        //alert(val(lat));
-                        //$('#lat').val(lat);
-
                     });
-
-                    // function showAltitude(){
-                    //     console.log('altitud');
                     }
 
 
+                        $("#btnSave").click(function() { 
+        html2canvas($("#map"), {
+            useCORS: true,
+//                        allowTaint:true,
+            onrendered: function(canvas) {
+                theCanvas = canvas;
+                document.body.appendChild(canvas);
 
-//                     function displayLocationElevation(location, elevator, infowindow) {
-//   // Initiate the location request
-//   elevator.getElevationForLocations({
-//     'locations': [location]
-//   }, function(results, status) {
-//     infowindow.setPosition(location);
-//     if (status === 'OK') {
-//       // Retrieve the first result
-//       if (results[0]) {
-//         // Open the infowindow indicating the elevation at the clicked position.
-//         infowindow.setContent('The elevation at this point <br>is ' +
-//             results[0].elevation + ' meters.');
-//       } else {
-//         infowindow.setContent('No results found');
-//       }
-//     } else {
-//       infowindow.setContent('Elevation service failed due to: ' + status);
-//     }
-//   });
-// }
-//}
+                // Convert and download as image 
+                Canvas2Image.saveAsPNG(canvas); 
+                
+                $("#img-out").append(canvas);
+                // Clean up 
+                //document.body.removeChild(canvas);
+            }
+        });
+    });
+
             </script>
 
            <script type="text/javascript">
@@ -1210,94 +1200,149 @@
                 }
             </script>
             <script type="text/javascript">
+            var sum =0;
+            var fsa = 0;
+            var facca = 0; 
             var aux = 0;
             var subacceSumado = 0;
+            var arrayapi = [0,0,0,0,0,0];
             $(function(){
                 $('#selectconser').on('change', onSelectConser);
             });
                 function onSelectConser(){
                 var type_idc = $(this).val();
-                subacceSumado = subacceSumado + parseInt(type_idc);
-                document.getElementById('resapi').value = 'ACCESIBLE';
-                console.log(subacceSumado);
+                arrayapi[0] = parseInt(type_idc);
+                subacceSumado = subacceSumado + arrayapi[0];
+                
+                console.log('subacceSumado'+subacceSumado);
+//                document.getElementById('resapi').value = 'ACCESIBLE';
+
                 }
             </script>
             
             <script language="javascript" type="text/javascript">
-            var subacceSumado = 0;
-            var auxsub= 0;
             var valor1 = 0;
-            var valor2 = 0;
             function sumarui(radio)
             {
+                var fsa=0;
+                subacceSumado = 0;
                 var valor = parseInt(radio.value);
-                if(radio.name == "RadioGroup3")
-                {
-                    valor1 = valor;
-                    subacceSumado = subacceSumado + valor1;
-                    //obj = document.getElementById('ec1').value;
-                    //alert('cheacdo'+obj);
-                }else{
-                    valor2 = valor;
+                if(document.getElementById('ui1').checked) {
+                    arrayapi[2] = parseInt(document.getElementById('ui1').value);
+                    //alert(parseInt(document.getElementById('ui1').value));
+                }
+                if(document.getElementById('ui2').checked) {
+                    arrayapi[2] = parseInt(document.getElementById('ui2').value);
+                }
+                if(document.getElementById('ui3').checked) {
+                    arrayapi[2] = parseInt(document.getElementById('ui3').value);
                 }
                 //alert(valor);
+                for (var i = 0; i <= 5; i++) {
+                    subacceSumado = subacceSumado + parseInt( arrayapi[i]);
+                }
+              if(subacceSumado<=5){
+                    document.getElementById('resapi').value = 'SI ';
+                    fsa = 1;
+                    }else{
+                        if(subacceSumado>=6 && subacceSumado<=7){
+                            document.getElementById('resapi').value = 'LIMITADA ';
+                            fsa = 2;
+                        }else {
+                            document.getElementById('resapi').value = 'NO';
+                            fsa = 0;
+                        }
+                    }
+                
+                console.log('sub '+subacceSumado);
             }
             function sumarsa(radio)
             {
+                var fsa=0;
+                subacceSumado =0 ;
                 var valor = parseInt(radio.value);
-                if(radio.name == "RadioGroup2")
-                {
-                    valor1 = valor;
-                    subacceSumado = subacceSumado + valor1;
-                    //obj = document.getElementById('ec1').value;
-                    //alert('cheacdo'+obj);
-                }else{
-                    valor2 = valor;
+                if(document.getElementById('sa1').checked) {
+                    arrayapi[1] = parseInt(document.getElementById('sa1').value);
+                    //alert(parseInt(document.getElementById('sa1').value));
+                }
+                if(document.getElementById('sa2').checked) {
+                    arrayapi[1] = parseInt(document.getElementById('sa2').value);
+                }
+                if(document.getElementById('sa3').checked) {
+                    arrayapi[1] = parseInt(document.getElementById('sa3').value);
                 }
                 //alert(valor);
+                for (var i = 0; i <= 5; i++) {
+                    subacceSumado = subacceSumado + parseInt( arrayapi[i]);
+                }
+                if(subacceSumado<=5){
+                    document.getElementById('resapi').value = 'SI ';
+                    fsa = 1;
+                    }else{
+                        if(subacceSumado>=6 && subacceSumado<=7){
+                            document.getElementById('resapi').value = 'LIMITADA ';
+                            fsa = 2;
+                        }else {
+                            document.getElementById('resapi').value = 'NO';
+                            fsa = 0;
+                        }
+                    }
+                console.log('sub '+subacceSumado);
             }
+            function sumarsf(radio)
+            {
+                subacceSumado = 0;
+                var valor = parseInt(radio.value);
+                if(document.getElementById('sf1').checked) {
+                    arrayapi[3] = 1;
+                }
+                else {
+                    arrayapi[3] = 0;;
+                }
+                if(document.getElementById('sf2').checked) {
+                    arrayapi[4] = 1;
+                }
+                else {
+                    arrayapi[4] = 0;;
+                }
+                if(document.getElementById('sf3').checked) {
+                    arrayapi[5] = 1;
+                }
+                else {
+                    arrayapi[5] = 0;
+                }
+
+                for (var i = 0; i <= 5; i++) {
+                    subacceSumado = subacceSumado + parseInt( arrayapi[i]);
+                }
+                if(subacceSumado<=5){
+                    document.getElementById('resapi').value = 'SI ';
+                    fsa = 1;
+                    }else{
+                        if(subacceSumado>=6 && subacceSumado<=7){
+                            document.getElementById('resapi').value = 'LIMITADA ';
+                            fsa = 2;
+                        }else {
+                            document.getElementById('resapi').value = 'NO';
+                            fsa = 0;
+                        }
+                    }
+                console.log('fsa'+fsa);
+                console.log('sub fin '+subacceSumado);
+            } 
             function sumarec(radio)
             {
                 var valor = parseInt(radio.value);
                 if(radio.name == "RadioGroup1")
                 {
                     valor1 = valor;
-                    subacceSumado = subacceSumado + valor1;
+                    arrayapi[0]= valor1
+                    //subacceSumado = subacceSumado + valor1;
                     //obj = document.getElementById('ec1').value;
-                    //alert('cheacdo'+obj);
+                    alert('valor1'+valor1);
                 }else{
                     valor2 = valor;
                 }
-                //alert(valor);
-
-
-                    // obj = document.getElementById('sa1');
-                    // obj = document.getElementById('sa2');
-                    // obj = document.getElementById('sa3');
-                    
-                    // subacceSumado = subacceSumado + parseInt(obj.value);
-                    // console.log(subacceSumado);
-
-                    // obj = document.getElementById('sa1');
-                    // obj = document.getElementById('sa2');
-                    // obj = document.getElementById('sa3');
-                    
-                    // subacceSumado = subacceSumado + parseInt(obj.value);
-                    // console.log(subacceSumado);
-
-                    // obj = document.getElementById('ue1');
-                    // obj = document.getElementById('ue2');
-                    // obj = document.getElementById('ue3');
-                    
-                    // subacceSumado = subacceSumado + parseInt(obj.value);
-                    // //console.log(subacceSumado);
-
-                    // obj = document.getElementById('sf1');
-                    // obj = document.getElementById('sf2');
-                    // obj = document.getElementById('sf3');
-                    
-                    // subacceSumado = subacceSumado + parseInt(obj.value);
-                   
                     if(subacceSumado<=5){
                     document.getElementById('resapi').value = 'ACCESIBLE ';
                     }else{
@@ -1313,70 +1358,67 @@
                 
                 </script>
                 <script type="text/javascript">
+                var arrayapica = [0,0,0];
                 var subcaraSumadoca = 0;
-                var sum =0;
-                function sumarac(){
-                    obj = document.getElementById('pi1');
-                    obj = document.getElementById('pi2');
-                    obj = document.getElementById('pi3');
-                    
-                    subcaraSumadoca = subcaraSumadoca + parseInt(obj.value);
-                    console.log(subcaraSumadoca);
+                
+                //var facca = 0; 
+                function sumaracpi(radio){
+                var subcaraSumadoca = 0;
+                if(document.getElementById('pi1').checked) {
+                    arrayapica[0] = parseInt(document.getElementById('pi1').value);
+                }
+                if(document.getElementById('pi2').checked) {
+                    arrayapica[0] = parseInt(document.getElementById('pi2').value);
+                }
+                if(document.getElementById('pi3').checked) {
+                    arrayapica[0] = parseInt(document.getElementById('pi3').value);
+                }
+                if(document.getElementById('vi1').checked) {
+                    arrayapica[1] = parseInt(document.getElementById('vi1').value);
+                }
+                if(document.getElementById('vi2').checked) {
+                    arrayapica[1] = parseInt(document.getElementById('vi2').value);
+                }
+                if(document.getElementById('vi3').checked) {
+                    arrayapica[1] = parseInt(document.getElementById('vi3').value);
+                }
+                if(document.getElementById('in1').checked) {
+                    arrayapica[2] = parseInt(document.getElementById('in1').value);
+                }
+                if(document.getElementById('in2').checked) {
+                    arrayapica[2] = parseInt(document.getElementById('in2').value);
+                }
+                if(document.getElementById('in3').checked) {
+                    arrayapica[2] = parseInt(document.getElementById('in3').value);
+                }
 
-                    obj = document.getElementById('vi1');
-                    obj = document.getElementById('vi2');
-                    obj = document.getElementById('vi3');
-                    
-                    subcaraSumadoca = subcaraSumadoca + parseInt(obj.value);
-                    console.log(subcaraSumadoca);
-
-                    obj = document.getElementById('in1');
-                    obj = document.getElementById('in2');
-                    obj = document.getElementById('in3');
-                    
-                    subcaraSumadoca = subcaraSumadoca + parseInt(obj.value);
-                    console.log(subcaraSumadoca);
-                    // obj = document.myform['pi'];
-                    // totalChecks4 = obj.length;
-                    // for( i=0; i<totalChecks4; i++){
-                    //     if( obj[i].checked == true ){
-                    //         valor1 = obj[i].value.split('-');
-                    //         subcaraSumadoca = subcaraSumadoca + parseInt(valor1[0],10);
-                    //     }
-                    // }
-                    //  obj = document.myform['vi'];
-                    //  totalChecks5 = obj.length;
-                    //  for( i=0; i<totalChecks5; i++){
-                    //      if( obj[i].checked == true ){
-                    //          valor1 = obj[i].value.split('-');
-                    //          subcaraSumadoca = subcaraSumadoca + parseInt(valor1[0],10);
-                    //      }
-                    //  }
-                    //  obj = document.myform['in'];
-                    //  totalChecks6 = obj.length;
-                    //  for( i=0; i<totalChecks6; i++){
-                    //      if( obj[i].checked == true ){
-                    //          valor1 = obj[i].value.split('-');
-                    //          subcaraSumadoca = subcaraSumadoca + parseInt(valor1[0],10);
-                    //      }
-                    //  }
-                    if(subcaraSumadoca<=5){
+                    for (var i = 0; i <= 2; i++) {
+                        subcaraSumadoca = subcaraSumadoca + parseInt(arrayapica[i]);
+                    }
+                    //subcaraSumadoca = subcaraSumadoca + parseInt(obj.value);
+                    console.log('subcaraSumadoca'+subcaraSumadoca);
+                    if(subcaraSumadoca<=4){
                     document.getElementById('resacapi').value = 'BUENAS ';
+                    facca = 1;
                     }else{
-                        if(subcaraSumadoca>=6 && subcaraSumadoca<=7){
+                        if(subcaraSumadoca>=5 && subcaraSumadoca<=6){
                             document.getElementById('resacapi').value = 'REGULARES';
+                            facca = 2;
                         }else {
                             document.getElementById('resacapi').value = 'MEJORABLES';
+                            facca = 3;
                         }
                     }                     
-                    //alert(subacceSumado +' '+ subcaraSumadoca );
-                    sum = subacceSumado * subcaraSumadoca;
-                    
-                     if(sum==30){
+                    //alert(subcaraSumadoca +' '+ subcaraSumadoca );
+                    sum = facca * fsa;
+                    console.log('facca->'+facca);
+                    console.log('fsa->'+fsa);
+                    console.log('sum->'+sum);
+                     if(sum==0){
                      //document.getElementById('rapi').innerHTML = 'SI ';
                      document.getElementById("rapi").value =  'NO ACCESIBLE';
                      }else{
-                         if(sum>31 && sum<=50){
+                         if(sum>=1 && sum<=2){
                              //document.getElementById('rapi').innerHTML = 'LIMITADA ';
                              document.getElementById("rapi").value =  'ACCESIBLE';
                          }else {
@@ -1384,194 +1426,115 @@
                              document.getElementById("rapi").value =  'MEJORABLE';
                          }
                      }
-                    // document.getElementById('reapi').innerHTML =  totalSumadoa;
                 }
             </script>
             <script type="text/javascript">
-                totalSumadoa = 0;
+                var arrayaepi = [0,0,0,0,0,0,0];
+                var totalSumadoa;
                 function sumarae(){
-                    obj = document.getElementById('eub1');
-                    obj = document.getElementById('eub2');
+                var totalSumadoa = 0;
+                if(document.getElementById('eub1').checked) {
+                    arrayaepi[0] = parseInt(document.getElementById('eub1').value);
+                }
+                if(document.getElementById('eub2').checked) {
+                    arrayaepi[0] = parseInt(document.getElementById('eub2').value);
+                }
+                if(document.getElementById('esc1').checked) {
+                    arrayaepi[1] = parseInt(document.getElementById('esc1').value);
+                }
+                if(document.getElementById('esc2').checked) {
+                    arrayaepi[1] = parseInt(document.getElementById('esc2').value);
+                }
+                if(document.getElementById('esco1').checked) {
+                    arrayaepi[2] = parseInt(document.getElementById('esco1').value);
+                }
+                if(document.getElementById('esco2').checked) {
+                    arrayaepi[2] = parseInt(document.getElementById('esco2').value);
+                }
+                if(document.getElementById('esa1').checked) {
+                    arrayaepi[3] = parseInt(document.getElementById('esa1').value);
+                }
+                if(document.getElementById('esa2').checked) {
+                    arrayaepi[3] = parseInt(document.getElementById('esa2').value);
+                }
+                if(document.getElementById('esal1').checked) {
+                    arrayaepi[4] = parseInt(document.getElementById('esal1').value);
+                }
+                if(document.getElementById('esal2').checked) {
+                    arrayaepi[4] = parseInt(document.getElementById('esal2').value);
+                }
+                if(document.getElementById('est1').checked) {
+                    arrayaepi[5] = parseInt(document.getElementById('est1').value);
+                }
+                if(document.getElementById('est2').checked) {
+                    arrayaepi[5] = parseInt(document.getElementById('est2').value);
+                }
+                if(document.getElementById('essv1').checked) {
+                    arrayaepi[6] = parseInt(document.getElementById('essv1').value);
+                }
+                if(document.getElementById('essv2').checked) {
+                    arrayaepi[6] = parseInt(document.getElementById('essv2').value);
+                }
+                for (var i = 0; i < arrayaepi.length; i++) {
+                    totalSumadoa = totalSumadoa + parseInt(arrayaepi[i]);
+                }
                     
-                    obj = document.getElementById('esc1');
-                    obj = document.getElementById('esc2');
-
-                    obj = document.getElementById('esco1');
-                    obj = document.getElementById('esco2');
-
-                    obj = document.getElementById('esa1');
-                    obj = document.getElementById('esa2');
-
-                    obj = document.getElementById('esal1');
-                    obj = document.getElementById('esal2');
-
-                    obj = document.getElementById('est1');
-                    obj = document.getElementById('est2');
-
-                    obj = document.getElementById('essv1');
-                    obj = document.getElementById('essv2');
-                    
-
-
-                    totalSumadoa = totalSumadoa + parseInt(obj.value);
                     console.log('totalSumadoa'+totalSumadoa);
-                    // obj = document.myform['eub'];
-                    // totalChecks4 = obj.length;
-                    // for( i=0; i<totalChecks4; i++){
-                    //     if( obj[i].checked == true ){
-                    //         valor1 = obj[i].value.split('-');
-                    //         totalSumadoa = totalSumadoa + parseInt(valor1[0],10);
-                    //     }
-                    // }
-                    //  obj = document.myform['esc'];
-                    //  totalChecks5 = obj.length;
-                    //  //totalSumadoa = 0;
-                    //  for( i=0; i<totalChecks5; i++){
-                    //      if( obj[i].checked == true ){
-                    //          valor1 = obj[i].value.split('-');
-                    //          totalSumadoa = totalSumadoa + parseInt(valor1[0],10);
-                    //      }
-                    //  }
-                    //  obj = document.myform['esco'];
-                    //  totalChecks6 = obj.length;
-                    //  //totalSumadoa = 0;
-                    //  for( i=0; i<totalChecks6; i++){
-                    //      if( obj[i].checked == true ){
-                    //          valor1 = obj[i].value.split('-');
-                    //          totalSumadoa = totalSumadoa + parseInt(valor1[0],10);
-                    //      }
-                    //  }
-                    //  obj = document.myform['esa'];
-                    //  totalChecks7 = obj.length;
-                    // // totalSumadoa = 0;
-                    //  for( i=0; i<totalChecks7; i++){
-                    //      if( obj[i].checked == true ){
-                    //          valor1 = obj[i].value.split('-');
-                    //          totalSumadoa = totalSumadoa + parseInt(valor1[0],10);
-                    //      }
-                    //  }
-                    //  obj = document.myform['esal'];
-                    //  totalChecks8 = obj.length;
-                    //  //totalSumadoa = 0;
-                    //  for( i=0; i<totalChecks8; i++){
-                    //      if( obj[i].checked == true ){
-                    //          valor1 = obj[i].value.split('-');
-                    //          totalSumadoa = totalSumadoa + parseInt(valor1[0],10);
-                    //      }
-                    //  }
-                    //  obj = document.myform['est'];
-                    //  totalChecks9 = obj.length;
-                    //  //totalSumadoa = 0;
-                    //  for( i=0; i<totalChecks9; i++){
-                    //      if( obj[i].checked == true ){
-                    //          valor1 = obj[i].value.split('-');
-                    //          totalSumadoa = totalSumadoa + parseInt(valor1[0],10);
-                    //      }
-                    //  }
-                    //  obj = document.myform['essv'];
-                    //  totalChecks10 = obj.length;
-                    //  //totalSumadoa = 0;
-                    //  for( i=0; i<totalChecks10; i++){
-                    //      if( obj[i].checked == true ){
-                    //          valor1 = obj[i].value.split('-');
-                    //          totalSumadoa = totalSumadoa + parseInt(valor1[0],10);
-                    //      }
-                    //  }
-                    //alert(totalSumadoa);
+                    console.log('lenght'+arrayaepi.length);
+
                      if(totalSumadoa<=1){
-                     //document.getElementById('reapi').innerHTML = 'ACCESIBLE '+totalSumadoa;
                      document.getElementById("resaepi").value =  'ACCESIBLE';
-                     //resaepi
                      }else{
                          if(totalSumadoa>=2 && totalSumadoa<=3){
-                             //document.getElementById('reapi').innerHTML = 'MEJORABLE '+totalSumadoa;
                              document.getElementById("resaepi").value =  'MEJORABLE';
                          }else {
-                             //document.getElementById('reapi').innerHTML = 'NO ACCESIBLE'+totalSumadoa;
                              document.getElementById("resaepi").value =  'NO ACCESIBLE';
                          }
                      }
-                    //document.getElementById('reapi').innerHTML =  totalSumadoa;
                 }
-                //car accesibilidad
-//                <script type="text/javascript">
-
             </script>
             <script type="text/javascript">
-                totalSumadob = 0;
+                var arrayconf = [0,0,0,0,0]
+                var totalSumadob;
                 function sumaconf(){
-                    obj = document.getElementById('cucp1');
-                    obj = document.getElementById('cucp2');
+                totalSumadob = 0;    
+                    if(document.getElementById('cucp1').checked) {
+                        arrayconf[0] = parseInt(document.getElementById('cucp1').value);
+                    }
+                    if(document.getElementById('cucp2').checked) {
+                        arrayconf[0] = parseInt(document.getElementById('cucp2').value);
+                    }
+                    if(document.getElementById('refo1').checked) {
+                        arrayconf[1] = parseInt(document.getElementById('refo1').value);
+                    }
+                    if(document.getElementById('refo2').checked) {
+                        arrayconf[1] = parseInt(document.getElementById('refo2').value);
+                    }
+                    if(document.getElementById('ibi1').checked) {
+                        arrayconf[2] = parseInt(document.getElementById('ibi1').value);
+                    }
+                    if(document.getElementById('ibi2').checked) {
+                        arrayconf[2] = parseInt(document.getElementById('ibi2').value);
+                    }
+                    if(document.getElementById('ite1').checked) {
+                        arrayconf[3] = parseInt(document.getElementById('ite1').value);
+                    }
+                    if(document.getElementById('ite2').checked) {
+                        arrayconf[3] = parseInt(document.getElementById('ite2').value);
+                    }
+                    if(document.getElementById('inva1').checked) {
+                        arrayconf[4] = parseInt(document.getElementById('inva1').value);
+                    }
+                    if(document.getElementById('inva2').checked) {
+                        arrayconf[4] = parseInt(document.getElementById('inva2').value);
+                    }                    
+                    for (var i = 0; i < arrayconf.length; i++) {
+                        totalSumadob = totalSumadob + parseInt( arrayconf[i]);
+                    }
 
-                    obj = document.getElementById('refo1');
-                    obj = document.getElementById('refo2');
+                    console.log('totalSumado b'+totalSumadob);
+                    console.log('lenght b'+arrayconf.length);
 
-                    obj = document.getElementById('ibi1');
-                    obj = document.getElementById('ibi2');
-
-                    obj = document.getElementById('ite1');
-                    obj = document.getElementById('ite2');
-
-                    obj = document.getElementById('inva1');
-                    obj = document.getElementById('inva2');
-                    
-
-
-                    totalSumadob = totalSumadob + parseInt(obj.value);
-                    console.log('totalSumadob'+totalSumadob);
-
-                    //alert('hola');
-                    // obj = document.myform['cucp'];
-                    // totalChecks11 = obj.length;
-                    // for( i=0; i<totalChecks11; i++){
-                    //     if( obj[i].checked == true ){
-                    //         valor1 = obj[i].value.split('-');
-                    //         totalSumadob = totalSumadob + parseInt(valor1[0],10);
-                    //     }
-                    // }
-
-                    // obj = document.myform['refo'];
-                    // totalChecks12 = obj.length;
-                    // //totalSumadob = 0;
-                    // for( i=0; i<totalChecks12; i++){
-                    //     if( obj[i].checked == true ){
-                    //         valor1 = obj[i].value.split('-');
-                    //         totalSumadob = totalSumadob + parseInt(valor1[0],10);
-                    //     }
-                    // }
-
-
-                    // obj = document.myform['ibi'];
-                    // totalChecks13 = obj.length;
-                    // //totalSumadob = 0;
-                    // for( i=0; i<totalChecks13; i++){
-                    //     if( obj[i].checked == true ){
-                    //         valor1 = obj[i].value.split('-');
-                    //         totalSumadob = totalSumadob + parseInt(valor1[0],10);
-                    //     }
-                    // }
-
-
-                    // obj = document.myform['ite'];
-                    // totalChecks14 = obj.length;
-                    // //totalSumadob = 0;
-                    // for( i=0; i<totalChecks14; i++){
-                    //     if( obj[i].checked == true ){
-                    //         valor1 = obj[i].value.split('-');
-                    //         totalSumadob = totalSumadob + parseInt(valor1[0],10);
-                    //     }
-                    // }
-
-
-                    // obj = document.myform['inva'];
-                    // totalChecks15 = obj.length;
-                    // //totalSumadob = 0;
-                    // for( i=0; i<totalChecks15; i++){
-                    //     if( obj[i].checked == true ){
-                    //         valor1 = obj[i].value.split('-');
-                    //         totalSumadob = totalSumadob + parseInt(valor1[0],10);
-                    //     }
-                    // }
                     if(totalSumadob<=1){
                     //document.getElementById('rconf').innerHTML = 'CONFIABLE';
                     document.getElementById("resconf").value =  'CONFIABLE';
@@ -1616,17 +1579,66 @@
                         document.getElementById('uotr').disabled = true;
                 }
 
+                function sumaselect(selectconser){
+                    if(selectconser.value=='1')
+                    {
+                        alert("Has  uno");
+                        document.getElementById('ec1').checked="true";
+                    }
+                    if(selectconser.value=="2")
+                    {
+                        alert("Has dos");
+                        document.forms[myform]['ec2'].checked="true";
+                    }
+                    if(selectconser.value=='3')
+                    {
+                        alert("Has tres");
+                        document.forms[myform]['ec3'].checked="true";
+                    }
 
+                }
+                // $(#selectconser).change(function(){
+                //     var pol = $(this).val();
+                //     console.log('pol');
+                // }); 
                 // $(document).ready(function(){
-                //     $(#selectconser).change(function(){
+                //     $(#selectconser.onchange(function(){
                 //         if(this.value=='1')
                 //         {
                 //             alert("one");
                 //             $("#ec1").prop("checked",true);
                 //         }
-                //     });
+                //     }));
                 // });
             </script>
+
+            <script type="text/javascript">
+             
+                function ajax_change_state(prod_option_value){
+                    var i,pos;
+                     var sel = document.getElementById('selectconser');
+                      var rad = document.getElementsByName('id[1]');
+                          for (i = 0; i < rad.length; i++) {
+                            if (rad[i].value == prod_option_value) {
+                              rad[i].checked = 'on';
+                              var subacceSumado = 0;
+                 //    alert('Value: ' + rad[i].value + '\n' + 'checked: ' + rad[i].checked);
+                                arrayapi[0] = rad[i].value;
+                                //console.log('ec'+arrayapi[0]);
+                            }
+                          }
+                          
+                          for (i = 0; i <sel.options.length; i++) {
+                            if (sel.options[i].value == prod_option_value) {
+                 //    alert(sel.options[i].value);
+                           pos = i;
+                        }
+                      }
+                 
+                    sel.selectedIndex = pos;
+                  //   alert(sel.selectedIndex);
+                }
+            </script>   
 
            
 {{-- //modal --}}

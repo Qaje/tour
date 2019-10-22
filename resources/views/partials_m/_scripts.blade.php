@@ -1,3 +1,7 @@
+<!---->
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script src="http://html2canvas.hertzen.com/build/html2canvas.js"></script> -->
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script> -->
 <!-- Patrimonial -->
 <script src="/js/admin/create.js"></script>
 <!-- jQuery 3 -->
